@@ -1,0 +1,6 @@
+playwright==1.41.0
+selenium==4.16.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
+requests==2.31.0
+python-dotenv==1.0.0

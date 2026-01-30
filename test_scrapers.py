@@ -6,6 +6,7 @@ from datetime import datetime
 
 from src.scraper_playwright import PlaywrightScraper
 from src.scraper_selenium import SeleniumScraper
+from src.database import DatabaseManager
 
 
 def print_results(results: dict):
@@ -146,6 +147,36 @@ def compare_results(playwright_result: dict, selenium_result: dict):
         print("   - Add retry logic and error handling")
 
 
+def save_to_database(result: dict, db: DatabaseManager):
+    """
+    Save scraping results to database.
+
+    Args:
+        result: Scraping result dictionary
+        db: Database manager instance
+    """
+    # Log the scraping attempt
+    db.log_scraping_attempt(
+        timestamp=datetime.fromisoformat(result['timestamp']),
+        scraper_type=result['scraper'],
+        success=result['success'],
+        duration_seconds=result['duration_seconds'],
+        rates_found=len(result['rates']),
+        error_message=result.get('error'),
+        page_size_bytes=result.get('page_size_bytes'),
+    )
+
+    # Insert rates if found
+    if result['success'] and result['rates']:
+        for rate in result['rates']:
+            # Add scraper type and source URL to rate data
+            rate['scraper_type'] = result['scraper']
+            rate['source_url'] = TARGET_URL
+
+        inserted = db.insert_rates_batch(result['rates'])
+        print(f"[Database] Inserted {inserted} rates from {result['scraper']} scraper")
+
+
 async def main():
     """Run both scrapers and compare results."""
     print("\n" + "="*60)
@@ -154,12 +185,18 @@ async def main():
     print(f"Target: {TARGET_URL}")
     print(f"GPU Models: {', '.join(GPU_MODELS)}")
 
+    # Initialize database
+    db = DatabaseManager()
+    print("\n[Database] Initialized and ready")
+
     # Test both scrapers
     playwright_result = await test_playwright()
     print_results(playwright_result)
+    save_to_database(playwright_result, db)
 
     selenium_result = test_selenium()
     print_results(selenium_result)
+    save_to_database(selenium_result, db)
 
     # Compare results
     compare_results(playwright_result, selenium_result)
@@ -175,6 +212,8 @@ async def main():
         f.write(f"Selenium:\n{selenium_result}\n\n")
 
     print(f"\n📝 Results saved to: {results_file}")
+    print(f"📊 Database location: {db.db_path}")
+    print(f"📊 Total records in database: {db.get_record_count()}")
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now() - timedelta(days=5),
             'gpu_model': 'H100',
-            'rate_per_hour': 3.50,
+            'rate_usd_per_hour': 3.50,
             'currency': 'USD',
             'provider': 'Cloud Provider A',
             'region': 'US-East',
@@ -30,7 +30,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now() - timedelta(days=4),
             'gpu_model': 'H100',
-            'rate_per_hour': 3.45,
+            'rate_usd_per_hour': 3.45,
             'currency': 'USD',
             'provider': 'Cloud Provider B',
             'region': 'US-West',
@@ -39,7 +39,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now() - timedelta(days=3),
             'gpu_model': 'A100',
-            'rate_per_hour': 2.20,
+            'rate_usd_per_hour': 2.20,
             'currency': 'USD',
             'provider': 'Cloud Provider A',
             'region': 'US-East',
@@ -48,7 +48,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now() - timedelta(days=2),
             'gpu_model': 'A100',
-            'rate_per_hour': 2.25,
+            'rate_usd_per_hour': 2.25,
             'currency': 'USD',
             'provider': 'Cloud Provider C',
             'region': 'EU-West',
@@ -57,7 +57,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now() - timedelta(days=1),
             'gpu_model': 'B200',
-            'rate_per_hour': 4.50,
+            'rate_usd_per_hour': 4.50,
             'currency': 'USD',
             'provider': 'Cloud Provider B',
             'region': 'US-West',
@@ -66,7 +66,7 @@ def test_database_operations():
         {
             'timestamp': datetime.now(),
             'gpu_model': 'H100',
-            'rate_per_hour': 3.40,
+            'rate_usd_per_hour': 3.40,
             'currency': 'USD',
             'provider': 'Cloud Provider A',
             'region': 'US-East',
@@ -93,7 +93,7 @@ def test_database_operations():
     print("\n3. Testing latest rates query...")
     latest = db.get_latest_rates(limit=3)
     for rate in latest:
-        print(f"   - {rate['gpu_model']}: ${rate['rate_per_hour']}/hr ({rate['provider']})")
+        print(f"   - {rate['gpu_model']}: ${rate['rate_usd_per_hour']}/hr ({rate['provider']})")
 
     # Test 4: Get average rates
     print("\n4. Testing average rate calculation...")

@@ -1,6 +1,5 @@
 """Main workflow script to collect GPU rental rates."""
 
-import asyncio
 import argparse
 import logging
 import sys
@@ -10,58 +9,6 @@ from typing import Optional
 from src.database import DatabaseManager
 from src.analytics import GPURateAnalytics
 from src.config import TARGET_URL, GPU_MODELS
-
-
-async def collect_with_playwright(db: DatabaseManager, headless: bool = True) -> dict:
-    """
-    Collect rates using Playwright scraper.
-
-    Args:
-        db: Database manager instance
-        headless: Run browser in headless mode
-
-    Returns:
-        Scraping result dictionary
-    """
-    from src.scraper_playwright import PlaywrightScraper
-
-    logging.info("Starting Playwright scraper...")
-
-    try:
-        async with PlaywrightScraper(headless=headless) as scraper:
-            result = await scraper.scrape()
-
-            # Save to database
-            db.log_scraping_attempt(
-                timestamp=datetime.fromisoformat(result['timestamp']),
-                scraper_type=result['scraper'],
-                success=result['success'],
-                duration_seconds=result['duration_seconds'],
-                rates_found=len(result['rates']),
-                error_message=result.get('error'),
-                page_size_bytes=result.get('page_size_bytes'),
-            )
-
-            if result['success'] and result['rates']:
-                for rate in result['rates']:
-                    rate['scraper_type'] = result['scraper']
-                    rate['source_url'] = TARGET_URL
-
-                inserted = db.insert_rates_batch(result['rates'])
-                logging.info(f"Inserted {inserted} rates into database")
-
-            return result
-
-    except Exception as e:
-        logging.error(f"Playwright scraper failed: {e}")
-        return {
-            'success': False,
-            'scraper': 'playwright',
-            'timestamp': datetime.now().isoformat(),
-            'duration_seconds': 0,
-            'error': str(e),
-            'rates': [],
-        }
 
 
 def collect_with_selenium(db: DatabaseManager, headless: bool = True) -> dict:
@@ -116,8 +63,7 @@ def collect_with_selenium(db: DatabaseManager, headless: bool = True) -> dict:
         }
 
 
-async def main(
-    scraper_type: str = 'playwright',
+def main(
     headless: bool = True,
     show_report: bool = False,
     export_csv: Optional[str] = None,
@@ -126,7 +72,6 @@ async def main(
     Main workflow to collect GPU rental rates.
 
     Args:
-        scraper_type: Which scraper to use ('playwright' or 'selenium')
         headless: Run browser in headless mode
         show_report: Show analytics report after collection
         export_csv: Export data to CSV file (optional)
@@ -136,7 +81,7 @@ async def main(
     print("=" * 70)
     print(f"Target URL:  {TARGET_URL}")
     print(f"GPU Models:  {', '.join(GPU_MODELS)}")
-    print(f"Scraper:     {scraper_type}")
+    print(f"Scraper:     selenium")
     print(f"Headless:    {headless}")
     print(f"Timestamp:   {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 70)
@@ -146,14 +91,7 @@ async def main(
     logging.info(f"Database initialized: {db.db_path}")
 
     # Run scraper
-    if scraper_type == 'playwright':
-        result = await collect_with_playwright(db, headless=headless)
-    elif scraper_type == 'selenium':
-        result = collect_with_selenium(db, headless=headless)
-    else:
-        print(f"Error: Unknown scraper type '{scraper_type}'")
-        print("Valid options: 'playwright', 'selenium'")
-        sys.exit(1)
+    result = collect_with_selenium(db, headless=headless)
 
     # Print results
     print("\n" + "-" * 70)
@@ -174,7 +112,7 @@ async def main(
             print("\nGPU Rates Collected:")
             for rate in result['rates']:
                 gpu = rate.get('gpu_model', 'Unknown')
-                rate_value = rate.get('rate_per_hour')
+                rate_value = rate.get('rate_usd_per_hour')
                 if rate_value:
                     print(f"  - {gpu}: ${rate_value:.2f}/hour")
                 else:
@@ -216,13 +154,6 @@ if __name__ == "__main__":
         description='Collect GPU rental rates from Silicon Data'
     )
     parser.add_argument(
-        '--scraper',
-        type=str,
-        choices=['playwright', 'selenium'],
-        default='playwright',
-        help='Which scraper to use (default: playwright)'
-    )
-    parser.add_argument(
         '--visible',
         action='store_true',
         help='Run browser in visible mode (not headless)'
@@ -241,12 +172,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     try:
-        asyncio.run(main(
-            scraper_type=args.scraper,
+        main(
             headless=not args.visible,
             show_report=args.report,
             export_csv=args.export_csv,
-        ))
+        )
     except KeyboardInterrupt:
         print("\n\nCollection interrupted by user.")
         sys.exit(0)

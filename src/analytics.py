@@ -223,7 +223,7 @@ class GPURateAnalytics:
                 SELECT
                     timestamp,
                     gpu_model,
-                    rate_per_hour,
+                    rate_usd_per_hour,
                     currency,
                     provider,
                     region,
@@ -249,7 +249,7 @@ class GPURateAnalytics:
             writer.writerow([
                 'Timestamp',
                 'GPU Model',
-                'Rate Per Hour',
+                'Rate USD Per Hour',
                 'Currency',
                 'Provider',
                 'Region',
@@ -263,7 +263,7 @@ class GPURateAnalytics:
                 writer.writerow([
                     row['timestamp'],
                     row['gpu_model'],
-                    row['rate_per_hour'],
+                    row['rate_usd_per_hour'],
                     row['currency'],
                     row['provider'],
                     row['region'],

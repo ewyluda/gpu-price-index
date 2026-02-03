@@ -165,6 +165,9 @@ class SeleniumScraper:
     def parse_gpu_rates(self, html_content: str) -> List[Dict]:
         """
         Parse GPU rental rates from HTML content.
+        
+        This scraper handles the tabbed interface by clicking each GPU tab
+        and extracting the price from the active content area.
 
         Args:
             html_content: HTML content to parse
@@ -172,9 +175,8 @@ class SeleniumScraper:
         Returns:
             List of dictionaries containing GPU rate information
         """
-        soup = BeautifulSoup(html_content, 'lxml')
         rates = []
-
+        
         # Save HTML for debugging
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         debug_file = f"logs/selenium_page_{timestamp}.html"
@@ -182,41 +184,57 @@ class SeleniumScraper:
             f.write(html_content)
         print(f"[Selenium] Page content saved to {debug_file}")
 
-        # Look for common patterns in pricing tables
-        # These selectors are placeholders and need to be adjusted based on actual site structure
-
-        # Strategy 1: Look for table rows
-        tables = soup.find_all('table')
-        for table in tables:
-            rows = table.find_all('tr')
-            for row in rows:
-                text = row.get_text()
-                for gpu_model in GPU_MODELS:
-                    if gpu_model in text:
-                        print(f"[Selenium] Found {gpu_model} in table row: {text.strip()}")
-                        # Extract rate (this is a placeholder - needs actual parsing logic)
-                        rates.append({
-                            'gpu_model': gpu_model,
-                            'raw_text': text.strip(),
-                            'timestamp': datetime.now().isoformat(),
-                        })
-
-        # Strategy 2: Look for divs/cards with pricing info
-        pricing_elements = soup.find_all(['div', 'section', 'article'],
-                                         class_=lambda x: x and any(term in str(x).lower()
-                                                                   for term in ['price', 'rate', 'cost', 'index', 'gpu']))
-        for element in pricing_elements:
-            text = element.get_text()
-            for gpu_model in GPU_MODELS:
-                if gpu_model in text:
-                    print(f"[Selenium] Found {gpu_model} in element: {text[:100]}")
-
-        # Strategy 3: Search all text for GPU models
-        all_text = soup.get_text()
-        for gpu_model in GPU_MODELS:
-            if gpu_model in all_text:
-                print(f"[Selenium] {gpu_model} found in page content")
-
+        # Target GPU models to scrape
+        gpu_tabs = ['h100', 'a100', 'b200']
+        
+        for gpu in gpu_tabs:
+            try:
+                print(f"[Selenium] Clicking {gpu.upper()} tab...")
+                
+                # Click the GPU tab button
+                tab_button = WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable((By.ID, f"radix-_r_0_-trigger-{gpu}"))
+                )
+                tab_button.click()
+                
+                # Wait for content to load
+                time.sleep(1)
+                
+                # Wait for the content area to be visible
+                content_id = f"radix-_r_0_-content-{gpu}"
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.ID, content_id))
+                )
+                
+                # Extract price from the text-5xl paragraph
+                price_element = self.driver.find_element(
+                    By.XPATH, 
+                    f"//*[@id='{content_id}']//p[contains(@class, 'text-5xl')]"
+                )
+                price_text = price_element.text.strip()
+                
+                # Parse the numeric price
+                try:
+                    rate_usd_per_hour = float(price_text)
+                except ValueError:
+                    print(f"[Selenium] Warning: Could not parse price '{price_text}' for {gpu.upper()}")
+                    continue
+                
+                rate_data = {
+                    'gpu_model': gpu.upper(),
+                    'rate_usd_per_hour': rate_usd_per_hour,
+                    'timestamp': datetime.now().isoformat(),
+                    'source': 'silicon_data',
+                }
+                
+                rates.append(rate_data)
+                print(f"[Selenium] ✓ {gpu.upper()}: ${rate_usd_per_hour}/hr")
+                
+            except TimeoutException:
+                print(f"[Selenium] Timeout waiting for {gpu.upper()} content to load")
+            except Exception as e:
+                print(f"[Selenium] Error extracting {gpu.upper()} rate: {e}")
+        
         return rates
 
     def scrape(self) -> Dict:

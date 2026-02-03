@@ -58,7 +58,7 @@ class DatabaseManager:
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     timestamp DATETIME NOT NULL,
                     gpu_model VARCHAR(50) NOT NULL,
-                    rate_per_hour DECIMAL(10, 4),
+                    rate_usd_per_hour DECIMAL(10, 4),
                     currency VARCHAR(10) DEFAULT 'USD',
                     provider VARCHAR(100),
                     region VARCHAR(100),
@@ -113,7 +113,7 @@ class DatabaseManager:
         self,
         timestamp: datetime,
         gpu_model: str,
-        rate_per_hour: Optional[float] = None,
+        rate_usd_per_hour: Optional[float] = None,
         currency: str = "USD",
         provider: Optional[str] = None,
         region: Optional[str] = None,
@@ -128,7 +128,7 @@ class DatabaseManager:
         Args:
             timestamp: When the rate was observed
             gpu_model: GPU model (e.g., 'H100', 'A100', 'B200')
-            rate_per_hour: Rental rate per hour
+            rate_usd_per_hour: Rental rate per hour in USD
             currency: Currency code (default: 'USD')
             provider: Provider name
             region: Geographic region
@@ -145,14 +145,14 @@ class DatabaseManager:
                 cursor = conn.cursor()
                 cursor.execute("""
                     INSERT OR IGNORE INTO gpu_rental_rates (
-                        timestamp, gpu_model, rate_per_hour, currency,
+                        timestamp, gpu_model, rate_usd_per_hour, currency,
                         provider, region, availability, source_url,
                         scraper_type, raw_data
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     timestamp.isoformat(),
                     gpu_model,
-                    rate_per_hour,
+                    rate_usd_per_hour,
                     currency,
                     provider,
                     region,
@@ -163,7 +163,7 @@ class DatabaseManager:
                 ))
 
                 if cursor.rowcount > 0:
-                    self.logger.info(f"Inserted rate for {gpu_model}: ${rate_per_hour}/hr")
+                    self.logger.info(f"Inserted rate for {gpu_model}: ${rate_usd_per_hour}/hr")
                     return cursor.lastrowid
                 else:
                     self.logger.debug(f"Duplicate rate skipped for {gpu_model}")
@@ -189,7 +189,7 @@ class DatabaseManager:
             row_id = self.insert_rate(
                 timestamp=rate_data.get('timestamp', datetime.now()),
                 gpu_model=rate_data['gpu_model'],
-                rate_per_hour=rate_data.get('rate_per_hour'),
+                rate_usd_per_hour=rate_data.get('rate_usd_per_hour'),
                 currency=rate_data.get('currency', 'USD'),
                 provider=rate_data.get('provider'),
                 region=rate_data.get('region'),
@@ -307,18 +307,18 @@ class DatabaseManager:
 
             if start_date and end_date:
                 cursor.execute("""
-                    SELECT AVG(rate_per_hour) as avg_rate
+                    SELECT AVG(rate_usd_per_hour) as avg_rate
                     FROM gpu_rental_rates
                     WHERE gpu_model = ?
                       AND timestamp BETWEEN ? AND ?
-                      AND rate_per_hour IS NOT NULL
+                      AND rate_usd_per_hour IS NOT NULL
                 """, (gpu_model, start_date.isoformat(), end_date.isoformat()))
             else:
                 cursor.execute("""
-                    SELECT AVG(rate_per_hour) as avg_rate
+                    SELECT AVG(rate_usd_per_hour) as avg_rate
                     FROM gpu_rental_rates
                     WHERE gpu_model = ?
-                      AND rate_per_hour IS NOT NULL
+                      AND rate_usd_per_hour IS NOT NULL
                 """, (gpu_model,))
 
             result = cursor.fetchone()
@@ -347,15 +347,15 @@ class DatabaseManager:
             cursor.execute("""
                 SELECT
                     COUNT(*) as count,
-                    MIN(rate_per_hour) as min_rate,
-                    MAX(rate_per_hour) as max_rate,
-                    AVG(rate_per_hour) as avg_rate,
+                    MIN(rate_usd_per_hour) as min_rate,
+                    MAX(rate_usd_per_hour) as max_rate,
+                    AVG(rate_usd_per_hour) as avg_rate,
                     MIN(timestamp) as first_observation,
                     MAX(timestamp) as last_observation
                 FROM gpu_rental_rates
                 WHERE gpu_model = ?
                   AND timestamp >= ?
-                  AND rate_per_hour IS NOT NULL
+                  AND rate_usd_per_hour IS NOT NULL
             """, (gpu_model, start_date.isoformat()))
 
             result = cursor.fetchone()
@@ -403,14 +403,14 @@ class DatabaseManager:
             cursor.execute("""
                 SELECT
                     DATE(timestamp) as date,
-                    AVG(rate_per_hour) as avg_rate,
-                    MIN(rate_per_hour) as min_rate,
-                    MAX(rate_per_hour) as max_rate,
+                    AVG(rate_usd_per_hour) as avg_rate,
+                    MIN(rate_usd_per_hour) as min_rate,
+                    MAX(rate_usd_per_hour) as max_rate,
                     COUNT(*) as count
                 FROM gpu_rental_rates
                 WHERE gpu_model = ?
                   AND timestamp >= ?
-                  AND rate_per_hour IS NOT NULL
+                  AND rate_usd_per_hour IS NOT NULL
                 GROUP BY DATE(timestamp)
                 ORDER BY date
             """, (gpu_model, start_date.isoformat()))
@@ -510,7 +510,7 @@ def main():
     row_id = db.insert_rate(
         timestamp=datetime.now(),
         gpu_model="H100",
-        rate_per_hour=3.50,
+        rate_usd_per_hour=3.50,
         currency="USD",
         provider="Test Provider",
         region="US-East",
@@ -524,14 +524,14 @@ def main():
         {
             'timestamp': datetime.now(),
             'gpu_model': 'A100',
-            'rate_per_hour': 2.25,
+            'rate_usd_per_hour': 2.25,
             'provider': 'Provider A',
             'scraper_type': 'test',
         },
         {
             'timestamp': datetime.now(),
             'gpu_model': 'B200',
-            'rate_per_hour': 4.00,
+            'rate_usd_per_hour': 4.00,
             'provider': 'Provider B',
             'scraper_type': 'test',
         },
@@ -557,7 +557,7 @@ def main():
     print("\n   Latest rates:")
     latest = db.get_latest_rates(limit=5)
     for rate in latest:
-        print(f"   - {rate['gpu_model']}: ${rate['rate_per_hour']}/hr ({rate['timestamp']})")
+        print(f"   - {rate['gpu_model']}: ${rate['rate_usd_per_hour']}/hr ({rate['timestamp']})")
 
     print("\n   H100 statistics:")
     stats = db.get_rate_statistics('H100', days=7)

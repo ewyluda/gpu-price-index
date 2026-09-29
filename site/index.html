@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPU Price Index</title>
+  <meta name="description" content="An open, daily index of GPU rental prices across hyperscalers, neoclouds and marketplaces, built from primary sources.">
+  <meta property="og:title" content="GPU Price Index">
+  <meta property="og:description" content="Daily H100, H200, B200, MI300X and A100 rental prices from AWS, Azure, Lambda, RunPod and Vast.ai, with methodology, history and a cluster cost calculator.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0b'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23eb6834' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try {
+      const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (_) {}
+  </script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="GPU Price Index home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M7 22l6-7 5 4 7-9"/></svg>
+        <span>GPU Price Index</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#market">Market</a>
+        <a href="#explore">Explore</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#method">Method</a>
+      </nav>
+      <div class="topbar-right">
+        <a id="status-pill" class="pill" href="#pipeline"><span class="dot"></span><span>Loading…</span></a>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Open data · updated daily from primary sources</p>
+        <h1>What does an hour of GPU actually cost?</h1>
+        <p class="lede">A daily index of on-demand GPU rental prices across hyperscalers, neoclouds and marketplaces. Every number traces back to a public price list, and the full history is versioned in git.</p>
+        <p class="asof" id="asof"></p>
+      </div>
+      <article class="brief card" id="brief" aria-live="polite">
+        <div class="brief-head">
+          <h2>Today's brief</h2>
+          <span class="badge" id="brief-badge"></span>
+        </div>
+        <p class="brief-headline" id="brief-headline"></p>
+        <ul id="brief-bullets"></ul>
+        <p class="brief-watch" id="brief-watch"></p>
+      </article>
+    </section>
+
+    <section class="wrap section" id="market" aria-labelledby="market-title">
+      <div class="section-head">
+        <h2 id="market-title">Market index</h2>
+        <p>Median of provider medians across every segment, in USD per GPU-hour. Each provider gets one vote, however many regions it lists.</p>
+      </div>
+      <div class="tiles" id="tiles"></div>
+
+      <div class="card chart-card">
+        <div class="chart-head">
+          <div>
+            <h3>Where you rent matters more than what you rent</h3>
+            <p class="sub">Segment median per GPU. Hyperscaler list prices run well above neoclouds and marketplaces for the same silicon.</p>
+          </div>
+          <div class="legend" aria-hidden="true">
+            <span><i class="sw sw-hyperscaler"></i>Hyperscaler</span>
+            <span><i class="sw sw-neocloud"></i>Neocloud</span>
+            <span><i class="sw sw-marketplace"></i>Marketplace</span>
+          </div>
+        </div>
+        <div id="ladder" class="chart" role="img" aria-label="Dot plot of segment prices per GPU"></div>
+        <details class="table-view"><summary>View as table</summary><div id="ladder-table"></div></details>
+      </div>
+
+      <div class="grid-2">
+        <div class="card chart-card">
+          <div class="chart-head">
+            <div>
+              <h3>Price-performance</h3>
+              <p class="sub" id="perf-sub">Market index per dense BF16 PFLOP-hour. Lower is better.</p>
+            </div>
+            <div class="seg-control" role="group" aria-label="Price-performance metric">
+              <button type="button" data-metric="pflop" aria-pressed="true">$/PFLOP-hr</button>
+              <button type="button" data-metric="memory" aria-pressed="false">$/GB-hr</button>
+            </div>
+          </div>
+          <div id="perf" class="chart"></div>
+          <p class="footnote">Peak vendor specs, no sparsity. Delivered throughput depends on the workload, interconnect and software stack.</p>
+        </div>
+        <div class="card chart-card">
+          <div class="chart-head">
+            <div>
+              <h3>Hyperscaler premium</h3>
+              <p class="sub">How much more the hyperscaler segment median costs than the neocloud median.</p>
+            </div>
+          </div>
+          <div id="premium" class="chart"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="explore" aria-labelledby="explore-title">
+      <div class="section-head">
+        <h2 id="explore-title">Explore a GPU</h2>
+        <p>History, provider-level prices and regional spread for one GPU model.</p>
+      </div>
+      <div class="filter-row" role="radiogroup" aria-label="GPU model" id="gpu-picker"></div>
+
+      <div class="card chart-card">
+        <div class="chart-head">
+          <div>
+            <h3 id="history-title">Price history</h3>
+            <p class="sub" id="history-sub"></p>
+          </div>
+          <div class="legend" id="history-legend" aria-hidden="true"></div>
+        </div>
+        <div id="history" class="chart"></div>
+        <details class="table-view"><summary>View as table</summary><div id="history-table"></div></details>
+      </div>
+
+      <div class="grid-2 grid-wide-left">
+        <div class="card">
+          <h3>Providers</h3>
+          <p class="sub">Median and cheapest listed on-demand price per provider, with the SKU and region behind the cheapest.</p>
+          <div class="table-wrap" id="providers"></div>
+        </div>
+        <div class="card">
+          <h3>By region</h3>
+          <p class="sub">Median of region-specific list prices. Neocloud and marketplace prices are mostly global.</p>
+          <div class="table-wrap" id="regional"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="calculator" aria-labelledby="calc-title">
+      <div class="section-head">
+        <h2 id="calc-title">Cluster cost calculator</h2>
+        <p>Price a block of capacity at today's list prices. Useful as a first-pass budget check before you ask providers for committed-use quotes.</p>
+      </div>
+      <div class="card calc">
+        <form id="calc-form" class="calc-form" autocomplete="off">
+          <label>GPU<select id="calc-gpu" name="gpu"></select></label>
+          <label>GPUs<input id="calc-count" name="count" type="number" inputmode="numeric" min="1" step="1" value="512"></label>
+          <label>Duration
+            <span class="joined">
+              <input id="calc-duration" name="duration" type="number" inputmode="decimal" min="1" step="1" value="90">
+              <select id="calc-unit" name="unit">
+                <option value="1">hours</option>
+                <option value="24" selected>days</option>
+                <option value="730">months</option>
+              </select>
+            </span>
+          </label>
+          <label>Segment
+            <select id="calc-segment" name="segment">
+              <option value="">All</option>
+              <option value="hyperscaler">Hyperscaler</option>
+              <option value="neocloud">Neocloud</option>
+              <option value="marketplace">Marketplace</option>
+            </select>
+          </label>
+        </form>
+        <div class="calc-result">
+          <div class="calc-hero">
+            <span class="label">At the market index</span>
+            <strong id="calc-total"></strong>
+            <span class="muted" id="calc-detail"></span>
+          </div>
+          <div id="calc-quotes"></div>
+          <p class="footnote">On-demand list prices, compute only. Excludes storage, networking and egress, and the committed-use discounts most large buyers negotiate. Marketplace capacity at this scale is rarely available as a single block.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="section-head">
+        <h2 id="pipeline-title">Pipeline health</h2>
+        <p>A GitHub Actions job collects every source at 06:17 UTC, validates the data, commits it to the repository and redeploys this page. If a source breaks, the job opens an issue.</p>
+      </div>
+      <div class="grid-2 grid-wide-left">
+        <div class="card">
+          <h3>Latest run</h3>
+          <p class="sub" id="run-sub"></p>
+          <div class="table-wrap" id="sources"></div>
+          <div id="validation"></div>
+        </div>
+        <div class="card">
+          <h3>Recent runs</h3>
+          <p class="sub">One square per daily run. Hover for details.</p>
+          <div id="runs" class="runs"></div>
+          <h3 class="mt">Get the data</h3>
+          <ul class="downloads">
+            <li><a href="data/observations-latest.csv" download>Today's observations (CSV)</a></li>
+            <li><a href="data/index-history.csv" download>Index history (CSV)</a></li>
+            <li><a href="data/latest.json">Latest snapshot (JSON)</a></li>
+            <li><a href="https://github.com/ewyluda/gpu-rental-rate/tree/main/data/observations">Full history in git</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="method" aria-labelledby="method-title">
+      <div class="section-head">
+        <h2 id="method-title">Methodology</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card prose">
+          <h3>What's measured</h3>
+          <p>On-demand list prices for data-center GPUs, normalized to USD per GPU-hour. An 8-GPU VM at $98.32/hr counts as $12.29 per GPU-hour. Spot prices are tracked as a separate series. Reserved and committed-use pricing isn't public, so it's excluded.</p>
+        </div>
+        <div class="card prose">
+          <h3>How it's aggregated</h3>
+          <p>Two-stage median: first each provider's median across its SKUs and regions, then the median across providers. Azure's hundreds of regional rows get the same weight as Lambda's single price list. Marketplaces are summarized to the median of all rentable offers.</p>
+        </div>
+        <div class="card prose">
+          <h3>Ask an agent</h3>
+          <p>The index ships with an MCP server, so Claude or any MCP client can query prices and price out clusters:</p>
+          <pre><code>claude mcp add gpu-index -- uvx --from \
+  "gpu-index[mcp] @ git+https://github.com/ewyluda/gpu-rental-rate" \
+  gpu-index-mcp</code></pre>
+          <p>Then ask: <em>"What would 512 H100s for 90 days cost at neoclouds vs hyperscalers?"</em></p>
+        </div>
+      </div>
+      <p class="method-link"><a href="https://github.com/ewyluda/gpu-rental-rate/blob/main/docs/methodology.md">Read the full methodology →</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>GPU Price Index</strong>
+        <p>Built by Eric Wyluda. Code is MIT-licensed; prices belong to their publishers and are shown for reference. Not investment or procurement advice.</p>
+      </div>
+      <div>
+        <strong>Sources</strong>
+        <ul id="source-links"></ul>
+      </div>
+      <div>
+        <strong>Project</strong>
+        <ul>
+          <li><a href="https://github.com/ewyluda/gpu-rental-rate">Source on GitHub</a></li>
+          <li><a href="https://github.com/ewyluda/gpu-rental-rate/blob/main/docs/methodology.md">Methodology</a></li>
+          <li><a href="https://github.com/ewyluda/gpu-rental-rate/blob/main/docs/architecture.md">Architecture</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+</body>
+</html>

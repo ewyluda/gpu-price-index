@@ -1,0 +1,749 @@
+[
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "germanywestcentral",
+  "retailPrice": 3.63,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5 Low Priority",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "eastus2",
+  "retailPrice": 7.346,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "usgovvirginia",
+  "retailPrice": 106.0,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5",
+  "productName": "Virtual Machines NDsrH200v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "uaenorth",
+  "retailPrice": 9.98,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "northcentralus",
+  "retailPrice": 3.526,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "southcentralus",
+  "retailPrice": 20.44,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "centralus",
+  "retailPrice": 125.35,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5",
+  "productName": "Virtual Machines NDsr H100 v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "canadaeast",
+  "retailPrice": 43.74,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "uksouth",
+  "retailPrice": 17.45,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "centralindia",
+  "retailPrice": 9.994,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 1.469,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "westus2",
+  "retailPrice": 89.216,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5 Spot",
+  "productName": "Virtual Machines NDsrH200v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "polandcentral",
+  "retailPrice": 24.436474,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5 Spot",
+  "productName": "Virtual Machines NDsr H100 v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "westus",
+  "retailPrice": 23.516,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "westus3",
+  "retailPrice": 3.673,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "canadacentral",
+  "retailPrice": 4.172,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5 Low Priority",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "westus3",
+  "retailPrice": 98.32,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "italynorth",
+  "retailPrice": 2.172878,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "eastus",
+  "retailPrice": 98.32,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "southcentralus",
+  "retailPrice": 48.954,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5 Low Priority",
+  "productName": "Virtual Machines NDsr H100 v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "uaenorth",
+  "retailPrice": 1.844304,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5 Spot",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "indonesiacentral",
+  "retailPrice": 1.849294,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5 Spot",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 12.645,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4 Low Priority",
+  "productName": "Virtual Machines NDasr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "polandcentral",
+  "retailPrice": 135.008,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5",
+  "productName": "Virtual Machines NDsrH200v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 3.822,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "japaneast",
+  "retailPrice": 4.752871,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "malaysiawest",
+  "retailPrice": 3.650426,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5 Spot",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "italynorth",
+  "retailPrice": 12.978108,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4 Spot",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "westus3",
+  "retailPrice": 6.554,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4 Low Priority",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 10.551811,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4 Spot",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "northeurope",
+  "retailPrice": 2.205,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "eastus2",
+  "retailPrice": 9.686477,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5 Spot",
+  "productName": "Virtual Machines NDMI300Xv5 Srs Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "westus",
+  "retailPrice": 8.731,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5 Low Priority",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "spaincentral",
+  "retailPrice": 23.620397,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5 Spot",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "italynorth",
+  "retailPrice": 40.962,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "westcentralus",
+  "retailPrice": 11.52,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5 Low Priority",
+  "productName": "Virtual Machines NDMI300Xv5 Srs",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "canadacentral",
+  "retailPrice": 62.016,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5",
+  "productName": "Virtual Machines NDMI300Xv5 Srs Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "italynorth",
+  "retailPrice": 18.151,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4 Low Priority",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "uaenorth",
+  "retailPrice": 1.996,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5 Low Priority",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "japaneast",
+  "retailPrice": 47.517,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "italynorth",
+  "retailPrice": 8.634718,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4 Spot",
+  "productName": "Virtual Machines NDasr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "uksouth",
+  "retailPrice": 106.0,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5 Spot",
+  "productName": "Virtual Machines NDsrH200v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "ukwest",
+  "retailPrice": 4.392,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5 Spot",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 1.76484,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "southcentralus",
+  "retailPrice": 0.882,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4 Low Priority",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "northeurope",
+  "retailPrice": 57.6,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5",
+  "productName": "Virtual Machines NDMI300Xv5 Srs",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "brazilsouth",
+  "retailPrice": 1.56156,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "eastus2",
+  "retailPrice": 9.554,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 5.904469,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4 Spot",
+  "productName": "Virtual Machines NDasr A100 v4 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "centralus",
+  "retailPrice": 10.910777,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5 Spot",
+  "productName": "Virtual Machines NDMI300Xv5 Srs",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "westus3",
+  "retailPrice": 8.82,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "japaneast",
+  "retailPrice": 21.303,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_MI300X_v5",
+  "armRegionName": "francecentral",
+  "retailPrice": 25.766,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrMI300Xv5 Low Priority",
+  "productName": "Virtual Machines NDMI300Xv5 Srs Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 0.67877,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "southcentralus",
+  "retailPrice": 3.258024,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4 Spot",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "eastus2",
+  "retailPrice": 16.96,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5 Low Priority",
+  "productName": "Virtual Machines NDsrH200v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "southcentralus",
+  "retailPrice": 5.512,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4",
+  "productName": "NCads A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "southcentralus",
+  "retailPrice": 23.594,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5 Low Priority",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 40.962,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "japaneast",
+  "retailPrice": 20.242,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 7.346,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "japaneast",
+  "retailPrice": 142.564,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 39.773,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4",
+  "productName": "Virtual Machines NDasr A100 v4 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "usgovvirginia",
+  "retailPrice": 34.003,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4",
+  "productName": "Virtual Machines NDasr A100 v4 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "eastus",
+  "retailPrice": 6.98,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 7.071,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4 Low Priority",
+  "productName": "Virtual Machines NDasr A100 v4 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H100_v5",
+  "armRegionName": "westeurope",
+  "retailPrice": 127.816,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH100v5",
+  "productName": "Virtual Machines NDsr H100 v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "westus",
+  "retailPrice": 45.862,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5 Low Priority",
+  "productName": "Virtual Machines NDsrH200v5 Series Windows",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 27.197,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4",
+  "productName": "Virtual Machines NDasr A100 v4 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 3.673,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "japaneast",
+  "retailPrice": 5.326,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96amsr_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 32.77,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96amsr A100 v4",
+  "productName": "Virtual Machines NDamsr A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 9.55,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "eastus",
+  "retailPrice": 14.692,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "westeurope",
+  "retailPrice": 18.16,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC24ads_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 4.775,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC24ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96isr_H200_v5",
+  "armRegionName": "japaneast",
+  "retailPrice": 106.0,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96isrH200v5",
+  "productName": "Virtual Machines NDsrH200v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "japaneast",
+  "retailPrice": 10.121,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC48ads_A100_v4",
+  "armRegionName": "japaneast",
+  "retailPrice": 10.652,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC48ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC96ads_A100_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 19.1,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC96ads_A100_v4",
+  "productName": "NCads A100 v4 Series Linux",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_ND96asr_v4",
+  "armRegionName": "westeurope",
+  "retailPrice": 35.357,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "ND96asr_A100_v4",
+  "productName": "Virtual Machines NDasr A100 v4 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC80adis_H100_v5",
+  "armRegionName": "eastus",
+  "retailPrice": 13.96,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC80adisH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ },
+ {
+  "armSkuName": "Standard_NC40ads_H100_v5",
+  "armRegionName": "westeurope",
+  "retailPrice": 9.08,
+  "unitOfMeasure": "1 Hour",
+  "meterName": "NC40adsH100v5",
+  "productName": "Virtual Machines NCadsH100v5 Series",
+  "type": "Consumption"
+ }
+]

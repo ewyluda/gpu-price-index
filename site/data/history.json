@@ -1,0 +1,194 @@
+{
+ "dates": [
+  "2026-09-29"
+ ],
+ "series": {
+  "B300": {
+   "index": [
+    7.89
+   ],
+   "hyperscaler": [
+    17.8
+   ],
+   "neocloud": [
+    7.89
+   ],
+   "marketplace": [
+    6.94
+   ],
+   "spot": [
+    null
+   ]
+  },
+  "B200": {
+   "index": [
+    6.84
+   ],
+   "hyperscaler": [
+    14.24
+   ],
+   "neocloud": [
+    6.81
+   ],
+   "marketplace": [
+    7.27
+   ],
+   "spot": [
+    null
+   ]
+  },
+  "H200": {
+   "index": [
+    4.8
+   ],
+   "hyperscaler": [
+    10.85
+   ],
+   "neocloud": [
+    4.59
+   ],
+   "marketplace": [
+    4.2
+   ],
+   "spot": [
+    null
+   ]
+  },
+  "H100": {
+   "index": [
+    3.82
+   ],
+   "hyperscaler": [
+    12.12
+   ],
+   "neocloud": [
+    3.82
+   ],
+   "marketplace": [
+    2.91
+   ],
+   "spot": [
+    2.95
+   ]
+  },
+  "H100-NVL": {
+   "index": [
+    3.01
+   ],
+   "hyperscaler": [
+    9.07
+   ],
+   "neocloud": [
+    3.19
+   ],
+   "marketplace": [
+    2.71
+   ],
+   "spot": [
+    1.84
+   ]
+  },
+  "H100-PCIe": {
+   "index": [
+    2.74
+   ],
+   "hyperscaler": [
+    null
+   ],
+   "neocloud": [
+    3.09
+   ],
+   "marketplace": [
+    2.29
+   ],
+   "spot": [
+    null
+   ]
+  },
+  "MI300X": {
+   "index": [
+    2.39
+   ],
+   "hyperscaler": [
+    7.5
+   ],
+   "neocloud": [
+    2.39
+   ],
+   "marketplace": [
+    0.5
+   ],
+   "spot": [
+    1.39
+   ]
+  },
+  "A100-80GB": {
+   "index": [
+    2.19
+   ],
+   "hyperscaler": [
+    4.38
+   ],
+   "neocloud": [
+    2.19
+   ],
+   "marketplace": [
+    1.37
+   ],
+   "spot": [
+    1.46
+   ]
+  },
+  "A100-80GB-PCIe": {
+   "index": [
+    1.39
+   ],
+   "hyperscaler": [
+    4.78
+   ],
+   "neocloud": [
+    1.59
+   ],
+   "marketplace": [
+    1.06
+   ],
+   "spot": [
+    0.88
+   ]
+  },
+  "A100-40GB": {
+   "index": [
+    1.99
+   ],
+   "hyperscaler": [
+    3.69
+   ],
+   "neocloud": [
+    1.99
+   ],
+   "marketplace": [
+    0.84
+   ],
+   "spot": [
+    0.89
+   ]
+  },
+  "L40S": {
+   "index": [
+    0.95
+   ],
+   "hyperscaler": [
+    2.7
+   ],
+   "neocloud": [
+    1.09
+   ],
+   "marketplace": [
+    0.8
+   ],
+   "spot": [
+    null
+   ]
+  }
+ }
+}

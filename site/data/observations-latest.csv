@@ -1,0 +1,538 @@
+date,collected_at,source,provider,segment,pricing,gpu_model,sku,region,geo,gpu_count,usd_per_hour,usd_per_gpu_hour,sample_size
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,ap-northeast-1,APAC,8,30.0978,3.7622,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,ap-south-1,APAC,8,26.3444,3.2931,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,ap-southeast-2,APAC,8,28.5449,3.5681,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,sa-east-1,LATAM,8,35.5569,4.4446,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,us-east-1,NA,8,21.9576,2.7447,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,us-east-2,NA,8,21.9576,2.7447,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-40GB,p4d.24xlarge,us-west-2,NA,8,21.9576,2.7447,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-80GB,p4de.24xlarge,ap-northeast-1,APAC,8,37.6223,4.7028,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-80GB,p4de.24xlarge,us-east-1,NA,8,27.4471,3.4309,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,A100-80GB,p4de.24xlarge,us-west-2,NA,8,27.4471,3.4309,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B200,p6-b200.48xlarge,ap-south-1,APAC,8,160.6453,20.0807,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B200,p6-b200.48xlarge,us-east-1,NA,8,113.9328,14.2416,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B200,p6-b200.48xlarge,us-east-2,NA,8,113.9328,14.2416,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B200,p6-b200.48xlarge,us-west-2,NA,8,113.9328,14.2416,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B300,p6-b300.48xlarge,sa-east-1,LATAM,8,281.13,35.1412,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B300,p6-b300.48xlarge,us-east-1,NA,8,142.416,17.802,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,B300,p6-b300.48xlarge,us-west-2,NA,8,142.416,17.802,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,ap-northeast-1,APAC,8,68.8,8.6,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,ap-south-1,APAC,8,66.048,8.256,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,ap-southeast-2,APAC,8,71.552,8.944,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,sa-east-1,LATAM,8,92.4672,11.5584,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,us-east-1,NA,8,55.04,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,us-east-2,NA,8,55.04,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.48xlarge,us-west-2,NA,8,55.04,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,ap-northeast-1,APAC,1,8.6,8.6,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,ap-south-1,APAC,1,8.256,8.256,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,ap-southeast-2,APAC,1,8.944,8.944,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,sa-east-1,LATAM,1,11.5584,11.5584,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,us-east-1,NA,1,6.88,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,us-east-2,NA,1,6.88,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H100,p5.4xlarge,us-west-2,NA,1,6.88,6.88,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H200,p5en.48xlarge,ap-northeast-1,APAC,8,79.12,9.89,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H200,p5en.48xlarge,ap-south-1,APAC,8,75.9552,9.4944,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H200,p5en.48xlarge,us-east-1,NA,8,63.296,7.912,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H200,p5en.48xlarge,us-east-2,NA,8,63.296,7.912,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,H200,p5en.48xlarge,us-west-2,NA,8,63.296,7.912,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.12xlarge,ap-northeast-1,APAC,4,15.2174,3.8044,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.12xlarge,ap-south-1,APAC,4,12.6013,3.1503,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.12xlarge,us-east-1,NA,4,10.4926,2.6232,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.12xlarge,us-east-2,NA,4,10.4926,2.6232,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.12xlarge,us-west-2,NA,4,10.4926,2.6232,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.48xlarge,ap-northeast-1,APAC,8,43.6991,5.4624,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.48xlarge,ap-south-1,APAC,8,36.1866,4.5233,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.48xlarge,us-east-1,NA,8,30.1312,3.7664,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.48xlarge,us-east-2,NA,8,30.1312,3.7664,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.48xlarge,us-west-2,NA,8,30.1312,3.7664,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.xlarge,ap-northeast-1,APAC,1,2.699,2.699,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.xlarge,ap-south-1,APAC,1,2.235,2.235,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.xlarge,us-east-1,NA,1,1.861,1.861,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.xlarge,us-east-2,NA,1,1.861,1.861,1
+2026-09-29,2026-09-29T03:34:41+00:00,aws,AWS,hyperscaler,on_demand,L40S,g6e.xlarge,us-west-2,NA,1,1.861,1.861,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-40GB,Standard_ND96asr_v4,eastus,NA,8,27.197,3.3996,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-40GB,Standard_ND96asr_v4,italynorth,EU,8,35.357,4.4196,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-40GB,Standard_ND96asr_v4,southcentralus,NA,8,32.63,4.0788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-40GB,Standard_ND96asr_v4,westeurope,EU,8,35.357,4.4196,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-40GB,Standard_ND96asr_v4,westus2,NA,8,27.197,3.3996,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,australiaeast,APAC,8,47.516,5.9395,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,brazilsouth,LATAM,8,65.54,8.1925,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,canadacentral,NA,8,39.324,4.9155,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,canadaeast,NA,8,39.324,4.9155,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,centralus,NA,8,37.03,4.6288,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,eastus,NA,8,32.77,4.0963,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,eastus2,NA,8,32.77,4.0963,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,francecentral,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,germanynorth,EU,8,55.381,6.9226,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,italynorth,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,japaneast,APAC,8,47.517,5.9396,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,japanwest,APAC,8,50.794,6.3492,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,norwayeast,EU,8,46.861,5.8576,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,polandcentral,EU,8,46.89,5.8613,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,southafricanorth,AF,8,47.844,5.9805,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,southcentralus,NA,8,39.324,4.9155,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,southindia,APAC,8,49.483,6.1854,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,spaincentral,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,swedencentral,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,switzerlandnorth,EU,8,46.861,5.8576,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,switzerlandwest,EU,8,60.919,7.6149,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,uaecentral,ME,8,60.919,7.6149,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,uaenorth,ME,8,46.861,5.8576,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,uksouth,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,ukwest,EU,8,42.929,5.3661,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,westeurope,EU,8,40.962,5.1203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,westus,NA,8,42.601,5.3251,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,westus2,NA,8,32.77,4.0963,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB,Standard_ND96amsr_A100_v4,westus3,NA,8,32.77,4.0963,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,australiaeast,APAC,1,5.326,5.326,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,brazilsouth,LATAM,1,7.346,7.346,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,canadacentral,NA,1,4.408,4.408,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,centralindia,APAC,1,5.142,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,centralus,NA,1,4.15,4.15,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,eastus,NA,1,3.673,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,eastus2,NA,1,3.673,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,francecentral,EU,1,4.591,4.591,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,germanywestcentral,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,italynorth,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,japaneast,APAC,1,5.326,5.326,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,jioindiacentral,APAC,1,5.142,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,jioindiawest,APAC,1,5.142,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,koreacentral,APAC,1,4.959,4.959,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,northcentralus,NA,1,4.408,4.408,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,northeurope,EU,1,4.408,4.408,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,polandcentral,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,southcentralus,NA,1,4.408,4.408,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,southeastasia,APAC,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,spaincentral,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,swedencentral,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,switzerlandnorth,EU,1,5.252,5.252,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,uksouth,EU,1,4.591,4.591,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westeurope,EU,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus,NA,1,4.775,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus2,NA,1,3.673,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus3,NA,1,3.673,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,australiaeast,APAC,2,10.652,5.326,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,brazilsouth,LATAM,2,14.692,7.346,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,canadacentral,NA,2,8.815,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,centralindia,APAC,2,10.284,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,centralus,NA,2,8.301,4.1505,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,eastus,NA,2,7.346,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,eastus2,NA,2,7.346,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,francecentral,EU,2,9.183,4.5915,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,germanywestcentral,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,italynorth,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,japaneast,APAC,2,10.652,5.326,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,jioindiacentral,APAC,2,10.284,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,jioindiawest,APAC,2,10.284,5.142,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,koreacentral,APAC,2,9.917,4.9585,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,northcentralus,NA,2,8.815,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,northeurope,EU,2,8.815,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,polandcentral,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,southcentralus,NA,2,8.815,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,southeastasia,APAC,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,spaincentral,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,swedencentral,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,switzerlandnorth,EU,2,10.505,5.2525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,uksouth,EU,2,9.183,4.5915,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westeurope,EU,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus,NA,2,9.55,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus2,NA,2,7.346,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus3,NA,2,7.346,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,australiaeast,APAC,4,21.303,5.3258,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,brazilsouth,LATAM,4,29.384,7.346,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,canadacentral,NA,4,17.63,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,centralindia,APAC,4,20.569,5.1422,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,centralus,NA,4,16.602,4.1505,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,eastus,NA,4,14.692,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,eastus2,NA,4,14.692,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,francecentral,EU,4,18.365,4.5912,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,germanywestcentral,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,italynorth,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,japaneast,APAC,4,21.303,5.3258,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,jioindiacentral,APAC,4,20.569,5.1422,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,jioindiawest,APAC,4,20.569,5.1422,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,koreacentral,APAC,4,19.834,4.9585,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,northcentralus,NA,4,17.63,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,northeurope,EU,4,17.63,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,polandcentral,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,southcentralus,NA,4,17.63,4.4075,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,southeastasia,APAC,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,spaincentral,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,swedencentral,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,switzerlandnorth,EU,4,21.01,5.2525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,uksouth,EU,4,18.365,4.5912,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westeurope,EU,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus,NA,4,19.1,4.775,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus2,NA,4,14.692,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus3,NA,4,14.692,3.673,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,australiaeast,APAC,8,142.6,17.825,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,canadacentral,NA,8,117.984,14.748,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,centralus,NA,8,120.934,15.1167,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,eastus,NA,8,98.32,12.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,eastus2,NA,8,98.32,12.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,japaneast,APAC,8,142.564,17.8205,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,japanwest,APAC,8,152.396,19.0495,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,koreacentral,APAC,8,132.732,16.5915,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,northcentralus,NA,8,117.984,14.748,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,polandcentral,EU,8,127.816,15.977,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,southafricanorth,AF,8,168.672,21.084,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,southafricawest,AF,8,186.608,23.326,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,southcentralus,NA,8,117.968,14.746,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,spaincentral,EU,8,127.816,15.977,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,swedencentral,EU,8,127.816,15.977,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,switzerlandnorth,EU,8,140.598,17.5748,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,uaenorth,ME,8,140.598,17.5748,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,uksouth,EU,8,122.9,15.3625,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,westcentralus,NA,8,117.984,14.748,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,westeurope,EU,8,127.816,15.977,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,westus,NA,8,127.816,15.977,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,westus2,NA,8,98.32,12.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100,Standard_ND96isr_H100_v5,westus3,NA,8,98.32,12.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,australiaeast,APAC,1,10.121,10.121,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,canadacentral,NA,1,8.59,8.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,centralindia,APAC,1,9.772,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,centralus,NA,1,8.585,8.585,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,eastus,NA,1,6.98,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,eastus2,NA,1,6.98,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,germanywestcentral,EU,1,9.074,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,indonesiacentral,APAC,1,8.167,8.167,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,japaneast,APAC,1,10.121,10.121,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,jioindiacentral,APAC,1,9.772,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,jioindiawest,APAC,1,9.772,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,koreacentral,APAC,1,9.423,9.423,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,koreasouth,APAC,1,8.725,8.725,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,malaysiawest,APAC,1,8.167,8.167,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,northcentralus,NA,1,8.376,8.376,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,northeurope,EU,1,8.376,8.376,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,southcentralus,NA,1,8.38,8.38,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,southeastasia,APAC,1,9.074,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,spaincentral,EU,1,9.074,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,swedencentral,EU,1,9.074,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,switzerlandnorth,EU,1,9.981,9.981,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,uaenorth,ME,1,9.98,9.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,uksouth,EU,1,8.725,8.725,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,ukwest,EU,1,9.14,9.14,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,westeurope,EU,1,9.08,9.08,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,westus,NA,1,9.074,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,westus2,NA,1,6.98,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC40ads_H100_v5,westus3,NA,1,6.98,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,australiaeast,APAC,2,20.242,10.121,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,canadacentral,NA,2,17.18,8.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,centralindia,APAC,2,19.544,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,centralus,NA,2,17.17,8.585,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,eastus,NA,2,13.96,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,eastus2,NA,2,13.96,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,germanywestcentral,EU,2,18.148,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,indonesiacentral,APAC,2,16.333,8.1665,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,japaneast,APAC,2,20.242,10.121,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,jioindiacentral,APAC,2,19.544,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,jioindiawest,APAC,2,19.544,9.772,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,koreacentral,APAC,2,18.846,9.423,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,koreasouth,APAC,2,17.45,8.725,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,malaysiawest,APAC,2,16.333,8.1665,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,northcentralus,NA,2,16.752,8.376,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,northeurope,EU,2,16.752,8.376,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,southcentralus,NA,2,16.76,8.38,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,southeastasia,APAC,2,18.148,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,spaincentral,EU,2,18.148,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,swedencentral,EU,2,18.148,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,switzerlandnorth,EU,2,19.963,9.9815,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,uaenorth,ME,2,19.96,9.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,uksouth,EU,2,17.45,8.725,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,ukwest,EU,2,18.28,9.14,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,westeurope,EU,2,18.16,9.08,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,westus,NA,2,18.148,9.074,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,westus2,NA,2,13.96,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H100-NVL,Standard_NC80adis_H100_v5,westus3,NA,2,13.96,6.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,australiaeast,APAC,8,122.96,15.37,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,australiasoutheast,APAC,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,brazilsouth,LATAM,8,169.6,21.2,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,centralus,NA,8,95.824,11.978,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,eastus2,NA,8,84.8,10.6,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,francecentral,EU,8,106.0,13.25,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,germanywestcentral,EU,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,indonesiacentral,APAC,8,99.216,12.402,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,italynorth,EU,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,japaneast,APAC,8,106.0,13.25,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,japanwest,APAC,8,131.44,16.43,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,koreasouth,APAC,8,106.0,13.25,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,malaysiawest,APAC,8,99.216,12.402,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,mexicocentral,LATAM,8,93.28,11.66,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,northcentralus,NA,8,101.76,12.72,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,northeurope,EU,8,101.76,12.72,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,norwayeast,EU,8,121.264,15.158,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,polandcentral,EU,8,130.592,16.324,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,southafricanorth,AF,8,123.808,15.476,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,southcentralus2,NA,8,93.28,11.66,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,southeastasia,APAC,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,spaincentral,EU,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,swedencentral,EU,8,110.272,13.784,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,uaenorth,ME,8,121.264,15.158,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,uksouth,EU,8,106.0,13.25,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,ukwest,EU,8,111.088,13.886,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,westus,NA,8,110.24,13.78,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,westus2,NA,8,84.8,10.6,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,H200,Standard_ND96isr_H200_v5,westus3,NA,8,84.8,10.6,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,australiasoutheast,APAC,8,67.2,8.4,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,brazilsouth,LATAM,8,96.0,12.0,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,canadacentral,NA,8,57.6,7.2,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,centralus,NA,8,59.041,7.3801,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,eastus2,NA,8,48.0,6.0,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,francecentral,EU,8,60.0,7.5,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,germanywestcentral,EU,8,62.4,7.8,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,koreasouth,APAC,8,60.0,7.5,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,northcentralus,NA,8,57.6,7.2,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,northeurope,EU,8,57.6,7.2,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,polandcentral,EU,8,73.92,9.24,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,swedencentral,EU,8,67.2,8.4,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,uaenorth,ME,8,68.64,8.58,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,uksouth,EU,8,60.0,7.5,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,westcentralus,NA,8,57.6,7.2,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,westus,NA,8,62.853,7.8566,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,on_demand,MI300X,Standard_ND96isr_MI300X_v5,westus3,NA,8,48.0,6.0,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-40GB,Standard_ND96asr_v4,eastus,NA,8,5.9045,0.7381,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-40GB,Standard_ND96asr_v4,italynorth,EU,8,7.676,0.9595,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-40GB,Standard_ND96asr_v4,southcentralus,NA,8,7.084,0.8855,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-40GB,Standard_ND96asr_v4,westeurope,EU,8,7.676,0.9595,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-40GB,Standard_ND96asr_v4,westus2,NA,8,5.9833,0.7479,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,australiaeast,APAC,8,12.2401,1.53,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,brazilsouth,LATAM,8,16.8831,2.1104,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,canadacentral,NA,8,10.1299,1.2662,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,canadaeast,NA,8,10.1299,1.2662,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,centralus,NA,8,9.5389,1.1924,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,eastus,NA,8,8.4416,1.0552,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,eastus2,NA,8,8.4416,1.0552,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,francecentral,EU,8,10.5518,1.319,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,germanynorth,EU,8,14.2661,1.7833,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,italynorth,EU,8,11.7151,1.4644,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,japaneast,APAC,8,12.2404,1.53,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,japanwest,APAC,8,13.0845,1.6356,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,norwayeast,EU,8,12.0714,1.5089,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,polandcentral,EU,8,12.0789,1.5099,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,southafricanorth,AF,8,12.3246,1.5406,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,southcentralus,NA,8,10.2242,1.278,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,southindia,APAC,8,12.7468,1.5934,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,spaincentral,EU,8,10.5518,1.319,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,swedencentral,EU,8,10.5518,1.319,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,switzerlandnorth,EU,8,12.0714,1.5089,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,switzerlandwest,EU,8,15.6927,1.9616,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,uaecentral,ME,8,15.6927,1.9616,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,uaenorth,ME,8,12.0714,1.5089,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,uksouth,EU,8,11.7151,1.4644,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,ukwest,EU,8,11.0585,1.3823,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,westeurope,EU,8,10.5518,1.319,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,westus,NA,8,10.974,1.3718,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,westus2,NA,8,8.4416,1.0552,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB,Standard_ND96amsr_A100_v4,westus3,NA,8,8.4416,1.0552,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,australiaeast,APAC,1,0.9842,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,brazilsouth,LATAM,1,1.3575,1.3575,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,canadacentral,NA,1,0.8146,0.8146,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,centralindia,APAC,1,0.9502,0.9502,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,centralus,NA,1,0.7669,0.7669,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,eastus,NA,1,0.6788,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,eastus2,NA,1,0.6788,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,francecentral,EU,1,0.8484,0.8484,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,germanywestcentral,EU,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,italynorth,EU,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,japaneast,APAC,1,0.9842,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,koreacentral,APAC,1,0.9164,0.9164,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,northcentralus,NA,1,0.8146,0.8146,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,northeurope,EU,1,0.8146,0.8146,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,polandcentral,EU,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,southcentralus,NA,1,0.8146,0.8146,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,southeastasia,APAC,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,spaincentral,EU,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,swedencentral,EU,1,1.1718,1.1718,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,switzerlandnorth,EU,1,0.9706,0.9706,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,uksouth,EU,1,0.8484,0.8484,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westeurope,EU,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus,NA,1,0.8824,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus2,NA,1,0.6788,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC24ads_A100_v4,westus3,NA,1,0.6788,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,australiaeast,APAC,2,1.9685,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,brazilsouth,LATAM,2,2.7151,1.3575,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,canadacentral,NA,2,1.629,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,centralindia,APAC,2,1.9005,0.9502,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,centralus,NA,2,1.534,0.767,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,eastus,NA,2,1.3575,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,eastus2,NA,2,1.3575,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,francecentral,EU,2,1.697,0.8485,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,germanywestcentral,EU,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,italynorth,EU,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,japaneast,APAC,2,1.9685,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,koreacentral,APAC,2,1.8327,0.9163,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,northcentralus,NA,2,1.629,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,northeurope,EU,2,1.629,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,polandcentral,EU,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,southcentralus,NA,2,1.629,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,southeastasia,APAC,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,spaincentral,EU,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,swedencentral,EU,2,2.3436,1.1718,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,switzerlandnorth,EU,2,1.9413,0.9707,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,uksouth,EU,2,1.697,0.8485,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westeurope,EU,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus,NA,2,1.7648,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus2,NA,2,1.3575,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC48ads_A100_v4,westus3,NA,2,1.3575,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,australiaeast,APAC,4,3.9368,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,brazilsouth,LATAM,4,5.4302,1.3575,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,canadacentral,NA,4,3.258,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,centralindia,APAC,4,3.8012,0.9503,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,centralus,NA,4,3.068,0.767,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,eastus,NA,4,2.7151,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,eastus2,NA,4,2.7151,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,francecentral,EU,4,3.3939,0.8485,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,germanywestcentral,EU,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,italynorth,EU,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,japaneast,APAC,4,3.9368,0.9842,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,koreacentral,APAC,4,3.6653,0.9163,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,northcentralus,NA,4,3.258,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,northeurope,EU,4,3.258,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,polandcentral,EU,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,southcentralus,NA,4,3.258,0.8145,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,southeastasia,APAC,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,spaincentral,EU,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,swedencentral,EU,4,4.6871,1.1718,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,switzerlandnorth,EU,4,3.8826,0.9707,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,uksouth,EU,4,3.3939,0.8485,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westeurope,EU,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus,NA,4,3.5297,0.8824,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus2,NA,4,2.7151,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,A100-80GB-PCIe,Standard_NC96ads_A100_v4,westus3,NA,4,2.7151,0.6788,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,australiaeast,APAC,8,26.3525,3.2941,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,canadacentral,NA,8,21.8034,2.7254,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,centralus,NA,8,22.3486,2.7936,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,eastus,NA,8,18.1695,2.2712,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,eastus2,NA,8,18.1695,2.2712,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,japaneast,APAC,8,26.3458,3.2932,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,japanwest,APAC,8,28.1628,3.5203,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,koreacentral,APAC,8,24.5289,3.0661,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,northcentralus,NA,8,21.8034,2.7254,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,polandcentral,EU,8,23.6204,2.9525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,southafricanorth,AF,8,31.1706,3.8963,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,southafricawest,AF,8,34.4852,4.3106,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,southcentralus,NA,8,21.8005,2.7251,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,spaincentral,EU,8,23.6204,2.9525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,swedencentral,EU,8,23.6204,2.9525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,switzerlandnorth,EU,8,25.9825,3.2478,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,uaenorth,ME,8,25.9825,3.2478,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,uksouth,EU,8,22.7119,2.839,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,westcentralus,NA,8,21.8034,2.7254,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,westeurope,EU,8,23.6204,2.9525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,westus,NA,8,23.6204,2.9525,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,westus2,NA,8,18.1695,2.2712,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100,Standard_ND96isr_H100_v5,westus3,NA,8,18.1695,2.2712,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,australiaeast,APAC,1,1.8704,1.8704,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,canadacentral,NA,1,1.6905,1.6905,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,centralindia,APAC,1,4.7277,4.7277,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,centralus,NA,1,1.8037,1.8037,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,eastus,NA,1,1.2899,1.2899,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,eastus2,NA,1,4.0205,4.0205,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,germanywestcentral,EU,1,1.6769,1.6769,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,indonesiacentral,APAC,1,1.5093,1.5093,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,japaneast,APAC,1,2.9847,2.9847,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,koreacentral,APAC,1,2.679,2.679,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,koreasouth,APAC,1,1.6124,1.6124,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,malaysiawest,APAC,1,1.8253,1.8253,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,northcentralus,NA,1,1.5479,1.5479,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,northeurope,EU,1,1.5479,1.5479,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,southcentralus,NA,1,2.6741,2.6741,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,southeastasia,APAC,1,1.6769,1.6769,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,spaincentral,EU,1,1.7903,1.7903,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,swedencentral,EU,1,2.1406,2.1406,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,switzerlandnorth,EU,1,2.1669,2.1669,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,uaenorth,ME,1,1.8443,1.8443,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,uksouth,EU,1,1.6124,1.6124,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,ukwest,EU,1,1.828,1.828,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,westeurope,EU,1,4.1841,4.1841,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,westus,NA,1,4.7711,4.7711,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,westus2,NA,1,4.0205,4.0205,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC40ads_H100_v5,westus3,NA,1,4.9439,4.9439,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,australiaeast,APAC,2,3.7407,1.8704,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,canadacentral,NA,2,3.381,1.6905,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,centralindia,APAC,2,9.4554,4.7277,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,centralus,NA,2,3.6074,1.8037,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,eastus,NA,2,2.5798,1.2899,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,eastus2,NA,2,8.041,4.0205,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,germanywestcentral,EU,2,3.3537,1.6769,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,indonesiacentral,APAC,2,3.0183,1.5092,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,japaneast,APAC,2,5.9694,2.9847,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,koreacentral,APAC,2,5.3579,2.679,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,koreasouth,APAC,2,3.2248,1.6124,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,malaysiawest,APAC,2,3.6504,1.8252,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,northcentralus,NA,2,3.0958,1.5479,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,northeurope,EU,2,3.0958,1.5479,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,southcentralus,NA,2,5.3481,2.6741,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,southeastasia,APAC,2,3.3537,1.6769,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,spaincentral,EU,2,3.5806,1.7903,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,swedencentral,EU,2,4.2811,2.1406,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,switzerlandnorth,EU,2,4.334,2.167,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,uaenorth,ME,2,3.6886,1.8443,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,uksouth,EU,2,3.2248,1.6124,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,ukwest,EU,2,3.656,1.828,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,westeurope,EU,2,8.3681,4.1841,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,westus,NA,2,9.5422,4.7711,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,westus2,NA,2,8.041,4.0205,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,H100-NVL,Standard_NC80adis_H100_v5,westus3,NA,2,9.8879,4.9439,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,australiasoutheast,APAC,8,12.4186,1.5523,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,brazilsouth,LATAM,8,17.7408,2.2176,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,canadacentral,NA,8,10.6445,1.3306,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,centralus,NA,8,10.9108,1.3638,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,eastus2,NA,8,8.8704,1.1088,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,francecentral,EU,8,11.088,1.386,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,germanywestcentral,EU,8,11.5315,1.4414,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,koreasouth,APAC,8,11.088,1.386,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,northcentralus,NA,8,10.6445,1.3306,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,northeurope,EU,8,10.6445,1.3306,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,polandcentral,EU,8,13.6604,1.7076,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,swedencentral,EU,8,12.4186,1.5523,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,uaenorth,ME,8,12.6847,1.5856,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,uksouth,EU,8,11.088,1.386,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,westcentralus,NA,8,10.6445,1.3306,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,westus,NA,8,12.778,1.5973,1
+2026-09-29,2026-09-29T03:34:41+00:00,azure,Microsoft Azure,hyperscaler,spot,MI300X,Standard_ND96isr_MI300X_v5,westus3,NA,8,8.8704,1.1088,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-40GB,gpu_1x_a100_pcie_40gb,global,Global,1,1.99,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-40GB,gpu_1x_a100_sxm_40gb,global,Global,1,1.99,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-40GB,gpu_2x_a100_pcie_40gb,global,Global,2,3.98,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-40GB,gpu_4x_a100_pcie_40gb,global,Global,4,7.96,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-40GB,gpu_8x_a100_sxm_40gb,global,Global,8,15.92,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,A100-80GB,gpu_8x_a100_sxm_80gb,global,Global,8,22.32,2.79,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,B200,gpu_1x_b200_sxm6_180gb,global,Global,1,6.99,6.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,B200,gpu_2x_b200_sxm6_180gb,global,Global,2,13.78,6.89,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,B200,gpu_4x_b200_sxm6_180gb,global,Global,4,27.16,6.79,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,B200,gpu_8x_b200_sxm6_180gb,global,Global,8,53.52,6.69,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,H100,gpu_1x_h100_sxm_80gb,global,Global,1,4.29,4.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,H100,gpu_2x_h100_sxm_80gb,global,Global,2,8.38,4.19,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,H100,gpu_4x_h100_sxm_80gb,global,Global,4,16.36,4.09,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,H100,gpu_8x_h100_sxm_80gb,global,Global,8,31.92,3.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,lambda,Lambda,neocloud,on_demand,H100-PCIe,gpu_1x_h100_pcie_80gb,global,Global,1,3.29,3.29,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,A100-40GB,NVIDIA A100-SXM4-40GB,global,Global,1,1.0,1.0,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,A100-80GB,NVIDIA A100-SXM4-80GB,global,Global,1,1.39,1.39,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,A100-80GB-PCIe,NVIDIA A100 80GB PCIe,global,Global,1,1.19,1.19,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,B200,NVIDIA B200,global,Global,1,5.98,5.98,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,B300,NVIDIA B300 SXM6 AC,global,Global,1,6.94,6.94,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100,NVIDIA H100 80GB HBM3,global,Global,1,2.69,2.69,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100-NVL,NVIDIA H100 NVL,global,Global,1,2.59,2.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100-PCIe,NVIDIA H100 PCIe,global,Global,1,1.99,1.99,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H200,NVIDIA H200,global,Global,1,3.59,3.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,L40S,NVIDIA L40S,global,Global,1,0.79,0.79,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,MI300X,AMD Instinct MI300X OAM,global,Global,1,0.5,0.5,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,A100-80GB,NVIDIA A100-SXM4-80GB,global,Global,1,1.59,1.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,A100-80GB-PCIe,NVIDIA A100 80GB PCIe,global,Global,1,1.59,1.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,B200,NVIDIA B200,global,Global,1,6.79,6.79,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,B300,NVIDIA B300 SXM6 AC,global,Global,1,7.89,7.89,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100,NVIDIA H100 80GB HBM3,global,Global,1,3.49,3.49,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100-NVL,NVIDIA H100 NVL,global,Global,1,3.19,3.19,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100-PCIe,NVIDIA H100 PCIe,global,Global,1,2.89,2.89,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H200,NVIDIA H200,global,Global,1,4.59,4.59,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,L40S,NVIDIA L40S,global,Global,1,1.09,1.09,1
+2026-09-29,2026-09-29T03:34:41+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,MI300X,AMD Instinct MI300X OAM,global,Global,1,2.39,2.39,1
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,A100-40GB,median-offer,global,Global,1,0.6815,0.6815,37
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,A100-80GB,median-offer,global,Global,1,1.3529,1.3529,14
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,A100-80GB-PCIe,median-offer,global,Global,1,0.9344,0.9344,8
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,B200,median-offer,global,Global,1,8.5524,8.5524,7
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,H100,median-offer,global,Global,1,3.1387,3.1387,15
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,H100-NVL,median-offer,global,Global,1,2.8289,2.8289,8
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,H100-PCIe,median-offer,global,Global,1,2.5887,2.5887,10
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,H200,median-offer,global,Global,1,4.8041,4.8041,6
+2026-09-29,2026-09-29T03:34:41+00:00,vast,Vast.ai,marketplace,on_demand,L40S,median-offer,global,Global,1,0.8005,0.8005,32

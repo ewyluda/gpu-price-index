@@ -1,6 +1,6 @@
 {
  "latest": {
-  "collected_at": "2026-09-29T03:34:41+00:00",
+  "collected_at": "2026-09-29T04:03:11+00:00",
   "date": "2026-09-29",
   "observations": 537,
   "ok": true,
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.56
+    "seconds": 0.45
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.48
+    "seconds": 1.52
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.15
+    "seconds": 0.21
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 21,
-    "seconds": 0.19
+    "seconds": 0.23
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 9,
-    "seconds": 0.98
+    "seconds": 1.1
    }
   ],
   "validation": {
@@ -52,6 +52,11 @@
   }
  },
  "recent": [
+  {
+   "date": "2026-09-29",
+   "ok": true,
+   "observations": 537
+  },
   {
    "date": "2026-09-29",
    "ok": true,

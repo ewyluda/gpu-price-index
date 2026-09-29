@@ -1,14 +1,15 @@
 {
  "as_of": "2026-09-29",
- "generator": "template",
- "model": null,
- "headline": "H100 rents for $3.82/GPU-hr at the market median",
+ "generator": "claude",
+ "model": "claude-opus-5-5",
+ "headline": "Hyperscalers charge double or more over neoclouds across all six GPUs, led by H100 SXM at +217%.",
  "bullets": [
-  "B200: market index $6.84/GPU-hr across 5 providers; hyperscaler premium +109% over neoclouds.",
-  "H200: market index $4.80/GPU-hr across 5 providers; hyperscaler premium +136% over neoclouds.",
-  "H100 SXM: market index $3.82/GPU-hr across 6 providers; hyperscaler premium +217% over neoclouds.",
-  "MI300X: market index $2.39/GPU-hr across 3 providers; hyperscaler premium +214% over neoclouds.",
-  "Best price-performance: MI300X at $1.83 per dense BF16 PFLOP-hour."
+  "H100 SXM shows the widest hyperscaler premium at +217%, with a hyperscaler median of $12.12 against a neocloud median of $3.82.",
+  "MI300X offers the best price-performance at $1.83 per PFLOP-hour, and RunPod Community Cloud lists it at a $0.50 median versus a $7.50 hyperscaler median.",
+  "B200 carries the top market index at $6.84, with a hyperscaler median of $14.24 and a +109% premium over neoclouds at $6.81.",
+  "RunPod Community Cloud is the cheapest provider for five of six GPUs, including H200 at $3.59 against a $4.63 market index.",
+  "A100 80GB SXM has the narrowest hyperscaler premium at +100% but the worst price-performance at $7.02 per PFLOP-hour, with Vast.ai cheapest at $1.17."
  ],
- "watch": "Trend signals begin once 7 days of history have accumulated."
+ "watch": "With only 1 day of history, watch whether the +217% H100 SXM hyperscaler premium holds once a 7-day trend window builds.",
+ "fact_checked": true
 }

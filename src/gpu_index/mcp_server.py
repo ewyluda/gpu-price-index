@@ -1,0 +1,150 @@
+"""MCP server: lets an AI agent query the GPU price index and price out clusters.
+
+Reads the published artifacts (``site/data/*.json``) from disk, or from a deployed
+dashboard when ``GPU_INDEX_DATA_URL`` is set, e.g.
+``GPU_INDEX_DATA_URL=https://ewyluda.github.io/gpu-rental-rate/data``.
+
+Run with ``gpu-index-mcp`` (stdio). Example Claude Code registration:
+``claude mcp add gpu-index -- uv run --directory /path/to/repo gpu-index-mcp``
+"""
+
+from __future__ import annotations
+
+import json
+import os
+from typing import Any, Literal
+
+import httpx
+from mcp.server.mcpserver import MCPServer
+
+from gpu_index import index
+from gpu_index.http import USER_AGENT
+from gpu_index.publish import SITE_DATA
+
+server = MCPServer(
+    name="gpu-index",
+    instructions=(
+        "Daily GPU rental prices (USD per GPU-hour, on-demand list prices) from "
+        "hyperscalers, neoclouds and marketplaces. Use list_gpus first to see valid GPU "
+        "keys. Use estimate_cluster_cost for 'what would N GPUs for T cost' questions. "
+        "Always cite the as_of date returned with the data."
+    ),
+)
+
+
+def load(name: str) -> Any:
+    """Load a published artifact by file name (latest.json, history.json, ...)."""
+    base = os.environ.get("GPU_INDEX_DATA_URL")
+    if base:
+        response = httpx.get(
+            f"{base.rstrip('/')}/{name}", headers={"User-Agent": USER_AGENT}, timeout=20
+        )
+        response.raise_for_status()
+        return response.json()
+    return json.loads((SITE_DATA / name).read_text(encoding="utf-8"))
+
+
+def _gpu(snap: dict[str, Any], gpu: str) -> dict[str, Any]:
+    for entry in snap["gpus"]:
+        if entry["key"].lower() == gpu.lower() or entry["name"].lower() == gpu.lower():
+            return dict(entry)
+    raise ValueError(f"unknown GPU {gpu!r}; valid keys: {[g['key'] for g in snap['gpus']]}")
+
+
+@server.tool()
+def list_gpus() -> dict[str, Any]:
+    """List tracked GPUs with specs and today's market index ($/GPU-hr)."""
+    snap = load("latest.json")
+    return {
+        "as_of": snap["as_of"],
+        "gpus": [
+            {
+                "key": g["key"],
+                "name": g["name"],
+                "memory_gb": g["memory_gb"],
+                "bf16_dense_tflops": g["bf16_dense_tflops"],
+                "market_index_usd_per_gpu_hour": g["series"]["index"]["value"],
+                "providers": g["series"]["index"]["n_providers"],
+            }
+            for g in snap["gpus"]
+        ],
+    }
+
+
+@server.tool()
+def get_prices(gpu: str) -> dict[str, Any]:
+    """Current prices for one GPU: market and segment indices, per-provider table,
+    regional medians, hyperscaler premium and price-performance."""
+    snap = load("latest.json")
+    return {"as_of": snap["as_of"], **_gpu(snap, gpu)}
+
+
+@server.tool()
+def get_history(
+    gpu: str,
+    series: Literal["index", "hyperscaler", "neocloud", "marketplace", "spot"] = "index",
+) -> dict[str, Any]:
+    """Daily history of one index series for a GPU (null where no data that day)."""
+    hist = load("history.json")
+    key = _gpu(load("latest.json"), gpu)["key"]
+    return {
+        "gpu": key,
+        "series": series,
+        "dates": hist["dates"],
+        "values": hist["series"][key][series],
+    }
+
+
+@server.tool()
+def estimate_cluster_cost(
+    gpu: str,
+    gpu_count: int,
+    hours: float,
+    segment: Literal["hyperscaler", "neocloud", "marketplace"] | None = None,
+) -> dict[str, Any]:
+    """Estimate the on-demand cost of renting gpu_count GPUs for a number of hours,
+    quoted per provider at its cheapest listed SKU/region, cheapest first.
+    Example: 512 H100s for 90 days -> gpu="H100", gpu_count=512, hours=2160."""
+    if gpu_count < 1 or hours <= 0:
+        raise ValueError("gpu_count must be >= 1 and hours > 0")
+    snap = load("latest.json")
+    return index.estimate_cost(snap, _gpu(snap, gpu)["key"], gpu_count, hours, segment)
+
+
+@server.tool()
+def compare_price_performance(
+    metric: Literal["pflop", "memory"] = "pflop",
+) -> dict[str, Any]:
+    """Rank GPUs by market-index cost per dense BF16 PFLOP-hour or per GB of HBM-hour.
+    Peak FLOPS are vendor specs; delivered throughput depends on the workload."""
+    snap = load("latest.json")
+    field = "usd_per_pflop_hour" if metric == "pflop" else "usd_per_gb_hour"
+    ranking = sorted(
+        (
+            {"gpu": g["key"], field: g[field], "market_index": g["series"]["index"]["value"]}
+            for g in snap["gpus"]
+        ),
+        key=lambda r: r[field],
+    )
+    return {"as_of": snap["as_of"], "metric": field, "ranking": ranking}
+
+
+@server.tool()
+def pipeline_status() -> dict[str, Any]:
+    """Health of the most recent collection run: per-source status and validation."""
+    status: dict[str, Any] = load("status.json")
+    return status
+
+
+@server.resource("gpu-index://methodology", mime_type="text/markdown")
+def methodology() -> str:
+    """How the index is computed."""
+    return index.__doc__ or ""
+
+
+def main() -> None:
+    server.run("stdio")
+
+
+if __name__ == "__main__":
+    main()

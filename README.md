@@ -104,10 +104,10 @@ from src.analytics import GPURateAnalytics
 db = DatabaseManager()
 
 # Get latest rates
-latest = db.get_latest_rates(gpu_model='H100', limit=10)
+latest = db.get_latest_rates(gpu_model="H100", limit=10)
 
 # Get statistics
-stats = db.get_rate_statistics('H100', days=7)
+stats = db.get_rate_statistics("H100", days=7)
 
 # Get analytics
 analytics = GPURateAnalytics()
@@ -118,7 +118,7 @@ print(report)
 comparison = analytics.compare_gpu_models(days=7)
 
 # Export to CSV
-analytics.export_to_csv('data/export.csv', days=30)
+analytics.export_to_csv("data/export.csv", days=30)
 ```
 
 ## Database Schema

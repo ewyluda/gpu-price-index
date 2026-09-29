@@ -24,3 +24,6 @@ data/test_export.csv
 .idea/
 *.swp
 .DS_Store
+
+# Local tooling
+.claude/

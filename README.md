@@ -1,143 +1,145 @@
-# GPU Rental Rate Tracker
+# GPU Price Index
 
-Automated web scraping system to collect and track rental rates for high-end GPUs (H100, A100, B200) from [Silicon Data](https://www.silicondata.com/products/silicon-index).
+**An open, daily index of GPU rental prices across hyperscalers, neoclouds and
+marketplaces, built from primary sources and versioned in git.**
 
-## Overview
+[![CI](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/ci.yml/badge.svg)](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/ci.yml)
+[![Collect prices](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/collect.yml/badge.svg)](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/collect.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This project provides web scrapers to collect GPU rental pricing data for analytics and trend analysis. It includes implementations using both Playwright and Selenium to handle bot protection and dynamic content.
+**[Live dashboard →](https://ewyluda.github.io/gpu-rental-rate/)** ·
+[Methodology](docs/methodology.md) · [Architecture](docs/architecture.md)
 
-## Features
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/dashboard-dark.png">
+  <img alt="GPU Price Index dashboard: market index tiles per GPU and a dot plot comparing hyperscaler, neocloud and marketplace prices" src="docs/img/dashboard-light.png">
+</picture>
 
-- **Dual Scraper Implementation**: Playwright and Selenium versions for maximum compatibility
-- **Anti-Bot Detection**: Mimics human browsing behavior to bypass common protections
-- **Rate Extraction**: Targets H100, A100, and B200 GPU models
-- **SQLite Database**: Automatic storage with deduplication and indexing
-- **Analytics Engine**: Trend analysis, statistics, and comparison reports
-- **Debug Logging**: Saves HTML snapshots for troubleshooting parsing logic
-- **Performance Comparison**: Built-in testing to compare both scrapers
-- **CSV Export**: Export historical data for external analysis
+## Why
 
-## Quick Start
+If you plan or buy AI compute, the first question is always *what should this cost?* The
+answer depends less on which GPU you pick than on **where you rent it**. On day one of the
+index, an H100 SXM listed at a **$3.82/GPU-hr** market median. The hyperscaler segment
+median was **$12.12**, and marketplace offers started at **$2.69**. That's a 4.5× spread for
+the same silicon.
 
-See [SETUP.md](SETUP.md) for detailed installation and setup instructions.
+This project turns that price surface into something you can plan with:
+
+- **A daily index** for 11 data-center GPUs (B300, B200, H200, H100 SXM/NVL/PCIe, MI300X,
+  A100 variants, L40S), split into hyperscaler, neocloud and marketplace segments.
+- **A cluster cost calculator:** *512 H100s for 90 days* quoted per provider.
+- **Price-performance:** $/PFLOP-hour and $/GB-hour, so a B200 and an A100 can be compared on
+  what you actually buy.
+- **An MCP server**, so Claude (or any agent) can answer budget questions from live data.
+- **A fact-checked daily brief:** Claude writes the prose, and code verifies every number.
+
+## How it works
+
+```mermaid
+flowchart LR
+    S["5 public price sources<br/>Azure · AWS · Lambda · RunPod · Vast.ai"] --> A["Adapters<br/>fetch → parse"]
+    A --> V{"Validation<br/>gates"}
+    A --> D[("Daily CSV<br/>in git")]
+    D --> I["Index<br/>two-stage median"]
+    I --> P["Static JSON"]
+    P --> W["Dashboard<br/>GitHub Pages"]
+    P --> M["MCP server"]
+    P --> B["Brief<br/>Claude + fact-check"]
+    V -- "failure" --> G["GitHub issue"]
+```
+
+Every morning at 06:17 UTC, a GitHub Actions job does the following:
+
+1. Pulls ~540 prices from five sources in about 8 seconds, over plain HTTP.
+2. Normalizes each price to USD per GPU-hour.
+3. Validates the data: schema, price bounds, per-source volume, and day-over-day drift.
+4. Commits the day's CSV to the repo and redeploys the dashboard.
+
+If a source breaks, the other sources still publish, the job opens an issue, and the next
+healthy run closes it.
+
+The **index** is a two-stage median: each provider's median across its SKUs and regions, then
+the median across providers. Azure's hundreds of regional rows get the same single vote as
+Lambda's one price list. See [methodology](docs/methodology.md) for the full definitions,
+normalization rules and limitations.
+
+## Quickstart
+
+Requires [uv](https://docs.astral.sh/uv/).
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Install Playwright browsers
-playwright install chromium
-
-# Test database operations
-python test_database.py
-
-# Run scraper comparison test (with database storage)
-python test_scrapers.py
-
-# Run production collection
-python collect_rates.py --scraper playwright --report
+uv sync --all-extras
+uv run gpu-index run      # collect all sources, validate, build site data, write the brief
+uv run gpu-index show     # print today's index
+python3 -m http.server 8765 --directory site   # dashboard at http://localhost:8765
 ```
 
-## Project Structure
-
-```
-gpu-rental-rate/
-├── src/
-│   ├── config.py              # Configuration settings
-│   ├── scraper_playwright.py  # Playwright implementation
-│   ├── scraper_selenium.py    # Selenium implementation
-│   ├── database.py            # Database manager and schema
-│   └── analytics.py           # Analytics and reporting
-├── logs/                      # Debug HTML files and results
-├── data/                      # SQLite database storage
-├── test_scrapers.py          # Scraper comparison test
-├── test_database.py          # Database operation tests
-├── collect_rates.py          # Main collection workflow
-├── requirements.txt          # Python dependencies
-├── SETUP.md                 # Setup instructions
-└── README.md                # This file
+```text
+GPU                Index   Hyper     Neo  Market  Premium  $/PF-hr
+B200                6.84   14.24    6.81    7.05    +109%     3.04
+H200                4.80   10.85    4.59    4.20    +136%     4.85
+H100 SXM            3.82   12.12    3.82    2.95    +217%     3.86
+MI300X              2.39    7.50    2.39    0.50    +214%     1.83
+...
 ```
 
-## Current Status
-
-- [x] Playwright scraper implementation
-- [x] Selenium scraper implementation
-- [x] Comparison testing framework
-- [x] Anti-detection measures
-- [x] SQLite database with full schema
-- [x] Database connection and insertion logic
-- [x] Analytics engine with trend analysis
-- [x] CSV export functionality
-- [x] Main collection workflow script
-- [ ] Rate parsing logic (requires site structure analysis)
-- [ ] Automated scheduling (GitHub Actions/cron)
-- [ ] Webhook notifications for failures
-
-## Usage
-
-### Collect Rates
+### Ask an agent (MCP)
 
 ```bash
-# Use Playwright scraper (recommended)
-python collect_rates.py --scraper playwright
-
-# Use Selenium scraper
-python collect_rates.py --scraper selenium
-
-# Show analytics report after collection
-python collect_rates.py --scraper playwright --report
-
-# Run in visible mode (see browser)
-python collect_rates.py --scraper playwright --visible
-
-# Export to CSV
-python collect_rates.py --scraper playwright --export-csv data/export.csv
+# from a checkout
+claude mcp add gpu-index -- uv run --directory "$PWD" gpu-index-mcp
+# or straight from GitHub (reads the published dashboard data)
+claude mcp add gpu-index -- uvx --from "gpu-index[mcp] @ git+https://github.com/ewyluda/gpu-rental-rate" gpu-index-mcp
 ```
 
-### Database Operations
+Tools: `list_gpus`, `get_prices`, `get_history`, `estimate_cluster_cost`,
+`compare_price_performance`, `pipeline_status`. For example: *"What would 512 H100s for 90
+days cost at neoclouds vs hyperscalers, and which GPU is cheapest per PFLOP?"*
 
-```python
-from src.database import DatabaseManager
-from src.analytics import GPURateAnalytics
+### Development
 
-# Initialize database
-db = DatabaseManager()
-
-# Get latest rates
-latest = db.get_latest_rates(gpu_model="H100", limit=10)
-
-# Get statistics
-stats = db.get_rate_statistics("H100", days=7)
-
-# Get analytics
-analytics = GPURateAnalytics()
-report = analytics.generate_summary_report(days=7)
-print(report)
-
-# Compare GPU models
-comparison = analytics.compare_gpu_models(days=7)
-
-# Export to CSV
-analytics.export_to_csv("data/export.csv", days=30)
+```bash
+uv run pytest          # 59 tests, no network: parsers run against recorded fixtures
+uv run ruff check . && uv run ruff format --check .
+uv run mypy            # strict
 ```
 
-## Database Schema
+## Engineering notes
 
-The SQLite database includes two main tables:
+- **Primary sources only.** Every number traces to a provider's own public price list.
+  [Each adapter](src/gpu_index/sources/) records why its data may be used.
+- **Parsers are pure and fixture-tested.** `fetch` does I/O; `parse` is a pure function
+  tested against recorded payloads. An upstream format change fails a volume gate instead of
+  silently publishing empty data.
+- **Data as code.** Daily CSVs in git make every price change reviewable with
+  `git log -p data/observations`.
+- **The LLM never introduces numbers.** Every `$`, `%` and `×` figure in Claude's draft brief
+  must match the day's fact sheet. After one retry with feedback, the brief falls back to a
+  deterministic template ([`brief.py`](src/gpu_index/brief.py)).
+- **No build step on the front end.** One HTML file, one stylesheet, one dependency-free
+  module drawing SVG charts, with light/dark themes, keyboard-accessible tooltips and a table
+  view for every chart.
 
-**gpu_rental_rates**: Stores GPU rental rate observations
-- Unique constraint on (timestamp, gpu_model, provider, region) prevents duplicates
-- Indexed on gpu_model and timestamp for fast queries
-- Stores rate_per_hour, currency, provider, region, availability, and raw data
+More in [docs/architecture.md](docs/architecture.md), including how to add a source.
 
-**scraping_logs**: Tracks scraping attempts and performance
-- Records success/failure, duration, rates found, errors
-- Helps monitor scraper health and performance
+## Project history
 
-## Next Steps
+v0 was a Selenium scraper for one third-party GPU index. An audit found three problems. It
+had never stored a rate: the parser targeted auto-generated element IDs. The data it was
+built to collect sat in the plain HTTP response the whole time. And the publisher's terms
+prohibit storing or redistributing their data. v1 is a ground-up rebuild on primary sources.
+Collection went from a 100-second headless-browser run that yielded 0 rows to an 8-second
+HTTP run that yields ~540 rows across 5 providers. The prototype remains in git history.
 
-1. Test both scrapers to determine which works best
-2. Analyze HTML output to refine parsing logic
-3. Add scheduling for automated collection (GitHub Actions)
-4. Set up notifications for scraping failures
-5. Create data visualization dashboard
+## Roadmap
+
+- More neoclouds (CoreWeave, Nebius, Crusoe, Together) as machine-readable prices allow
+- Google Cloud via the Cloud Billing Catalog API
+- Reserved/committed pricing where providers publish it
+- Weekly email/Slack digest of index moves
+
+## License
+
+Code is [MIT](LICENSE). Prices are derived from each provider's public price lists and
+remain their publishers' information. They're shown for reference, not as procurement
+advice.

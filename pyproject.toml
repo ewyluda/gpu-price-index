@@ -12,8 +12,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-ai = ["anthropic>=0.70"]
-mcp = ["mcp>=1.2"]
+ai = ["anthropic>=1.0"]
+mcp = ["mcp>=2.0"]
 
 [project.scripts]
 gpu-index = "gpu_index.cli:main"

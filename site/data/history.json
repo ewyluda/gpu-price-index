@@ -8,7 +8,7 @@
     7.89
    ],
    "hyperscaler": [
-    17.802
+    17.8
    ],
    "neocloud": [
     7.89
@@ -25,13 +25,13 @@
     6.84
    ],
    "hyperscaler": [
-    14.242
+    14.24
    ],
    "neocloud": [
-    6.815
+    6.81
    ],
    "marketplace": [
-    7.054
+    7.05
    ],
    "spot": [
     null
@@ -39,16 +39,16 @@
   },
   "H200": {
    "index": [
-    4.804
+    4.8
    ],
    "hyperscaler": [
-    10.846
+    10.85
    ],
    "neocloud": [
     4.59
    ],
    "marketplace": [
-    4.197
+    4.2
    ],
    "spot": [
     null
@@ -56,41 +56,41 @@
   },
   "H100": {
    "index": [
-    3.815
+    3.82
    ],
    "hyperscaler": [
-    12.117
+    12.12
    ],
    "neocloud": [
-    3.815
+    3.82
    ],
    "marketplace": [
-    2.946
+    2.95
    ],
    "spot": [
-    2.953
+    2.95
    ]
   },
   "H100-NVL": {
    "index": [
-    3.109
+    3.11
    ],
    "hyperscaler": [
-    9.074
+    9.07
    ],
    "neocloud": [
     3.19
    ],
    "marketplace": [
-    2.809
+    2.81
    ],
    "spot": [
-    1.836
+    1.84
    ]
   },
   "H100-PCIe": {
    "index": [
-    2.739
+    2.74
    ],
    "hyperscaler": [
     null
@@ -99,7 +99,7 @@
     3.09
    ],
    "marketplace": [
-    2.289
+    2.29
    ],
    "spot": [
     null
@@ -119,7 +119,7 @@
     0.5
    ],
    "spot": [
-    1.386
+    1.39
    ]
   },
   "A100-80GB": {
@@ -127,16 +127,16 @@
     2.19
    ],
    "hyperscaler": [
-    4.378
+    4.38
    ],
    "neocloud": [
     2.19
    ],
    "marketplace": [
-    1.336
+    1.34
    ],
    "spot": [
-    1.464
+    1.46
    ]
   },
   "A100-80GB-PCIe": {
@@ -144,16 +144,16 @@
     1.39
    ],
    "hyperscaler": [
-    4.775
+    4.78
    ],
    "neocloud": [
     1.59
    ],
    "marketplace": [
-    1.062
+    1.06
    ],
    "spot": [
-    0.882
+    0.88
    ]
   },
   "A100-40GB": {
@@ -161,30 +161,30 @@
     1.99
    ],
    "hyperscaler": [
-    3.686
+    3.69
    ],
    "neocloud": [
     1.99
    ],
    "marketplace": [
-    0.834
+    0.83
    ],
    "spot": [
-    0.885
+    0.89
    ]
   },
   "L40S": {
    "index": [
-    0.945
+    0.95
    ],
    "hyperscaler": [
-    2.699
+    2.7
    ],
    "neocloud": [
     1.09
    ],
    "marketplace": [
-    0.795
+    0.8
    ],
    "spot": [
     null

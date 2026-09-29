@@ -6,6 +6,8 @@ dashboard when ``GPU_INDEX_DATA_URL`` is set, e.g.
 
 Run with ``gpu-index-mcp`` (stdio). Example Claude Code registration:
 ``claude mcp add gpu-index -- uv run --directory /path/to/repo gpu-index-mcp``
+or, without a checkout (reads the public dashboard's data):
+``claude mcp add gpu-index -- uvx --from "gpu-index[mcp] @ git+<repo url>" gpu-index-mcp``
 """
 
 from __future__ import annotations
@@ -32,9 +34,18 @@ server = MCPServer(
 )
 
 
+PUBLIC_DATA_URL = "https://ewyluda.github.io/gpu-rental-rate/data"
+
+
 def load(name: str) -> Any:
-    """Load a published artifact by file name (latest.json, history.json, ...)."""
+    """Load a published artifact by file name (latest.json, history.json, ...).
+
+    Prefers ``GPU_INDEX_DATA_URL``, then a local checkout's ``site/data``, then the
+    public dashboard (the case when installed with ``uvx`` outside the repo).
+    """
     base = os.environ.get("GPU_INDEX_DATA_URL")
+    if base is None and not (SITE_DATA / name).exists():
+        base = PUBLIC_DATA_URL
     if base:
         response = httpx.get(
             f"{base.rstrip('/')}/{name}", headers={"User-Agent": USER_AGENT}, timeout=20

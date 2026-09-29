@@ -18,6 +18,7 @@ from collections.abc import Iterable
 from dataclasses import asdict
 from datetime import date as Date
 from datetime import timedelta
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 from gpu_index.catalog import GPUS
@@ -29,6 +30,13 @@ SERIES = ("index", *SEGMENTS, "spot")
 
 def _r(value: float | None, digits: int = 4) -> float | None:
     return None if value is None else round(value, digits)
+
+
+def _usd(value: float | None) -> float | None:
+    """Round a price to the cent, half-up, so Python and the browser display it identically."""
+    if value is None:
+        return None
+    return float(Decimal(repr(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
 
 
 def provider_medians(
@@ -75,7 +83,7 @@ def history(rows: list[Observation]) -> dict[str, Any]:
     series: dict[str, dict[str, list[float | None]]] = {}
     for gpu in GPUS:
         series[gpu] = {
-            name: [_r(per_day[d].get(gpu, {}).get(name, (None, 0))[0], 3) for d in dates]
+            name: [_usd(per_day[d].get(gpu, {}).get(name, (None, 0))[0]) for d in dates]
             for name in SERIES
         }
     return {"dates": dates, "series": series}
@@ -105,9 +113,9 @@ def _provider_table(rows: list[Observation], gpu: str) -> list[dict[str, Any]]:
                 "provider": provider,
                 "source": best.source,
                 "segment": best.segment,
-                "median": _r(statistics.median(o.usd_per_gpu_hour for o in obs), 3),
-                "min": _r(best.usd_per_gpu_hour, 3),
-                "max": _r(max(o.usd_per_gpu_hour for o in obs), 3),
+                "median": _usd(statistics.median(o.usd_per_gpu_hour for o in obs)),
+                "min": _usd(best.usd_per_gpu_hour),
+                "max": _usd(max(o.usd_per_gpu_hour for o in obs)),
                 "best_sku": best.sku,
                 "best_region": best.region,
                 "n_skus": len({o.sku for o in obs}),
@@ -126,7 +134,7 @@ def _regional(rows: list[Observation], gpu: str) -> dict[str, dict[str, float]]:
             groups[(o.geo, o.segment)].append(o.usd_per_gpu_hour)
     out: dict[str, dict[str, float]] = defaultdict(dict)
     for (geo, segment), values in sorted(groups.items()):
-        out[geo][segment] = round(statistics.median(values), 3)
+        out[geo][segment] = _usd(statistics.median(values)) or 0.0
     return dict(out)
 
 
@@ -150,7 +158,7 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
             if name in today[key]:
                 value, n = today[key][name]
                 entry.setdefault("series", {})[name] = {
-                    "value": _r(value, 3),
+                    "value": _usd(value),
                     "n_providers": n,
                     "change_7d": pct_change(dates, series[name], 7),
                     "change_30d": pct_change(dates, series[name], 30),
@@ -161,7 +169,7 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
             _r(hyper["value"] / neo["value"] - 1) if hyper and neo else None
         )
         index_value = s["index"]["value"]
-        entry["usd_per_pflop_hour"] = _r(index_value / (spec.bf16_dense_tflops / 1000), 3)
+        entry["usd_per_pflop_hour"] = _usd(index_value / (spec.bf16_dense_tflops / 1000))
         entry["usd_per_gb_hour"] = _r(index_value / spec.memory_gb, 5)
         entry["providers"] = _provider_table(latest, key)
         entry["regional"] = _regional(latest, key)

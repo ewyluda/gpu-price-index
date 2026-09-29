@@ -68,7 +68,7 @@ def test_snapshot_derives_premium_changes_and_price_performance() -> None:
     assert h100["series"]["neocloud"]["change_7d"] == pytest.approx(0.1)
     assert h100["hyperscaler_premium"] == pytest.approx(2.0)  # 6.6 / 2.2 - 1
     assert h100["series"]["index"]["value"] == pytest.approx(4.4)
-    assert h100["usd_per_pflop_hour"] == pytest.approx(4.4 / 0.989, abs=1e-3)
+    assert h100["usd_per_pflop_hour"] == pytest.approx(4.4 / 0.989, abs=0.005)  # cents
     assert h100["regional"] == {"NA": {"hyperscaler": 6.6}}
     assert [p["provider"] for p in h100["providers"]] == ["Neo", "Hyper"]
 

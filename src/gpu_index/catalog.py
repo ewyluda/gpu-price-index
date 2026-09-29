@@ -27,7 +27,7 @@ class GPUSpec:
 GPUS: dict[str, GPUSpec] = {
     spec.key: spec
     for spec in [
-        GPUSpec("B300", "B300", "NVIDIA", "Blackwell Ultra", 288, 8.0, 2250, True),
+        GPUSpec("B300", "B300", "NVIDIA", "Blackwell Ultra", 288, 8.0, 2250, False),
         GPUSpec("B200", "B200", "NVIDIA", "Blackwell", 180, 7.7, 2250, True),
         GPUSpec("H200", "H200", "NVIDIA", "Hopper", 141, 4.8, 989, True),
         GPUSpec("H100", "H100 SXM", "NVIDIA", "Hopper", 80, 3.35, 989, True),

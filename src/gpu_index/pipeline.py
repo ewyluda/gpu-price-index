@@ -13,7 +13,7 @@ from gpu_index import store
 from gpu_index.http import make_client
 from gpu_index.models import Observation
 from gpu_index.sources import ADAPTERS, SourceAdapter, Stamp
-from gpu_index.validate import Report, validate
+from gpu_index.validate import Report, check_drift, screen_source
 
 log = logging.getLogger(__name__)
 
@@ -69,25 +69,30 @@ def _run_source(
 def collect(source_ids: list[str] | None = None, stamp: Stamp | None = None) -> RunResult:
     stamp = stamp or Stamp.now()
     adapters = [ADAPTERS[s] for s in (source_ids or list(ADAPTERS))]
+    report = Report()
 
     results: list[SourceResult] = []
-    observations: list[Observation] = []
+    accepted: list[Observation] = []
     with make_client() as client:
         for adapter in adapters:
             result, rows = _run_source(adapter, client, stamp)
+            if result.ok:
+                valid = screen_source(adapter.id, rows, adapter.min_rows, report)
+                if valid is None:
+                    result.ok, result.error = False, "failed validation (too few valid rows)"
+                else:
+                    result.rows = len(valid)
+                    accepted.extend(valid)
+            else:
+                report.errors.append(f"{adapter.id}: {result.error}")
             results.append(result)
-            observations.extend(rows)
 
-    # Only replace sources that succeeded, so a failed fetch keeps any earlier
-    # same-day data instead of erasing it.
-    succeeded = {r.id for r in results if r.ok}
-    store.write_day(stamp.date, observations, replace_sources=succeeded)
+    # Only replace sources that passed, so a failed or invalid fetch keeps any
+    # earlier same-day data instead of erasing or corrupting it.
+    passed = {r.id for r in results if r.ok}
+    store.write_day(stamp.date, accepted, replace_sources=passed)
 
     earlier = [d for d in store.dates() if d < stamp.date]
     previous = store.read_day(earlier[-1]) if earlier else []
-    report = validate(
-        observations,
-        previous,
-        min_rows={a.id: a.min_rows for a in adapters if a.id in succeeded},
-    )
-    return RunResult(stamp, results, observations, report)
+    check_drift(previous, store.read_day(stamp.date), report)
+    return RunResult(stamp, results, accepted, report)

@@ -103,7 +103,8 @@ function renderStatus() {
   const s = state.snap;
   $("#asof").textContent =
     `As of ${fmtDate(s.as_of)} · ${s.observations.toLocaleString()} prices from ${s.providers.length} providers · ` +
-    (s.days_of_history > 1 ? `${s.days_of_history} days of history since ${fmtDate(s.first_date)}` : `history starts ${fmtDate(s.first_date)}`);
+    (s.days_of_history > 1 ? `${s.days_of_history} days of history since ${fmtDate(s.first_date)}` : `history starts ${fmtDate(s.first_date)}`) +
+    (s.carried_forward?.length ? ` · last known prices carried forward for ${s.carried_forward.join(", ")} (source unavailable)` : "");
 }
 
 function renderBrief() {
@@ -435,6 +436,7 @@ function renderPipeline() {
     [2, 3],
   ).replace('<div class="table-wrap">', "<div>");
   const notes = [
+    ...(state.snap.carried_forward ?? []).map((p) => `<li><strong>Carried forward:</strong> ${esc(p)} was unavailable; its last prices are used for up to 3 days.</li>`),
     ...run.validation.errors.map((m) => `<li><strong>Error:</strong> ${esc(m)}</li>`),
     ...run.validation.warnings.map((m) => `<li><strong>Warning:</strong> ${esc(m)}</li>`),
   ];

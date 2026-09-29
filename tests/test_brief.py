@@ -14,9 +14,15 @@ def snap(fixture_rows: list[Observation]) -> dict[str, Any]:
     return snapshot(fixture_rows)
 
 
-def test_extract_claims_finds_dollars_percents_and_multiples() -> None:
-    claims = brief.extract_claims("H100 at $3.81/GPU-hr, up +12% and 2.9x the A100; 8 GPUs")
-    assert [(c.kind, c.value) for c in claims] == [("usd", 3.81), ("pct", 12.0), ("multiple", 2.9)]
+def test_extract_claims_classifies_units_and_keeps_signs() -> None:
+    claims = brief.extract_claims(
+        "H100 80GB at $3.82/GPU-hr, down -12% and 2.9X the A100; 250 percent; 9.99 per hour"
+    )
+    kinds = [(c.kind, c.value) for c in claims[:3]]
+    assert kinds == [("usd", 3.82), ("pct", -12.0), ("multiple", 2.9)]
+    assert claims[3].kind == "pct" and claims[3].value != claims[3].value  # unsigned -> NaN
+    assert (claims[4].kind, claims[4].value) == ("num", 9.99)
+    assert all("100" not in c.text and "80" not in c.text for c in claims)  # model names skipped
 
 
 def test_template_brief_passes_its_own_fact_check(snap: dict[str, Any]) -> None:
@@ -30,9 +36,40 @@ def test_template_brief_passes_its_own_fact_check(snap: dict[str, Any]) -> None:
 def test_fact_check_rejects_invented_figures(snap: dict[str, Any]) -> None:
     f = brief.facts(snap)
     h100 = next(g for g in f["gpus"] if g["gpu"] == "H100 SXM")
-    real = f"H100 rents for {h100['market_index']}/GPU-hr."
-    assert brief.unsupported_claims(real, f) == []
+    premium = h100["hyperscaler_premium"]
+    ok = f"H100 rents for {h100['market_index']}/GPU-hr; hyperscalers run {premium} over neoclouds."
+    assert brief.unsupported_claims(ok, f) == []
     assert brief.unsupported_claims("H100 fell 37% to $1.23/GPU-hr.", f) == ["37%", "$1.23"]
+
+
+@pytest.mark.parametrize(
+    "template",
+    [
+        "H100 prices run {flipped} versus neoclouds.",  # sign flipped
+        "H100 premium is {unsigned} over neoclouds.",  # sign dropped
+        "H100 rents for 9.99 per GPU-hour.",  # bare decimal
+        "H100 costs 9.99 dollars.",  # spelled-out unit
+        "H100 is 7X the price.",  # uppercase multiple
+        "H100 is listed by 12 providers.",  # invented count
+        "A100 rents for {h100_hyper}.",  # real number, wrong GPU
+    ],
+)
+def test_fact_check_catches_evasions(snap: dict[str, Any], template: str) -> None:
+    f = brief.facts(snap)
+    h100 = next(g for g in f["gpus"] if g["gpu"] == "H100 SXM")
+    premium = h100["hyperscaler_premium"]
+    text = template.format(
+        flipped="-" + premium.lstrip("+"),
+        unsigned=premium.lstrip("+"),
+        h100_hyper=h100["hyperscaler_median"],
+    )
+    assert brief.unsupported_claims(text, f), text
+
+
+def test_facts_survive_a_snapshot_without_headline_gpus(snap: dict[str, Any]) -> None:
+    f = brief.facts({**snap, "gpus": []})
+    assert f["best_price_performance"] is None
+    assert brief.template_brief(f)["headline"].startswith("GPU rental prices as of")
 
 
 class FakeClient:

@@ -100,8 +100,8 @@ throughout for the same reason.
 | **$/PFLOP-hr** | Market index ÷ (BF16 dense TFLOPS ÷ 1000) |
 | **$/GB-hr** | Market index ÷ memory GB |
 
-Published prices are rounded half-up to the cent, so the dashboard, CSV exports, brief and
-MCP server all show identical figures.
+Published prices are rounded half-up to the cent, and percentages to the whole percent,
+so the dashboard, CSV exports, brief and MCP server all show identical figures.
 
 ### Cluster cost estimates
 
@@ -112,15 +112,27 @@ committed-use discounts that large buyers typically negotiate.
 
 ## 4. Quality gates
 
-Every run is validated before publishing (`src/gpu_index/validate.py`):
+Every source is screened *before* anything is stored (`src/gpu_index/validate.py`):
 
 | Check | Severity | Rule |
 |---|---|---|
-| Schema | error | Known GPU key, valid segment/pricing, `gpu_count ≥ 1` |
-| Bounds | error | $0.05 ≤ price ≤ $100 per GPU-hour |
-| Volume | error | Each source returns at least its expected minimum rows (a silent upstream format change shows up here) |
+| Schema | error, row dropped | Known GPU key, valid segment/pricing, `gpu_count ≥ 1` |
+| Bounds | error, row dropped | $0.05 ≤ price ≤ $100 per GPU-hour |
+| Volume | error, source rejected | Fewer valid rows than the source's minimum (a silent upstream format change shows up here). None of its rows are written |
+| Source failure | error, source rejected | Fetch or parse raised. Other sources still run |
 | Drift | warning | A provider's median for a GPU moves more than 40% day over day |
-| Source failure | error | Fetch or parse raised. Other sources still run, and earlier same-day rows for the failed source are kept |
+| Missing provider | warning | A provider listed yesterday is absent today |
+
+A rejected source never overwrites good data: earlier same-day rows are kept.
+
+### Outages
+
+If a provider is missing *entirely* on a day, which means its source failed, its last
+observed prices are **carried forward for up to 3 days** and flagged in the snapshot
+(`carried_forward`) and on the dashboard. Without this, an Azure outage would drop the
+A100 80GB index from $2.19 to $1.59 overnight, a fake −27% "move". A provider that's
+present but stops listing one GPU is treated as a real delisting and is not carried forward.
+After 3 days without data, the provider drops out of the index.
 
 Errors fail the workflow, which opens (or comments on) a `pipeline-failure` issue. The next
 healthy run closes it. Warnings are published on the dashboard's pipeline panel, because

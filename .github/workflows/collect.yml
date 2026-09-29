@@ -52,6 +52,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit data
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -61,16 +62,18 @@ jobs:
             exit 0
           fi
           git commit -m "data: prices for $(date -u +%F)"
+          git pull --rebase origin main  # main may have moved during the run
           git push
 
       - name: Open or update failure issue
-        if: steps.run.outcome == 'failure'
+        if: always() && (steps.run.outcome == 'failure' || steps.commit.outcome == 'failure')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
           record=$(tail -n 1 data/runs.jsonl | python3 -m json.tool)
-          body=$(printf 'Collection run failed: %s\n\n```json\n%s\n```\n' "$run_url" "$record")
+          body=$(printf 'Collection run failed (run step: %s, commit/push step: %s): %s\n\n```json\n%s\n```\n' \
+            "${{ steps.run.outcome }}" "${{ steps.commit.outcome }}" "$run_url" "$record")
           gh label create pipeline-failure --color d03b3b --description "Daily collection failed" --force
           existing=$(gh issue list --label pipeline-failure --state open --json number --jq '.[0].number')
           if [ -n "$existing" ]; then
@@ -81,7 +84,7 @@ jobs:
           exit 1
 
       - name: Close failure issue after recovery
-        if: steps.run.outcome == 'success'
+        if: always() && steps.run.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

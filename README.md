@@ -99,7 +99,7 @@ days cost at neoclouds vs hyperscalers, and which GPU is cheapest per PFLOP?"*
 ### Development
 
 ```bash
-uv run pytest          # 59 tests, no network: parsers run against recorded fixtures
+uv run pytest          # 73 tests, no network: parsers run against recorded fixtures
 uv run ruff check . && uv run ruff format --check .
 uv run mypy            # strict
 ```
@@ -113,9 +113,12 @@ uv run mypy            # strict
   silently publishing empty data.
 - **Data as code.** Daily CSVs in git make every price change reviewable with
   `git log -p data/observations`.
-- **The LLM never introduces numbers.** Every `$`, `%` and `×` figure in Claude's draft brief
-  must match the day's fact sheet. After one retry with feedback, the brief falls back to a
-  deterministic template ([`brief.py`](src/gpu_index/brief.py)).
+- **The LLM never introduces numbers.** Every figure in Claude's draft brief must match the
+  day's fact sheet for the GPU it's attributed to, including the sign on percentages. After
+  one retry with feedback, the brief falls back to a deterministic template
+  ([`brief.py`](src/gpu_index/brief.py)).
+- **Outages don't masquerade as price moves.** Sources are validated before storage, and a
+  missing provider's last prices are carried forward (flagged) for up to 3 days.
 - **No build step on the front end.** One HTML file, one stylesheet, one dependency-free
   module drawing SVG charts, with light/dark themes, keyboard-accessible tooltips and a table
   view for every chart.

@@ -5,7 +5,7 @@ from typing import Any
 import httpx
 import pytest
 
-from gpu_index import mcp_server, pipeline, publish
+from gpu_index import mcp_server, pipeline, publish, store
 from gpu_index.models import Observation
 from gpu_index.sources import SourceAdapter, Stamp
 from tests.conftest import make_obs
@@ -84,3 +84,27 @@ def test_one_failing_source_does_not_block_the_others(
     assert status["good"].ok and status["good"].rows == 1
     assert not status["bad"].ok and "ConnectError" in (status["bad"].error or "")
     assert (tmp_path / "2026" / "2026-09-28.csv").exists()
+
+
+def test_invalid_rows_never_reach_the_store(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("GPU_INDEX_DATA_DIR", str(tmp_path))
+
+    def mixed(_p: Any, s: Stamp) -> list[Observation]:
+        return [
+            make_obs(date=s.date, source="mixed", sku="ok", usd_per_gpu_hour=2.0),
+            make_obs(date=s.date, source="mixed", sku="bad", usd_per_gpu_hour=0.001),
+        ]
+
+    def thin(_p: Any, s: Stamp) -> list[Observation]:
+        return [make_obs(date=s.date, source="thin", usd_per_gpu_hour=900.0)]
+
+    monkeypatch.setattr(
+        pipeline, "ADAPTERS", {"mixed": _adapter("mixed", mixed), "thin": _adapter("thin", thin)}
+    )
+    run = pipeline.collect(stamp=Stamp("2026-09-28", "2026-09-28T06:17:00+00:00"))
+    stored = store.read_day("2026-09-28")
+    assert [(o.source, o.sku) for o in stored] == [("mixed", "ok")]
+    assert not run.ok
+    assert {s.id: s.ok for s in run.sources} == {"mixed": True, "thin": False}

@@ -92,3 +92,52 @@ def test_snapshot_on_real_fixtures_covers_headline_gpus(fixture_rows: list[Obser
     h100 = next(g for g in snap["gpus"] if g["key"] == "H100")
     assert h100["series"]["index"]["n_providers"] >= 5
     assert h100["hyperscaler_premium"] > 0
+
+
+def test_outage_carries_forward_instead_of_moving_the_index() -> None:
+    day1 = [
+        make_obs(date="2026-09-01", provider="Hyper", segment="hyperscaler", usd_per_gpu_hour=9.0),
+        make_obs(date="2026-09-01", provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-01", provider="Market", segment="marketplace", usd_per_gpu_hour=1.0),
+    ]
+    # Day 2: "Hyper" is missing entirely (source outage) -> carried forward, flagged.
+    day2 = [
+        make_obs(date="2026-09-02", provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-02", provider="Market", segment="marketplace", usd_per_gpu_hour=1.0),
+    ]
+    snap = snapshot(day1 + day2)
+    assert snap["carried_forward"] == ["Hyper"]
+    assert snap["gpus"][0]["series"]["index"]["value"] == 2.0  # not 1.5
+    # After CARRY_FORWARD_DAYS without data the provider drops out.
+    later = [
+        make_obs(date="2026-09-06", provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-06", provider="Market", segment="marketplace", usd_per_gpu_hour=1.0),
+    ]
+    assert snapshot(day1 + day2 + later)["carried_forward"] == []
+
+
+def test_delisting_one_gpu_is_not_treated_as_an_outage() -> None:
+    rows = [
+        make_obs(date="2026-09-01", provider="Neo", gpu_model="B200", usd_per_gpu_hour=6.0),
+        make_obs(date="2026-09-01", provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-02", provider="Neo", usd_per_gpu_hour=2.0),  # B200 gone
+    ]
+    snap = snapshot(rows)
+    assert snap["carried_forward"] == []
+    assert [g["key"] for g in snap["gpus"]] == ["H100"]
+
+
+def test_gpu_with_only_spot_prices_is_skipped_not_crashed() -> None:
+    rows = [
+        make_obs(provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(provider="Azure", gpu_model="H200", pricing="spot", usd_per_gpu_hour=3.0),
+    ]
+    assert [g["key"] for g in snapshot(rows)["gpus"]] == ["H100"]
+
+
+def test_percentages_round_half_up_to_whole_percent() -> None:
+    rows = [
+        make_obs(provider="Neo", usd_per_gpu_hour=2.0),
+        make_obs(provider="Hyper", segment="hyperscaler", usd_per_gpu_hour=2.69),  # +34.5%
+    ]
+    assert snapshot(rows)["gpus"][0]["hyperscaler_premium"] == 0.35

@@ -7,7 +7,11 @@ Two-stage median, equal weight per provider:
 Stage 1 stops Azure (hundreds of region rows) from outvoting Lambda (a handful of
 rows); stage 2 is robust to any one provider's outlier pricing. The *market index*
 blends all segments; *segment indices* (hyperscaler / neocloud / marketplace) use
-only providers in that segment. See docs/methodology.md.
+only providers in that segment.
+
+If a provider is missing entirely on a day (a source outage, not a delisting), its
+last observed prices are carried forward for up to CARRY_FORWARD_DAYS and flagged, so
+an outage doesn't masquerade as a market move. See docs/methodology.md.
 """
 
 from __future__ import annotations
@@ -15,7 +19,7 @@ from __future__ import annotations
 import statistics
 from collections import defaultdict
 from collections.abc import Iterable
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from datetime import date as Date
 from datetime import timedelta
 from decimal import ROUND_HALF_UP, Decimal
@@ -26,17 +30,51 @@ from gpu_index.models import SEGMENTS, Observation, Pricing
 
 METHODOLOGY_VERSION = "1.0"
 SERIES = ("index", *SEGMENTS, "spot")
+CARRY_FORWARD_DAYS = 3
 
 
 def _r(value: float | None, digits: int = 4) -> float | None:
     return None if value is None else round(value, digits)
 
 
+def _half_up(value: float, step: str) -> float:
+    return float(Decimal(repr(value)).quantize(Decimal(step), rounding=ROUND_HALF_UP))
+
+
 def _usd(value: float | None) -> float | None:
     """Round a price to the cent, half-up, so Python and the browser display it identically."""
-    if value is None:
-        return None
-    return float(Decimal(repr(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+    return None if value is None else _half_up(value, "0.01")
+
+
+def _pct(value: float | None) -> float | None:
+    """Round a fraction to a whole percent, half-up (0.345 -> 0.35), for the same reason."""
+    return None if value is None else _half_up(value * 100, "1") / 100
+
+
+def fill_outages(
+    rows: list[Observation],
+) -> tuple[dict[str, list[Observation]], dict[str, list[str]]]:
+    """Group rows by date, carrying forward providers that are absent on a day.
+
+    Returns (rows by date, providers carried forward by date). Only real observations
+    are ever carried, so a provider drops out after CARRY_FORWARD_DAYS without data.
+    """
+    by_date: dict[str, list[Observation]] = defaultdict(list)
+    for o in rows:
+        by_date[o.date].append(o)
+    last_seen: dict[str, tuple[str, list[Observation]]] = {}
+    carried: dict[str, list[str]] = {}
+    for day in sorted(by_date):
+        real = by_date[day]
+        present = {o.provider for o in real}
+        for provider, (seen_on, seen_rows) in sorted(last_seen.items()):
+            gap = (Date.fromisoformat(day) - Date.fromisoformat(seen_on)).days
+            if provider not in present and gap <= CARRY_FORWARD_DAYS:
+                by_date[day] = [*by_date[day], *(replace(o, date=day) for o in seen_rows)]
+                carried.setdefault(day, []).append(provider)
+        for provider in present:
+            last_seen[provider] = (day, [o for o in real if o.provider == provider])
+    return dict(by_date), carried
 
 
 def provider_medians(
@@ -75,9 +113,7 @@ def daily_values(rows: list[Observation]) -> dict[str, dict[str, tuple[float, in
 
 def history(rows: list[Observation]) -> dict[str, Any]:
     """Aligned daily series for every GPU: {"dates": [...], "series": {gpu: {name: [...]}}}."""
-    by_date: dict[str, list[Observation]] = defaultdict(list)
-    for o in rows:
-        by_date[o.date].append(o)
+    by_date, _ = fill_outages(rows)
     dates = sorted(by_date)
     per_day = {d: daily_values(by_date[d]) for d in dates}
     series: dict[str, dict[str, list[float | None]]] = {}
@@ -96,7 +132,7 @@ def pct_change(dates: list[str], values: list[float | None], days: int) -> float
     target = (Date.fromisoformat(dates[-1]) - timedelta(days=days)).isoformat()
     for d, v in zip(reversed(dates), reversed(values), strict=True):
         if d <= target and v is not None:
-            return _r((values[-1] - v) / v)
+            return _pct((values[-1] - v) / v)
     return None
 
 
@@ -145,12 +181,13 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
     hist = history(rows)
     dates: list[str] = hist["dates"]
     latest_date = dates[-1]
-    latest = [o for o in rows if o.date == latest_date]
+    by_date, carried = fill_outages(rows)
+    latest = by_date[latest_date]
     today = daily_values(latest)
 
     gpus = []
     for key, spec in GPUS.items():
-        if key not in today:
+        if "index" not in today.get(key, {}):  # e.g. spot-only rows, no on-demand price
             continue
         series = hist["series"][key]
         entry: dict[str, Any] = asdict(spec)
@@ -166,7 +203,7 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
         s = entry["series"]
         hyper, neo = s.get("hyperscaler"), s.get("neocloud")
         entry["hyperscaler_premium"] = (
-            _r(hyper["value"] / neo["value"] - 1) if hyper and neo else None
+            _pct(hyper["value"] / neo["value"] - 1) if hyper and neo else None
         )
         index_value = s["index"]["value"]
         entry["usd_per_pflop_hour"] = _usd(index_value / (spec.bf16_dense_tflops / 1000))
@@ -180,8 +217,9 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
         "first_date": dates[0],
         "days_of_history": len(dates),
         "methodology_version": METHODOLOGY_VERSION,
-        "observations": len(latest),
+        "observations": sum(1 for o in rows if o.date == latest_date),
         "providers": sorted({o.provider for o in latest}),
+        "carried_forward": carried.get(latest_date, []),
         "gpus": gpus,
     }
 

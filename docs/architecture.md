@@ -68,9 +68,11 @@ failure in the daily run. It can't silently produce empty data.
 this stays small for years. The analytical load is a few thousand rows, far below anything
 that needs a database.
 
-**Failure isolation over all-or-nothing.** One broken source must not blank the index. Each
-adapter runs in its own try/except. Successful sources are written, the failed source's
-earlier same-day rows are preserved, and the run is marked failed so a human looks at it.
+**Failure isolation over all-or-nothing.** One broken source must not blank the index or
+distort it. Each adapter runs in its own try/except, and each source is validated before
+anything is written. A failed or implausible source is rejected, its earlier same-day rows
+are preserved, and its last prices are carried forward (flagged) for up to 3 days, so an
+outage can't show up as a price move. The run is marked failed and opens an issue.
 
 **Two-stage median.** Covered in [methodology.md](methodology.md#two-stage-median). It's the
 single most important modeling choice: it stops the provider with the most regions from
@@ -81,9 +83,11 @@ dependency-free ES module rendering SVG by hand. It deploys anywhere, loads fast
 nothing to keep patched.
 
 **The LLM writes prose, never numbers.** The brief is generated from a pre-rounded fact
-sheet. Every `$`, `%` and `×` figure in Claude's draft is checked against that sheet. One
-retry with feedback is allowed, then it falls back to a deterministic template. The model
-adds readability, but it can't introduce a price that isn't in the data.
+sheet. Every number in Claude's draft is checked against the facts for the GPU its sentence
+names: dollar figures, signed percentages (so "fell 12%" can't stand in for "+12%"),
+multiples, and bare numbers. One retry with feedback is allowed, then it falls back to a
+deterministic template. The model adds readability, but it can't introduce a figure that
+isn't in the data.
 
 **MCP as the agent interface.** Budget questions ("what would 512 H100s for a quarter cost at
 neoclouds?") are what people actually ask. Exposing the index as MCP tools lets any agent

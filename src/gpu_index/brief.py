@@ -25,9 +25,11 @@ You write a short daily market brief on GPU rental prices for people who plan an
 buy AI compute capacity: data-center build-out teams, capacity planners, and \
 infrastructure finance.
 
-You are given FACTS as JSON. Every dollar amount, percentage and multiple you write \
-must come directly from FACTS, rounded as shown there. Do not compute new figures, \
-do not estimate, and do not mention anything FACTS does not support. When history \
+You are given FACTS as JSON. Every number you write must appear in FACTS for the GPU \
+you attribute it to, written exactly as shown there: dollar amounts with "$", and \
+percentages with their explicit + or - sign (e.g. "+217%"). Write numbers as digits. \
+Do not compute new figures, do not estimate, and do not mention anything FACTS does \
+not support. When history \
 is short (days_of_history below 7), describe the cross-section between segments and \
 providers rather than trends.
 
@@ -88,12 +90,13 @@ def facts(snap: dict[str, Any]) -> dict[str, Any]:
                 "usd_per_pflop_hour": _money(g["usd_per_pflop_hour"]),
             }
         )
-    best_value = min(gpus, key=lambda g: float(g["usd_per_pflop_hour"].strip("$")))
+    best_value = min(gpus, key=lambda g: float(g["usd_per_pflop_hour"].strip("$")), default=None)
     return {
         "as_of": snap["as_of"],
         "days_of_history": snap["days_of_history"],
+        "trend_window_days": 7,
         "provider_count": len(snap["providers"]),
-        "best_price_performance": best_value["gpu"],
+        "best_price_performance": best_value["gpu"] if best_value else None,
         "gpus": gpus,
     }
 
@@ -107,69 +110,108 @@ def template_brief(f: dict[str, Any]) -> dict[str, Any]:
             f"{g['gpu']}: market index {g['market_index']}/GPU-hr across {g['providers']} providers"
         )
         if g.get("hyperscaler_premium"):
-            premium = g["hyperscaler_premium"].lstrip("+")
-            direction = "above" if not premium.startswith("-") else "below"
-            line += f"; hyperscaler list prices run {premium.lstrip('-')} {direction} neoclouds"
+            line += f"; hyperscaler premium {g['hyperscaler_premium']} over neoclouds"
         bullets.append(line + ".")
-    bullets.append(
-        f"Best price-performance: {f['best_price_performance']} at "
-        f"{by_name[f['best_price_performance']]['usd_per_pflop_hour']} per dense BF16 PFLOP-hour."
-    )
+    best = f["best_price_performance"]
+    if best:
+        bullets.append(
+            f"Best price-performance: {best} at "
+            f"{by_name[best]['usd_per_pflop_hour']} per dense BF16 PFLOP-hour."
+        )
     headline = (
         f"H100 rents for {h100['market_index']}/GPU-hr at the market median"
         if h100
         else f"GPU rental prices as of {f['as_of']}"
     )
     watch = (
-        "Trend signals begin once 7 days of history have accumulated."
-        if f["days_of_history"] < 7
+        f"Trend signals begin once {f['trend_window_days']} days of history have accumulated."
+        if f["days_of_history"] < f["trend_window_days"]
         else "Watch whether the hyperscaler premium narrows as Blackwell capacity grows."
     )
     return {"headline": headline, "bullets": bullets, "watch": watch}
 
 
 # --- fact-checking -----------------------------------------------------------
+#
+# Every number in a draft is extracted and must match a value in the fact sheet for
+# the GPU its sentence names (or, if the sentence names none or several, any GPU it
+# could refer to). Percentages must carry the sign given in the facts, so "fell 12%"
+# can't be written for "+12%". Model names ("H100", "MI300X"), memory sizes ("80GB")
+# and ISO dates are stripped first so their digits aren't mistaken for claims.
 
-_NUMBER_CLAIM = re.compile(r"\$\s?(\d[\d,]*(?:\.\d+)?)|([+-]?\d+(?:\.\d+)?)\s?(%|x\b|\u00d7)")
+_NOT_CLAIMS = re.compile(r"\b(?:[A-Z]{1,3}\d{2,4}[A-Z]*|BF16|FP\d+|\d+\s?GB)\b|\d{4}-\d{2}-\d{2}")
+_NUMBER = re.compile(
+    r"(?P<usd>\$\s?|\bUSD\s?)?(?P<sign>[+\-\u2212])?(?P<num>\d[\d,]*(?:\.\d+)?)"
+    r"(?P<unit>\s?(?:%|percent\b|x\b|\u00d7|dollars\b))?",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
 class Claim:
-    kind: str  # "usd" | "pct" | "multiple"
+    kind: str  # "usd" | "pct" | "multiple" | "num"
     value: float
     text: str
 
 
 def extract_claims(text: str) -> list[Claim]:
     claims = []
-    for m in _NUMBER_CLAIM.finditer(text):
-        if m.group(1):
-            claims.append(Claim("usd", float(m.group(1).replace(",", "")), m.group(0)))
+    for m in _NUMBER.finditer(_NOT_CLAIMS.sub(" ", text)):
+        value = float(m.group("num").replace(",", ""))
+        unit = (m.group("unit") or "").strip().lower()
+        if m.group("usd") or unit == "dollars":
+            kind = "usd"
+        elif unit in {"%", "percent"}:
+            kind = "pct"
+            if m.group("sign") in {"-", "\u2212"}:
+                value = -value
+            elif not m.group("sign"):
+                value = float("nan")  # unsigned percentages are never accepted
+        elif unit in {"x", "\u00d7"}:
+            kind = "multiple"
         else:
-            kind = "pct" if m.group(3) == "%" else "multiple"
-            claims.append(Claim(kind, abs(float(m.group(2))), m.group(0)))
+            kind = "num"
+        claims.append(Claim(kind, value, m.group(0).strip()))
     return claims
 
 
-def allowed_values(f: dict[str, Any]) -> dict[str, set[float]]:
-    allowed: dict[str, set[float]] = {"usd": set(), "pct": set(), "multiple": set()}
-    for claim in extract_claims(json.dumps(f)):
+Allowed = dict[str, set[float]]
+
+
+def _allowed_from(values: Any) -> Allowed:
+    allowed: Allowed = {"usd": set(), "pct": set(), "multiple": set(), "num": set()}
+    for claim in extract_claims(json.dumps(values)):
         allowed[claim.kind].add(claim.value)
-        if claim.kind == "pct":  # "+95%" premium may be phrased as "1.95x" or "2x"
-            allowed["multiple"].add(round(1 + claim.value / 100, 2))
-            allowed["multiple"].add(round(1 + claim.value / 100, 1))
-            allowed["multiple"].add(float(round(1 + claim.value / 100)))
+        if claim.kind == "pct":  # "+95%" may be phrased as "1.95x" or "2x"
+            for digits in (2, 1, 0):
+                allowed["multiple"].add(round(1 + claim.value / 100, digits))
+    allowed["num"] |= allowed["usd"]  # "3.82 per GPU-hour" without the "$"
     return allowed
 
 
+def _merge(*sets: Allowed) -> Allowed:
+    return {k: set().union(*(s[k] for s in sets)) for k in ("usd", "pct", "multiple", "num")}
+
+
+def _sentences(text: str) -> list[str]:
+    return [s for s in re.split(r"(?<=[.;!?])\s+", text) if s.strip()]
+
+
 def unsupported_claims(text: str, f: dict[str, Any]) -> list[str]:
-    allowed = allowed_values(f)
-    tolerance = {"usd": 0.011, "pct": 0.51, "multiple": 0.051}
-    return [
-        c.text
-        for c in extract_claims(text)
-        if not any(abs(c.value - a) <= tolerance[c.kind] for a in allowed[c.kind])
-    ]
+    shared = {k: v for k, v in f.items() if k != "gpus"}
+    shared["as_of_parts"] = [int(p) for p in f["as_of"].split("-")]
+    global_allowed = _allowed_from(shared)
+    per_gpu = {g["gpu"]: _allowed_from(g) for g in f["gpus"]}
+    aliases = {g["gpu"].split()[0]: g["gpu"] for g in f["gpus"]}
+
+    bad = []
+    for sentence in _sentences(text):
+        named = {gpu for alias, gpu in aliases.items() if re.search(rf"\b{alias}\b", sentence)}
+        scope = _merge(global_allowed, *(per_gpu[g] for g in (named or per_gpu)))
+        for claim in extract_claims(sentence):
+            if not any(abs(claim.value - a) < 1e-6 for a in scope[claim.kind]):
+                bad.append(claim.text)
+    return bad
 
 
 # --- generation ----------------------------------------------------------------

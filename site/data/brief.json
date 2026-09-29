@@ -4,10 +4,10 @@
  "model": null,
  "headline": "H100 rents for $3.82/GPU-hr at the market median",
  "bullets": [
-  "B200: market index $6.84/GPU-hr across 5 providers; hyperscaler list prices run 109% above neoclouds.",
-  "H200: market index $4.80/GPU-hr across 5 providers; hyperscaler list prices run 136% above neoclouds.",
-  "H100 SXM: market index $3.82/GPU-hr across 6 providers; hyperscaler list prices run 217% above neoclouds.",
-  "MI300X: market index $2.39/GPU-hr across 3 providers; hyperscaler list prices run 214% above neoclouds.",
+  "B200: market index $6.84/GPU-hr across 5 providers; hyperscaler premium +109% over neoclouds.",
+  "H200: market index $4.80/GPU-hr across 5 providers; hyperscaler premium +136% over neoclouds.",
+  "H100 SXM: market index $3.82/GPU-hr across 6 providers; hyperscaler premium +217% over neoclouds.",
+  "MI300X: market index $2.39/GPU-hr across 3 providers; hyperscaler premium +214% over neoclouds.",
   "Best price-performance: MI300X at $1.83 per dense BF16 PFLOP-hour."
  ],
  "watch": "Trend signals begin once 7 days of history have accumulated."

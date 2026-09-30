@@ -1,15 +1,15 @@
 {
- "as_of": "2026-09-29",
+ "as_of": "2026-09-30",
  "generator": "claude",
  "model": "claude-opus-5-5",
- "headline": "Hyperscalers charge double or more over neoclouds on every GPU; MI300X leads price-performance at $1.83 per PFLOP-hour.",
+ "headline": "Hyperscalers charge double or more over neoclouds across all six GPUs, led by H100 SXM at +217%.",
  "bullets": [
-  "H100 SXM shows the widest hyperscaler premium at +217%, with a hyperscaler median of $12.12 versus $3.82 at neoclouds, while Vast.ai is cheapest at $2.54.",
-  "MI300X offers the best price-performance at $1.83 per PFLOP-hour, and its marketplace median of $0.50 sits far below its $2.39 market index, though only 3 providers list it.",
-  "B200 has a market index of $6.84 and costs $3.04 per PFLOP-hour, cheaper per unit of compute than H200 at $4.68 despite H200's lower $4.63 index.",
-  "A100 80GB SXM is the least efficient at $7.02 per PFLOP-hour even with a low $2.19 market index and the smallest hyperscaler premium at +100%.",
-  "RunPod Community Cloud is the cheapest provider for B200 at $5.98, H200 at $3.59, MI300X at $0.50, and L40S at $0.79."
+  "H100 SXM shows the widest hyperscaler premium at +217%, with a hyperscaler median of $12.12 against a neocloud median of $3.82 and a $3.82 market index.",
+  "MI300X is the best price-performance GPU at $1.83 per PFLOP-hour, and RunPod Community Cloud lists it at a $0.50 median versus a $7.50 hyperscaler median.",
+  "B200 carries a $6.84 market index, with neocloud at $6.81 and marketplace at $6.90 nearly level, while hyperscalers sit at $14.24 for a +109% premium.",
+  "H200's market index is $5.12 but costs $5.18 per PFLOP-hour, above B200's $3.04, and its hyperscaler premium is +136%.",
+  "RunPod Community Cloud is the cheapest provider for five of six GPUs, while Vast.ai leads on H100 SXM at a $2.34 median."
  ],
- "watch": "With only 1 day of history, watch whether the +217% H100 SXM and +214% MI300X hyperscaler premiums hold as the 7-day trend window fills.",
+ "watch": "With only 2 days of history, watch whether the H100 SXM +217% and MI300X +214% hyperscaler premiums hold once the 7-day trend window fills.",
  "fact_checked": true
 }

@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-09-29T12:55:05+00:00",
-  "date": "2026-09-29",
-  "observations": 537,
+  "collected_at": "2026-09-30T12:36:37+00:00",
+  "date": "2026-09-30",
+  "observations": 539,
   "ok": true,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.29
+    "seconds": 0.32
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.25
+    "seconds": 1.24
    },
    {
     "error": null,
@@ -34,8 +34,8 @@
     "id": "runpod",
     "name": "RunPod",
     "ok": true,
-    "rows": 21,
-    "seconds": 0.28
+    "rows": 23,
+    "seconds": 0.27
    },
    {
     "error": null,
@@ -43,12 +43,15 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 9,
-    "seconds": 0.74
+    "seconds": 0.71
    }
   ],
   "validation": {
    "errors": [],
-   "warnings": []
+   "warnings": [
+    "RunPod Community Cloud B300 on_demand: median moved -46% ($6.94 -> $3.72/GPU-hr)",
+    "RunPod Secure Cloud B300 on_demand: median moved -47% ($7.89 -> $4.20/GPU-hr)"
+   ]
   }
  },
  "recent": [
@@ -71,6 +74,11 @@
    "date": "2026-09-29",
    "ok": true,
    "observations": 537
+  },
+  {
+   "date": "2026-09-30",
+   "ok": true,
+   "observations": 539
   }
  ]
 }

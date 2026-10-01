@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-09-30T12:36:37+00:00",
-  "date": "2026-09-30",
-  "observations": 539,
+  "collected_at": "2026-10-01T13:18:10+00:00",
+  "date": "2026-10-01",
+  "observations": 573,
   "ok": true,
   "sources": [
    {
@@ -10,8 +10,8 @@
     "id": "azure",
     "name": "Microsoft Azure",
     "ok": true,
-    "rows": 441,
-    "seconds": 0.32
+    "rows": 477,
+    "seconds": 2.18
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.24
+    "seconds": 1.39
    },
    {
     "error": null,
@@ -27,15 +27,15 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.09
+    "seconds": 0.11
    },
    {
     "error": null,
     "id": "runpod",
     "name": "RunPod",
     "ok": true,
-    "rows": 23,
-    "seconds": 0.27
+    "rows": 21,
+    "seconds": 0.23
    },
    {
     "error": null,
@@ -43,14 +43,14 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 9,
-    "seconds": 0.71
+    "seconds": 0.74
    }
   ],
   "validation": {
    "errors": [],
    "warnings": [
-    "RunPod Community Cloud B300 on_demand: median moved -46% ($6.94 -> $3.72/GPU-hr)",
-    "RunPod Secure Cloud B300 on_demand: median moved -47% ($7.89 -> $4.20/GPU-hr)"
+    "RunPod Community Cloud B300 on_demand: median moved +87% ($3.72 -> $6.94/GPU-hr)",
+    "RunPod Secure Cloud B300 on_demand: median moved +88% ($4.20 -> $7.89/GPU-hr)"
    ]
   }
  },
@@ -79,6 +79,11 @@
    "date": "2026-09-30",
    "ok": true,
    "observations": 539
+  },
+  {
+   "date": "2026-10-01",
+   "ok": true,
+   "observations": 573
   }
  ]
 }

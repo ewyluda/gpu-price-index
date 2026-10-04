@@ -2,14 +2,24 @@
  "as_of": "2026-10-04",
  "generator": "claude",
  "model": "claude-opus-5-5",
- "headline": "Hyperscalers charge double or more over neoclouds across all six GPUs; MI300X leads price-performance.",
+ "usage": {
+  "requests": 1,
+  "input_tokens": 1776,
+  "output_tokens": 1183,
+  "usd": 0.0308,
+  "models": [
+   "claude-opus-5-5"
+  ],
+  "month_to_date_usd": 0.0308
+ },
+ "headline": "H100 SXM carries the widest hyperscaler premium at +201%; MI300X leads price-performance at $2.23 per PFLOP-hour.",
  "bullets": [
-  "H100 SXM shows the widest hyperscaler premium at +217%, with a hyperscaler median of $12.12 versus $3.82 at neoclouds.",
-  "MI300X offers the best price-performance at $1.83 per PFLOP-hour, with a market index of $2.39 and a marketplace median of just $0.50 across 3 providers.",
-  "B200 sets the top of the market with a $6.84 index and a hyperscaler median of $14.24, yet its $3.04 per PFLOP-hour beats H200 at $5.13.",
-  "RunPod Community Cloud is the cheapest provider for B200 ($5.98), H200 ($3.59), H100 SXM ($2.69) and MI300X ($0.50), while Vast.ai leads on A100 80GB SXM ($1.19) and L40S ($0.73).",
-  "A100 80GB SXM is the costliest per unit of compute at $7.02 per PFLOP-hour despite a modest $2.19 market index."
+  "H100 SXM, listed by all 10 tracked providers, has a hyperscaler median of $12.12 against a neocloud median of $4.02, a +201% premium; its market index is $4.02.",
+  "MI300X offers the best price-performance at $2.23 per PFLOP-hour with a $2.92 market index, but only 4 providers list it, and its $0.50 marketplace median comes from RunPod Community Cloud.",
+  "B200 has the highest market index at $7.33, with a hyperscaler median of $14.24 versus $6.84 at neoclouds (+108%); RunPod Community Cloud is cheapest at $5.98.",
+  "H200 carries a +136% hyperscaler premium on a $4.84 market index, while A100 80GB SXM is the weakest value at $7.37 per PFLOP-hour despite a $1.19 low at Vast.ai.",
+  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, while Vast.ai is cheapest for A100 80GB SXM and L40S."
  ],
- "watch": "With only 6 days of history, watch whether the first 7-day change readings confirm or narrow the wide hyperscaler premiums on H100 SXM (+217%) and MI300X (+214%).",
+ "watch": "Price history does not yet cover the full trend window, so no week-over-week changes are available. Watch the first readings, especially whether the thinly supplied MI300X marketplace median of $0.50 holds.",
  "fact_checked": true
 }

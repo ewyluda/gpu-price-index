@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+body{width:1280px;height:640px;background:#0d0d0d;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;padding:72px 80px;position:relative;overflow:hidden}
+.brand{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+.brand svg{width:48px;height:48px}
+h1{font-size:70px;line-height:1.04;letter-spacing:-0.035em;font-weight:760;margin-top:56px;max-width:760px}
+p{font-size:27px;color:#c3c2b7;margin-top:28px;max-width:740px;line-height:1.35}
+.foot{position:absolute;left:80px;bottom:64px;font-size:22px;color:#8f8d86;display:flex;gap:28px}
+.foot b{color:#fff;font-weight:600}
+.plot{position:absolute;right:72px;top:190px;width:330px}
+.row{display:flex;align-items:center;height:56px;position:relative}
+.row span{width:84px;font-size:20px;font-weight:650;color:#c3c2b7}
+.track{position:relative;flex:1;height:2px;background:#383835}
+.track i{position:absolute;top:-8px;width:18px;height:18px;border-radius:50%;border:3px solid #0d0d0d;margin-left:-9px}
+.h{background:#3987e5}.n{background:#d95926}.m{background:#199e70}
+</style></head><body>
+<div class="brand"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#fff"/><path d="M7 22l6-7 5 4 7-9" stroke="#d95926" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>GPU Price Index</div>
+<h1>What does an hour of GPU actually cost?</h1>
+<p>Daily on-demand prices for H100, H200, B200, MI300X and A100 across hyperscalers, neoclouds and marketplaces.</p>
+<div class="plot">
+ <div class="row"><span>B200</span><div class="track"><i class="m" style="left:34%"></i><i class="n" style="left:38%"></i><i class="h" style="left:80%"></i></div></div>
+ <div class="row"><span>H200</span><div class="track"><i class="m" style="left:22%"></i><i class="n" style="left:27%"></i><i class="h" style="left:60%"></i></div></div>
+ <div class="row"><span>H100</span><div class="track"><i class="m" style="left:16%"></i><i class="n" style="left:22%"></i><i class="h" style="left:68%"></i></div></div>
+ <div class="row"><span>MI300X</span><div class="track"><i class="m" style="left:4%"></i><i class="n" style="left:16%"></i><i class="h" style="left:42%"></i></div></div>
+ <div class="row"><span>A100</span><div class="track"><i class="m" style="left:7%"></i><i class="n" style="left:13%"></i><i class="h" style="left:25%"></i></div></div>
+</div>
+<div class="foot"><span><b>10</b> providers</span><span>Primary sources only</span><span>Updated daily</span><span>ewyluda.github.io/gpu-price-index</span></div>
+</body></html>

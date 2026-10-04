@@ -3,11 +3,11 @@
 **An open, daily index of GPU rental prices across hyperscalers, neoclouds and
 marketplaces, built from primary sources and versioned in git.**
 
-[![CI](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/ci.yml/badge.svg)](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/ci.yml)
-[![Collect prices](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/collect.yml/badge.svg)](https://github.com/ewyluda/gpu-rental-rate/actions/workflows/collect.yml)
+[![CI](https://github.com/ewyluda/gpu-price-index/actions/workflows/ci.yml/badge.svg)](https://github.com/ewyluda/gpu-price-index/actions/workflows/ci.yml)
+[![Collect prices](https://github.com/ewyluda/gpu-price-index/actions/workflows/collect.yml/badge.svg)](https://github.com/ewyluda/gpu-price-index/actions/workflows/collect.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**[Live dashboard →](https://ewyluda.github.io/gpu-rental-rate/)** ·
+**[Live dashboard →](https://ewyluda.github.io/gpu-price-index/)** ·
 [Methodology](docs/methodology.md) · [Architecture](docs/architecture.md)
 
 <picture>
@@ -35,6 +35,11 @@ This project turns that price surface into something you can plan with:
   what you actually buy.
 - **An MCP server**, so Claude (or any agent) can answer budget questions from live data.
 - **A fact-checked daily brief:** Claude writes the prose, and code verifies every number.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/build-vs-rent-dark.png">
+  <img alt="Build vs rent: cost per useful GPU-hour against utilization with the breakeven point, and cumulative cost of owning vs renting" src="docs/img/build-vs-rent-light.png">
+</picture>
 
 ## How it works
 
@@ -92,7 +97,7 @@ MI300X              2.39    7.50    2.39    0.50    +214%     1.83
 # from a checkout
 claude mcp add gpu-index -- uv run --directory "$PWD" gpu-index-mcp
 # or straight from GitHub (reads the published dashboard data)
-claude mcp add gpu-index -- uvx --from "gpu-index[mcp] @ git+https://github.com/ewyluda/gpu-rental-rate" gpu-index-mcp
+claude mcp add gpu-index -- uvx --from "gpu-index[mcp] @ git+https://github.com/ewyluda/gpu-price-index" gpu-index-mcp
 ```
 
 Tools: `list_gpus`, `get_prices`, `get_history`, `estimate_cluster_cost`, `build_vs_rent`,
@@ -128,6 +133,32 @@ uv run mypy            # strict
   view for every chart.
 
 More in [docs/architecture.md](docs/architecture.md), including how to add a source.
+
+## How this was built
+
+I built this by directing AI coding agents (Claude Code), run the way I'd run a delivery
+program: set the scope, make or approve every decision, review the work, and hold each
+phase to acceptance criteria before it merges.
+
+**Direction and decisions (mine):**
+- The problem and the audience: people planning and buying compute who need to know what
+  an hour of GPU *should* cost, and how much depends on where they rent it.
+- Sourcing ethics: retiring the original third-party index once its terms ruled out
+  storage and redistribution, and admitting a new source only after a robots.txt and terms
+  check. Two candidates failed that check and are excluded.
+- Methodology: one vote per provider, carrying outages forward instead of letting them
+  read as price drops, matched-provider changes when coverage changes, and a minimum
+  listing count for marketplace prices.
+- Scope, sequencing and every merge.
+
+**Implementation (agents):** the audit of the v0 scraper, the code, tests and docs, and a
+separate review pass. An independent reviewing agent found seven correctness issues before
+launch, including source outages that would have shown up as 27–39% price moves. All seven
+were fixed with regression tests before merge.
+
+**Guardrails:** every change goes through tests (recorded fixtures, strict typing, a
+JavaScript/Python parity check), CI and a pull request. Agent-written commits carry a
+`Co-Authored-By` trailer, so the history shows who wrote what.
 
 ## Project history
 

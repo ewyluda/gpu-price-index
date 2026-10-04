@@ -2,7 +2,8 @@
 
 A marketplace has no list price: every host sets its own. We pull every rentable
 on-demand offer for each tracked GPU and summarize to the median per-GPU price,
-recording how many offers it came from.
+recording how many offers it came from. A median of a handful of offers is one host's
+asking price, not a market, so models with fewer than MIN_OFFERS listings are skipped.
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ from gpu_index.sources.base import SourceAdapter, Stamp, observation
 
 API = "https://console.vast.ai/api/v0/bundles/"
 PROVIDER = "Vast.ai"
+MIN_OFFERS = 5
 
 # Vast's own gpu_name values for the models we track.
 GPU_NAMES = [
@@ -86,6 +88,7 @@ def parse(offers: list[dict[str, Any]], stamp: Stamp) -> list[Observation]:
             sample_size=len(prices),
         )
         for gpu_model, prices in sorted(by_model.items())
+        if len(prices) >= MIN_OFFERS
     ]
 
 

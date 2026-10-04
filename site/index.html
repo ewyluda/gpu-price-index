@@ -29,6 +29,7 @@
         <a href="#market">Market</a>
         <a href="#explore">Explore</a>
         <a href="#calculator">Calculator</a>
+        <a href="#own">Build vs rent</a>
         <a href="#pipeline">Pipeline</a>
         <a href="#method">Method</a>
       </nav>
@@ -180,6 +181,72 @@
           </div>
           <div id="calc-quotes"></div>
           <p class="footnote">On-demand list prices, compute only. Excludes storage, networking and egress, and the committed-use discounts most large buyers negotiate. Marketplace capacity at this scale is rarely available as a single block.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="own" aria-labelledby="own-title">
+      <div class="section-head">
+        <h2 id="own-title">Build vs rent</h2>
+        <p>Should you buy servers or rent on demand? Owning is mostly fixed cost, so the answer turns on utilization. Compare the full monthly cost of owning 8-GPU servers with renting the GPU-hours you actually use at today's index.</p>
+      </div>
+      <div class="card calc">
+        <form id="own-form" class="calc-form" autocomplete="off">
+          <label>GPU<select id="own-gpu" name="gpu"></select></label>
+          <label>GPUs<input id="own-count" name="count" type="number" inputmode="numeric" min="1" step="8" value="64"></label>
+          <label>Utilization <output id="own-util-out" for="own-util">70%</output>
+            <input id="own-util" name="util" type="range" min="5" max="100" step="1" value="70">
+          </label>
+          <label>Rent at
+            <select id="own-segment" name="segment">
+              <option value="neocloud">Neocloud median</option>
+              <option value="index">Market index</option>
+              <option value="hyperscaler">Hyperscaler median</option>
+              <option value="marketplace">Marketplace median</option>
+            </select>
+          </label>
+          <details class="assumptions">
+            <summary>Ownership assumptions</summary>
+            <p class="footnote">Server price and power are illustrative placeholders. Enter your vendor quote and contracted rates for a real decision.</p>
+            <div class="assumption-grid">
+              <label>Server price (8 GPUs)<input data-key="capex_per_server_usd" type="number" min="1000" step="1000"></label>
+              <label>Server power (kW)<input data-key="server_kw" type="number" min="0.1" step="0.1"></label>
+              <label>Depreciation (years)<input data-key="depreciation_years" type="number" min="1" max="10" step="0.5"></label>
+              <label>Cost of capital (%)<input data-key="cost_of_capital" data-pct type="number" min="0" max="50" step="0.5"></label>
+              <label>PUE<input data-key="pue" type="number" min="1" max="3" step="0.05"></label>
+              <label>Electricity ($/kWh)<input data-key="power_usd_per_kwh" type="number" min="0" step="0.005"></label>
+              <label>Colocation ($/kW-month)<input data-key="colo_usd_per_kw_month" type="number" min="0" step="5"></label>
+              <label>Operations (% of capex/yr)<input data-key="ops_pct_per_year" data-pct type="number" min="0" max="50" step="0.5"></label>
+            </div>
+            <button type="button" class="link-btn" id="own-reset">Reset to defaults</button>
+          </details>
+        </form>
+        <div class="calc-result">
+          <div class="own-tiles" id="own-tiles"></div>
+          <p class="own-verdict" id="own-verdict" aria-live="polite"></p>
+          <div class="grid-2 own-charts">
+            <div>
+              <div class="chart-head">
+                <div>
+                  <h3>Cost per useful GPU-hour</h3>
+                  <p class="sub">Owning gets cheaper the more you use it. Renting doesn't.</p>
+                </div>
+                <div class="legend" id="own-legend" aria-hidden="true"></div>
+              </div>
+              <div id="own-curve" class="chart"></div>
+            </div>
+            <div>
+              <div class="chart-head">
+                <div>
+                  <h3>Cumulative cost</h3>
+                  <p class="sub" id="own-cum-sub"></p>
+                </div>
+              </div>
+              <div id="own-cum" class="chart"></div>
+            </div>
+          </div>
+          <details class="table-view"><summary>Monthly cost breakdown</summary><div id="own-breakdown"></div></details>
+          <p class="footnote">Owning: straight-line depreciation with no residual value, interest on the average capital balance, power drawn at idle plus a utilization-proportional share, and colocation and operations as fixed monthly costs. Renting: on-demand list price for the GPU-hours used. Excludes networking fabric, storage, staffing beyond the operations line, and committed-use rental discounts.</p>
         </div>
       </div>
     </section>

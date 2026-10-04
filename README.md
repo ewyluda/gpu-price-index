@@ -28,6 +28,9 @@ This project turns that price surface into something you can plan with:
 - **A daily index** for 11 data-center GPUs (B300, B200, H200, H100 SXM/NVL/PCIe, MI300X,
   A100 variants, L40S), split into hyperscaler, neocloud and marketplace segments.
 - **A cluster cost calculator:** *512 H100s for 90 days* quoted per provider.
+- **Build vs rent:** the full cost of owning 8-GPU servers (depreciation, capital, power,
+  colocation, operations) against renting at the index, with the breakeven utilization
+  and payback month. Every assumption is editable.
 - **Price-performance:** $/PFLOP-hour and $/GB-hour, so a B200 and an A100 can be compared on
   what you actually buy.
 - **An MCP server**, so Claude (or any agent) can answer budget questions from live data.
@@ -92,14 +95,15 @@ claude mcp add gpu-index -- uv run --directory "$PWD" gpu-index-mcp
 claude mcp add gpu-index -- uvx --from "gpu-index[mcp] @ git+https://github.com/ewyluda/gpu-rental-rate" gpu-index-mcp
 ```
 
-Tools: `list_gpus`, `get_prices`, `get_history`, `estimate_cluster_cost`,
+Tools: `list_gpus`, `get_prices`, `get_history`, `estimate_cluster_cost`, `build_vs_rent`,
 `compare_price_performance`, `pipeline_status`. For example: *"What would 512 H100s for 90
 days cost at neoclouds vs hyperscalers, and which GPU is cheapest per PFLOP?"*
 
 ### Development
 
 ```bash
-uv run pytest          # 73 tests, no network: parsers run against recorded fixtures
+uv run pytest          # no network: parsers run against recorded fixtures
+node --test tests/tco.test.mjs   # build-vs-rent JS matches the Python reference
 uv run ruff check . && uv run ruff format --check .
 uv run mypy            # strict
 ```

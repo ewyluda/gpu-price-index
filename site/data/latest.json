@@ -100,6 +100,17 @@
     "NA": {
      "hyperscaler": 17.8
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 500000,
+    "server_kw": 14.5,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -214,6 +225,17 @@
     "NA": {
      "hyperscaler": 14.24
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 450000,
+    "server_kw": 14.3,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -340,6 +362,17 @@
     "NA": {
      "hyperscaler": 10.6
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 300000,
+    "server_kw": 10.2,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -485,6 +518,17 @@
     "NA": {
      "hyperscaler": 12.29
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 250000,
+    "server_kw": 10.2,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -789,6 +833,17 @@
     "NA": {
      "hyperscaler": 7.2
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 250000,
+    "server_kw": 11.0,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -934,6 +989,17 @@
     "NA": {
      "hyperscaler": 4.1
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 120000,
+    "server_kw": 6.5,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   },
   {
@@ -1274,10 +1340,21 @@
     "NA": {
      "hyperscaler": 2.62
     }
+   },
+   "own_defaults": {
+    "capex_per_server_usd": 90000,
+    "server_kw": 4.5,
+    "depreciation_years": 5.0,
+    "cost_of_capital": 0.08,
+    "pue": 1.3,
+    "power_usd_per_kwh": 0.08,
+    "colo_usd_per_kw_month": 150.0,
+    "ops_pct_per_year": 0.08,
+    "idle_power_fraction": 0.35
    }
   }
  ],
- "generated_at": "2026-10-04T12:23:34+00:00",
+ "generated_at": "2026-10-04T19:57:11+00:00",
  "sources": [
   {
    "id": "azure",

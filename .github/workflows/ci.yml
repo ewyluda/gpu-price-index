@@ -37,6 +37,8 @@ jobs:
         with:
           node-version: 22
       - name: JavaScript parses
-        run: node --check site/app.js
+        run: node --check site/app.js && node --check site/tco.js
+      - name: Build-vs-rent JS matches the Python reference
+        run: node --test tests/tco.test.mjs
       - name: Published data is valid JSON
         run: for f in site/data/*.json; do node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || exit 1; done

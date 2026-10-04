@@ -40,6 +40,7 @@ flowchart LR
 | `store.py` | CSV-per-day storage. Idempotent same-day re-runs |
 | `validate.py` | Schema, bounds, volume and drift checks |
 | `index.py` | The methodology: provider medians → segment and market indices, changes, premium, regional, price-performance, cost estimates |
+| `tco.py` | Build vs rent: ownership cost model, breakeven utilization, payback (JS twin in `site/tco.js`, kept in sync by a shared fixture) |
 | `publish.py` | Writes the dashboard's JSON/CSV artifacts and the run log |
 | `brief.py` | Daily market brief: deterministic template, optional Claude rewrite behind a fact-check |
 | `mcp_server.py` | Exposes the published artifacts to agents as MCP tools |

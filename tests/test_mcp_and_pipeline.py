@@ -42,6 +42,7 @@ def test_mcp_registers_expected_tools() -> None:
         "estimate_cluster_cost",
         "compare_price_performance",
         "pipeline_status",
+        "build_vs_rent",
     }
 
 
@@ -55,6 +56,11 @@ def test_mcp_tools_answer_from_published_data(site_data: Path) -> None:
     assert ranking == sorted(ranking, key=lambda r: r["usd_per_pflop_hour"])
     with pytest.raises(ValueError, match="unknown GPU"):
         mcp_server.get_prices("TPU v5p")
+    owned = mcp_server.build_vs_rent("H100", gpu_count=64, utilization=0.8)
+    assert owned["rent_segment"] == "neocloud" and 0 < owned["breakeven_utilization"] < 1
+    cheap_power = mcp_server.build_vs_rent("H100", utilization=0.8, power_usd_per_kwh=0.03)
+    assert cheap_power["own_usd_per_gpu_hour"] < owned["own_usd_per_gpu_hour"]
+    assert "own_defaults" in mcp_server.get_prices("H100")
 
 
 def _adapter(id: str, parse: Any) -> SourceAdapter:

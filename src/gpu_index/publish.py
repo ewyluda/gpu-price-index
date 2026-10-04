@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import csv
 import json
+from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from gpu_index import store
+from gpu_index import store, tco
 from gpu_index.index import SERIES, history, snapshot
 from gpu_index.models import FIELDNAMES, Observation
 from gpu_index.sources import ADAPTERS
@@ -52,6 +53,9 @@ def build(rows: list[Observation] | None = None, out: Path = SITE_DATA) -> dict[
     rows = rows if rows is not None else store.load_all()
     snap = snapshot(rows)
     snap["generated_at"] = datetime.now(UTC).replace(microsecond=0).isoformat()
+    for gpu in snap["gpus"]:  # placeholders the build-vs-rent calculator starts from
+        if gpu["key"] in tco.SERVER_DEFAULTS:
+            gpu["own_defaults"] = asdict(tco.default_assumptions(gpu["key"]))
     snap["sources"] = [
         {"id": a.id, "name": a.name, "homepage": a.homepage, "terms": a.terms}
         for a in ADAPTERS.values()

@@ -110,6 +110,29 @@ per-GPU price` for each provider, plus the same quantity at the market index. Th
 list-price budget checks, not quotes. They exclude storage, networking, egress and the
 committed-use discounts that large buyers typically negotiate.
 
+### Build vs rent
+
+The build-vs-rent calculator (`src/gpu_index/tco.py`, mirrored in `site/tco.js`) compares
+the monthly cost of owning 8-GPU servers with renting on demand at today's index:
+
+| Component | Formula (per server, per month) |
+|---|---|
+| Depreciation | capex ÷ (years × 12), straight line, no residual value |
+| Cost of capital | capex × rate ÷ 2 ÷ 12 (interest on the average balance) |
+| Colocation | server kW × $/kW-month (space, cooling, power delivery) |
+| Operations | capex × ops % ÷ 12 (support, spares, network, staff) |
+| Energy | server kW × (idle + (1 − idle) × utilization) × PUE × 730 h × $/kWh |
+
+Renting costs `rate × GPUs × 730 h × utilization`, because on-demand capacity is paid
+only while used. **Breakeven utilization** is where the two are equal per useful GPU-hour.
+**Payback** is the first month in which cumulative ownership cash cost (capex up front,
+then monthly costs) falls below cumulative rent. Defaults are 5-year depreciation, 8%
+cost of capital, PUE 1.3, $0.08/kWh, $150/kW-month colocation, 8%/yr operations and a
+35% idle power draw. Server power uses vendor reference-system maximums (DGX H100
+10.2 kW, DGX B200 14.3 kW, DGX A100 6.5 kW). **Server prices are illustrative round
+numbers, not market data.** Every assumption can be edited on the dashboard and through
+the MCP tool.
+
 ## 4. Quality gates
 
 Every source is screened *before* anything is stored (`src/gpu_index/validate.py`):

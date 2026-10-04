@@ -7,7 +7,7 @@ from typing import Any
 
 import httpx
 
-USER_AGENT = "gpu-index/1.0 (+https://github.com/ewyluda/gpu-rental-rate)"
+USER_AGENT = "gpu-index/1.0 (+https://github.com/ewyluda/gpu-price-index)"
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 

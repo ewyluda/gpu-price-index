@@ -29,7 +29,7 @@ from typing import Any
 from gpu_index.catalog import GPUS
 from gpu_index.models import SEGMENTS, Observation, Pricing
 
-METHODOLOGY_VERSION = "1.1"
+METHODOLOGY_VERSION = "1.2"
 SERIES = ("index", *SEGMENTS, "spot")
 CARRY_FORWARD_DAYS = 3
 

@@ -1,6 +1,6 @@
 # Methodology
 
-*Methodology version 1.1 · history begins 2026-09-29*
+*Methodology version 1.2 · history begins 2026-09-29*
 
 The GPU Price Index answers one question: **what does an hour of a given GPU cost to rent
 today, and how does that depend on where you rent it?** This document describes what's
@@ -83,7 +83,9 @@ fetched once per day with an identifying User-Agent.
 - **RunPod:** a price of 0 means "not offered in this cloud" and is skipped.
 - **Vast.ai:** a marketplace has no list price, so every rentable on-demand offer is
   normalized to per-GPU price and summarized as **one median observation per GPU model**,
-  with `sample_size` = number of offers. Vast reports "A100 SXM4" for both memory sizes, so
+  with `sample_size` = number of offers. Models with fewer than 5 rentable offers are
+  skipped that day: a median of 3 listings is one host's asking price, not a market
+  (B200 on 2026-09-29 had 3 offers with a median about 20% above every later day). Vast reports "A100 SXM4" for both memory sizes, so
   offers are split on reported VRAM.
 
 ## 3. Aggregation
@@ -193,8 +195,10 @@ real prices do sometimes move sharply.
 - **Coverage is deliberately limited to clean sources.** Nine sources and ten providers,
   each publishing prices publicly with terms that allow automated reads. Google Cloud and
   Oracle Cloud are not yet included, so the hyperscaler segment is AWS and Azure.
-- **Marketplace medians depend on supply.** A GPU with a handful of listings can swing on one
-  host's price. `sample_size` is published for every marketplace observation.
+- **Marketplace medians depend on supply.** Even above the 5-offer minimum, a marketplace
+  median moves when hosts reprice or the offer mix changes. Vast.ai's H100 median rose 58%
+  on 2026-10-04 across 22 listings. That was a real move, flagged by the drift warning, not
+  filtered. `sample_size` is published for every marketplace observation.
 - **Peak FLOPS aren't throughput.** Price-performance uses vendor peaks. Delivered
   performance varies with workload, interconnect and software.
 - **History starts 2026-09-29.** Trend figures stay blank until enough history exists. No
@@ -209,3 +213,4 @@ that alter published values bump the version and are listed here.
 |---|---|---|
 | 1.0 | 2026-09-29 | Initial methodology |
 | 1.1 | 2026-10-04 | Added CoreWeave, Nebius, Crusoe and Hyperstack (neocloud segment from 2 to 6 providers); changes now matched-provider; coverage changes published; spot series includes neocloud spot |
+| 1.2 | 2026-10-04 | Marketplace models need at least 5 rentable offers to be included |

@@ -2,7 +2,7 @@
 
 Reads the published artifacts (``site/data/*.json``) from disk, or from a deployed
 dashboard when ``GPU_INDEX_DATA_URL`` is set, e.g.
-``GPU_INDEX_DATA_URL=https://ewyluda.github.io/gpu-rental-rate/data``.
+``GPU_INDEX_DATA_URL=https://ewyluda.github.io/gpu-price-index/data``.
 
 Run with ``gpu-index-mcp`` (stdio). Example Claude Code registration:
 ``claude mcp add gpu-index -- uv run --directory /path/to/repo gpu-index-mcp``
@@ -34,7 +34,7 @@ server = MCPServer(
 )
 
 
-PUBLIC_DATA_URL = "https://ewyluda.github.io/gpu-rental-rate/data"
+PUBLIC_DATA_URL = "https://ewyluda.github.io/gpu-price-index/data"
 
 
 def load(name: str) -> Any:

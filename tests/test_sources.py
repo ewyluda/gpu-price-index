@@ -80,9 +80,21 @@ def test_vast_splits_a100_by_memory() -> None:
     offers = [
         {"gpu_name": "A100 SXM4", "gpu_ram": 40960, "num_gpus": 1, "dph_total": 0.8},
         {"gpu_name": "A100 SXM4", "gpu_ram": 81920, "num_gpus": 2, "dph_total": 3.0},
-    ]
+    ] * 5
     rows = ADAPTERS["vast"].parse(offers, STAMP)
     assert {o.gpu_model: o.usd_per_gpu_hour for o in rows} == {"A100-40GB": 0.8, "A100-80GB": 1.5}
+
+
+def test_vast_skips_models_with_too_few_listings() -> None:
+    from gpu_index.sources.vast import MIN_OFFERS
+
+    def offers(name: str, n: int) -> list[dict[str, object]]:
+        return [{"gpu_name": name, "gpu_ram": 81920, "num_gpus": 1, "dph_total": 2.0}] * n
+
+    rows = ADAPTERS["vast"].parse(
+        offers("B200", MIN_OFFERS - 1) + offers("H200", MIN_OFFERS), STAMP
+    )
+    assert [(o.gpu_model, o.sample_size) for o in rows] == [("H200", MIN_OFFERS)]
 
 
 def test_coreweave_normalizes_instances_and_dedupes_repeated_listings() -> None:

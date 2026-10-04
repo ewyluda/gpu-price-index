@@ -140,7 +140,7 @@ function renderTiles() {
     const provs = g.providers.map((p) => p.median);
     const lo = Math.min(...provs), hi = Math.max(...provs);
     const pos = (v) => (hi === lo ? 50 : ((v - lo) / (hi - lo)) * 100);
-    const change = s.change_7d == null ? "New series" : `${pct(s.change_7d)} 7d`;
+    const change = s.change_7d == null ? "No 7-day change yet" : `${pct(s.change_7d)} 7d`;
     const btn = document.createElement("button");
     btn.className = "tile";
     btn.type = "button";

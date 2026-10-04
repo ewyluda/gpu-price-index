@@ -14,8 +14,9 @@ STAMP = Stamp(date="2026-09-28", collected_at="2026-09-28T06:17:00+00:00")
 
 
 def load_fixture(source_id: str) -> Any:
-    if source_id == "lambda":
-        return (FIXTURES / "lambda.html").read_text(encoding="utf-8")
+    html = FIXTURES / f"{source_id}.html"
+    if html.exists():
+        return html.read_text(encoding="utf-8")
     return json.loads((FIXTURES / f"{source_id}.json").read_text(encoding="utf-8"))
 
 

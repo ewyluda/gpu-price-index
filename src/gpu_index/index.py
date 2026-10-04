@@ -23,12 +23,13 @@ from dataclasses import asdict, replace
 from datetime import date as Date
 from datetime import timedelta
 from decimal import ROUND_HALF_UP, Decimal
+from itertools import pairwise
 from typing import Any
 
 from gpu_index.catalog import GPUS
 from gpu_index.models import SEGMENTS, Observation, Pricing
 
-METHODOLOGY_VERSION = "1.0"
+METHODOLOGY_VERSION = "1.1"
 SERIES = ("index", *SEGMENTS, "spot")
 CARRY_FORWARD_DAYS = 3
 
@@ -136,6 +137,50 @@ def pct_change(dates: list[str], values: list[float | None], days: int) -> float
     return None
 
 
+def matched_change(
+    by_date: dict[str, list[Observation]], gpu: str, series: str, days: int
+) -> float | None:
+    """Like pct_change, but comparing only providers listed on both dates.
+
+    When coverage changes (a provider is added, or drops out after an outage), the
+    index *level* shifts even though no price moved. Recomputing both dates over the
+    providers they share keeps 7- and 30-day changes measuring price movement only.
+    """
+    dates = sorted(by_date)
+    if not dates:
+        return None
+    latest = dates[-1]
+    target = (Date.fromisoformat(latest) - timedelta(days=days)).isoformat()
+    pricing = "spot" if series == "spot" else "on_demand"
+
+    def providers(day: str) -> set[str]:
+        return {o.provider for o in by_date[day] if o.gpu_model == gpu and o.pricing == pricing}
+
+    for earlier in reversed([d for d in dates if d <= target]):
+        common = providers(latest) & providers(earlier)
+        values = []
+        for day in (earlier, latest):
+            rows = [o for o in by_date[day] if o.gpu_model == gpu and o.provider in common]
+            values.append(daily_values(rows).get(gpu, {}).get(series, (None, 0))[0])
+        if values[0] is not None and values[1] is not None:
+            return _pct((values[1] - values[0]) / values[0])
+    return None
+
+
+def coverage_changes(by_date: dict[str, list[Observation]]) -> list[dict[str, Any]]:
+    """Dates on which providers joined or left the index (level shifts, not price moves)."""
+    events = []
+    dates = sorted(by_date)
+    for previous, day in pairwise(dates):
+        before = {o.provider for o in by_date[previous]}
+        after = {o.provider for o in by_date[day]}
+        if added := sorted(after - before):
+            events.append({"date": day, "added": added, "removed": sorted(before - after)})
+        elif removed := sorted(before - after):
+            events.append({"date": day, "added": [], "removed": removed})
+    return events
+
+
 def _provider_table(rows: list[Observation], gpu: str) -> list[dict[str, Any]]:
     groups: dict[str, list[Observation]] = defaultdict(list)
     for o in rows:
@@ -189,7 +234,6 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
     for key, spec in GPUS.items():
         if "index" not in today.get(key, {}):  # e.g. spot-only rows, no on-demand price
             continue
-        series = hist["series"][key]
         entry: dict[str, Any] = asdict(spec)
         for name in SERIES:
             if name in today[key]:
@@ -197,8 +241,8 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
                 entry.setdefault("series", {})[name] = {
                     "value": _usd(value),
                     "n_providers": n,
-                    "change_7d": pct_change(dates, series[name], 7),
-                    "change_30d": pct_change(dates, series[name], 30),
+                    "change_7d": matched_change(by_date, key, name, 7),
+                    "change_30d": matched_change(by_date, key, name, 30),
                 }
         s = entry["series"]
         hyper, neo = s.get("hyperscaler"), s.get("neocloud")
@@ -220,6 +264,7 @@ def snapshot(rows: list[Observation]) -> dict[str, Any]:
         "observations": sum(1 for o in rows if o.date == latest_date),
         "providers": sorted({o.provider for o in latest}),
         "carried_forward": carried.get(latest_date, []),
+        "coverage_changes": coverage_changes(by_date),
         "gpus": gpus,
     }
 

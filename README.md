@@ -40,7 +40,7 @@ This project turns that price surface into something you can plan with:
 
 ```mermaid
 flowchart LR
-    S["5 public price sources<br/>Azure · AWS · Lambda · RunPod · Vast.ai"] --> A["Adapters<br/>fetch → parse"]
+    S["9 public price sources<br/>Azure · AWS · CoreWeave · Nebius · Crusoe<br/>Lambda · Hyperstack · RunPod · Vast.ai"] --> A["Adapters<br/>fetch → parse"]
     A --> V{"Validation<br/>gates"}
     A --> D[("Daily CSV<br/>in git")]
     D --> I["Index<br/>two-stage median"]
@@ -53,7 +53,7 @@ flowchart LR
 
 Every morning at 06:17 UTC, a GitHub Actions job does the following:
 
-1. Pulls ~540 prices from five sources in about 8 seconds, over plain HTTP.
+1. Pulls ~570 prices from nine sources (ten providers) in about 11 seconds, over plain HTTP.
 2. Normalizes each price to USD per GPU-hour.
 3. Validates the data: schema, price bounds, per-source volume, and day-over-day drift.
 4. Commits the day's CSV to the repo and redeploys the dashboard.
@@ -136,12 +136,11 @@ had never stored a rate: the parser targeted auto-generated element IDs. The dat
 built to collect sat in the plain HTTP response the whole time. And the publisher's terms
 prohibit storing or redistributing their data. v1 is a ground-up rebuild on primary sources.
 Collection went from a 100-second headless-browser run that yielded 0 rows to an 8-second
-HTTP run that yields ~540 rows across 5 providers. The prototype remains in git history.
+HTTP run that yields ~570 rows across 10 providers. The prototype remains in git history.
 
 ## Roadmap
 
-- More neoclouds (CoreWeave, Nebius, Crusoe, Together) as machine-readable prices allow
-- Google Cloud via the Cloud Billing Catalog API
+- Google Cloud (Cloud Billing Catalog API) and Oracle Cloud, to round out the hyperscaler segment
 - Reserved/committed pricing where providers publish it
 - Weekly email/Slack digest of index moves
 

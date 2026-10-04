@@ -232,6 +232,7 @@ p { margin: 0; }
 }
 .tooltip b { display: block; margin-bottom: 4px; }
 .tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; font-variant-numeric: tabular-nums; }
+.tooltip .tt-note { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); color: var(--ink-2); font-size: 12px; }
 .tooltip .tt-row span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
 
 /* ---- Filters & tables -------------------------------------------------- */

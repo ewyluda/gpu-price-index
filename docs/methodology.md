@@ -1,6 +1,6 @@
 # Methodology
 
-*Methodology version 1.0 · history begins 2026-09-29*
+*Methodology version 1.1 · history begins 2026-09-29*
 
 The GPU Price Index answers one question: **what does an hour of a given GPU cost to rent
 today, and how does that depend on where you rent it?** This document describes what's
@@ -11,8 +11,8 @@ tell you.
 
 - **Unit:** US dollars per GPU-hour, on-demand list price, compute only. An 8-GPU VM
   listed at $98.32/hr is recorded as $98.32 instance-hours *and* $12.29 per GPU-hour.
-- **Pricing types:** `on_demand` (the index) and `spot` (a separate series, Azure only
-  today). Reserved and committed-use prices aren't published and aren't included.
+- **Pricing types:** `on_demand` (the index) and `spot` (a separate series, from Azure,
+  CoreWeave and Hyperstack). Reserved and committed-use prices aren't published and aren't included.
 - **Frequency:** one collection per day at 06:17 UTC. The collection date (UTC) is the
   observation date.
 
@@ -48,13 +48,25 @@ price more than any other factor.
 |---|---|---|---|
 | Hyperscaler | **Microsoft Azure** | ND/NC GPU VM series, every public region, on-demand and spot | [Retail Prices API](https://learn.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices) (public, no key) |
 | Hyperscaler | **AWS** | P4d/P4de/P5/P5e/P5en/P6 and G6e instances in 10 regions | Per-region pricing documents behind aws.amazon.com/ec2/pricing |
-| Neocloud | **Lambda** | On-demand instances, 1×/2×/4×/8× shapes | Public pricing page (one request per day; Lambda's terms allow rate-limited crawling) |
+| Neocloud | **CoreWeave** | HGX/PCIe instances, on-demand and spot | Public pricing page |
+| Neocloud | **Nebius** | GPU instances, on-demand (applies announced price changes on their effective date) | Public price list |
+| Neocloud | **Crusoe** | GPU instances, on-demand | Public pricing page |
+| Neocloud | **Lambda** | On-demand instances, 1×/2×/4×/8× shapes | Public pricing page (Lambda's terms allow rate-limited crawling) |
+| Neocloud | **Hyperstack** | GPU VMs, on-demand and spot | Public pricing page |
 | Neocloud | **RunPod Secure Cloud** | Per-GPU secure-cloud price | Public GraphQL API, no key |
 | Marketplace | **RunPod Community Cloud** | Per-GPU community price | Same API |
 | Marketplace | **Vast.ai** | Every rentable on-demand offer for each tracked GPU | Public offer-search API |
 
 Every source is a public price list published for buyers to read. No source requires
-authentication, and none is a third-party index or aggregator.
+authentication, and none is a third-party index or aggregator. Before a source is added,
+its robots.txt and terms are checked for restrictions on automated access, and each page is
+fetched once per day with an identifying User-Agent.
+
+| Excluded | Reason |
+|---|---|
+| Together AI | robots.txt disallows all crawlers |
+| Verda (formerly DataCrunch) | Terms list scrapers among prohibited automated uses |
+| Third-party GPU price indices | Proprietary data; terms prohibit storage and redistribution |
 
 ### Normalization rules
 
@@ -93,12 +105,24 @@ throughout for the same reason.
 |---|---|
 | **Market index** | Median of provider medians, all segments |
 | **Hyperscaler / Neocloud / Marketplace** | Median of provider medians within the segment |
-| **Spot** | Median of provider spot medians (hyperscaler spot only, today) |
+| **Spot** | Median of provider spot medians, all segments |
 | **Hyperscaler premium** | `hyperscaler / neocloud − 1` for the same GPU and day |
-| **7-day / 30-day change** | Latest value vs. the last value on or before *latest − N days*; blank until enough history exists |
+| **7-day / 30-day change** | Latest value vs. the last value on or before *latest − N days*, **recomputed over the providers listed on both dates** (see below); blank until enough history exists |
 | **Regional** | Median of region-specific list prices per geography (NA, EU, APAC, ME, LATAM, AF). Global list prices (neoclouds, marketplaces) are excluded |
 | **$/PFLOP-hr** | Market index ÷ (BF16 dense TFLOPS ÷ 1000) |
 | **$/GB-hr** | Market index ÷ memory GB |
+
+### Coverage changes
+
+Adding or losing a provider changes the index **level** without any price moving. Two
+safeguards keep that from being read as a market move:
+
+1. **Matched-provider changes.** 7- and 30-day changes compare the two dates using only
+   providers listed on both, so a new provider can't create a fake jump and a departing
+   one can't create a fake drop.
+2. **Coverage markers.** Every date on which providers join or leave is published in
+   `coverage_changes` and marked on the dashboard's history chart. For example, CoreWeave,
+   Nebius, Crusoe and Hyperstack joined with methodology 1.1.
 
 Published prices are rounded half-up to the cent, and percentages to the whole percent,
 so the dashboard, CSV exports, brief and MCP server all show identical figures.
@@ -166,10 +190,9 @@ real prices do sometimes move sharply.
 - **List prices aren't transaction prices.** Large buyers rarely pay on-demand list. The index
   measures the published price surface, which is the anchor for those negotiations, not the
   discount off it.
-- **Coverage is deliberately narrow.** Five sources that publish machine-readable prices
-  publicly. Several large neoclouds (CoreWeave, Nebius, Crusoe, Together) publish prices only
-  on marketing pages or behind accounts; adding them is on the roadmap. With two neocloud
-  providers today, the neocloud segment is thin.
+- **Coverage is deliberately limited to clean sources.** Nine sources and ten providers,
+  each publishing prices publicly with terms that allow automated reads. Google Cloud and
+  Oracle Cloud are not yet included, so the hyperscaler segment is AWS and Azure.
 - **Marketplace medians depend on supply.** A GPU with a handful of listings can swing on one
   host's price. `sample_size` is published for every marketplace observation.
 - **Peak FLOPS aren't throughput.** Price-performance uses vendor peaks. Delivered
@@ -185,3 +208,4 @@ that alter published values bump the version and are listed here.
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-09-29 | Initial methodology |
+| 1.1 | 2026-10-04 | Added CoreWeave, Nebius, Crusoe and Hyperstack (neocloud segment from 2 to 6 providers); changes now matched-provider; coverage changes published; spot series includes neocloud spot |

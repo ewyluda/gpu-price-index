@@ -331,6 +331,23 @@ function renderHistory() {
     }
   }
 
+  // Coverage changes: providers joining or leaving shift the level, not the price.
+  const events = Object.fromEntries((state.snap.coverage_changes ?? []).map((e) => [e.date, e]));
+  dates.forEach((d, i) => {
+    const e = events[d];
+    if (!e || n < 2) return;
+    const net = e.added.length - e.removed.length;
+    el("line", { x1: x(i), x2: x(i), y1: top, y2: height - bottom, class: "marker" }, svg);
+    el("text", { x: x(i) + 5, y: top + 11, class: "label-2" }, svg).textContent =
+      `${net >= 0 ? "+" : ""}${net} provider${Math.abs(net) === 1 ? "" : "s"}`;
+  });
+  const coverageNote = (d) => {
+    const e = events[d];
+    if (!e) return "";
+    const parts = [e.added.length ? `Joined: ${e.added.join(", ")}` : "", e.removed.length ? `Left: ${e.removed.join(", ")}` : ""];
+    return `<div class="tt-note">${esc(parts.filter(Boolean).join(". "))}. Level shift from coverage, not price.</div>`;
+  };
+
   // Crosshair + tooltip on the nearest date.
   const cross = el("line", { y1: top, y2: height - bottom, class: "crosshair", visibility: "hidden" }, svg);
   const overlay = el("rect", { x: left, y: top, width: width - left - right, height: height - top - bottom, class: "hit", role: "img",
@@ -341,7 +358,8 @@ function renderHistory() {
     return n === 1 ? 0 : Math.round(Math.min(Math.max((px - left) / (width - left - right), 0), 1) * (n - 1));
   };
   const tipFor = (i) => `<b>${fmtDate(dates[i])}</b>` +
-    active.map((s) => ttRow(SEGMENT_LABEL[s], usd(data[s][i]), s === "index" ? "var(--s-index)" : segColor(s))).join("");
+    active.map((s) => ttRow(SEGMENT_LABEL[s], usd(data[s][i]), s === "index" ? "var(--s-index)" : segColor(s))).join("") +
+    coverageNote(dates[i]);
   overlay.addEventListener("pointermove", (e) => {
     const i = nearest(e.clientX);
     cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");

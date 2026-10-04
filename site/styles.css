@@ -153,6 +153,7 @@ p { margin: 0; }
 .brief ul { margin: 14px 0 0; padding-left: 18px; color: var(--ink-2); }
 .brief li { margin: 6px 0; }
 .brief-watch { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 14px; color: var(--ink-2); }
+.brief-cost { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
 .brief-watch::before { content: "Watch: "; font-weight: 650; color: var(--ink); }
 
 /* ---- Sections ---------------------------------------------------------- */
@@ -231,6 +232,7 @@ p { margin: 0; }
 }
 .tooltip b { display: block; margin-bottom: 4px; }
 .tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; font-variant-numeric: tabular-nums; }
+.tooltip .tt-note { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); color: var(--ink-2); font-size: 12px; }
 .tooltip .tt-row span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
 
 /* ---- Filters & tables -------------------------------------------------- */
@@ -306,3 +308,23 @@ code { font-family: var(--mono); }
 @media (forced-colors: active) {
   .dot, .sw, .runs i { forced-color-adjust: none; }
 }
+
+/* ---- Build vs rent ----------------------------------------------------- */
+.calc-form output { font-weight: 650; color: var(--ink); margin-left: 4px; }
+.calc-form input[type="range"] { padding: 0; accent-color: var(--ink); background: transparent; border: 0; }
+.assumptions { border-top: 1px solid var(--border); padding-top: 12px; }
+.assumptions summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.assumptions[open] summary { margin-bottom: 8px; }
+.assumption-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.assumption-grid label { font-weight: 500; font-size: 12.5px; }
+.assumption-grid input { font-size: 14px; padding: 7px 10px; }
+.link-btn { margin-top: 10px; background: none; border: 0; padding: 0; font: inherit; font-size: 13px; color: var(--ink-2); text-decoration: underline; cursor: pointer; }
+.own-tiles { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .own-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.own-tile { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+.own-tile span { display: block; font-size: 12.5px; color: var(--muted); font-weight: 600; }
+.own-tile strong { display: block; font-size: 24px; font-weight: 720; letter-spacing: -0.02em; margin-top: 2px; }
+.own-tile small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.own-verdict { margin: 16px 0 4px; font-size: 16px; font-weight: 600; text-wrap: pretty; }
+.own-charts { margin-top: 12px; gap: 24px; }
+.chart .marker { stroke: var(--axis); stroke-width: 1.5; }

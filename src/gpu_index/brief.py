@@ -12,7 +12,7 @@ import json
 import logging
 import os
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 log = logging.getLogger(__name__)
@@ -217,7 +217,50 @@ def unsupported_claims(text: str, f: dict[str, Any]) -> list[str]:
 # --- generation ----------------------------------------------------------------
 
 
-def _draft(client: Any, f: dict[str, Any], feedback: str | None) -> dict[str, Any]:
+# USD per million tokens (input, output), from Anthropic's published pricing.
+# A server-side fallback can serve a request on another model, so cost is priced by
+# the model that actually answered (response.model), not the one requested.
+PRICES_PER_MTOK: dict[str, tuple[float, float]] = {
+    "claude-opus-5-5": (4.0, 20.0),
+    "claude-opus-5": (5.0, 25.0),
+    "claude-opus-4-8": (5.0, 25.0),
+    "claude-sonnet-5-5": (2.0, 10.0),
+}
+
+
+@dataclass
+class Usage:
+    """Tokens and cost across every request made for one brief, retries included."""
+
+    requests: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+    usd: float | None = 0.0
+    models: list[str] = field(default_factory=list)
+
+    def add(self, model: str, input_tokens: int, output_tokens: int) -> None:
+        self.requests += 1
+        self.input_tokens += input_tokens
+        self.output_tokens += output_tokens
+        if model not in self.models:
+            self.models.append(model)
+        price = PRICES_PER_MTOK.get(model)
+        if price is None or self.usd is None:
+            self.usd = None  # unknown model: report tokens, don't guess dollars
+        else:
+            self.usd += (input_tokens * price[0] + output_tokens * price[1]) / 1_000_000
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "requests": self.requests,
+            "input_tokens": self.input_tokens,
+            "output_tokens": self.output_tokens,
+            "usd": None if self.usd is None else round(self.usd, 4),
+            "models": self.models,
+        }
+
+
+def _draft(client: Any, f: dict[str, Any], feedback: str | None, usage: Usage) -> dict[str, Any]:
     content = f"FACTS:\n{json.dumps(f, indent=1)}"
     if feedback:
         content += f"\n\nYour previous draft used figures not in FACTS: {feedback}. Rewrite it."
@@ -233,6 +276,11 @@ def _draft(client: Any, f: dict[str, Any], feedback: str | None) -> dict[str, An
         betas=["server-side-fallback-2026-07-01"],
         fallbacks="default",
     )
+    usage.add(
+        getattr(response, "model", None) or MODEL,
+        response.usage.input_tokens,
+        response.usage.output_tokens,  # includes thinking tokens, which are billed as output
+    )
     if response.stop_reason == "refusal":
         raise RuntimeError("model declined to write the brief")
     text = next(b.text for b in response.content if b.type == "text")
@@ -240,10 +288,12 @@ def _draft(client: Any, f: dict[str, Any], feedback: str | None) -> dict[str, An
     return draft
 
 
-def llm_brief(f: dict[str, Any], client: Any, attempts: int = 2) -> dict[str, Any] | None:
+def llm_brief(
+    f: dict[str, Any], client: Any, usage: Usage, attempts: int = 2
+) -> dict[str, Any] | None:
     feedback = None
     for _ in range(attempts):
-        draft = _draft(client, f, feedback)
+        draft = _draft(client, f, feedback, usage)
         text = " ".join([draft["headline"], *draft["bullets"], draft["watch"]])
         bad = unsupported_claims(text, f)
         if not bad:
@@ -262,17 +312,20 @@ def generate(
         use_llm = bool(os.environ.get("ANTHROPIC_API_KEY"))
     result: dict[str, Any] = {"as_of": snap["as_of"], "generator": "template", "model": None}
     if use_llm:
+        usage = Usage()
         try:
             if client is None:
                 import anthropic
 
                 client = anthropic.Anthropic()
-            draft = llm_brief(f, client)
+            draft = llm_brief(f, client, usage)
         except Exception as exc:  # the brief is optional; the index is not
             log.warning("LLM brief failed, using template: %s", exc)
             draft = None
             result["fallback_reason"] = f"{type(exc).__name__}: {exc}"
+        result["usage"] = usage.to_dict()  # spent even when the draft is rejected
         if draft is not None:
-            return {**result, **draft, "generator": "claude", "model": MODEL, "fact_checked": True}
+            model = usage.models[-1] if usage.models else MODEL
+            return {**result, **draft, "generator": "claude", "model": model, "fact_checked": True}
         result.setdefault("fallback_reason", "draft failed numeric fact-check twice")
     return {**result, **template_brief(f)}

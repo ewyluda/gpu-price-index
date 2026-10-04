@@ -6,7 +6,7 @@ import pytest
 
 from gpu_index.catalog import GPUS
 from gpu_index.models import Observation
-from gpu_index.sources import ADAPTERS
+from gpu_index.sources import ADAPTERS, Stamp
 from tests.conftest import STAMP, load_fixture
 
 
@@ -83,3 +83,49 @@ def test_vast_splits_a100_by_memory() -> None:
     ]
     rows = ADAPTERS["vast"].parse(offers, STAMP)
     assert {o.gpu_model: o.usd_per_gpu_hour for o in rows} == {"A100-40GB": 0.8, "A100-80GB": 1.5}
+
+
+def test_coreweave_normalizes_instances_and_dedupes_repeated_listings() -> None:
+    rows = parse("coreweave")
+    h100 = find(rows, gpu_model="H100", pricing="on_demand")
+    assert (h100.gpu_count, h100.usd_per_hour) == (8, 49.24)
+    assert h100.usd_per_gpu_hour == pytest.approx(6.155)
+    assert find(rows, gpu_model="H100", pricing="spot").usd_per_gpu_hour < h100.usd_per_gpu_hour
+    assert all(o.segment == "neocloud" for o in rows)
+
+
+def test_nebius_switches_to_announced_prices_on_their_effective_date() -> None:
+    from gpu_index.sources import nebius
+
+    html = load_fixture("nebius")
+    before = nebius.parse(html, Stamp("2026-09-15", "2026-09-15T06:00:00+00:00"))
+    after = nebius.parse(html, Stamp("2026-10-04", "2026-10-04T06:00:00+00:00"))
+    assert find(before, gpu_model="H100").usd_per_gpu_hour == 3.85
+    assert find(after, gpu_model="H100").usd_per_gpu_hour == 4.50
+    assert not any(o.gpu_model == "L40S" for o in after)  # "from $X" rows skipped
+
+
+def test_nebius_price_column_logic() -> None:
+    from datetime import date
+
+    from gpu_index.sources.nebius import price_column
+
+    headers = ["Item", "vCPUs", "On-demand, GPU-hour", "GPU-hour (Effective October 1, 2026)"]
+    assert price_column(headers, date(2026, 9, 30)) == 2
+    assert price_column(headers, date(2026, 10, 1)) == 3
+    assert price_column(["Item", "Price"], date(2026, 10, 1)) is None
+
+
+def test_crusoe_skips_inference_endpoints_and_splits_a100_form_factors() -> None:
+    rows = parse("crusoe")
+    assert len([o for o in rows if o.gpu_model == "H100"]) == 1  # not the $5.50 endpoint
+    assert find(rows, gpu_model="A100-80GB").usd_per_gpu_hour == 2.30
+    assert find(rows, gpu_model="A100-80GB-PCIe").usd_per_gpu_hour == 2.00
+
+
+def test_hyperstack_maps_pcie_cards_explicitly_and_ignores_reservations() -> None:
+    rows = parse("hyperstack")
+    assert find(rows, sku="NVIDIA H100", pricing="on_demand").gpu_model == "H100-PCIe"
+    assert find(rows, sku="NVIDIA H100 SXM", pricing="on_demand").usd_per_gpu_hour == 3.20
+    assert {o.pricing for o in rows} == {"on_demand", "spot"}
+    assert not any(o.usd_per_gpu_hour == 2.72 for o in rows)  # reservation price

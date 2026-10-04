@@ -5,7 +5,7 @@ flowchart LR
     subgraph Sources["Public price sources"]
         AZ[Azure Retail Prices API]
         AWS[AWS pricing documents]
-        LAM[Lambda pricing page]
+        NEO["Neocloud pricing pages<br/>CoreWeave · Nebius · Crusoe<br/>Lambda · Hyperstack"]
         RP[RunPod GraphQL]
         VA[Vast.ai offer search]
     end
@@ -19,7 +19,7 @@ flowchart LR
         BR["Market brief<br/>Claude + numeric fact-check"]
     end
 
-    AZ & AWS & LAM & RP & VA --> AD --> ST
+    AZ & AWS & NEO & RP & VA --> AD --> ST
     AD --> VAL
     ST --> IDX --> PUB
     PUB --> BR --> PUB
@@ -40,6 +40,7 @@ flowchart LR
 | `store.py` | CSV-per-day storage. Idempotent same-day re-runs |
 | `validate.py` | Schema, bounds, volume and drift checks |
 | `index.py` | The methodology: provider medians → segment and market indices, changes, premium, regional, price-performance, cost estimates |
+| `tco.py` | Build vs rent: ownership cost model, breakeven utilization, payback (JS twin in `site/tco.js`, kept in sync by a shared fixture) |
 | `publish.py` | Writes the dashboard's JSON/CSV artifacts and the run log |
 | `brief.py` | Daily market brief: deterministic template, optional Claude rewrite behind a fact-check |
 | `mcp_server.py` | Exposes the published artifacts to agents as MCP tools |
@@ -55,7 +56,7 @@ traceable to its publisher.
 
 **Plain HTTP, no browser.** The prototype drove headless Chrome for ~100 s per run, with
 anti-bot-detection code, and still stored no rates. Every current source is a JSON API or a
-server-rendered table. The full five-source collection takes about 8 seconds, runs on a stock
+server-rendered table. The full nine-source collection takes about 11 seconds, runs on a stock
 GitHub runner, and identifies itself with an honest User-Agent.
 
 **`fetch` / `parse` split, fixture-tested.** Parsers are pure functions tested against

@@ -1,9 +1,12 @@
 // GPU Price Index dashboard. No build step, no dependencies: fetches the JSON the
 // daily pipeline publishes to ./data and renders SVG charts by hand.
 
+import { buildVsRent, costCurve } from "./tco.js";
+
 const SEGMENTS = ["hyperscaler", "neocloud", "marketplace"];
 const SEGMENT_LABEL = { hyperscaler: "Hyperscaler", neocloud: "Neocloud", marketplace: "Marketplace", index: "Market index" };
 const HISTORY_SERIES = ["index", ...SEGMENTS];
+const MODEL_LABEL = { "claude-opus-5-5": "Claude Opus 5.5", "claude-opus-4-8": "Claude Opus 4.8", "claude-sonnet-5-5": "Claude Sonnet 5.5" };
 const SVG_NS = "http://www.w3.org/2000/svg";
 
 const state = { snap: null, history: null, status: null, brief: null, gpu: "H100", metric: "pflop" };
@@ -114,6 +117,18 @@ function renderBrief() {
   $("#brief-bullets").replaceChildren(...b.bullets.map((t) => Object.assign(document.createElement("li"), { textContent: t })));
   $("#brief-watch").textContent = b.watch;
   $("#brief-badge").textContent = b.generator === "claude" ? "Written by Claude · numbers fact-checked" : "Generated from today's data";
+  const u = b.usage;
+  if (u) {
+    const cost = u.usd == null ? "cost unknown" : `${usd(u.usd, 3)} to write`;
+    $("#brief-cost").textContent = `${cost} · ${(u.input_tokens + u.output_tokens).toLocaleString()} tokens`;
+    $("#brief-cost").hidden = false;
+    const mtd = u.month_to_date_usd == null ? "" : ` · ${usd(u.month_to_date_usd)} month to date`;
+    $("#ai-usage").textContent =
+      `${MODEL_LABEL[u.models.at(-1)] ?? u.models.at(-1)} · ${u.requests} request${u.requests === 1 ? "" : "s"} · ` +
+      `${u.input_tokens.toLocaleString()} input / ${u.output_tokens.toLocaleString()} output tokens · ` +
+      `${u.usd == null ? "cost unknown" : usd(u.usd, 3)}${mtd}` +
+      (b.generator === "claude" ? "" : ` · fell back to template (${b.fallback_reason ?? "unknown reason"})`);
+  }
 }
 
 // ---- tiles ---------------------------------------------------------------------
@@ -316,6 +331,23 @@ function renderHistory() {
     }
   }
 
+  // Coverage changes: providers joining or leaving shift the level, not the price.
+  const events = Object.fromEntries((state.snap.coverage_changes ?? []).map((e) => [e.date, e]));
+  dates.forEach((d, i) => {
+    const e = events[d];
+    if (!e || n < 2) return;
+    const net = e.added.length - e.removed.length;
+    el("line", { x1: x(i), x2: x(i), y1: top, y2: height - bottom, class: "marker" }, svg);
+    el("text", { x: x(i) + 5, y: top + 11, class: "label-2" }, svg).textContent =
+      `${net >= 0 ? "+" : ""}${net} provider${Math.abs(net) === 1 ? "" : "s"}`;
+  });
+  const coverageNote = (d) => {
+    const e = events[d];
+    if (!e) return "";
+    const parts = [e.added.length ? `Joined: ${e.added.join(", ")}` : "", e.removed.length ? `Left: ${e.removed.join(", ")}` : ""];
+    return `<div class="tt-note">${esc(parts.filter(Boolean).join(". "))}. Level shift from coverage, not price.</div>`;
+  };
+
   // Crosshair + tooltip on the nearest date.
   const cross = el("line", { y1: top, y2: height - bottom, class: "crosshair", visibility: "hidden" }, svg);
   const overlay = el("rect", { x: left, y: top, width: width - left - right, height: height - top - bottom, class: "hit", role: "img",
@@ -326,7 +358,8 @@ function renderHistory() {
     return n === 1 ? 0 : Math.round(Math.min(Math.max((px - left) / (width - left - right), 0), 1) * (n - 1));
   };
   const tipFor = (i) => `<b>${fmtDate(dates[i])}</b>` +
-    active.map((s) => ttRow(SEGMENT_LABEL[s], usd(data[s][i]), s === "index" ? "var(--s-index)" : segColor(s))).join("");
+    active.map((s) => ttRow(SEGMENT_LABEL[s], usd(data[s][i]), s === "index" ? "var(--s-index)" : segColor(s))).join("") +
+    coverageNote(dates[i]);
   overlay.addEventListener("pointermove", (e) => {
     const i = nearest(e.clientX);
     cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
@@ -415,6 +448,166 @@ function initCalc() {
   renderCalc();
 }
 
+// ---- build vs rent ---------------------------------------------------------------
+const own = { gpu: "H100", assumptions: null };
+const ownInputs = () => [...document.querySelectorAll("#own-form [data-key]")];
+const rentColor = (seg) => (seg === "index" ? "var(--muted)" : segColor(seg));
+const rentLabel = (seg) => (seg === "index" ? "Rent (market index)" : `Rent (${SEGMENT_LABEL[seg].toLowerCase()})`);
+
+function loadOwnDefaults() {
+  own.assumptions = { ...gpuByKey(own.gpu).own_defaults };
+  for (const input of ownInputs()) {
+    const v = own.assumptions[input.dataset.key];
+    input.value = input.dataset.pct !== undefined ? +(v * 100).toFixed(2) : v;
+  }
+}
+
+function readOwnAssumptions() {
+  for (const input of ownInputs()) {
+    const v = parseFloat(input.value);
+    if (Number.isFinite(v) && v >= 0) own.assumptions[input.dataset.key] = input.dataset.pct !== undefined ? v / 100 : v;
+  }
+  if (own.assumptions.depreciation_years < 1) own.assumptions.depreciation_years = 1;
+}
+
+function renderOwn() {
+  const g = gpuByKey(own.gpu);
+  const segment = $("#own-segment").value;
+  const util = +$("#own-util").value / 100;
+  const count = Math.max(1, Math.floor(+$("#own-count").value || 1));
+  $("#own-util-out").textContent = `${Math.round(util * 100)}%`;
+  const rate = g.series[segment]?.value;
+  if (!rate) {
+    $("#own-tiles").replaceChildren();
+    $("#own-verdict").textContent = `No ${SEGMENT_LABEL[segment].toLowerCase()} price for ${g.name} today. Pick another rental benchmark.`;
+    for (const id of ["#own-curve", "#own-cum", "#own-breakdown"]) $(id).replaceChildren();
+    return;
+  }
+  const r = buildVsRent(own.assumptions, count, util, rate);
+  const be = r.breakeven_utilization;
+  const tile = (label, value, note) => `<div class="own-tile"><span>${label}</span><strong>${value}</strong><small>${note}</small></div>`;
+  $("#own-tiles").innerHTML =
+    tile("Own", usd(r.own_usd_per_gpu_hour), `per useful GPU-hr at ${Math.round(util * 100)}%`) +
+    tile("Rent", usd(rate), `per GPU-hr, ${segment === "index" ? "market index" : SEGMENT_LABEL[segment].toLowerCase() + " median"}`) +
+    tile("Breakeven", be == null ? "None" : `${Math.round(be * 100)}%`, be == null ? "renting wins at any utilization" : "utilization where owning wins") +
+    tile("Payback", r.payback_month == null ? "None" : `${r.payback_month} mo`, `within a ${r.horizon_months}-month horizon`);
+  const cheaper = r.own_usd_per_gpu_hour < rate;
+  const diff = Math.abs(r.horizon_savings_usd);
+  $("#own-verdict").textContent = be == null
+    ? `Renting is cheaper: even at 100% utilization, owning ${g.name}s costs more than ${usd(rate)}/GPU-hr.`
+    : cheaper
+      ? `At ${Math.round(util * 100)}% utilization, owning is cheaper and saves about ${compactUsd(diff)} over ${r.horizon_months / 12} years. It stops paying off below ${Math.round(be * 100)}%.`
+      : `At ${Math.round(util * 100)}% utilization, renting is cheaper. Owning only pays off above ${Math.round(be * 100)}% utilization.`;
+
+  $("#own-legend").innerHTML =
+    `<span><i class="sw sw-line" style="background:var(--s-index)"></i>Own</span>` +
+    `<span><i class="sw sw-line" style="background:${rentColor(segment)}"></i>${rentLabel(segment)}</span>`;
+  renderOwnCurve(r, count, rate, segment, util);
+  renderOwnCumulative(r, segment);
+
+  const b = r.own_monthly_breakdown_usd;
+  const label = { depreciation: "Depreciation", capital: "Cost of capital", colocation: "Colocation", operations: "Operations", energy: "Energy" };
+  $("#own-breakdown").innerHTML = table(
+    ["Monthly cost", "USD", "Share"],
+    [...Object.entries(b).map(([k, v]) => [label[k], usd(v, 0), `${Math.round((v / r.own_monthly_usd) * 100)}%`]),
+     ["<strong>Own, total</strong>", `<strong>${usd(r.own_monthly_usd, 0)}</strong>`, ""],
+     [`Rent at ${Math.round(util * 100)}% utilization`, usd(r.rent_monthly_usd, 0), ""]],
+    [1, 2],
+  );
+}
+
+let clipSeq = 0;
+function lineChart(container, { xs, series, xTicks, xFmt, yFmt, yMax, markers = [], tipFor, height = 240 }) {
+  const { svg, width } = svgFor(container, height);
+  const left = 54, right = 16, top = 10, bottom = 28;
+  const x = (v) => left + ((v - xs[0]) / (xs[xs.length - 1] - xs[0])) * (width - left - right);
+  const y = (v) => top + (1 - v / yMax) * (height - top - bottom);
+  const clipId = `clip-${++clipSeq}`;
+  const clip = el("clipPath", { id: clipId }, el("defs", {}, svg));
+  el("rect", { x: left, y: top - 6, width: width - left - right + 6, height: height - top - bottom + 6 }, clip);
+  for (const t of ticks(yMax, 4)) {
+    el("line", { x1: left, x2: width - right, y1: y(t), y2: y(t), class: "gridline" }, svg);
+    el("text", { x: left - 8, y: y(t) + 4, "text-anchor": "end" }, svg).textContent = yFmt(t);
+  }
+  for (const v of xTicks) el("text", { x: x(v), y: height - 8, "text-anchor": "middle" }, svg).textContent = xFmt(v);
+  for (const m of markers) {
+    el("line", { x1: x(m.x), x2: x(m.x), y1: top, y2: height - bottom, class: "marker" }, svg);
+    el("text", { x: x(m.x) + 6, y: top + 12, class: "label-2" }, svg).textContent = m.label;
+  }
+  for (const s of series) {
+    const d = s.values.map((v, i) => `${i ? "L" : "M"}${x(xs[i]).toFixed(1)},${y(v).toFixed(1)}`).join("");
+    el("path", { d, class: "line", style: `stroke:${s.color}`, "clip-path": `url(#${clipId})` }, svg);
+    for (const p of s.points ?? []) if (p[1] <= yMax) el("circle", { cx: x(p[0]), cy: y(p[1]), r: 5, class: "dot", style: `fill:${s.color}` }, svg);
+  }
+  const cross = el("line", { y1: top, y2: height - bottom, class: "crosshair", visibility: "hidden" }, svg);
+  const overlay = el("rect", { x: left, y: top, width: width - left - right, height: height - top - bottom, class: "hit" }, svg);
+  overlay.addEventListener("pointermove", (e) => {
+    const box = svg.getBoundingClientRect();
+    const px = ((e.clientX - box.left) / box.width) * width;
+    const i = Math.round(Math.min(Math.max((px - left) / (width - left - right), 0), 1) * (xs.length - 1));
+    cross.setAttribute("x1", x(xs[i])); cross.setAttribute("x2", x(xs[i])); cross.setAttribute("visibility", "visible");
+    showTip(tipFor(i), e.clientX, e.clientY);
+  });
+  overlay.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+}
+
+function renderOwnCurve(r, count, rate, segment, util) {
+  const curve = costCurve(own.assumptions, count, rate);
+  const xs = curve.map(([u]) => u);
+  const ownVals = curve.map(([, c]) => c);
+  const yMax = niceMax(Math.max(rate * 2.2, ownVals[ownVals.length - 1] * 1.6));
+  const markers = r.breakeven_utilization == null ? [] : [{ x: r.breakeven_utilization, label: `Breakeven ${Math.round(r.breakeven_utilization * 100)}%` }];
+  lineChart($("#own-curve"), {
+    xs, yMax, markers,
+    series: [
+      { values: xs.map(() => rate), color: rentColor(segment) },
+      { values: ownVals, color: "var(--s-index)", points: [[util, r.own_usd_per_gpu_hour]] },
+    ],
+    xTicks: isNarrow() ? [0.25, 0.5, 0.75, 1] : [0.1, 0.25, 0.5, 0.75, 1],
+    xFmt: (u) => `${Math.round(u * 100)}%`,
+    yFmt: (v) => `$${v}`,
+    tipFor: (i) => `<b>${Math.round(xs[i] * 100)}% utilization</b>${ttRow("Own", usd(ownVals[i]), "var(--s-index)")}${ttRow("Rent", usd(rate), rentColor(segment))}`,
+  });
+}
+
+function renderOwnCumulative(r, segment) {
+  const months = r.own_cumulative_usd.map((_, m) => m);
+  $("#own-cum-sub").textContent = r.payback_month == null
+    ? `Over ${r.horizon_months} months, owning never catches up with renting.`
+    : `Owning pays back in month ${r.payback_month} of ${r.horizon_months}.`;
+  const yMax = niceMax(Math.max(r.own_cumulative_usd.at(-1), r.rent_cumulative_usd.at(-1)) * 1.05);
+  lineChart($("#own-cum"), {
+    xs: months, yMax,
+    markers: r.payback_month == null ? [] : [{ x: r.payback_month, label: `Payback, month ${r.payback_month}` }],
+    series: [
+      { values: r.rent_cumulative_usd, color: rentColor(segment) },
+      { values: r.own_cumulative_usd, color: "var(--s-index)" },
+    ],
+    xTicks: months.filter((m) => m % 12 === 0),
+    xFmt: (m) => (m === 0 ? "Start" : `Year ${m / 12}`),
+    yFmt: (v) => compactUsd(v).replace(".00", ""),
+    tipFor: (i) => `<b>Month ${i}</b>${ttRow("Own", compactUsd(r.own_cumulative_usd[i]), "var(--s-index)")}${ttRow("Rent", compactUsd(r.rent_cumulative_usd[i]), rentColor(segment))}`,
+  });
+}
+
+function initOwn() {
+  const options = state.snap.gpus.filter((g) => g.own_defaults);
+  if (!options.length) { $("#own").hidden = true; return; }
+  const select = $("#own-gpu");
+  select.replaceChildren(...options.map((g) => new Option(g.name, g.key)));
+  if (!gpuByKey(own.gpu)?.own_defaults) own.gpu = options[0].key;
+  select.value = own.gpu;
+  loadOwnDefaults();
+  select.addEventListener("change", () => { own.gpu = select.value; loadOwnDefaults(); renderOwn(); });
+  $("#own-reset").addEventListener("click", () => { loadOwnDefaults(); renderOwn(); });
+  $("#own-form").addEventListener("input", (e) => {
+    if (e.target.dataset.key) readOwnAssumptions();
+    if (e.target !== select) renderOwn();
+  });
+  $("#own-form").addEventListener("submit", (e) => e.preventDefault());
+  renderOwn();
+}
+
 // ---- pipeline ------------------------------------------------------------------
 const OK_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" stroke="#fff" stroke-width="1.8" fill="none"/></svg>';
 const BAD_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M5.5 5.5l5 5m0-5l-5 5" stroke="#fff" stroke-width="1.8"/></svg>';
@@ -464,6 +657,7 @@ function renderCharts() {
   renderPerf();
   renderPremium();
   renderHistory();
+  if (own.assumptions) renderOwn();
 }
 
 function initControls() {
@@ -517,6 +711,7 @@ async function main() {
   renderProviders();
   renderRegional();
   initCalc();
+  initOwn();
   renderPipeline();
   renderCharts();
   initControls();

@@ -19,7 +19,7 @@ from typing import Any, Literal
 import httpx
 from mcp.server.mcpserver import MCPServer
 
-from gpu_index import index
+from gpu_index import index, tco
 from gpu_index.http import USER_AGENT
 from gpu_index.publish import SITE_DATA
 
@@ -120,6 +120,45 @@ def estimate_cluster_cost(
         raise ValueError("gpu_count must be >= 1 and hours > 0")
     snap = load("latest.json")
     return index.estimate_cost(snap, _gpu(snap, gpu)["key"], gpu_count, hours, segment)
+
+
+@server.tool()
+def build_vs_rent(
+    gpu: str,
+    gpu_count: int = 64,
+    utilization: float = 0.7,
+    rent_segment: Literal["neocloud", "hyperscaler", "marketplace", "index"] = "neocloud",
+    capex_per_server_usd: float | None = None,
+    power_usd_per_kwh: float | None = None,
+    pue: float | None = None,
+    depreciation_years: float | None = None,
+    cost_of_capital: float | None = None,
+    colo_usd_per_kw_month: float | None = None,
+) -> dict[str, Any]:
+    """Compare owning 8-GPU servers with renting on demand at today's index.
+
+    Returns own vs rent cost per useful GPU-hour, the breakeven utilization above which
+    owning is cheaper, payback month and savings over the depreciation horizon.
+    utilization is a fraction (0.7 = 70%). Server price and power defaults are
+    illustrative placeholders: pass capex_per_server_usd (an 8-GPU server quote) and
+    power_usd_per_kwh for a real decision."""
+    snap = load("latest.json")
+    entry = _gpu(snap, gpu)
+    series = entry["series"].get(rent_segment)
+    if series is None:
+        raise ValueError(f"no {rent_segment} price for {entry['name']} today")
+    a = tco.default_assumptions(entry["key"]).with_overrides(
+        capex_per_server_usd=capex_per_server_usd,
+        power_usd_per_kwh=power_usd_per_kwh,
+        pue=pue,
+        depreciation_years=depreciation_years,
+        cost_of_capital=cost_of_capital,
+        colo_usd_per_kw_month=colo_usd_per_kw_month,
+    )
+    result = tco.build_vs_rent(a, gpu_count, utilization, series["value"])
+    for key in ("own_cumulative_usd", "rent_cumulative_usd"):
+        result[key] = result[key][:: max(1, result["horizon_months"] // 12)]  # yearly points
+    return {"gpu": entry["key"], "rent_segment": rent_segment, "as_of": snap["as_of"], **result}
 
 
 @server.tool()

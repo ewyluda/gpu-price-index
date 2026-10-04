@@ -141,3 +141,30 @@ def test_percentages_round_half_up_to_whole_percent() -> None:
         make_obs(provider="Hyper", segment="hyperscaler", usd_per_gpu_hour=2.69),  # +34.5%
     ]
     assert snapshot(rows)["gpus"][0]["hyperscaler_premium"] == 0.35
+
+
+def test_new_provider_shifts_level_but_not_the_reported_change() -> None:
+    week1 = [
+        make_obs(date="2026-09-01", provider="Neo A", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-01", provider="Neo B", usd_per_gpu_hour=3.0),
+    ]
+    # A week later prices are unchanged, but an expensive provider joins.
+    week2 = [
+        make_obs(date="2026-09-08", provider="Neo A", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-08", provider="Neo B", usd_per_gpu_hour=3.0),
+        make_obs(date="2026-09-08", provider="Neo C", usd_per_gpu_hour=9.0),
+    ]
+    snap = snapshot(week1 + week2)
+    index = snap["gpus"][0]["series"]["index"]
+    assert index["value"] == 3.0  # level moved from 2.5 to 3.0 ...
+    assert index["change_7d"] == 0.0  # ... but no matched provider changed price
+    assert snap["coverage_changes"] == [{"date": "2026-09-08", "added": ["Neo C"], "removed": []}]
+
+
+def test_matched_change_still_reports_real_moves() -> None:
+    rows = [
+        make_obs(date="2026-09-01", provider="Neo A", usd_per_gpu_hour=2.0),
+        make_obs(date="2026-09-08", provider="Neo A", usd_per_gpu_hour=2.2),
+        make_obs(date="2026-09-08", provider="Neo B", usd_per_gpu_hour=5.0),
+    ]
+    assert snapshot(rows)["gpus"][0]["series"]["index"]["change_7d"] == 0.1

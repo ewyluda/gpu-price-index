@@ -15,6 +15,7 @@ from gpu_index.sources import ADAPTERS
 
 SITE_DATA = store.ROOT / "site" / "data"
 RUNS_LOG = store.ROOT / "data" / "runs.jsonl"
+USAGE_LOG = store.ROOT / "data" / "llm_usage.jsonl"
 STATUS_HISTORY = 30
 
 
@@ -33,6 +34,18 @@ def read_runs(log_path: Path = RUNS_LOG) -> list[dict[str, Any]]:
     if not log_path.exists():
         return []
     return [json.loads(line) for line in log_path.read_text().splitlines() if line.strip()]
+
+
+def record_llm_usage(brief: dict[str, Any], log_path: Path | None = None) -> None:
+    """Append this brief's Claude usage to the log and add month-to-date spend to it."""
+    usage = brief.get("usage")
+    if not usage:
+        return
+    log_path = log_path or USAGE_LOG
+    append_run({"date": brief["as_of"], "generator": brief["generator"], **usage}, log_path)
+    month = brief["as_of"][:7]
+    spent = [r["usd"] for r in read_runs(log_path) if r["date"].startswith(month)]
+    usage["month_to_date_usd"] = None if any(v is None for v in spent) else round(sum(spent), 4)
 
 
 def build(rows: list[Observation] | None = None, out: Path = SITE_DATA) -> dict[str, Any]:

@@ -38,7 +38,15 @@ def cmd_brief(args: argparse.Namespace) -> int:
     snap = json.loads((publish.SITE_DATA / "latest.json").read_text())
     use_llm = True if args.llm else False if args.no_llm else None
     doc = brief.generate(snap, use_llm=use_llm)
+    publish.record_llm_usage(doc)
     (publish.SITE_DATA / "brief.json").write_text(json.dumps(doc, indent=1) + "\n")
+    if usage := doc.get("usage"):
+        cost = "unknown" if usage["usd"] is None else f"${usage['usd']:.4f}"
+        print(
+            f"Claude usage: {usage['requests']} request(s), {usage['input_tokens']:,} in / "
+            f"{usage['output_tokens']:,} out tokens, {cost} "
+            f"(month to date: ${usage.get('month_to_date_usd') or 0:.2f})"
+        )
     print(f"[{doc['generator']}] {doc['headline']}")
     for bullet in doc["bullets"]:
         print(f"  - {bullet}")
@@ -68,6 +76,20 @@ def cmd_show(_: argparse.Namespace) -> int:
             f"{cell('marketplace')}{(f'{premium:+.0%}' if premium is not None else '-'):>9}"
             f"{g['usd_per_pflop_hour']:9.2f}"
         )
+    brief_path = publish.SITE_DATA / "brief.json"
+    if brief_path.exists():
+        doc = json.loads(brief_path.read_text())
+        usage = doc.get("usage")
+        line = f"\nBrief: {doc['generator']}"
+        if usage:
+            cost = "unknown" if usage["usd"] is None else f"${usage['usd']:.4f}"
+            mtd = usage.get("month_to_date_usd")
+            line += (
+                f" ({doc.get('model')}), {usage['requests']} request(s), "
+                f"{usage['input_tokens']:,} in / {usage['output_tokens']:,} out tokens, {cost}"
+                + (f"; month to date ${mtd:.2f}" if mtd is not None else "")
+            )
+        print(line)
     return 0
 
 

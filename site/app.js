@@ -4,6 +4,7 @@
 const SEGMENTS = ["hyperscaler", "neocloud", "marketplace"];
 const SEGMENT_LABEL = { hyperscaler: "Hyperscaler", neocloud: "Neocloud", marketplace: "Marketplace", index: "Market index" };
 const HISTORY_SERIES = ["index", ...SEGMENTS];
+const MODEL_LABEL = { "claude-opus-5-5": "Claude Opus 5.5", "claude-opus-4-8": "Claude Opus 4.8", "claude-sonnet-5-5": "Claude Sonnet 5.5" };
 const SVG_NS = "http://www.w3.org/2000/svg";
 
 const state = { snap: null, history: null, status: null, brief: null, gpu: "H100", metric: "pflop" };
@@ -114,6 +115,18 @@ function renderBrief() {
   $("#brief-bullets").replaceChildren(...b.bullets.map((t) => Object.assign(document.createElement("li"), { textContent: t })));
   $("#brief-watch").textContent = b.watch;
   $("#brief-badge").textContent = b.generator === "claude" ? "Written by Claude · numbers fact-checked" : "Generated from today's data";
+  const u = b.usage;
+  if (u) {
+    const cost = u.usd == null ? "cost unknown" : `${usd(u.usd, 3)} to write`;
+    $("#brief-cost").textContent = `${cost} · ${(u.input_tokens + u.output_tokens).toLocaleString()} tokens`;
+    $("#brief-cost").hidden = false;
+    const mtd = u.month_to_date_usd == null ? "" : ` · ${usd(u.month_to_date_usd)} month to date`;
+    $("#ai-usage").textContent =
+      `${MODEL_LABEL[u.models.at(-1)] ?? u.models.at(-1)} · ${u.requests} request${u.requests === 1 ? "" : "s"} · ` +
+      `${u.input_tokens.toLocaleString()} input / ${u.output_tokens.toLocaleString()} output tokens · ` +
+      `${u.usd == null ? "cost unknown" : usd(u.usd, 3)}${mtd}` +
+      (b.generator === "claude" ? "" : ` · fell back to template (${b.fallback_reason ?? "unknown reason"})`);
+  }
 }
 
 // ---- tiles ---------------------------------------------------------------------

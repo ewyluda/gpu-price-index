@@ -153,6 +153,7 @@ p { margin: 0; }
 .brief ul { margin: 14px 0 0; padding-left: 18px; color: var(--ink-2); }
 .brief li { margin: 6px 0; }
 .brief-watch { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 14px; color: var(--ink-2); }
+.brief-cost { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
 .brief-watch::before { content: "Watch: "; font-weight: 650; color: var(--ink); }
 
 /* ---- Sections ---------------------------------------------------------- */

@@ -75,15 +75,19 @@ def test_facts_survive_a_snapshot_without_headline_gpus(snap: dict[str, Any]) ->
 class FakeClient:
     """Stands in for anthropic.Anthropic; returns queued JSON drafts."""
 
-    def __init__(self, drafts: list[dict[str, Any]]) -> None:
+    def __init__(self, drafts: list[dict[str, Any]], model: str = brief.MODEL) -> None:
         self.drafts = drafts
+        self.model = model
         self.calls: list[dict[str, Any]] = []
         self.beta = SimpleNamespace(messages=SimpleNamespace(create=self._create))
 
     def _create(self, **kwargs: Any) -> Any:
         self.calls.append(kwargs)
         block = SimpleNamespace(type="text", text=json.dumps(self.drafts.pop(0)))
-        return SimpleNamespace(stop_reason="end_turn", content=[block])
+        usage = SimpleNamespace(input_tokens=1_500, output_tokens=2_000)
+        return SimpleNamespace(
+            stop_reason="end_turn", content=[block], model=self.model, usage=usage
+        )
 
 
 def _draft(headline: str) -> dict[str, Any]:
@@ -116,3 +120,47 @@ def test_llm_errors_never_break_the_pipeline(snap: dict[str, Any]) -> None:
     doc = brief.generate(snap, use_llm=True, client=Broken())
     assert doc["generator"] == "template"
     assert "ZeroDivisionError" in doc["fallback_reason"]
+
+
+def test_usage_and_cost_are_recorded(snap: dict[str, Any]) -> None:
+    idx = brief.facts(snap)["gpus"][0]["market_index"]
+    doc = brief.generate(snap, use_llm=True, client=FakeClient([_draft(f"Index at {idx}")]))
+    # 1,500 in x $4/M + 2,000 out x $20/M = $0.006 + $0.04
+    assert doc["usage"] == {
+        "requests": 1,
+        "input_tokens": 1_500,
+        "output_tokens": 2_000,
+        "usd": 0.046,
+        "models": [brief.MODEL],
+    }
+
+
+def test_rejected_drafts_are_still_billed(snap: dict[str, Any]) -> None:
+    client = FakeClient([_draft("H100 hits $99.99"), _draft("Still $88.88")])
+    doc = brief.generate(snap, use_llm=True, client=client)
+    assert doc["generator"] == "template"
+    assert doc["usage"]["requests"] == 2 and doc["usage"]["usd"] == 0.092
+
+
+def test_fallback_model_is_priced_by_the_model_that_answered(snap: dict[str, Any]) -> None:
+    idx = brief.facts(snap)["gpus"][0]["market_index"]
+    doc = brief.generate(
+        snap, use_llm=True, client=FakeClient([_draft(f"Index {idx}")], model="claude-opus-4-8")
+    )
+    assert doc["model"] == "claude-opus-4-8"
+    assert doc["usage"]["usd"] == 0.0575  # $5 in / $25 out
+    unknown = brief.generate(
+        snap, use_llm=True, client=FakeClient([_draft(f"Index {idx}")], model="claude-x")
+    )
+    assert unknown["usage"]["usd"] is None  # never guess a price
+
+
+def test_month_to_date_spend_sums_the_usage_log(tmp_path: Any) -> None:
+    from gpu_index import publish
+
+    log = tmp_path / "llm_usage.jsonl"
+    for day, usd in [("2026-09-30", 0.05), ("2026-10-01", 0.04), ("2026-10-02", 0.03)]:
+        doc = {"as_of": day, "generator": "claude", "usage": {"requests": 1, "usd": usd}}
+        publish.record_llm_usage(doc, log)
+    assert doc["usage"]["month_to_date_usd"] == 0.07  # September excluded
+    assert len(log.read_text().splitlines()) == 3

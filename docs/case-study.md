@@ -7,7 +7,7 @@ AI inside the product.* · [Live dashboard](https://ewyluda.github.io/gpu-price-
 **In short**
 
 - I turned a broken prototype that had never stored a single price into a daily index of
-  **~570 prices from 10 providers**, collected in about 11 seconds. Every run since launch
+  **~600 prices from 12 providers**, collected in about 14 seconds. Every run since launch
   has passed its quality gates.
 - The work was AI-native in two ways. **I directed coding agents to build it**, with a
   separate agent reviewing their work. And **AI runs inside the product**: a Claude-written
@@ -46,9 +46,9 @@ lists, so every number traces to whoever set the price.
 
 ## What I built
 
-- **A daily pipeline.** Adapters for nine public sources (Azure and AWS pricing APIs, the
-  pricing pages of CoreWeave, Nebius, Crusoe, Lambda and Hyperstack, and RunPod and Vast.ai
-  APIs) normalize every price to USD per GPU-hour. Validation gates check each source before
+- **A daily pipeline.** Adapters for eleven public sources normalize every price to USD per
+  GPU-hour. They cover all four hyperscalers (AWS, Azure, Google Cloud, Oracle), five
+  neoclouds (CoreWeave, Nebius, Crusoe, Lambda, Hyperstack), and RunPod and Vast.ai. Validation gates check each source before
   anything is stored. A GitHub Actions job commits each day's prices to the repo as CSV and
   redeploys the dashboard. If a source breaks, the job opens a GitHub issue, and the next
   healthy run closes it.
@@ -141,11 +141,11 @@ Three practices made that work:
 
 | | Prototype | GPU Price Index |
 |---|---|---|
-| Prices stored | 0 | ~570 per day |
-| Providers | 1 (third-party index) | 10, all primary sources |
-| Collection run | ~100 s, headless browser | ~11 s, plain HTTP |
+| Prices stored | 0 | ~600 per day |
+| Providers | 1 (third-party index) | 12, all primary sources |
+| Collection run | ~100 s, headless browser | ~14 s, plain HTTP |
 | Data quality | none | schema, bounds, volume and drift gates; outage carry-forward |
-| Tests | print scripts, no assertions | 98 Python tests + JS/Python parity check |
+| Tests | print scripts, no assertions | 102 Python tests + JS/Python parity check |
 | Automation | manual | daily job, self-opening and self-closing failure issues |
 | AI in the product | none | fact-checked daily brief (~$0.03/day), MCP server |
 
@@ -154,8 +154,8 @@ data exist, plus one sentence with a real week-over-week move from the dashboard
 
 ## What I'd do next
 
-- **Complete the hyperscaler segment** with Google Cloud and Oracle Cloud, whose pricing
-  APIs are public.
+- **Cover Google Cloud in every region** through its Cloud Billing Catalog API. The keyless
+  pricing page used today covers one region.
 - **Add reserved and committed pricing** where providers publish it, since that's what
   large buyers actually pay.
 - **Ship a weekly digest** to Slack or email that flags significant index moves.

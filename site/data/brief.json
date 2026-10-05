@@ -3,23 +3,23 @@
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
-  "requests": 1,
-  "input_tokens": 1776,
-  "output_tokens": 789,
-  "usd": 0.0229,
+  "requests": 2,
+  "input_tokens": 3584,
+  "output_tokens": 1932,
+  "usd": 0.053,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.0537
+  "month_to_date_usd": 0.1067
  },
- "headline": "Hyperscalers charge roughly double neocloud rates across all GPUs, while MI300X leads on price-performance.",
+ "headline": "MI300X leads price-performance at $2.64 per PFLOP-hour while hyperscalers stay far above neocloud pricing.",
  "bullets": [
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, though only 5 providers list it and its marketplace median sits at just $0.50.",
-  "H100 SXM carries the widest hyperscaler premium at +166%, with a hyperscaler median of $10.68 against a neocloud median of $4.02.",
-  "B200 tops the market index at $7.81 but costs $3.47 per PFLOP-hour, cheaper per unit of compute than H200 at $5.46 or H100 SXM at $4.37.",
-  "A100 80GB SXM is the least efficient option at $8.65 per PFLOP-hour despite a $2.70 market index, with Vast.ai cheapest at $1.19.",
-  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, posting a B200 median of $5.98 versus the $7.81 index."
+  "MI300X has the best price-performance at $2.64 per PFLOP-hour, and RunPod Community Cloud lists it at $0.50 against a $3.45 market index, though only 5 providers offer it.",
+  "H200 carries a +124% hyperscaler premium, with a $10.30 hyperscaler median versus a $4.59 neocloud median and $3.59 at RunPod Community Cloud.",
+  "B200 sets the top of the market at a $7.81 index, with hyperscalers at $14.12 versus $6.84 for neoclouds (+106%) and $3.47 per PFLOP-hour.",
+  "H100 SXM is offered by all 12 providers at a $4.32 index, with a $2.50 marketplace median and $2.31 at Vast.ai versus $10.68 at hyperscalers.",
+  "A100 80GB SXM looks cheap at a $2.70 index but is the costliest per unit of compute at $8.65 per PFLOP-hour."
  ],
- "watch": "No 7-day change figures are reported yet, so watch whether MI300X's $0.50 marketplace median holds with only 5 providers listing it.",
+ "watch": "Seven-day change figures are not yet populated for any GPU, so watch for the first trend readings to confirm whether hyperscaler premiums are holding.",
  "fact_checked": true
 }

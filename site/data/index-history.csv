@@ -116,7 +116,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-10-02,H100,marketplace,2.48
 2026-10-03,H100,marketplace,2.48
 2026-10-04,H100,marketplace,3.14
-2026-10-05,H100,marketplace,2.93
+2026-10-05,H100,marketplace,2.5
 2026-09-29,H100,spot,2.95
 2026-09-30,H100,spot,2.95
 2026-10-01,H100,spot,2.95
@@ -130,7 +130,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-10-02,H100-NVL,index,3.16
 2026-10-03,H100-NVL,index,2.98
 2026-10-04,H100-NVL,index,2.98
-2026-10-05,H100-NVL,index,2.96
+2026-10-05,H100-NVL,index,2.93
 2026-09-29,H100-NVL,hyperscaler,9.07
 2026-09-30,H100-NVL,hyperscaler,9.07
 2026-10-01,H100-NVL,hyperscaler,9.07
@@ -151,7 +151,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-10-02,H100-NVL,marketplace,2.86
 2026-10-03,H100-NVL,marketplace,2.68
 2026-10-04,H100-NVL,marketplace,2.68
-2026-10-05,H100-NVL,marketplace,2.66
+2026-10-05,H100-NVL,marketplace,2.63
 2026-09-29,H100-NVL,spot,1.84
 2026-09-30,H100-NVL,spot,1.84
 2026-10-01,H100-NVL,spot,1.82
@@ -244,7 +244,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-10-02,A100-80GB,marketplace,1.4
 2026-10-03,A100-80GB,marketplace,1.29
 2026-10-04,A100-80GB,marketplace,1.29
-2026-10-05,A100-80GB,marketplace,1.29
+2026-10-05,A100-80GB,marketplace,1.41
 2026-09-29,A100-80GB,spot,1.46
 2026-09-30,A100-80GB,spot,1.46
 2026-10-01,A100-80GB,spot,1.51

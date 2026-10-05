@@ -5,6 +5,7 @@ flowchart LR
     subgraph Sources["Public price sources"]
         AZ[Azure Retail Prices API]
         AWS[AWS pricing documents]
+        HYP["Google Cloud pricing page<br/>Oracle price-list API"]
         NEO["Neocloud pricing pages<br/>CoreWeave · Nebius · Crusoe<br/>Lambda · Hyperstack"]
         RP[RunPod GraphQL]
         VA[Vast.ai offer search]
@@ -19,7 +20,7 @@ flowchart LR
         BR["Market brief<br/>Claude + numeric fact-check"]
     end
 
-    AZ & AWS & NEO & RP & VA --> AD --> ST
+    AZ & AWS & HYP & NEO & RP & VA --> AD --> ST
     AD --> VAL
     ST --> IDX --> PUB
     PUB --> BR --> PUB
@@ -56,7 +57,7 @@ traceable to its publisher.
 
 **Plain HTTP, no browser.** The prototype drove headless Chrome for ~100 s per run, with
 anti-bot-detection code, and still stored no rates. Every current source is a JSON API or a
-server-rendered table. The full nine-source collection takes about 11 seconds, runs on a stock
+server-rendered table. The full eleven-source collection takes about 14 seconds, runs on a stock
 GitHub runner, and identifies itself with an honest User-Agent.
 
 **`fetch` / `parse` split, fixture-tested.** Parsers are pure functions tested against

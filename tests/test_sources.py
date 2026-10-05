@@ -141,3 +141,24 @@ def test_hyperstack_maps_pcie_cards_explicitly_and_ignores_reservations() -> Non
     assert find(rows, sku="NVIDIA H100 SXM", pricing="on_demand").usd_per_gpu_hour == 3.20
     assert {o.pricing for o in rows} == {"on_demand", "spot"}
     assert not any(o.usd_per_gpu_hour == 2.72 for o in rows)  # reservation price
+
+
+def test_oracle_maps_part_numbers_and_skips_lookalikes() -> None:
+    rows = parse("oracle")
+    assert find(rows, gpu_model="H100").usd_per_gpu_hour == 10.0
+    assert find(rows, gpu_model="A100-80GB").sku == "BM.GPU.A100-v2.8"
+    # Cloud@Customer L40S and NVIDIA AI Enterprise licences share names but aren't rentals.
+    assert len([o for o in rows if o.gpu_model == "L40S"]) == 1
+    assert all(o.segment == "hyperscaler" and o.pricing == "on_demand" for o in rows)
+
+
+def test_gcp_reads_columns_by_header_and_normalizes_machine_types() -> None:
+    rows = parse("gcp")
+    a3 = find(rows, sku="a3-highgpu-8g", pricing="on_demand")
+    assert (a3.gpu_model, a3.gpu_count, a3.usd_per_hour) == ("H100", 8, 88.49)
+    assert find(rows, sku="a3-highgpu-8g", pricing="spot").usd_per_gpu_hour < a3.usd_per_gpu_hour
+    assert find(rows, sku="a2-highgpu-1g", pricing="on_demand").gpu_model == "A100-40GB"
+    assert find(rows, sku="a2-ultragpu-1g", pricing="on_demand").gpu_model == "A100-80GB"
+    # A4 (B200) on-demand is "N/A" on the page: spot only.
+    assert [o.pricing for o in rows if o.gpu_model == "B200"] == ["spot"]
+    assert {o.region for o in rows} == {"us-central1"}

@@ -1,6 +1,6 @@
 # Methodology
 
-*Methodology version 1.2 · history begins 2026-09-29*
+*Methodology version 1.3 · history begins 2026-09-29*
 
 The GPU Price Index answers one question: **what does an hour of a given GPU cost to rent
 today, and how does that depend on where you rent it?** This document describes what's
@@ -12,7 +12,7 @@ tell you.
 - **Unit:** US dollars per GPU-hour, on-demand list price, compute only. An 8-GPU VM
   listed at $98.32/hr is recorded as $98.32 instance-hours *and* $12.29 per GPU-hour.
 - **Pricing types:** `on_demand` (the index) and `spot` (a separate series, from Azure,
-  CoreWeave and Hyperstack). Reserved and committed-use prices aren't published and aren't included.
+  Google Cloud, CoreWeave and Hyperstack). Reserved and committed-use prices aren't published and aren't included.
 - **Frequency:** one collection per day at 06:17 UTC. The collection date (UTC) is the
   observation date.
 
@@ -48,6 +48,8 @@ price more than any other factor.
 |---|---|---|---|
 | Hyperscaler | **Microsoft Azure** | ND/NC GPU VM series, every public region, on-demand and spot | [Retail Prices API](https://learn.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices) (public, no key) |
 | Hyperscaler | **AWS** | P4d/P4de/P5/P5e/P5en/P6 and G6e instances in 10 regions | Per-region pricing documents behind aws.amazon.com/ec2/pricing |
+| Hyperscaler | **Google Cloud** | A2, A3 and A4 accelerator-optimized machine types in us-central1, on-demand and spot | Public pricing page (keyless; one region) |
+| Hyperscaler | **Oracle Cloud** | Bare-metal GPU shapes, per GPU-hour (same price in every commercial region) | Public price-list API documented for cost estimation |
 | Neocloud | **CoreWeave** | HGX/PCIe instances, on-demand and spot | Public pricing page |
 | Neocloud | **Nebius** | GPU instances, on-demand (applies announced price changes on their effective date) | Public price list |
 | Neocloud | **Crusoe** | GPU instances, on-demand | Public pricing page |
@@ -192,9 +194,10 @@ real prices do sometimes move sharply.
 - **List prices aren't transaction prices.** Large buyers rarely pay on-demand list. The index
   measures the published price surface, which is the anchor for those negotiations, not the
   discount off it.
-- **Coverage is deliberately limited to clean sources.** Nine sources and ten providers,
-  each publishing prices publicly with terms that allow automated reads. Google Cloud and
-  Oracle Cloud are not yet included, so the hyperscaler segment is AWS and Azure.
+- **Coverage is deliberately limited to clean sources.** Eleven sources and twelve
+  providers, each publishing prices publicly with terms that allow automated reads. Google
+  Cloud is collected for one region (us-central1); its all-region Cloud Billing Catalog
+  API needs an API key.
 - **Marketplace medians depend on supply.** Even above the 5-offer minimum, a marketplace
   median moves when hosts reprice or the offer mix changes. Vast.ai's H100 median rose 58%
   on 2026-10-04 across 22 listings. That was a real move, flagged by the drift warning, not
@@ -214,3 +217,4 @@ that alter published values bump the version and are listed here.
 | 1.0 | 2026-09-29 | Initial methodology |
 | 1.1 | 2026-10-04 | Added CoreWeave, Nebius, Crusoe and Hyperstack (neocloud segment from 2 to 6 providers); changes now matched-provider; coverage changes published; spot series includes neocloud spot |
 | 1.2 | 2026-10-04 | Marketplace models need at least 5 rentable offers to be included |
+| 1.3 | 2026-10-05 | Added Google Cloud and Oracle Cloud (hyperscaler segment from 2 to 4 providers) |

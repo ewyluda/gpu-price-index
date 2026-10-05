@@ -5,9 +5,11 @@ from gpu_index.sources import (
     azure,
     coreweave,
     crusoe,
+    gcp,
     hyperstack,
     lambda_cloud,
     nebius,
+    oracle,
     runpod,
     vast,
 )
@@ -19,6 +21,8 @@ ADAPTERS: dict[str, SourceAdapter] = {
         # hyperscalers
         azure.ADAPTER,
         aws.ADAPTER,
+        gcp.ADAPTER,
+        oracle.ADAPTER,
         # neoclouds
         coreweave.ADAPTER,
         nebius.ADAPTER,

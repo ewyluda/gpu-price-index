@@ -50,7 +50,7 @@ def test_fact_check_rejects_invented_figures(snap: dict[str, Any]) -> None:
         "H100 rents for 9.99 per GPU-hour.",  # bare decimal
         "H100 costs 9.99 dollars.",  # spelled-out unit
         "H100 is 7X the price.",  # uppercase multiple
-        "H100 is listed by 12 providers.",  # invented count
+        "H100 is listed by 19 providers.",  # invented count
         "A100 rents for {h100_hyper}.",  # real number, wrong GPU
     ],
 )

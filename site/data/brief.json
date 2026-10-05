@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-04",
+ "as_of": "2026-10-05",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1776,
-  "output_tokens": 1183,
-  "usd": 0.0308,
+  "output_tokens": 789,
+  "usd": 0.0229,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.0308
+  "month_to_date_usd": 0.0537
  },
- "headline": "H100 SXM carries the widest hyperscaler premium at +201%; MI300X leads price-performance at $2.23 per PFLOP-hour.",
+ "headline": "Hyperscalers charge roughly double neocloud rates across all GPUs, while MI300X leads on price-performance.",
  "bullets": [
-  "H100 SXM, listed by all 10 tracked providers, has a hyperscaler median of $12.12 against a neocloud median of $4.02, a +201% premium; its market index is $4.02.",
-  "MI300X offers the best price-performance at $2.23 per PFLOP-hour with a $2.92 market index, but only 4 providers list it, and its $0.50 marketplace median comes from RunPod Community Cloud.",
-  "B200 has the highest market index at $7.33, with a hyperscaler median of $14.24 versus $6.84 at neoclouds (+108%); RunPod Community Cloud is cheapest at $5.98.",
-  "H200 carries a +136% hyperscaler premium on a $4.84 market index, while A100 80GB SXM is the weakest value at $7.37 per PFLOP-hour despite a $1.19 low at Vast.ai.",
-  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, while Vast.ai is cheapest for A100 80GB SXM and L40S."
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, though only 5 providers list it and its marketplace median sits at just $0.50.",
+  "H100 SXM carries the widest hyperscaler premium at +166%, with a hyperscaler median of $10.68 against a neocloud median of $4.02.",
+  "B200 tops the market index at $7.81 but costs $3.47 per PFLOP-hour, cheaper per unit of compute than H200 at $5.46 or H100 SXM at $4.37.",
+  "A100 80GB SXM is the least efficient option at $8.65 per PFLOP-hour despite a $2.70 market index, with Vast.ai cheapest at $1.19.",
+  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, posting a B200 median of $5.98 versus the $7.81 index."
  ],
- "watch": "Price history does not yet cover the full trend window, so no week-over-week changes are available. Watch the first readings, especially whether the thinly supplied MI300X marketplace median of $0.50 holds.",
+ "watch": "No 7-day change figures are reported yet, so watch whether MI300X's $0.50 marketplace median holds with only 5 providers listing it.",
  "fact_checked": true
 }

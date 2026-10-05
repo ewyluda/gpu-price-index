@@ -1,17 +1,19 @@
 {
- "as_of": "2026-10-04",
+ "as_of": "2026-10-05",
  "first_date": "2026-09-29",
- "days_of_history": 6,
- "methodology_version": "1.1",
- "observations": 569,
+ "days_of_history": 7,
+ "methodology_version": "1.3",
+ "observations": 601,
  "providers": [
   "AWS",
   "CoreWeave",
   "Crusoe",
+  "Google Cloud",
   "Hyperstack",
   "Lambda",
   "Microsoft Azure",
   "Nebius",
+  "Oracle Cloud",
   "RunPod Community Cloud",
   "RunPod Secure Cloud",
   "Vast.ai"
@@ -25,6 +27,14 @@
     "Crusoe",
     "Hyperstack",
     "Nebius"
+   ],
+   "removed": []
+  },
+  {
+   "date": "2026-10-05",
+   "added": [
+    "Google Cloud",
+    "Oracle Cloud"
    ],
    "removed": []
   }
@@ -41,14 +51,14 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 7.89,
-     "n_providers": 5,
+     "value": 8.7,
+     "n_providers": 6,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 17.8,
-     "n_providers": 1,
+     "value": 16.4,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
@@ -71,9 +81,9 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 1.26,
-   "usd_per_pflop_hour": 3.51,
-   "usd_per_gb_hour": 0.0274,
+   "hyperscaler_premium": 1.08,
+   "usd_per_pflop_hour": 3.87,
+   "usd_per_gb_hour": 0.03021,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -128,6 +138,19 @@
      "sample_size": 1
     },
     {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 15.0,
+     "min": 15.0,
+     "max": 15.0,
+     "best_sku": "BM.GPU.B300.8",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
      "provider": "AWS",
      "source": "aws",
      "segment": "hyperscaler",
@@ -172,14 +195,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 7.33,
-     "n_providers": 8,
+     "value": 7.81,
+     "n_providers": 9,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 14.24,
-     "n_providers": 1,
+     "value": 14.12,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
@@ -196,15 +219,15 @@
      "change_30d": null
     },
     "spot": {
-     "value": 4.26,
-     "n_providers": 1,
+     "value": 4.61,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 1.08,
-   "usd_per_pflop_hour": 3.26,
-   "usd_per_gb_hour": 0.04072,
+   "hyperscaler_premium": 1.06,
+   "usd_per_pflop_hour": 3.47,
+   "usd_per_gb_hour": 0.04339,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -269,7 +292,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 30
+     "sample_size": 19
     },
     {
      "provider": "Nebius",
@@ -292,6 +315,19 @@
      "min": 8.6,
      "max": 8.6,
      "best_sku": "nvidia-b200",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 14.0,
+     "min": 14.0,
+     "max": 14.0,
+     "best_sku": "BM.GPU.B200.8",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -342,14 +378,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 4.84,
-     "n_providers": 9,
+     "value": 5.4,
+     "n_providers": 11,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 10.85,
-     "n_providers": 2,
+     "value": 10.3,
+     "n_providers": 4,
      "change_7d": null,
      "change_30d": null
     },
@@ -360,21 +396,21 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 4.21,
+     "value": 4.3,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
     "spot": {
-     "value": 2.62,
-     "n_providers": 1,
+     "value": 4.49,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 1.36,
-   "usd_per_pflop_hour": 4.89,
-   "usd_per_gb_hour": 0.03433,
+   "hyperscaler_premium": 1.24,
+   "usd_per_pflop_hour": 5.46,
+   "usd_per_gb_hour": 0.0383,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -432,14 +468,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 4.84,
-     "min": 4.84,
-     "max": 4.84,
+     "median": 5.0,
+     "min": 5.0,
+     "max": 5.0,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 8
+     "sample_size": 17
     },
     {
      "provider": "Nebius",
@@ -479,6 +515,32 @@
      "n_skus": 1,
      "n_regions": 5,
      "sample_size": 5
+    },
+    {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 10.0,
+     "min": 10.0,
+     "max": 10.0,
+     "best_sku": "BM.GPU.H200.8",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Google Cloud",
+     "source": "gcp",
+     "segment": "hyperscaler",
+     "median": 10.6,
+     "min": 10.6,
+     "max": 10.6,
+     "best_sku": "a3-ultragpu-8g",
+     "best_region": "us-central1",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
     },
     {
      "provider": "Microsoft Azure",
@@ -537,14 +599,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 4.02,
-     "n_providers": 10,
+     "value": 4.32,
+     "n_providers": 12,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 12.12,
-     "n_providers": 2,
+     "value": 10.68,
+     "n_providers": 4,
      "change_7d": null,
      "change_30d": null
     },
@@ -555,21 +617,21 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 3.14,
+     "value": 2.93,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
     "spot": {
-     "value": 2.71,
-     "n_providers": 2,
+     "value": 2.95,
+     "n_providers": 3,
      "change_7d": null,
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 2.01,
-   "usd_per_pflop_hour": 4.06,
-   "usd_per_gb_hour": 0.05025,
+   "hyperscaler_premium": 1.66,
+   "usd_per_pflop_hour": 4.37,
+   "usd_per_gb_hour": 0.054,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -583,6 +645,19 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
+    },
+    {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 3.18,
+     "min": 3.18,
+     "max": 3.18,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 16
     },
     {
      "provider": "Hyperstack",
@@ -609,19 +684,6 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
-    },
-    {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 3.58,
-     "min": 3.58,
-     "max": 3.58,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 22
     },
     {
      "provider": "Crusoe",
@@ -689,6 +751,32 @@
      "sample_size": 14
     },
     {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 10.0,
+     "min": 10.0,
+     "max": 10.0,
+     "best_sku": "BM.GPU.H100.8",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Google Cloud",
+     "source": "gcp",
+     "segment": "hyperscaler",
+     "median": 11.37,
+     "min": 11.06,
+     "max": 11.68,
+     "best_sku": "a3-highgpu-8g",
+     "best_region": "us-central1",
+     "n_skus": 2,
+     "n_regions": 1,
+     "sample_size": 2
+    },
+    {
      "provider": "Microsoft Azure",
      "source": "azure",
      "segment": "hyperscaler",
@@ -745,7 +833,7 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 2.98,
+     "value": 2.96,
      "n_providers": 4,
      "change_7d": null,
      "change_30d": null
@@ -763,7 +851,7 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 2.68,
+     "value": 2.66,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
@@ -776,8 +864,8 @@
     }
    },
    "hyperscaler_premium": 1.84,
-   "usd_per_pflop_hour": 3.57,
-   "usd_per_gb_hour": 0.0317,
+   "usd_per_pflop_hour": 3.54,
+   "usd_per_gb_hour": 0.03149,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -796,14 +884,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 2.76,
-     "min": 2.76,
-     "max": 2.76,
+     "median": 2.73,
+     "min": 2.73,
+     "max": 2.73,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 10
+     "sample_size": 6
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -870,7 +958,7 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 2.18,
+     "value": 2.17,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
@@ -903,14 +991,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 2.36,
-     "min": 2.36,
-     "max": 2.36,
+     "median": 2.35,
+     "min": 2.35,
+     "max": 2.35,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 14
+     "sample_size": 12
     },
     {
      "provider": "Hyperstack",
@@ -965,14 +1053,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 2.92,
-     "n_providers": 4,
+     "value": 3.45,
+     "n_providers": 5,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 7.5,
-     "n_providers": 1,
+     "value": 6.75,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
@@ -995,9 +1083,9 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 1.57,
-   "usd_per_pflop_hour": 2.23,
-   "usd_per_gb_hour": 0.01521,
+   "hyperscaler_premium": 1.31,
+   "usd_per_pflop_hour": 2.64,
+   "usd_per_gb_hour": 0.01797,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -1033,6 +1121,19 @@
      "min": 3.45,
      "max": 3.45,
      "best_sku": "AMD MI300X 192GB ",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 6.0,
+     "min": 6.0,
+     "max": 6.0,
+     "best_sku": "BM.GPU.MI300X.8",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -1092,14 +1193,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 2.3,
-     "n_providers": 9,
+     "value": 2.7,
+     "n_providers": 11,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 4.38,
-     "n_providers": 2,
+     "value": 4.53,
+     "n_providers": 4,
      "change_7d": null,
      "change_30d": null
     },
@@ -1116,15 +1217,15 @@
      "change_30d": null
     },
     "spot": {
-     "value": 1.36,
-     "n_providers": 2,
+     "value": 1.51,
+     "n_providers": 3,
      "change_7d": null,
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 0.9,
-   "usd_per_pflop_hour": 7.37,
-   "usd_per_gb_hour": 0.02875,
+   "hyperscaler_premium": 0.97,
+   "usd_per_pflop_hour": 8.65,
+   "usd_per_gb_hour": 0.03375,
    "providers": [
     {
      "provider": "Vast.ai",
@@ -1137,7 +1238,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 19
+     "sample_size": 18
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1231,6 +1332,32 @@
      "sample_size": 3
     },
     {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 4.0,
+     "min": 4.0,
+     "max": 4.0,
+     "best_sku": "BM.GPU.A100-v2.8",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Google Cloud",
+     "source": "gcp",
+     "segment": "hyperscaler",
+     "median": 5.07,
+     "min": 5.07,
+     "max": 5.07,
+     "best_sku": "a2-ultragpu-1g",
+     "best_region": "us-central1",
+     "n_skus": 4,
+     "n_regions": 1,
+     "sample_size": 4
+    },
+    {
      "provider": "Microsoft Azure",
      "source": "azure",
      "segment": "hyperscaler",
@@ -1261,7 +1388,7 @@
      "hyperscaler": 6.74
     },
     "NA": {
-     "hyperscaler": 4.1
+     "hyperscaler": 4.92
     }
    },
    "own_defaults": {
@@ -1305,7 +1432,7 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 1.1,
+     "value": 1.06,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
@@ -1325,14 +1452,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.0,
-     "min": 1.0,
-     "max": 1.0,
+     "median": 0.94,
+     "min": 0.94,
+     "max": 0.94,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 13
+     "sample_size": 15
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1426,14 +1553,14 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 1.99,
-     "n_providers": 5,
+     "value": 2.64,
+     "n_providers": 6,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 3.69,
-     "n_providers": 2,
+     "value": 3.67,
+     "n_providers": 3,
      "change_7d": null,
      "change_30d": null
     },
@@ -1450,15 +1577,15 @@
      "change_30d": null
     },
     "spot": {
-     "value": 0.89,
-     "n_providers": 1,
+     "value": 1.54,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 0.85,
-   "usd_per_pflop_hour": 6.38,
-   "usd_per_gb_hour": 0.04975,
+   "hyperscaler_premium": 0.84,
+   "usd_per_pflop_hour": 8.46,
+   "usd_per_gb_hour": 0.066,
    "providers": [
     {
      "provider": "Vast.ai",
@@ -1513,6 +1640,19 @@
      "sample_size": 7
     },
     {
+     "provider": "Google Cloud",
+     "source": "gcp",
+     "segment": "hyperscaler",
+     "median": 3.67,
+     "min": 3.48,
+     "max": 3.67,
+     "best_sku": "a2-megagpu-16g",
+     "best_region": "us-central1",
+     "n_skus": 5,
+     "n_regions": 1,
+     "sample_size": 5
+    },
+    {
      "provider": "Microsoft Azure",
      "source": "azure",
      "segment": "hyperscaler",
@@ -1537,7 +1677,7 @@
      "hyperscaler": 4.44
     },
     "NA": {
-     "hyperscaler": 3.07
+     "hyperscaler": 3.48
     }
    }
   },
@@ -1552,14 +1692,14 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 1.3,
-     "n_providers": 6,
+     "value": 1.5,
+     "n_providers": 7,
      "change_7d": null,
      "change_30d": null
     },
     "hyperscaler": {
-     "value": 2.7,
-     "n_providers": 1,
+     "value": 3.1,
+     "n_providers": 2,
      "change_7d": null,
      "change_30d": null
     },
@@ -1570,7 +1710,7 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 0.78,
+     "value": 0.76,
      "n_providers": 2,
      "change_7d": null,
      "change_30d": null
@@ -1582,22 +1722,22 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 0.8,
-   "usd_per_pflop_hour": 3.59,
-   "usd_per_gb_hour": 0.02708,
+   "hyperscaler_premium": 1.07,
+   "usd_per_pflop_hour": 4.14,
+   "usd_per_gb_hour": 0.03125,
    "providers": [
     {
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 0.77,
-     "min": 0.77,
-     "max": 0.77,
+     "median": 0.74,
+     "min": 0.74,
+     "max": 0.74,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 36
+     "sample_size": 32
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1663,6 +1803,19 @@
      "n_skus": 3,
      "n_regions": 5,
      "sample_size": 15
+    },
+    {
+     "provider": "Oracle Cloud",
+     "source": "oracle",
+     "segment": "hyperscaler",
+     "median": 3.5,
+     "min": 3.5,
+     "max": 3.5,
+     "best_sku": "BM.GPU.L40S.4",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
     }
    ],
    "regional": {
@@ -1686,7 +1839,7 @@
    }
   }
  ],
- "generated_at": "2026-10-04T22:00:34+00:00",
+ "generated_at": "2026-10-05T01:23:53+00:00",
  "sources": [
   {
    "id": "azure",
@@ -1699,6 +1852,18 @@
    "name": "AWS",
    "homepage": "https://aws.amazon.com/ec2/pricing/on-demand/",
    "terms": "Public list prices published on aws.amazon.com; fetched once per day."
+  },
+  {
+   "id": "gcp",
+   "name": "Google Cloud",
+   "homepage": "https://cloud.google.com/products/compute/pricing/accelerator-optimized",
+   "terms": "Public pricing page; Google's terms restrict automated access only where it violates robots.txt, which allows this page. One request per day."
+  },
+  {
+   "id": "oracle",
+   "name": "Oracle Cloud",
+   "homepage": "https://www.oracle.com/cloud/compute/gpu/pricing/",
+   "terms": "Public price-list API that Oracle documents for cost estimation; no key required."
   },
   {
    "id": "coreweave",

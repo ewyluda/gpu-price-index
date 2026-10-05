@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-10-04T22:00:23+00:00",
-  "date": "2026-10-04",
-  "observations": 569,
+  "collected_at": "2026-10-05T01:23:38+00:00",
+  "date": "2026-10-05",
+  "observations": 601,
   "ok": true,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.43
+    "seconds": 0.96
    },
    {
     "error": null,
@@ -19,7 +19,23 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.86
+    "seconds": 1.64
+   },
+   {
+    "error": null,
+    "id": "gcp",
+    "name": "Google Cloud",
+    "ok": true,
+    "rows": 25,
+    "seconds": 1.17
+   },
+   {
+    "error": null,
+    "id": "oracle",
+    "name": "Oracle Cloud",
+    "ok": true,
+    "rows": 7,
+    "seconds": 0.44
    },
    {
     "error": null,
@@ -27,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.28
+    "seconds": 0.53
    },
    {
     "error": null,
@@ -35,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 0.18
+    "seconds": 1.2
    },
    {
     "error": null,
@@ -43,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 6,
-    "seconds": 0.3
+    "seconds": 0.45
    },
    {
     "error": null,
@@ -51,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.16
+    "seconds": 0.17
    },
    {
     "error": null,
@@ -59,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.53
+    "seconds": 0.6
    },
    {
     "error": null,
@@ -67,7 +83,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 21,
-    "seconds": 0.36
+    "seconds": 0.24
    },
    {
     "error": null,
@@ -75,14 +91,12 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 9,
-    "seconds": 7.18
+    "seconds": 7.4
    }
   ],
   "validation": {
    "errors": [],
-   "warnings": [
-    "Vast.ai H100 on_demand: median moved +58% ($2.27 -> $3.58/GPU-hr)"
-   ]
+   "warnings": []
   }
  },
  "recent": [
@@ -135,6 +149,11 @@
    "date": "2026-10-04",
    "ok": true,
    "observations": 569
+  },
+  {
+   "date": "2026-10-05",
+   "ok": true,
+   "observations": 601
   }
  ]
 }

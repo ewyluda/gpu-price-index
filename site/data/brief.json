@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-05",
+ "as_of": "2026-10-06",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
-  "requests": 2,
-  "input_tokens": 3584,
-  "output_tokens": 1932,
-  "usd": 0.053,
+  "requests": 1,
+  "input_tokens": 1790,
+  "output_tokens": 505,
+  "usd": 0.0173,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.1067
+  "month_to_date_usd": 0.124
  },
- "headline": "MI300X leads price-performance at $2.64 per PFLOP-hour while hyperscalers stay far above neocloud pricing.",
+ "headline": "H200 rental index climbs +11% over 7 days to $5.40 while most other GPUs hold flat.",
  "bullets": [
-  "MI300X has the best price-performance at $2.64 per PFLOP-hour, and RunPod Community Cloud lists it at $0.50 against a $3.45 market index, though only 5 providers offer it.",
-  "H200 carries a +124% hyperscaler premium, with a $10.30 hyperscaler median versus a $4.59 neocloud median and $3.59 at RunPod Community Cloud.",
-  "B200 sets the top of the market at a $7.81 index, with hyperscalers at $14.12 versus $6.84 for neoclouds (+106%) and $3.47 per PFLOP-hour.",
-  "H100 SXM is offered by all 12 providers at a $4.32 index, with a $2.50 marketplace median and $2.31 at Vast.ai versus $10.68 at hyperscalers.",
-  "A100 80GB SXM looks cheap at a $2.70 index but is the costliest per unit of compute at $8.65 per PFLOP-hour."
+  "H200 is the only mover of note, with its market index up +11% to $5.40 across 11 providers, though RunPod Community Cloud still lists it at $3.59.",
+  "B200, H100 SXM, MI300X and A100 80GB SXM were all unchanged at +0% over 7 days, and L40S edged -1% to $1.50.",
+  "H100 SXM carries the widest hyperscaler premium at +166%, with a hyperscaler median of $10.68 against a neocloud median of $4.02 and a marketplace median of $2.35.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with a market index of $3.45 and a marketplace median as low as $0.50, though only 5 providers list it.",
+  "B200 has the highest index at $7.50 but a relatively narrow +106% hyperscaler premium, with RunPod Community Cloud cheapest at $5.98."
  ],
- "watch": "Seven-day change figures are not yet populated for any GPU, so watch for the first trend readings to confirm whether hyperscaler premiums are holding.",
+ "watch": "Whether the H200's +11% weekly gain holds or spreads to adjacent GPUs like the H100 SXM and B200, which were flat at +0%.",
  "fact_checked": true
 }

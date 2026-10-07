@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-06",
+ "as_of": "2026-10-07",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1790,
-  "output_tokens": 505,
-  "usd": 0.0173,
+  "input_tokens": 1798,
+  "output_tokens": 785,
+  "usd": 0.0229,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.124
+  "month_to_date_usd": 0.1469
  },
- "headline": "H200 rental index climbs +11% over 7 days to $5.40 while most other GPUs hold flat.",
+ "headline": "H100 SXM rental index climbs +7% over 7 days to $4.32 while B200 and MI300X hold flat.",
  "bullets": [
-  "H200 is the only mover of note, with its market index up +11% to $5.40 across 11 providers, though RunPod Community Cloud still lists it at $3.59.",
-  "B200, H100 SXM, MI300X and A100 80GB SXM were all unchanged at +0% over 7 days, and L40S edged -1% to $1.50.",
-  "H100 SXM carries the widest hyperscaler premium at +166%, with a hyperscaler median of $10.68 against a neocloud median of $4.02 and a marketplace median of $2.35.",
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with a market index of $3.45 and a marketplace median as low as $0.50, though only 5 providers list it.",
-  "B200 has the highest index at $7.50 but a relatively narrow +106% hyperscaler premium, with RunPod Community Cloud cheapest at $5.98."
+  "H100 SXM posted the biggest weekly move at +7% and carries the widest hyperscaler premium at +166%, with hyperscalers at $10.68 versus $4.02 at neoclouds.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour on a $3.45 index, though only 5 providers list it and RunPod Community Cloud's $0.50 median sits far below the $2.92 neocloud median.",
+  "B200 was unchanged at +0% with a $7.50 index, and hyperscalers charge $14.12 against $6.84 at neoclouds, a +106% premium.",
+  "H200 eased -2% to a $5.40 index, with RunPod Community Cloud cheapest at $3.59 versus a $10.30 hyperscaler median.",
+  "A100 80GB SXM is the weakest value at $8.65 per PFLOP-hour despite a low $2.70 index, which rose +1% on the week."
  ],
- "watch": "Whether the H200's +11% weekly gain holds or spreads to adjacent GPUs like the H100 SXM and B200, which were flat at +0%.",
+ "watch": "Whether H100 SXM's +7% weekly gain continues, which would signal tightening supply for the most widely listed GPU across all 12 providers.",
  "fact_checked": true
 }

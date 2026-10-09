@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-10-08T13:31:37+00:00",
-  "date": "2026-10-08",
-  "observations": 603,
+  "collected_at": "2026-10-09T13:19:01+00:00",
+  "date": "2026-10-09",
+  "observations": 602,
   "ok": true,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 2.41
+    "seconds": 0.35
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 0.92
+    "seconds": 1.09
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.08
+    "seconds": 1.55
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.5
+    "seconds": 0.33
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.38
+    "seconds": 0.31
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 1.54
+    "seconds": 1.65
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 6,
-    "seconds": 0.29
+    "seconds": 0.34
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.11
+    "seconds": 0.1
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.64
+    "seconds": 0.47
    },
    {
     "error": null,
@@ -83,20 +83,22 @@
     "name": "RunPod",
     "ok": true,
     "rows": 23,
-    "seconds": 0.2
+    "seconds": 0.12
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 9,
-    "seconds": 1.46
+    "rows": 8,
+    "seconds": 0.68
    }
   ],
   "validation": {
    "errors": [],
-   "warnings": []
+   "warnings": [
+    "Vast.ai H100 on_demand: median moved +50% ($2.66 -> $4.00/GPU-hr)"
+   ]
   }
  },
  "recent": [
@@ -174,6 +176,11 @@
    "date": "2026-10-08",
    "ok": true,
    "observations": 603
+  },
+  {
+   "date": "2026-10-09",
+   "ok": true,
+   "observations": 602
   }
  ]
 }

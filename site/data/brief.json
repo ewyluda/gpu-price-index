@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-08",
+ "as_of": "2026-10-09",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
-  "requests": 2,
-  "input_tokens": 3608,
-  "output_tokens": 1342,
-  "usd": 0.0413,
+  "requests": 1,
+  "input_tokens": 1794,
+  "output_tokens": 418,
+  "usd": 0.0155,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.1882
+  "month_to_date_usd": 0.2037
  },
- "headline": "GPU rental prices mostly flat this week; H200 up +2%, L40S down -1%, hyperscaler premiums remain wide.",
+ "headline": "B200 leads weekly gains at +14% as GPU rental prices firm across most models.",
  "bullets": [
-  "H100 SXM has the widest hyperscaler premium at +166%: the hyperscaler median is $10.68 versus $4.02 for neoclouds, and Vast.ai is cheapest at $2.66.",
-  "MI300X is the best price-performance GPU at $2.64 per PFLOP-hour, with RunPod Community Cloud at $0.50 against a market index of $3.45.",
-  "H200's market index of $5.40 rose +2% over 7 days, and it carries a +124% hyperscaler premium ($10.30 versus $4.59 at neoclouds).",
-  "B200 leads the market at a $7.66 index with a +106% hyperscaler premium, and RunPod Community Cloud is cheapest at $5.98.",
-  "A100 80GB SXM has the lowest hyperscaler premium at +97% but the highest cost per compute at $8.65 per PFLOP-hour."
+  "B200 market index stands at $7.99 after a +14% move over 7 days, the largest gain in the set, with hyperscalers at $14.12 versus $7.99 at neoclouds.",
+  "H100 SXM carries the widest hyperscaler premium at +162%, with the hyperscaler median at $10.68 against a neocloud median of $4.07 and a market index of $4.32, up +7% over 7 days.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with its index flat at +0% and RunPod Community Cloud listing at $0.50.",
+  "H200 rose +5% to a $5.40 index, and A100 80GB SXM also rose +5% to $2.70, while L40S held at +0% with a $1.50 index.",
+  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, while Vast.ai is cheapest for A100 80GB SXM at $0.94 and L40S at $0.54."
  ],
- "watch": "Whether H200's +2% rise continues while L40S drifts lower after its -1% move.",
+ "watch": "Whether B200 momentum continues from its $7.99 index, given that its +14% weekly rise outpaces every other GPU tracked.",
  "fact_checked": true
 }

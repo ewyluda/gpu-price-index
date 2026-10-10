@@ -1,7 +1,7 @@
 {
  "latest": {
-  "collected_at": "2026-10-09T13:19:01+00:00",
-  "date": "2026-10-09",
+  "collected_at": "2026-10-10T12:33:53+00:00",
+  "date": "2026-10-10",
   "observations": 602,
   "ok": true,
   "sources": [
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.35
+    "seconds": 0.4
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.09
+    "seconds": 1.23
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.55
+    "seconds": 1.61
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.33
+    "seconds": 0.47
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.31
+    "seconds": 0.62
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 1.65
+    "seconds": 0.98
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 6,
-    "seconds": 0.34
+    "seconds": 0.76
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.47
+    "seconds": 0.69
    },
    {
     "error": null,
@@ -83,7 +83,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 23,
-    "seconds": 0.12
+    "seconds": 0.24
    },
    {
     "error": null,
@@ -91,14 +91,12 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 8,
-    "seconds": 0.68
+    "seconds": 1.55
    }
   ],
   "validation": {
    "errors": [],
-   "warnings": [
-    "Vast.ai H100 on_demand: median moved +50% ($2.66 -> $4.00/GPU-hr)"
-   ]
+   "warnings": []
   }
  },
  "recent": [
@@ -179,6 +177,11 @@
   },
   {
    "date": "2026-10-09",
+   "ok": true,
+   "observations": 602
+  },
+  {
+   "date": "2026-10-10",
    "ok": true,
    "observations": 602
   }

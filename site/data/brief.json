@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-09",
+ "as_of": "2026-10-10",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1794,
-  "output_tokens": 418,
+  "output_tokens": 415,
   "usd": 0.0155,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.2037
+  "month_to_date_usd": 0.2192
  },
- "headline": "B200 leads weekly gains at +14% as GPU rental prices firm across most models.",
+ "headline": "B200 leads weekly gains at +14% as hyperscaler premiums stay wide across all GPU classes.",
  "bullets": [
-  "B200 market index stands at $7.99 after a +14% move over 7 days, the largest gain in the set, with hyperscalers at $14.12 versus $7.99 at neoclouds.",
-  "H100 SXM carries the widest hyperscaler premium at +162%, with the hyperscaler median at $10.68 against a neocloud median of $4.07 and a market index of $4.32, up +7% over 7 days.",
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with its index flat at +0% and RunPod Community Cloud listing at $0.50.",
-  "H200 rose +5% to a $5.40 index, and A100 80GB SXM also rose +5% to $2.70, while L40S held at +0% with a $1.50 index.",
-  "RunPod Community Cloud is the cheapest provider for B200, H200, H100 SXM and MI300X, while Vast.ai is cheapest for A100 80GB SXM at $0.94 and L40S at $0.54."
+  "B200's market index sits at $7.99 after a +14% move over 7 days, the largest weekly change in the set, with hyperscalers at $14.12 versus $7.99 at neoclouds.",
+  "H100 SXM carries the steepest hyperscaler premium at +162%, with a $10.68 hyperscaler median against $4.07 at neoclouds and a +7% weekly rise to a $4.32 index.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour and was flat at +0% on the week, with RunPod Community Cloud listing it at $0.50.",
+  "H200 rose +6% to a $5.40 index, while A100 80GB SXM gained +5% to $2.70 and is the costliest per unit of compute at $8.65 per PFLOP-hour.",
+  "L40S was the only GPU to soften, at -1% over 7 days, holding a $1.50 index with Vast.ai cheapest at $0.60."
  ],
- "watch": "Whether B200 momentum continues from its $7.99 index, given that its +14% weekly rise outpaces every other GPU tracked.",
+ "watch": "Whether B200's +14% weekly climb continues or eases, given its $14.12 hyperscaler median and +77% premium over neoclouds.",
  "fact_checked": true
 }

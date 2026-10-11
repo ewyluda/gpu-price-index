@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-10",
+ "as_of": "2026-10-11",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1794,
-  "output_tokens": 415,
-  "usd": 0.0155,
+  "output_tokens": 597,
+  "usd": 0.0191,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.2192
+  "month_to_date_usd": 0.2383
  },
- "headline": "B200 leads weekly gains at +14% as hyperscaler premiums stay wide across all GPU classes.",
+ "headline": "H200 and B200 rental prices climb over the past week while older GPUs hold flat.",
  "bullets": [
-  "B200's market index sits at $7.99 after a +14% move over 7 days, the largest weekly change in the set, with hyperscalers at $14.12 versus $7.99 at neoclouds.",
-  "H100 SXM carries the steepest hyperscaler premium at +162%, with a $10.68 hyperscaler median against $4.07 at neoclouds and a +7% weekly rise to a $4.32 index.",
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour and was flat at +0% on the week, with RunPod Community Cloud listing it at $0.50.",
-  "H200 rose +6% to a $5.40 index, while A100 80GB SXM gained +5% to $2.70 and is the costliest per unit of compute at $8.65 per PFLOP-hour.",
-  "L40S was the only GPU to soften, at -1% over 7 days, holding a $1.50 index with Vast.ai cheapest at $0.60."
+  "H200 rose +9% over 7 days to a $5.40 market index, and B200 rose +6% to $7.99, the steepest gains in the tracked set.",
+  "H100 SXM edged up +1% to $4.32, while MI300X, A100 80GB SXM and L40S were unchanged at +0%.",
+  "H100 SXM carries the widest hyperscaler premium at +162%, with a $10.68 hyperscaler median against $4.07 at neoclouds.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with RunPod Community Cloud listing it at $0.50, though only 5 providers offer it.",
+  "A100 80GB SXM is the costliest per unit of compute at $8.65 per PFLOP-hour despite its low $2.70 index."
  ],
- "watch": "Whether B200's +14% weekly climb continues or eases, given its $14.12 hyperscaler median and +77% premium over neoclouds.",
+ "watch": "Whether H200's +9% and B200's +6% weekly gains continue into next week, signaling tightening supply of current-generation capacity.",
  "fact_checked": true
 }

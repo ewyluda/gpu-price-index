@@ -1,7 +1,7 @@
 {
  "latest": {
-  "collected_at": "2026-10-10T12:33:53+00:00",
-  "date": "2026-10-10",
+  "collected_at": "2026-10-11T12:51:55+00:00",
+  "date": "2026-10-11",
   "observations": 602,
   "ok": true,
   "sources": [
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.23
+    "seconds": 0.81
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.61
+    "seconds": 1.18
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.47
+    "seconds": 0.29
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.62
+    "seconds": 0.38
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 0.98
+    "seconds": 1.43
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 6,
-    "seconds": 0.76
+    "seconds": 0.5
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.1
+    "seconds": 0.14
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.69
+    "seconds": 0.61
    },
    {
     "error": null,
@@ -83,7 +83,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 23,
-    "seconds": 0.24
+    "seconds": 0.33
    },
    {
     "error": null,
@@ -91,7 +91,7 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 8,
-    "seconds": 1.55
+    "seconds": 1.82
    }
   ],
   "validation": {
@@ -182,6 +182,11 @@
   },
   {
    "date": "2026-10-10",
+   "ok": true,
+   "observations": 602
+  },
+  {
+   "date": "2026-10-11",
    "ok": true,
    "observations": 602
   }

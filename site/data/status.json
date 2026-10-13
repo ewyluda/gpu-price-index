@@ -1,7 +1,7 @@
 {
  "latest": {
-  "collected_at": "2026-10-12T15:27:55+00:00",
-  "date": "2026-10-12",
+  "collected_at": "2026-10-13T14:13:37+00:00",
+  "date": "2026-10-13",
   "observations": 602,
   "ok": true,
   "sources": [
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.41
+    "seconds": 4.43
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.12
+    "seconds": 1.26
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.61
+    "seconds": 1.11
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.51
+    "seconds": 0.37
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.41
+    "seconds": 0.38
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 1.47
+    "seconds": 1.81
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 6,
-    "seconds": 0.26
+    "seconds": 0.36
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.32
+    "seconds": 0.14
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.45
+    "seconds": 0.53
    },
    {
     "error": null,
@@ -83,7 +83,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 23,
-    "seconds": 0.22
+    "seconds": 0.61
    },
    {
     "error": null,
@@ -91,7 +91,7 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 8,
-    "seconds": 0.83
+    "seconds": 1.13
    }
   ],
   "validation": {
@@ -192,6 +192,11 @@
   },
   {
    "date": "2026-10-12",
+   "ok": true,
+   "observations": 602
+  },
+  {
+   "date": "2026-10-13",
    "ok": true,
    "observations": 602
   }

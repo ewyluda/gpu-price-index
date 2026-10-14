@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-13",
+ "as_of": "2026-10-14",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1794,
-  "output_tokens": 1011,
-  "usd": 0.0274,
+  "output_tokens": 820,
+  "usd": 0.0236,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.3109
+  "month_to_date_usd": 0.3345
  },
- "headline": "B200 index climbs +12% in 7 days to $8.38 while every other tracked GPU holds flat.",
+ "headline": "B200 rental prices climb +12% in a week while every other tracked GPU holds flat.",
  "bullets": [
-  "B200 rose +12% over 7 days to a $8.38 market index, with a $14.12 hyperscaler median versus $7.99 at neoclouds, a +77% premium.",
-  "H200, H100 SXM, MI300X, A100 80GB SXM and L40S all posted a +0% 7-day change, at indexes of $5.40, $4.32, $3.45, $2.70 and $1.50 respectively.",
-  "H100 SXM carries the widest hyperscaler premium at +162% ($10.68 hyperscaler versus $4.07 neocloud), and it is the only GPU listed by all 12 providers.",
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, and RunPod Community Cloud lists it at $0.50, though only 5 providers offer it.",
-  "A100 80GB SXM is the most expensive per unit of compute at $8.65 per PFLOP-hour despite its $2.70 index, so the cheaper hourly rate does not mean cheaper compute."
+  "B200's market index rose +12% over the 7-day window to $8.38, while H200, H100 SXM, MI300X, A100 80GB SXM and L40S all show +0%.",
+  "H100 SXM carries the widest hyperscaler premium at +162%, with a hyperscaler median of $10.68 against a neocloud median of $4.07.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, compared with $3.72 for B200 and $5.46 for H200, though only 5 providers list it.",
+  "RunPod Community Cloud is the cheapest provider for B200 at $5.98, H200 at $3.59, H100 SXM at $2.69 and MI300X at $0.50.",
+  "Vast.ai is the cheapest provider for older parts: A100 80GB SXM at $1.07 and L40S at $0.73."
  ],
- "watch": "Watch whether B200's +12% climb continues or begins pulling up H200 pricing, which currently sits at a $5.40 index with a +0% 7-day change.",
+ "watch": "Watch whether B200's rise spreads from its $8.38 index into H200 and H100 SXM pricing, which have not moved.",
  "fact_checked": true
 }

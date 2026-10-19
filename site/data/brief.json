@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-18",
+ "as_of": "2026-10-19",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1790,
-  "output_tokens": 398,
-  "usd": 0.0151,
+  "output_tokens": 443,
+  "usd": 0.016,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.3941
+  "month_to_date_usd": 0.4101
  },
- "headline": "H100 SXM and H200 lead weekly gains as Hopper rental prices climb while MI300X holds flat.",
+ "headline": "H100 SXM and H200 lead weekly gains while MI300X holds best price-performance at $2.64 per PFLOP-hour.",
  "bullets": [
-  "H100 SXM's market index rose +23% over 7 days to $5.33, with the hyperscaler median at $10.68 versus $4.32 for neoclouds, a +147% hyperscaler premium.",
-  "H200 climbed +22% to a $6.58 market index, while RunPod Community Cloud lists it at a $3.59 median against a $10.30 hyperscaler median.",
-  "B200 gained +6% to an $8.55 market index, carrying the narrowest hyperscaler premium at +71% ($14.12 hyperscaler versus $8.25 neocloud).",
-  "MI300X was unchanged at +0% and offers the best price-performance at $2.64 per PFLOP-hour, though only 5 providers list it.",
-  "A100 80GB SXM and L40S were also flat at +0%, with A100 the costliest per unit of compute at $8.65 per PFLOP-hour."
+  "H100 SXM rose +23% over 7 days to a $5.33 market index, with the widest hyperscaler premium at +147% ($10.68 vs $4.32 neocloud).",
+  "H200 climbed +17% to a $6.31 index, with hyperscalers at $10.30 versus $5.40 for neoclouds, a +91% premium.",
+  "B200, MI300X, A100 80GB SXM and L40S were flat at +0%, with B200 indexed at $8.50 and A100 80GB SXM at $2.70.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with RunPod Community Cloud listing it at $0.50, though only 5 providers carry it.",
+  "Vast.ai is cheapest for H100 SXM at $2.20, A100 80GB SXM at $1.08 and L40S at $0.64, while RunPod Community Cloud leads on B200 at $5.98 and H200 at $3.59."
  ],
- "watch": "Whether the +23% H100 SXM and +22% H200 weekly gains push more demand toward MI300X, whose market index is still flat at $3.45.",
+ "watch": "Whether the +23% H100 SXM and +17% H200 moves keep spreading, especially if the +147% H100 SXM hyperscaler premium narrows as neocloud prices respond.",
  "fact_checked": true
 }

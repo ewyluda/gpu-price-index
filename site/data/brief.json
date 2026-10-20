@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-19",
+ "as_of": "2026-10-20",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1790,
-  "output_tokens": 443,
-  "usd": 0.016,
+  "output_tokens": 392,
+  "usd": 0.015,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.4101
+  "month_to_date_usd": 0.4251
  },
- "headline": "H100 SXM and H200 lead weekly gains while MI300X holds best price-performance at $2.64 per PFLOP-hour.",
+ "headline": "Hopper prices climb sharply this week, led by H100 SXM at +23%, while MI300X stays flat.",
  "bullets": [
-  "H100 SXM rose +23% over 7 days to a $5.33 market index, with the widest hyperscaler premium at +147% ($10.68 vs $4.32 neocloud).",
-  "H200 climbed +17% to a $6.31 index, with hyperscalers at $10.30 versus $5.40 for neoclouds, a +91% premium.",
-  "B200, MI300X, A100 80GB SXM and L40S were flat at +0%, with B200 indexed at $8.50 and A100 80GB SXM at $2.70.",
-  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, with RunPod Community Cloud listing it at $0.50, though only 5 providers carry it.",
-  "Vast.ai is cheapest for H100 SXM at $2.20, A100 80GB SXM at $1.08 and L40S at $0.64, while RunPod Community Cloud leads on B200 at $5.98 and H200 at $3.59."
+  "H100 SXM's market index rose +23% over 7 days to $5.33, and H200 rose +17% to $6.31, the two biggest moves in the market.",
+  "H100 SXM carries the steepest hyperscaler premium at +147%, with a hyperscaler median of $10.68 versus a neocloud median of $4.32.",
+  "MI300X leads price-performance at $2.64 per PFLOP-hour, with a flat +0% weekly change and a marketplace median of $0.50 on RunPod Community Cloud.",
+  "B200 edged up +1% to a $8.55 index, with the hyperscaler median at $14.12 against $8.25 at neoclouds, a +71% premium.",
+  "A100 80GB SXM and L40S held flat at +0%, but A100 is the costliest per unit of compute at $8.65 per PFLOP-hour."
  ],
- "watch": "Whether the +23% H100 SXM and +17% H200 moves keep spreading, especially if the +147% H100 SXM hyperscaler premium narrows as neocloud prices respond.",
+ "watch": "Watch whether H100 SXM and H200 extend their gains next week, since H200 cost per PFLOP-hour already sits at $6.38 versus $3.80 for B200.",
  "fact_checked": true
 }

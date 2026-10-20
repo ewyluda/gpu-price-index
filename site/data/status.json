@@ -1,9 +1,9 @@
 {
  "latest": {
-  "collected_at": "2026-10-19T13:18:24+00:00",
-  "date": "2026-10-19",
-  "observations": 607,
-  "ok": true,
+  "collected_at": "2026-10-20T11:39:12+00:00",
+  "date": "2026-10-20",
+  "observations": 604,
+  "ok": false,
   "sources": [
    {
     "error": null,
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 1.37
+    "seconds": 0.99
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 1.41
+    "seconds": 0.71
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 0.82
+    "seconds": 1.04
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.58
+    "seconds": 0.52
    },
    {
     "error": null,
@@ -43,15 +43,15 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.33
+    "seconds": 0.58
    },
    {
-    "error": null,
+    "error": "failed validation (too few valid rows)",
     "id": "nebius",
     "name": "Nebius",
-    "ok": true,
-    "rows": 4,
-    "seconds": 0.67
+    "ok": false,
+    "rows": 0,
+    "seconds": 1.41
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 12,
-    "seconds": 0.33
+    "seconds": 0.3
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.15
+    "seconds": 0.11
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.54
+    "seconds": 0.56
    },
    {
     "error": null,
@@ -83,20 +83,24 @@
     "name": "RunPod",
     "ok": true,
     "rows": 23,
-    "seconds": 0.16
+    "seconds": 0.21
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 7,
-    "seconds": 1.09
+    "rows": 8,
+    "seconds": 1.58
    }
   ],
   "validation": {
-   "errors": [],
-   "warnings": []
+   "errors": [
+    "nebius: 0 valid rows, expected at least 3 (upstream format change or outage?); keeping previous data"
+   ],
+   "warnings": [
+    "Nebius: listed yesterday but absent today; its last prices are carried forward for up to 3 days"
+   ]
   }
  },
  "recent": [
@@ -229,6 +233,11 @@
    "date": "2026-10-19",
    "ok": true,
    "observations": 607
+  },
+  {
+   "date": "2026-10-20",
+   "ok": false,
+   "observations": 604
   }
  ]
 }

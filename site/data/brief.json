@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-20",
+ "as_of": "2026-10-21",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1790,
-  "output_tokens": 392,
-  "usd": 0.015,
+  "output_tokens": 387,
+  "usd": 0.0149,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.4251
+  "month_to_date_usd": 0.44
  },
- "headline": "Hopper prices climb sharply this week, led by H100 SXM at +23%, while MI300X stays flat.",
+ "headline": "H100 SXM and H200 lead weekly gains while MI300X holds best price-performance at $2.64 per PFLOP-hour.",
  "bullets": [
-  "H100 SXM's market index rose +23% over 7 days to $5.33, and H200 rose +17% to $6.31, the two biggest moves in the market.",
-  "H100 SXM carries the steepest hyperscaler premium at +147%, with a hyperscaler median of $10.68 versus a neocloud median of $4.32.",
-  "MI300X leads price-performance at $2.64 per PFLOP-hour, with a flat +0% weekly change and a marketplace median of $0.50 on RunPod Community Cloud.",
-  "B200 edged up +1% to a $8.55 index, with the hyperscaler median at $14.12 against $8.25 at neoclouds, a +71% premium.",
-  "A100 80GB SXM and L40S held flat at +0%, but A100 is the costliest per unit of compute at $8.65 per PFLOP-hour."
+  "H100 SXM's market index rose +16% over 7 days to $5.00, and H200 climbed +11% to $6.00, the sharpest moves in the tracked set.",
+  "B200 was nearly flat at +1% with a $8.55 market index, while MI300X, A100 80GB SXM and L40S were unchanged at +0%.",
+  "H100 SXM carries the widest hyperscaler premium at +147%, with a hyperscaler median of $10.68 against a neocloud median of $4.32.",
+  "MI300X offers the best price-performance at $2.64 per PFLOP-hour, though only 5 providers list it, and RunPod Community Cloud's median is $0.50.",
+  "A100 80GB SXM is the costliest per unit of compute at $8.65 per PFLOP-hour, despite a low $2.70 market index."
  ],
- "watch": "Watch whether H100 SXM and H200 extend their gains next week, since H200 cost per PFLOP-hour already sits at $6.38 versus $3.80 for B200.",
+ "watch": "Watch whether the +16% weekly run-up in H100 SXM, and the +11% rise in H200, continues or spreads to B200, which has moved only +1%.",
  "fact_checked": true
 }

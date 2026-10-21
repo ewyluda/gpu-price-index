@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-10-20T11:39:12+00:00",
-  "date": "2026-10-20",
-  "observations": 604,
+  "collected_at": "2026-10-21T11:50:55+00:00",
+  "date": "2026-10-21",
+  "observations": 603,
   "ok": false,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.99
+    "seconds": 0.41
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 51,
-    "seconds": 0.71
+    "seconds": 1.11
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.04
+    "seconds": 1.05
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.52
+    "seconds": 0.43
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.58
+    "seconds": 0.31
    },
    {
     "error": "failed validation (too few valid rows)",
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": false,
     "rows": 0,
-    "seconds": 1.41
+    "seconds": 0.98
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 12,
-    "seconds": 0.3
+    "seconds": 0.32
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.11
+    "seconds": 0.15
    },
    {
     "error": null,
@@ -75,23 +75,23 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.56
+    "seconds": 0.42
    },
    {
     "error": null,
     "id": "runpod",
     "name": "RunPod",
     "ok": true,
-    "rows": 23,
-    "seconds": 0.21
+    "rows": 21,
+    "seconds": 0.24
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 8,
-    "seconds": 1.58
+    "rows": 9,
+    "seconds": 0.88
    }
   ],
   "validation": {
@@ -99,7 +99,8 @@
     "nebius: 0 valid rows, expected at least 3 (upstream format change or outage?); keeping previous data"
    ],
    "warnings": [
-    "Nebius: listed yesterday but absent today; its last prices are carried forward for up to 3 days"
+    "RunPod Community Cloud B300 on_demand: median moved +87% ($3.72 -> $6.94/GPU-hr)",
+    "RunPod Secure Cloud B300 on_demand: median moved +89% ($4.75 -> $8.99/GPU-hr)"
    ]
   }
  },
@@ -238,6 +239,11 @@
    "date": "2026-10-20",
    "ok": false,
    "observations": 604
+  },
+  {
+   "date": "2026-10-21",
+   "ok": false,
+   "observations": 603
   }
  ]
 }

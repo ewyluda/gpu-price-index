@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-10-21T11:50:55+00:00",
-  "date": "2026-10-21",
-  "observations": 603,
+  "collected_at": "2026-10-22T11:54:31+00:00",
+  "date": "2026-10-22",
+  "observations": 601,
   "ok": false,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.41
+    "seconds": 0.72
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.05
+    "seconds": 0.79
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.43
+    "seconds": 0.33
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.31
+    "seconds": 0.3
    },
    {
     "error": "failed validation (too few valid rows)",
@@ -51,15 +51,15 @@
     "name": "Nebius",
     "ok": false,
     "rows": 0,
-    "seconds": 0.98
+    "seconds": 0.79
    },
    {
     "error": null,
     "id": "crusoe",
     "name": "Crusoe",
     "ok": true,
-    "rows": 12,
-    "seconds": 0.32
+    "rows": 11,
+    "seconds": 0.22
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.15
+    "seconds": 0.14
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.42
+    "seconds": 0.48
    },
    {
     "error": null,
@@ -83,15 +83,15 @@
     "name": "RunPod",
     "ok": true,
     "rows": 21,
-    "seconds": 0.24
+    "seconds": 0.32
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 9,
-    "seconds": 0.88
+    "rows": 8,
+    "seconds": 0.92
    }
   ],
   "validation": {
@@ -99,8 +99,7 @@
     "nebius: 0 valid rows, expected at least 3 (upstream format change or outage?); keeping previous data"
    ],
    "warnings": [
-    "RunPod Community Cloud B300 on_demand: median moved +87% ($3.72 -> $6.94/GPU-hr)",
-    "RunPod Secure Cloud B300 on_demand: median moved +89% ($4.75 -> $8.99/GPU-hr)"
+    "Vast.ai H100 on_demand: median moved +65% ($2.40 -> $3.96/GPU-hr)"
    ]
   }
  },
@@ -244,6 +243,11 @@
    "date": "2026-10-21",
    "ok": false,
    "observations": 603
+  },
+  {
+   "date": "2026-10-22",
+   "ok": false,
+   "observations": 601
   }
  ]
 }

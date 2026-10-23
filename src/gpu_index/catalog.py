@@ -58,10 +58,13 @@ _PATTERNS: list[tuple[re.Pattern[str], str]] = [
         (r"\bL40S\b", "L40S"),
     ]
 ]
+_MIG = re.compile(r"\bMIG\b", re.IGNORECASE)
 
 
 def normalize_gpu_name(name: str) -> str | None:
     """Map a vendor-specific GPU label to a catalog key, or None if untracked."""
+    if _MIG.search(name):  # a MIG slice is a fraction of a GPU, not comparable per GPU-hour
+        return None
     for pattern, key in _PATTERNS:
         if pattern.search(name):
             return key

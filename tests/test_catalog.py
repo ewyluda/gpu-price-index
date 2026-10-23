@@ -16,6 +16,7 @@ from gpu_index.catalog import GPUS, geo_for_region, normalize_gpu_name
         ("A100 SXM4 80GB", "A100-80GB"),
         ("AMD Instinct MI300X OAM", "MI300X"),
         ("NVIDIA B300 SXM6 AC", "B300"),
+        ("NVIDIA B300 SXM6 AC MIG 1g.34gb", None),  # a GPU slice, not a whole B300
         ("L40S", "L40S"),
         ("RTX 4090", None),
         ("H200 NVL", None),  # untracked variant: must not be folded into H200

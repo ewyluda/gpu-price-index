@@ -6,7 +6,7 @@ import pytest
 
 from gpu_index.catalog import GPUS
 from gpu_index.models import Observation
-from gpu_index.sources import ADAPTERS, Stamp
+from gpu_index.sources import ADAPTERS
 from tests.conftest import STAMP, load_fixture
 
 
@@ -106,15 +106,12 @@ def test_coreweave_normalizes_instances_and_dedupes_repeated_listings() -> None:
     assert all(o.segment == "neocloud" for o in rows)
 
 
-def test_nebius_switches_to_announced_prices_on_their_effective_date() -> None:
-    from gpu_index.sources import nebius
-
-    html = load_fixture("nebius")
-    before = nebius.parse(html, Stamp("2026-09-15", "2026-09-15T06:00:00+00:00"))
-    after = nebius.parse(html, Stamp("2026-10-04", "2026-10-04T06:00:00+00:00"))
-    assert find(before, gpu_model="H100").usd_per_gpu_hour == 3.85
-    assert find(after, gpu_model="H100").usd_per_gpu_hour == 4.50
-    assert not any(o.gpu_model == "L40S" for o in after)  # "from $X" rows skipped
+def test_nebius_reads_on_demand_column_not_preemptible() -> None:
+    rows = parse("nebius")
+    assert find(rows, gpu_model="H100").usd_per_gpu_hour == 4.50  # not the "from $0.79" floor
+    assert find(rows, gpu_model="B300").usd_per_gpu_hour == 9.50
+    assert all(o.pricing == "on_demand" for o in rows)
+    assert not any(o.gpu_model == "L40S" for o in rows)  # "from $X" rows skipped
 
 
 def test_nebius_price_column_logic() -> None:
@@ -126,11 +123,15 @@ def test_nebius_price_column_logic() -> None:
     assert price_column(headers, date(2026, 9, 30)) == 2
     assert price_column(headers, date(2026, 10, 1)) == 3
     assert price_column(["Item", "Price"], date(2026, 10, 1)) is None
+    headers = ["Item", "vCPUs", "Preemptible, GPU-hour *", "On-demand, GPU-hour"]
+    assert price_column(headers, date(2026, 10, 23)) == 3
 
 
-def test_crusoe_skips_inference_endpoints_and_splits_a100_form_factors() -> None:
+def test_crusoe_reads_on_demand_column_and_skips_inference_endpoints() -> None:
     rows = parse("crusoe")
     assert len([o for o in rows if o.gpu_model == "H100"]) == 1  # not the $5.50 endpoint
+    assert find(rows, gpu_model="H100").usd_per_gpu_hour == 3.90
+    assert not any(o.gpu_model == "B200" for o in rows)  # instance is "Contact sales"
     assert find(rows, gpu_model="A100-80GB").usd_per_gpu_hour == 2.30
     assert find(rows, gpu_model="A100-80GB-PCIe").usd_per_gpu_hour == 2.00
 

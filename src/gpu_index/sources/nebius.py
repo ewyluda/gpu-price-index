@@ -3,8 +3,9 @@
 Nebius publishes price changes ahead of time as an extra column, e.g. "GPU-hour
 (Effective October 1, 2026)". The parser picks the latest column whose effective
 date has arrived by the collection date, so announced changes switch over on the
-right day without a code change. "from $X" prices (configurable instances) and
-"Contact us" rows aren't comparable list prices and are skipped.
+right day without a code change. Preemptible columns are ignored. "from $X" prices
+(configurable instances) and "Contact us" rows aren't comparable list prices and are
+skipped.
 """
 
 from __future__ import annotations
@@ -24,6 +25,9 @@ URL = "https://nebius.com/prices"
 PROVIDER = "Nebius"
 TABLE_TITLE = "NVIDIA GPU Instances"
 _EFFECTIVE = re.compile(r"Effective (\w+ \d{1,2}, \d{4})")
+# Columns for other pricing types ("Preemptible, GPU-hour", added October 2026) sit
+# beside the on-demand column and quote "from $X" floors, so they are never read.
+_OTHER_PRICING = re.compile(r"preemptible|spot|reserved|commit", re.IGNORECASE)
 
 
 def fetch(client: httpx.Client) -> str:
@@ -35,10 +39,10 @@ def _cells(row: Tag) -> list[str]:
 
 
 def price_column(headers: list[str], today: date) -> int | None:
-    """Index of the GPU-hour price column in force on ``today``."""
+    """Index of the on-demand GPU-hour price column in force on ``today``."""
     current: int | None = None
     for i, header in enumerate(headers):
-        if "GPU-hour" not in header:
+        if "GPU-hour" not in header or _OTHER_PRICING.search(header):
             continue
         effective = _EFFECTIVE.search(header)
         if effective is None:

@@ -1,9 +1,11 @@
 """Crusoe Cloud on-demand GPU prices from its public pricing page.
 
-Each GPU is a ``.prixing-item`` card (sic, the site's class name) with a model
-heading, form-factor tags ("80GB", "SXM", "PCIe", "HGX") and an on-demand price
-written as "$3.90/GPU-hr". Cards priced without "/GPU-hr" belong to other products
-(dedicated inference endpoints) and are skipped, as are "Contact sales" rows.
+The GPU table is laid out column by column: a list of GPU names (a model heading
+plus form-factor tags such as "80GB", "SXM", "PCIe", "HGX") and, beside it, one list
+per pricing type, matched by position. Columns are found by their header text
+("GPU model", "On-demand") rather than order or class names. Prices are written as
+"$3.90 / GPU-hr"; "Contact sales" cells are skipped, and other tables on the page
+(CPU instances, inference endpoints) don't have a "GPU model" column.
 """
 
 from __future__ import annotations
@@ -30,32 +32,40 @@ def fetch(client: httpx.Client) -> str:
 def parse(html: str, stamp: Stamp) -> list[Observation]:
     soup = BeautifulSoup(html, "html.parser")
     rows: list[Observation] = []
-    for card in soup.select(".prixing-item"):
-        heading = card.select_one(".pricing-item-heading")
-        prices = card.select(".pricing-rich")
-        if heading is None or not prices:
+    for table in soup.select(".table-wr-h"):
+        headers = [h.get_text(" ", strip=True) for h in table.select(".pricing-table-heading > *")]
+        columns = table.select(".w-dyn-list")
+        if headers[:1] != ["GPU model"] or "On-demand" not in headers:
             continue
-        tags = [t.get_text(strip=True) for t in card.select(".pricing-tag")]
-        label = " ".join([heading.get_text(strip=True), *tags])
-        gpu_model = normalize_gpu_name(label)
-        on_demand = _PER_GPU_HOUR.search(prices[0].get_text(" ", strip=True))
-        if gpu_model is None or on_demand is None:
-            continue
-        rows.append(
-            observation(
-                stamp,
-                source="crusoe",
-                provider=PROVIDER,
-                segment="neocloud",
-                pricing="on_demand",
-                gpu_model=gpu_model,
-                sku=label,
-                region="global",
-                geo="Global",
-                gpu_count=1,
-                usd_per_hour=float(on_demand.group(1)),
+        if len(columns) != len(headers):
+            raise ValueError(f"Crusoe GPU table has {len(headers)} headers, {len(columns)} columns")
+        names = columns[0].select(".w-dyn-item")
+        prices = columns[headers.index("On-demand")].select(".w-dyn-item")
+        for name, price in zip(names, prices, strict=True):
+            heading = name.select_one(".pricing-item-heading")
+            if heading is None:
+                continue
+            tags = [t.get_text(strip=True) for t in name.select(".pricing-tag")]
+            label = " ".join([heading.get_text(strip=True), *tags])
+            gpu_model = normalize_gpu_name(label)
+            on_demand = _PER_GPU_HOUR.search(price.get_text(" ", strip=True))
+            if gpu_model is None or on_demand is None:
+                continue
+            rows.append(
+                observation(
+                    stamp,
+                    source="crusoe",
+                    provider=PROVIDER,
+                    segment="neocloud",
+                    pricing="on_demand",
+                    gpu_model=gpu_model,
+                    sku=label,
+                    region="global",
+                    geo="Global",
+                    gpu_count=1,
+                    usd_per_hour=float(on_demand.group(1)),
+                )
             )
-        )
     return rows
 
 

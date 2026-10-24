@@ -1,9 +1,9 @@
 {
- "as_of": "2026-10-23",
+ "as_of": "2026-10-24",
  "first_date": "2026-09-29",
- "days_of_history": 25,
- "methodology_version": "1.3",
- "observations": 590,
+ "days_of_history": 26,
+ "methodology_version": "1.4",
+ "observations": 602,
  "providers": [
   "AWS",
   "CoreWeave",
@@ -12,14 +12,13 @@
   "Hyperstack",
   "Lambda",
   "Microsoft Azure",
+  "Nebius",
   "Oracle Cloud",
   "RunPod Community Cloud",
   "RunPod Secure Cloud",
   "Vast.ai"
  ],
- "carried_forward": [
-  "Crusoe"
- ],
+ "carried_forward": [],
  "coverage_changes": [
   {
    "date": "2026-10-04",
@@ -45,6 +44,13 @@
    "removed": [
     "Nebius"
    ]
+  },
+  {
+   "date": "2026-10-24",
+   "added": [
+    "Nebius"
+   ],
+   "removed": []
   }
  ],
  "gpus": [
@@ -59,9 +65,9 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 11.4,
-     "n_providers": 6,
-     "change_7d": 0.1,
+     "value": 8.99,
+     "n_providers": 7,
+     "change_7d": -0.05,
      "change_30d": null
     },
     "hyperscaler": {
@@ -71,15 +77,15 @@
      "change_30d": null
     },
     "neocloud": {
-     "value": 8.99,
-     "n_providers": 3,
-     "change_7d": 0.0,
+     "value": 8.98,
+     "n_providers": 4,
+     "change_7d": 0.06,
      "change_30d": null
     },
     "marketplace": {
      "value": 6.94,
      "n_providers": 1,
-     "change_7d": 0.0,
+     "change_7d": 0.87,
      "change_30d": null
     },
     "spot": {
@@ -89,9 +95,9 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 0.82,
-   "usd_per_pflop_hour": 5.07,
-   "usd_per_gb_hour": 0.03958,
+   "hyperscaler_premium": 0.83,
+   "usd_per_pflop_hour": 4.0,
+   "usd_per_gb_hour": 0.03122,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -120,6 +126,19 @@
      "sample_size": 1
     },
     {
+     "provider": "Crusoe",
+     "source": "crusoe",
+     "segment": "neocloud",
+     "median": 8.96,
+     "min": 8.96,
+     "max": 8.96,
+     "best_sku": "NVIDIA B300 288GB HGX",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
      "provider": "RunPod Secure Cloud",
      "source": "runpod",
      "segment": "neocloud",
@@ -133,13 +152,13 @@
      "sample_size": 1
     },
     {
-     "provider": "Crusoe",
-     "source": "crusoe",
+     "provider": "Nebius",
+     "source": "nebius",
      "segment": "neocloud",
-     "median": 13.8,
-     "min": 13.8,
-     "max": 13.8,
-     "best_sku": "NVIDIA B300 288GB HGX",
+     "median": 9.5,
+     "min": 9.5,
+     "max": 9.5,
+     "best_sku": "NVIDIA HGX B300",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -203,9 +222,9 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 8.6,
+     "value": 8.5,
      "n_providers": 9,
-     "change_7d": 0.03,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "hyperscaler": {
@@ -221,7 +240,7 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 7.68,
+     "value": 8.05,
      "n_providers": 2,
      "change_7d": 0.07,
      "change_30d": null
@@ -234,8 +253,8 @@
     }
    },
    "hyperscaler_premium": 0.77,
-   "usd_per_pflop_hour": 3.82,
-   "usd_per_gb_hour": 0.04778,
+   "usd_per_pflop_hour": 3.78,
+   "usd_per_gb_hour": 0.04722,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -290,6 +309,19 @@
      "sample_size": 1
     },
     {
+     "provider": "Nebius",
+     "source": "nebius",
+     "segment": "neocloud",
+     "median": 8.5,
+     "min": 8.5,
+     "max": 8.5,
+     "best_sku": "NVIDIA HGX B200",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
      "provider": "CoreWeave",
      "source": "coreweave",
      "segment": "neocloud",
@@ -306,27 +338,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 9.38,
-     "min": 9.38,
-     "max": 9.38,
+     "median": 10.13,
+     "min": 10.13,
+     "max": 10.13,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 14
-    },
-    {
-     "provider": "Crusoe",
-     "source": "crusoe",
-     "segment": "neocloud",
-     "median": 9.65,
-     "min": 9.65,
-     "max": 9.65,
-     "best_sku": "NVIDIA B200 180GB HGX",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 1
+     "sample_size": 12
     },
     {
      "provider": "Oracle Cloud",
@@ -386,9 +405,9 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 6.15,
-     "n_providers": 10,
-     "change_7d": -0.11,
+     "value": 5.4,
+     "n_providers": 11,
+     "change_7d": -0.14,
      "change_30d": null
     },
     "hyperscaler": {
@@ -398,15 +417,15 @@
      "change_30d": null
     },
     "neocloud": {
-     "value": 5.65,
-     "n_providers": 4,
-     "change_7d": -0.03,
+     "value": 5.29,
+     "n_providers": 5,
+     "change_7d": -0.02,
      "change_30d": null
     },
     "marketplace": {
-     "value": 3.77,
+     "value": 4.32,
      "n_providers": 2,
-     "change_7d": -0.03,
+     "change_7d": 0.15,
      "change_30d": null
     },
     "spot": {
@@ -416,9 +435,9 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 0.82,
-   "usd_per_pflop_hour": 6.22,
-   "usd_per_gb_hour": 0.04362,
+   "hyperscaler_premium": 0.95,
+   "usd_per_pflop_hour": 5.46,
+   "usd_per_gb_hour": 0.0383,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -434,19 +453,6 @@
      "sample_size": 1
     },
     {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 3.95,
-     "min": 3.95,
-     "max": 3.95,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 16
-    },
-    {
      "provider": "Hyperstack",
      "source": "hyperstack",
      "segment": "neocloud",
@@ -458,6 +464,32 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
+    },
+    {
+     "provider": "Crusoe",
+     "source": "crusoe",
+     "segment": "neocloud",
+     "median": 4.29,
+     "min": 4.29,
+     "max": 4.29,
+     "best_sku": "NVIDIA H200 141GB HGX",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 5.05,
+     "min": 5.05,
+     "max": 5.05,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 7
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -473,13 +505,13 @@
      "sample_size": 1
     },
     {
-     "provider": "Crusoe",
-     "source": "crusoe",
+     "provider": "Nebius",
+     "source": "nebius",
      "segment": "neocloud",
-     "median": 6.0,
-     "min": 6.0,
-     "max": 6.0,
-     "best_sku": "NVIDIA H200 141GB HGX",
+     "median": 5.4,
+     "min": 5.4,
+     "max": 5.4,
+     "best_sku": "NVIDIA HGX H200",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -594,9 +626,9 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 5.5,
-     "n_providers": 11,
-     "change_7d": -0.11,
+     "value": 4.32,
+     "n_providers": 12,
+     "change_7d": -0.19,
      "change_30d": null
     },
     "hyperscaler": {
@@ -606,15 +638,15 @@
      "change_30d": null
     },
     "neocloud": {
-     "value": 4.14,
-     "n_providers": 5,
-     "change_7d": 0.0,
+     "value": 4.07,
+     "n_providers": 6,
+     "change_7d": -0.06,
      "change_30d": null
     },
     "marketplace": {
-     "value": 2.88,
+     "value": 2.58,
      "n_providers": 2,
-     "change_7d": 0.13,
+     "change_7d": 0.01,
      "change_30d": null
     },
     "spot": {
@@ -624,10 +656,23 @@
      "change_30d": null
     }
    },
-   "hyperscaler_premium": 1.58,
-   "usd_per_pflop_hour": 5.56,
-   "usd_per_gb_hour": 0.06875,
+   "hyperscaler_premium": 1.62,
+   "usd_per_pflop_hour": 4.37,
+   "usd_per_gb_hour": 0.054,
    "providers": [
+    {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 2.46,
+     "min": 2.46,
+     "max": 2.46,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 18
+    },
     {
      "provider": "RunPod Community Cloud",
      "source": "runpod",
@@ -642,19 +687,6 @@
      "sample_size": 1
     },
     {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 3.07,
-     "min": 3.07,
-     "max": 3.07,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 6
-    },
-    {
      "provider": "Hyperstack",
      "source": "hyperstack",
      "segment": "neocloud",
@@ -662,6 +694,19 @@
      "min": 3.2,
      "max": 3.2,
      "best_sku": "NVIDIA H100 SXM",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 1
+    },
+    {
+     "provider": "Crusoe",
+     "source": "crusoe",
+     "segment": "neocloud",
+     "median": 3.9,
+     "min": 3.9,
+     "max": 3.9,
+     "best_sku": "NVIDIA H100 80GB HGX",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -694,13 +739,13 @@
      "sample_size": 4
     },
     {
-     "provider": "Crusoe",
-     "source": "crusoe",
+     "provider": "Nebius",
+     "source": "nebius",
      "segment": "neocloud",
-     "median": 5.5,
-     "min": 5.5,
-     "max": 5.5,
-     "best_sku": "NVIDIA H100 80GB HGX",
+     "median": 4.5,
+     "min": 4.5,
+     "max": 4.5,
+     "best_sku": "NVIDIA HGX H100",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
@@ -815,9 +860,9 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 3.19,
-     "n_providers": 3,
-     "change_7d": 0.0,
+     "value": 2.95,
+     "n_providers": 4,
+     "change_7d": 0.01,
      "change_30d": null
     },
     "hyperscaler": {
@@ -833,9 +878,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 2.59,
-     "n_providers": 1,
-     "change_7d": 0.0,
+     "value": 2.65,
+     "n_providers": 2,
+     "change_7d": 0.01,
      "change_30d": null
     },
     "spot": {
@@ -846,8 +891,8 @@
     }
    },
    "hyperscaler_premium": 1.84,
-   "usd_per_pflop_hour": 3.82,
-   "usd_per_gb_hour": 0.03394,
+   "usd_per_pflop_hour": 3.53,
+   "usd_per_gb_hour": 0.03138,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -861,6 +906,19 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
+    },
+    {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 2.71,
+     "min": 2.71,
+     "max": 2.71,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 7
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -917,7 +975,7 @@
     "index": {
      "value": 2.55,
      "n_providers": 5,
-     "change_7d": -0.01,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "neocloud": {
@@ -929,7 +987,7 @@
     "marketplace": {
      "value": 2.13,
      "n_providers": 2,
-     "change_7d": -0.07,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "spot": {
@@ -967,7 +1025,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 5
+     "sample_size": 6
     },
     {
      "provider": "Hyperstack",
@@ -1182,7 +1240,7 @@
     "marketplace": {
      "value": 1.23,
      "n_providers": 2,
-     "change_7d": 0.0,
+     "change_7d": -0.13,
      "change_30d": null
     },
     "spot": {
@@ -1200,14 +1258,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.07,
-     "min": 1.07,
-     "max": 1.07,
+     "median": 1.08,
+     "min": 1.08,
+     "max": 1.08,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 22
+     "sample_size": 27
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1428,7 +1486,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 9
+     "sample_size": 7
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1540,9 +1598,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 0.77,
+     "value": 0.81,
      "n_providers": 2,
-     "change_7d": -0.03,
+     "change_7d": -0.0,
      "change_30d": null
     },
     "spot": {
@@ -1560,14 +1618,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 0.53,
-     "min": 0.53,
-     "max": 0.53,
+     "median": 0.62,
+     "min": 0.62,
+     "max": 0.62,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 48
+     "sample_size": 55
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1679,9 +1737,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 0.72,
+     "value": 0.73,
      "n_providers": 2,
-     "change_7d": -0.03,
+     "change_7d": -0.01,
      "change_30d": null
     },
     "spot": {
@@ -1699,14 +1757,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 0.64,
-     "min": 0.64,
-     "max": 0.64,
+     "median": 0.67,
+     "min": 0.67,
+     "max": 0.67,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 20
+     "sample_size": 23
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1808,7 +1866,7 @@
    }
   }
  ],
- "generated_at": "2026-10-23T11:40:53+00:00",
+ "generated_at": "2026-10-24T11:02:52+00:00",
  "sources": [
   {
    "id": "azure",

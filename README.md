@@ -8,7 +8,7 @@ marketplaces, built from primary sources and versioned in git.**
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **[Live dashboard →](https://ewyluda.github.io/gpu-price-index/)** ·
-[Methodology](docs/methodology.md) · [Architecture](docs/architecture.md)
+[Case study](docs/case-study.md) · [Methodology](docs/methodology.md) · [Architecture](docs/architecture.md)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/img/dashboard-dark.png">

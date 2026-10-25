@@ -69,6 +69,12 @@ def test_runpod_splits_secure_and_community_clouds() -> None:
     assert Counter(o.segment for o in rows) == {"neocloud": 1, "marketplace": 1}
 
 
+def test_runpod_skips_offerings_flagged_unavailable() -> None:
+    # The fixture's MI300X has communityCloud=false with a placeholder communityPrice.
+    rows = [o for o in parse("runpod") if o.gpu_model == "MI300X"]
+    assert [o.provider for o in rows] == ["RunPod Secure Cloud"]
+
+
 def test_vast_summarizes_offers_to_one_median_per_model() -> None:
     rows = parse("vast")
     assert len({o.gpu_model for o in rows}) == len(rows)

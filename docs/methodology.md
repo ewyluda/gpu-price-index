@@ -1,6 +1,6 @@
 # Methodology
 
-*Methodology version 1.4 · history begins 2026-09-29*
+*Methodology version 1.5 · history begins 2026-09-29*
 
 The GPU Price Index answers one question: **what does an hour of a given GPU cost to rent
 today, and how does that depend on where you rent it?** This document describes what's
@@ -82,7 +82,9 @@ fetched once per day with an identifying User-Agent.
 - **Lambda:** the per-GPU price is read directly. The instance count comes from the tab order
   (8×, 4×, 2×, 1×). If the page ever shows a different number of tabs, counts fall back to 1
   rather than guessing.
-- **RunPod:** a price of 0 means "not offered in this cloud" and is skipped.
+- **RunPod:** a price of 0, or a cloud whose availability flag (`secureCloud` /
+  `communityCloud`) is false, means "not offered in this cloud" and is skipped; the
+  price beside a false flag is a placeholder, often $0.50.
 - **MIG slices** (any source): a label naming a MIG partition, such as RunPod's
   `NVIDIA B300 SXM6 AC MIG 1g.34gb`, is a fraction of a GPU and is skipped, so it can't
   pass for a whole GPU at a fraction of the price.
@@ -222,3 +224,4 @@ that alter published values bump the version and are listed here.
 | 1.2 | 2026-10-04 | Marketplace models need at least 5 rentable offers to be included |
 | 1.3 | 2026-10-05 | Added Google Cloud and Oracle Cloud (hyperscaler segment from 2 to 4 providers) |
 | 1.4 | 2026-10-23 | MIG-slice listings are skipped. RunPod listed a B300 MIG 1g slice at $0.50 on 12 days between 2026-09-30 and 2026-10-20, counted as a whole B300; those historical rows are unchanged |
+| 1.5 | 2026-10-25 | RunPod offerings flagged unavailable are skipped. RunPod Community Cloud MI300X (a $0.50 placeholder, not offered) was counted on every day from 2026-09-29; it and the 1.4 MIG rows were removed from history and the series restated. MI300X index on 2026-10-25: $3.45 → $4.73 |

@@ -2,7 +2,8 @@
 
 RunPod sells the same GPU two ways, which map cleanly onto two market segments:
 Secure Cloud (RunPod-operated data centers, a neocloud) and Community Cloud
-(third-party hosts, a marketplace).
+(third-party hosts, a marketplace). Each cloud has an availability flag; when it is
+false the matching price is a placeholder (often $0.50), not a rentable rate.
 """
 
 from __future__ import annotations
@@ -17,11 +18,14 @@ from gpu_index.models import Observation, Segment
 from gpu_index.sources.base import SourceAdapter, Stamp, observation
 
 API = "https://api.runpod.io/graphql"
-QUERY = "query { gpuTypes { id displayName memoryInGb securePrice communityPrice } }"
+QUERY = (
+    "query { gpuTypes { id displayName memoryInGb securePrice communityPrice "
+    "secureCloud communityCloud } }"
+)
 
-OFFERINGS: list[tuple[str, str, Segment]] = [
-    ("securePrice", "RunPod Secure Cloud", "neocloud"),
-    ("communityPrice", "RunPod Community Cloud", "marketplace"),
+OFFERINGS: list[tuple[str, str, str, Segment]] = [
+    ("securePrice", "secureCloud", "RunPod Secure Cloud", "neocloud"),
+    ("communityPrice", "communityCloud", "RunPod Community Cloud", "marketplace"),
 ]
 
 
@@ -38,7 +42,9 @@ def parse(payload: dict[str, Any], stamp: Stamp) -> list[Observation]:
         gpu_model = normalize_gpu_name(f"{gpu['id']} {gpu['displayName']}")
         if gpu_model is None:
             continue
-        for field, provider, segment in OFFERINGS:
+        for field, available, provider, segment in OFFERINGS:
+            if not gpu[available]:
+                continue
             price = float(gpu.get(field) or 0)
             if price <= 0:  # zero means "not currently offered in this cloud"
                 continue

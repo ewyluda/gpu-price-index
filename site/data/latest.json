@@ -2,8 +2,8 @@
  "as_of": "2026-10-25",
  "first_date": "2026-09-29",
  "days_of_history": 27,
- "methodology_version": "1.4",
- "observations": 600,
+ "methodology_version": "1.5",
+ "observations": 599,
  "providers": [
   "AWS",
   "CoreWeave",
@@ -79,13 +79,13 @@
     "neocloud": {
      "value": 8.98,
      "n_providers": 4,
-     "change_7d": 0.06,
+     "change_7d": -0.03,
      "change_30d": null
     },
     "marketplace": {
      "value": 6.94,
      "n_providers": 1,
-     "change_7d": 0.87,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "spot": {
@@ -1054,8 +1054,8 @@
    "headline": true,
    "series": {
     "index": {
-     "value": 3.45,
-     "n_providers": 5,
+     "value": 4.73,
+     "n_providers": 4,
      "change_7d": 0.0,
      "change_30d": null
     },
@@ -1071,12 +1071,6 @@
      "change_7d": 0.0,
      "change_30d": null
     },
-    "marketplace": {
-     "value": 0.5,
-     "n_providers": 1,
-     "change_7d": 0.0,
-     "change_30d": null
-    },
     "spot": {
      "value": 1.39,
      "n_providers": 1,
@@ -1085,22 +1079,9 @@
     }
    },
    "hyperscaler_premium": 1.31,
-   "usd_per_pflop_hour": 2.64,
-   "usd_per_gb_hour": 0.01797,
+   "usd_per_pflop_hour": 3.62,
+   "usd_per_gb_hour": 0.02464,
    "providers": [
-    {
-     "provider": "RunPod Community Cloud",
-     "source": "runpod",
-     "segment": "marketplace",
-     "median": 0.5,
-     "min": 0.5,
-     "max": 0.5,
-     "best_sku": "AMD Instinct MI300X OAM",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 1
-    },
     {
      "provider": "RunPod Secure Cloud",
      "source": "runpod",
@@ -1840,7 +1821,7 @@
    }
   }
  ],
- "generated_at": "2026-10-25T11:32:17+00:00",
+ "generated_at": "2026-10-25T18:31:42+00:00",
  "sources": [
   {
    "id": "azure",

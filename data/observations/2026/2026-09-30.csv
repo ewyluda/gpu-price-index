@@ -511,18 +511,15 @@ date,collected_at,source,provider,segment,pricing,gpu_model,sku,region,geo,gpu_c
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,A100-80GB-PCIe,NVIDIA A100 80GB PCIe,global,Global,1,1.19,1.19,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,B200,NVIDIA B200,global,Global,1,5.98,5.98,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,B300,NVIDIA B300 SXM6 AC,global,Global,1,6.94,6.94,1
-2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,B300,NVIDIA B300 SXM6 AC MIG 1g.34gb,global,Global,1,0.5,0.5,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100,NVIDIA H100 80GB HBM3,global,Global,1,2.69,2.69,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100-NVL,NVIDIA H100 NVL,global,Global,1,2.59,2.59,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H100-PCIe,NVIDIA H100 PCIe,global,Global,1,1.99,1.99,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,H200,NVIDIA H200,global,Global,1,3.59,3.59,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,L40S,NVIDIA L40S,global,Global,1,0.79,0.79,1
-2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Community Cloud,marketplace,on_demand,MI300X,AMD Instinct MI300X OAM,global,Global,1,0.5,0.5,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,A100-80GB,NVIDIA A100-SXM4-80GB,global,Global,1,1.59,1.59,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,A100-80GB-PCIe,NVIDIA A100 80GB PCIe,global,Global,1,1.59,1.59,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,B200,NVIDIA B200,global,Global,1,6.79,6.79,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,B300,NVIDIA B300 SXM6 AC,global,Global,1,7.89,7.89,1
-2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,B300,NVIDIA B300 SXM6 AC MIG 1g.34gb,global,Global,1,0.5,0.5,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100,NVIDIA H100 80GB HBM3,global,Global,1,3.49,3.49,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100-NVL,NVIDIA H100 NVL,global,Global,1,3.19,3.19,1
 2026-09-30,2026-09-30T12:36:37+00:00,runpod,RunPod Secure Cloud,neocloud,on_demand,H100-PCIe,NVIDIA H100 PCIe,global,Global,1,2.89,2.89,1

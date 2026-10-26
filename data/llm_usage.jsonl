@@ -21,3 +21,4 @@
 {"date": "2026-10-23", "generator": "claude", "input_tokens": 1794, "models": ["claude-opus-5-5"], "output_tokens": 413, "requests": 1, "usd": 0.0154}
 {"date": "2026-10-24", "generator": "claude", "input_tokens": 1790, "models": ["claude-opus-5-5"], "output_tokens": 401, "requests": 1, "usd": 0.0152}
 {"date": "2026-10-25", "generator": "claude", "input_tokens": 1790, "models": ["claude-opus-5-5"], "output_tokens": 350, "requests": 1, "usd": 0.0142}
+{"date": "2026-10-26", "generator": "claude", "input_tokens": 1783, "models": ["claude-opus-5-5"], "output_tokens": 383, "requests": 1, "usd": 0.0148}

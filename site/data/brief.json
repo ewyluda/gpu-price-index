@@ -1,14 +1,25 @@
 {
- "as_of": "2026-10-25",
- "generator": "template",
- "model": null,
- "headline": "H100 rents for $4.32/GPU-hr at the market median",
+ "as_of": "2026-10-26",
+ "generator": "claude",
+ "model": "claude-opus-5-5",
+ "usage": {
+  "requests": 1,
+  "input_tokens": 1783,
+  "output_tokens": 383,
+  "usd": 0.0148,
+  "models": [
+   "claude-opus-5-5"
+  ],
+  "month_to_date_usd": 0.5222
+ },
+ "headline": "H100 SXM and H200 rental prices fell over the week while B200, MI300X, A100 and L40S held flat.",
  "bullets": [
-  "B200: market index $8.50/GPU-hr across 9 providers; hyperscaler premium +77% over neoclouds.",
-  "H200: market index $5.40/GPU-hr across 11 providers; hyperscaler premium +95% over neoclouds.",
-  "H100 SXM: market index $4.32/GPU-hr across 12 providers; hyperscaler premium +162% over neoclouds.",
-  "MI300X: market index $4.73/GPU-hr across 4 providers; hyperscaler premium +131% over neoclouds.",
-  "Best price-performance: MI300X at $3.62 per dense BF16 PFLOP-hour."
+  "H100 SXM led the declines with a 7-day change of -19%, bringing its market index to $4.32 across 12 providers.",
+  "H200 dropped -14% over 7 days to a $5.40 market index, with RunPod Community Cloud cheapest at $3.59.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, ahead of B200 at $3.78, with a neocloud median of $2.92 versus $6.75 at hyperscalers.",
+  "Hyperscaler premiums remain steep, widest for H100 SXM at +162% ($10.68 versus $4.07 neocloud) and narrowest for B200 at +77%.",
+  "B200 held flat (+0%) at an $8.50 market index, with RunPod Community Cloud the cheapest provider at $5.98."
  ],
- "watch": "Watch whether the hyperscaler premium narrows as Blackwell capacity grows."
+ "watch": "Watch whether the H100 SXM and H200 declines spread to the hyperscaler segment, where medians of $10.68 and $10.30 still sit far above neocloud pricing.",
+ "fact_checked": true
 }

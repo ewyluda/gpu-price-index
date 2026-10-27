@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-26",
+ "as_of": "2026-10-27",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1783,
-  "output_tokens": 383,
-  "usd": 0.0148,
+  "input_tokens": 1775,
+  "output_tokens": 353,
+  "usd": 0.0142,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5222
+  "month_to_date_usd": 0.5364
  },
- "headline": "H100 SXM and H200 rental prices fell over the week while B200, MI300X, A100 and L40S held flat.",
+ "headline": "H100 SXM index falls -19% and H200 -14% over 7 days while other GPUs hold flat.",
  "bullets": [
-  "H100 SXM led the declines with a 7-day change of -19%, bringing its market index to $4.32 across 12 providers.",
-  "H200 dropped -14% over 7 days to a $5.40 market index, with RunPod Community Cloud cheapest at $3.59.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, ahead of B200 at $3.78, with a neocloud median of $2.92 versus $6.75 at hyperscalers.",
-  "Hyperscaler premiums remain steep, widest for H100 SXM at +162% ($10.68 versus $4.07 neocloud) and narrowest for B200 at +77%.",
-  "B200 held flat (+0%) at an $8.50 market index, with RunPod Community Cloud the cheapest provider at $5.98."
+  "H100 SXM's market index sits at $4.32 after a -19% weekly move, with Vast.ai cheapest at $2.40 versus a $10.68 hyperscaler median.",
+  "H200 dropped -14% to a $5.40 index, and its $3.97 marketplace median undercuts the $5.29 neocloud median.",
+  "B200, MI300X, A100 80GB SXM and L40S were unchanged at +0%, with B200 indexed at $8.50 and a $14.12 hyperscaler median.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, with RunPod Secure Cloud at $2.39, though only 4 providers list it.",
+  "Hyperscaler premiums remain wide, led by H100 SXM at +162% and MI300X at +131%."
  ],
- "watch": "Watch whether the H100 SXM and H200 declines spread to the hyperscaler segment, where medians of $10.68 and $10.30 still sit far above neocloud pricing.",
+ "watch": "Whether the H100 SXM and H200 declines carry into B200 pricing, which held at +0% this week.",
  "fact_checked": true
 }

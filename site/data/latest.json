@@ -1,9 +1,9 @@
 {
- "as_of": "2026-10-26",
+ "as_of": "2026-10-27",
  "first_date": "2026-09-29",
- "days_of_history": 28,
+ "days_of_history": 29,
  "methodology_version": "1.5",
- "observations": 600,
+ "observations": 599,
  "providers": [
   "AWS",
   "CoreWeave",
@@ -240,9 +240,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 8.3,
+     "value": 9.4,
      "n_providers": 2,
-     "change_7d": 0.0,
+     "change_7d": 0.13,
      "change_30d": null
     },
     "spot": {
@@ -338,14 +338,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 10.63,
-     "min": 10.63,
-     "max": 10.63,
+     "median": 12.81,
+     "min": 12.81,
+     "max": 12.81,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 17
+     "sample_size": 14
     },
     {
      "provider": "Oracle Cloud",
@@ -423,9 +423,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 4.09,
+     "value": 3.97,
      "n_providers": 2,
-     "change_7d": -0.0,
+     "change_7d": -0.03,
      "change_30d": null
     },
     "spot": {
@@ -482,14 +482,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 4.59,
-     "min": 4.59,
-     "max": 4.59,
+     "median": 4.34,
+     "min": 4.34,
+     "max": 4.34,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 7
+     "sample_size": 9
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -644,9 +644,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 3.35,
+     "value": 2.55,
      "n_providers": 2,
-     "change_7d": 0.37,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "spot": {
@@ -660,6 +660,19 @@
    "usd_per_pflop_hour": 4.37,
    "usd_per_gb_hour": 0.054,
    "providers": [
+    {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 2.4,
+     "min": 2.4,
+     "max": 2.4,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 12
+    },
     {
      "provider": "RunPod Community Cloud",
      "source": "runpod",
@@ -711,19 +724,6 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
-    },
-    {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 4.0,
-     "min": 4.0,
-     "max": 4.0,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 12
     },
     {
      "provider": "Lambda",
@@ -860,9 +860,9 @@
    "headline": false,
    "series": {
     "index": {
-     "value": 3.0,
-     "n_providers": 4,
-     "change_7d": 0.02,
+     "value": 3.19,
+     "n_providers": 3,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "hyperscaler": {
@@ -878,9 +878,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 2.7,
-     "n_providers": 2,
-     "change_7d": 0.03,
+     "value": 2.59,
+     "n_providers": 1,
+     "change_7d": 0.0,
      "change_30d": null
     },
     "spot": {
@@ -891,8 +891,8 @@
     }
    },
    "hyperscaler_premium": 1.84,
-   "usd_per_pflop_hour": 3.59,
-   "usd_per_gb_hour": 0.03191,
+   "usd_per_pflop_hour": 3.82,
+   "usd_per_gb_hour": 0.03394,
    "providers": [
     {
      "provider": "RunPod Community Cloud",
@@ -906,19 +906,6 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
-    },
-    {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 2.8,
-     "min": 2.8,
-     "max": 2.8,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 8
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -1206,9 +1193,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 1.23,
+     "value": 1.2,
      "n_providers": 2,
-     "change_7d": -0.0,
+     "change_7d": -0.02,
      "change_30d": null
     },
     "spot": {
@@ -1226,14 +1213,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.07,
-     "min": 1.07,
-     "max": 1.07,
+     "median": 1.01,
+     "min": 1.01,
+     "max": 1.01,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 9
+     "sample_size": 14
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1427,9 +1414,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 1.1,
+     "value": 1.08,
      "n_providers": 2,
-     "change_7d": 0.03,
+     "change_7d": 0.02,
      "change_30d": null
     },
     "spot": {
@@ -1447,14 +1434,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.0,
-     "min": 1.0,
-     "max": 1.0,
+     "median": 0.97,
+     "min": 0.97,
+     "max": 0.97,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 6
+     "sample_size": 8
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1566,9 +1553,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 0.83,
+     "value": 0.81,
      "n_providers": 2,
-     "change_7d": 0.05,
+     "change_7d": 0.03,
      "change_30d": null
     },
     "spot": {
@@ -1586,14 +1573,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 0.67,
-     "min": 0.67,
-     "max": 0.67,
+     "median": 0.63,
+     "min": 0.63,
+     "max": 0.63,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 40
+     "sample_size": 39
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1705,9 +1692,9 @@
      "change_30d": null
     },
     "marketplace": {
-     "value": 0.8,
+     "value": 0.76,
      "n_providers": 2,
-     "change_7d": 0.11,
+     "change_7d": 0.05,
      "change_30d": null
     },
     "spot": {
@@ -1722,6 +1709,19 @@
    "usd_per_gb_hour": 0.03125,
    "providers": [
     {
+     "provider": "Vast.ai",
+     "source": "vast",
+     "segment": "marketplace",
+     "median": 0.73,
+     "min": 0.73,
+     "max": 0.73,
+     "best_sku": "median-offer",
+     "best_region": "global",
+     "n_skus": 1,
+     "n_regions": 1,
+     "sample_size": 22
+    },
+    {
      "provider": "RunPod Community Cloud",
      "source": "runpod",
      "segment": "marketplace",
@@ -1733,19 +1733,6 @@
      "n_skus": 1,
      "n_regions": 1,
      "sample_size": 1
-    },
-    {
-     "provider": "Vast.ai",
-     "source": "vast",
-     "segment": "marketplace",
-     "median": 0.8,
-     "min": 0.8,
-     "max": 0.8,
-     "best_sku": "median-offer",
-     "best_region": "global",
-     "n_skus": 1,
-     "n_regions": 1,
-     "sample_size": 18
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -1834,7 +1821,7 @@
    }
   }
  ],
- "generated_at": "2026-10-26T13:05:20+00:00",
+ "generated_at": "2026-10-27T12:13:50+00:00",
  "sources": [
   {
    "id": "azure",

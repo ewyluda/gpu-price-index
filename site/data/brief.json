@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-28",
+ "as_of": "2026-10-29",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1779,
-  "output_tokens": 365,
-  "usd": 0.0144,
+  "output_tokens": 359,
+  "usd": 0.0143,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5508
+  "month_to_date_usd": 0.5651
  },
- "headline": "H100 SXM and H200 rental indexes fall over 7 days while MI300X leads on price-performance.",
+ "headline": "H100 SXM and H200 prices fell over 7 days while MI300X leads on price-performance.",
  "bullets": [
-  "H100 SXM's market index is $4.32 after a -14% 7-day change, with a +162% hyperscaler premium ($10.68 hyperscaler versus $4.07 neocloud).",
-  "H200's index is $5.40 after a -10% 7-day change, and RunPod Community Cloud is cheapest at a $3.59 median.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, with RunPod Secure Cloud cheapest at $2.39.",
-  "B200's index is flat at +0% at $8.50, with hyperscalers at $14.12 versus $7.99 at neoclouds, a +77% premium.",
-  "A100 80GB SXM and L40S are flat at +0%, with Vast.ai cheapest at $1.14 and $0.73 respectively."
+  "H100 SXM's market index is $4.32 after a -14% change over 7 days, with a hyperscaler premium of +162%, the widest of any GPU tracked.",
+  "H200 moved -10% over 7 days to a $5.40 market index, with RunPod Community Cloud cheapest at $3.59.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, though only 4 providers list it and its neocloud median is $2.92.",
+  "B200 was flat at +0% with an $8.50 market index, a $14.12 hyperscaler median versus $7.99 at neoclouds, and $3.78 per PFLOP-hour.",
+  "A100 80GB SXM and L40S were flat at +0%, with Vast.ai cheapest at $1.19 and $0.73 respectively."
  ],
- "watch": "Whether H100 SXM and H200 declines continue next week, and whether hyperscaler medians follow neocloud and marketplace pricing down.",
+ "watch": "Whether the H100 SXM decline of -14% continues and pressures the H200 at $5.40 and the B200 at $8.50.",
  "fact_checked": true
 }

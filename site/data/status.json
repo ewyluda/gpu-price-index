@@ -1,7 +1,7 @@
 {
  "latest": {
-  "collected_at": "2026-10-29T13:03:21+00:00",
-  "date": "2026-10-29",
+  "collected_at": "2026-10-30T12:57:54+00:00",
+  "date": "2026-10-30",
   "observations": 602,
   "ok": true,
   "sources": [
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 0.47
+    "seconds": 0.57
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 53,
-    "seconds": 1.12
+    "seconds": 1.05
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.45
+    "seconds": 1.66
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.44
+    "seconds": 0.64
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.45
+    "seconds": 0.63
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 1.01
+    "seconds": 0.83
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 7,
-    "seconds": 0.43
+    "seconds": 0.32
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.67
+    "seconds": 0.64
    },
    {
     "error": null,
@@ -83,7 +83,7 @@
     "name": "RunPod",
     "ok": true,
     "rows": 20,
-    "seconds": 0.21
+    "seconds": 0.24
    },
    {
     "error": null,
@@ -91,7 +91,7 @@
     "name": "Vast.ai",
     "ok": true,
     "rows": 8,
-    "seconds": 1.28
+    "seconds": 2.14
    }
   ],
   "validation": {
@@ -100,11 +100,6 @@
   }
  },
  "recent": [
-  {
-   "date": "2026-10-02",
-   "ok": true,
-   "observations": 537
-  },
   {
    "date": "2026-10-03",
    "ok": true,
@@ -247,6 +242,11 @@
   },
   {
    "date": "2026-10-29",
+   "ok": true,
+   "observations": 602
+  },
+  {
+   "date": "2026-10-30",
    "ok": true,
    "observations": 602
   }

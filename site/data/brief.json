@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-29",
+ "as_of": "2026-10-30",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1779,
-  "output_tokens": 359,
-  "usd": 0.0143,
+  "input_tokens": 1783,
+  "output_tokens": 397,
+  "usd": 0.0151,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5651
+  "month_to_date_usd": 0.5802
  },
- "headline": "H100 SXM and H200 prices fell over 7 days while MI300X leads on price-performance.",
+ "headline": "H100 SXM index falls -25% over 7 days to $4.32 while B200, MI300X and A100 hold flat.",
  "bullets": [
-  "H100 SXM's market index is $4.32 after a -14% change over 7 days, with a hyperscaler premium of +162%, the widest of any GPU tracked.",
-  "H200 moved -10% over 7 days to a $5.40 market index, with RunPod Community Cloud cheapest at $3.59.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, though only 4 providers list it and its neocloud median is $2.92.",
-  "B200 was flat at +0% with an $8.50 market index, a $14.12 hyperscaler median versus $7.99 at neoclouds, and $3.78 per PFLOP-hour.",
-  "A100 80GB SXM and L40S were flat at +0%, with Vast.ai cheapest at $1.19 and $0.73 respectively."
+  "H100 SXM led the week's moves, with its market index down -25% to $4.32 across 12 providers, and RunPod Community Cloud cheapest at $2.69.",
+  "H200 eased -6% to a $5.40 index, with neocloud at $5.29 versus hyperscaler at $10.30, a +95% premium.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, edging B200 at $3.78, though only 4 providers list it.",
+  "Hyperscaler premiums are widest on H100 SXM at +162% ($10.68 vs $4.07 neocloud) and narrowest on B200 at +77% ($14.12 vs $7.99).",
+  "A100 80GB SXM is flat at a $2.70 index but is the weakest value at $8.65 per PFLOP-hour, with Vast.ai cheapest at $1.11."
  ],
- "watch": "Whether the H100 SXM decline of -14% continues and pressures the H200 at $5.40 and the B200 at $8.50.",
+ "watch": "Whether the H100 SXM decline narrows its gap to the $5.40 H200 index and pulls H200 pricing down further from its -6% weekly move.",
  "fact_checked": true
 }

@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-30",
+ "as_of": "2026-10-31",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1783,
-  "output_tokens": 397,
-  "usd": 0.0151,
+  "input_tokens": 1779,
+  "output_tokens": 744,
+  "usd": 0.022,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5802
+  "month_to_date_usd": 0.6022
  },
- "headline": "H100 SXM index falls -25% over 7 days to $4.32 while B200, MI300X and A100 hold flat.",
+ "headline": "GPU rental prices held flat week over week across all six tracked GPUs; MI300X leads price-performance.",
  "bullets": [
-  "H100 SXM led the week's moves, with its market index down -25% to $4.32 across 12 providers, and RunPod Community Cloud cheapest at $2.69.",
-  "H200 eased -6% to a $5.40 index, with neocloud at $5.29 versus hyperscaler at $10.30, a +95% premium.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, edging B200 at $3.78, though only 4 providers list it.",
-  "Hyperscaler premiums are widest on H100 SXM at +162% ($10.68 vs $4.07 neocloud) and narrowest on B200 at +77% ($14.12 vs $7.99).",
-  "A100 80GB SXM is flat at a $2.70 index but is the weakest value at $8.65 per PFLOP-hour, with Vast.ai cheapest at $1.11."
+  "Every tracked GPU posted a +0% 7-day change, with the B200 index at $8.50, H200 at $5.40 and H100 SXM at $4.32.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, just ahead of B200 at $3.78, though only 4 providers list MI300X.",
+  "H100 SXM carries the widest hyperscaler premium at +162% ($10.68 hyperscaler vs $4.07 neocloud), while B200 has the narrowest at +77%.",
+  "Marketplaces remain the cheapest source: Vast.ai lists H100 SXM at $2.40 and A100 80GB SXM at $1.15, and RunPod Community Cloud lists B200 at $5.98.",
+  "A100 80GB SXM is the weakest value at $8.65 per PFLOP-hour despite its low $2.70 index."
  ],
- "watch": "Whether the H100 SXM decline narrows its gap to the $5.40 H200 index and pulls H200 pricing down further from its -6% weekly move.",
+ "watch": "Whether the flat 7-day pricing breaks first in B200, where the hyperscaler median of $14.12 sits well above the $7.99 neocloud median.",
  "fact_checked": true
 }

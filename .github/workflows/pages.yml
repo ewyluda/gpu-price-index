@@ -28,7 +28,7 @@ jobs:
         with:
           ref: main # pick up the data commit collect.yml just pushed
       - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deployment

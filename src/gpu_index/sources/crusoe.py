@@ -3,8 +3,10 @@
 The GPU table is laid out column by column: a list of GPU names (a model heading
 plus form-factor tags such as "80GB", "SXM", "PCIe", "HGX") and, beside it, one list
 per pricing type, matched by position. Columns are found by their header text
-("GPU model", "On-demand") rather than order or class names. Prices are written as
-"$3.90 / GPU-hr"; "Contact sales" cells are skipped, and other tables on the page
+("GPU model", "On-demand") rather than order or class names. Ahead of a price change
+the page relabels the column "Current on-demand" and adds one for the new prices
+("New on-demand starting Dec 1, 2026"); only the current column is read. Prices are
+written as "$3.90 / GPU-hr"; "Contact sales" cells are skipped, and other tables on the page
 (CPU instances, inference endpoints) don't have a "GPU model" column.
 """
 
@@ -23,6 +25,7 @@ from gpu_index.sources.base import SourceAdapter, Stamp, observation
 URL = "https://crusoe.ai/cloud/pricing"
 PROVIDER = "Crusoe"
 _PER_GPU_HOUR = re.compile(r"\$(\d+(?:\.\d+)?)\s*/\s*GPU-hr")
+_ON_DEMAND = re.compile(r"(?:Current )?On-demand", re.IGNORECASE)
 
 
 def fetch(client: httpx.Client) -> str:
@@ -35,12 +38,13 @@ def parse(html: str, stamp: Stamp) -> list[Observation]:
     for table in soup.select(".table-wr-h"):
         headers = [h.get_text(" ", strip=True) for h in table.select(".pricing-table-heading > *")]
         columns = table.select(".w-dyn-list")
-        if headers[:1] != ["GPU model"] or "On-demand" not in headers:
+        on_demand_col = next((i for i, h in enumerate(headers) if _ON_DEMAND.fullmatch(h)), None)
+        if headers[:1] != ["GPU model"] or on_demand_col is None:
             continue
         if len(columns) != len(headers):
             raise ValueError(f"Crusoe GPU table has {len(headers)} headers, {len(columns)} columns")
         names = columns[0].select(".w-dyn-item")
-        prices = columns[headers.index("On-demand")].select(".w-dyn-item")
+        prices = columns[on_demand_col].select(".w-dyn-item")
         for name, price in zip(names, prices, strict=True):
             heading = name.select_one(".pricing-item-heading")
             if heading is None:

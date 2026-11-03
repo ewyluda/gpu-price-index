@@ -136,10 +136,40 @@ def test_nebius_price_column_logic() -> None:
 def test_crusoe_reads_on_demand_column_and_skips_inference_endpoints() -> None:
     rows = parse("crusoe")
     assert len([o for o in rows if o.gpu_model == "H100"]) == 1  # not the $5.50 endpoint
-    assert find(rows, gpu_model="H100").usd_per_gpu_hour == 3.90
+    assert find(rows, gpu_model="H100").usd_per_gpu_hour == 3.90  # not the Dec 1 price, $4.50
+    assert find(rows, gpu_model="H200").usd_per_gpu_hour == 4.29
     assert not any(o.gpu_model == "B200" for o in rows)  # instance is "Contact sales"
     assert find(rows, gpu_model="A100-80GB").usd_per_gpu_hour == 2.30
     assert find(rows, gpu_model="A100-80GB-PCIe").usd_per_gpu_hour == 2.00
+    assert {o.gpu_model for o in rows} == {
+        "B300",
+        "H200",
+        "H100",
+        "A100-80GB",
+        "A100-80GB-PCIe",
+        "L40S",
+        "MI300X",
+    }
+
+
+def test_crusoe_reads_plain_on_demand_header() -> None:
+    from gpu_index.sources.crusoe import parse as parse_crusoe
+
+    def column(*cells: str) -> str:
+        items = "".join(f'<div class="w-dyn-item">{c}</div>' for c in cells)
+        return f'<div class="w-dyn-list">{items}</div>'
+
+    html = (
+        '<div class="table-wr-h"><div class="pricing-table-heading">'
+        "<div>GPU model</div><div>On-demand</div></div>"
+        + column(
+            '<div class="pricing-item-heading">NVIDIA H100</div>'
+            '<div class="pricing-tag">80GB</div><div class="pricing-tag">HGX</div>'
+        )
+        + column("$4.50 / GPU-hr")
+        + "</div>"
+    )
+    assert [(o.gpu_model, o.usd_per_gpu_hour) for o in parse_crusoe(html, STAMP)] == [("H100", 4.5)]
 
 
 def test_hyperstack_maps_pcie_cards_explicitly_and_ignores_reservations() -> None:

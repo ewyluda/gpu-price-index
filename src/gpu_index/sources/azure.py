@@ -64,8 +64,23 @@ def _is_general_availability(item: dict[str, Any]) -> bool:
     )
 
 
+def _newest_meters(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """One meter per SKU/region/pricing type: the one with the latest effective date.
+
+    During a price rollover (spot prices on the 1st of the month) the API briefly
+    lists the outgoing and incoming meter side by side, in no guaranteed order.
+    """
+    newest: dict[tuple[str, str, bool], dict[str, Any]] = {}
+    for item in items:
+        key = (item["armSkuName"], item["armRegionName"], "Spot" in item["meterName"])
+        held = newest.get(key)
+        if held is None or item.get("effectiveStartDate", "") >= held.get("effectiveStartDate", ""):
+            newest[key] = item
+    return list(newest.values())
+
+
 def parse(items: list[dict[str, Any]], stamp: Stamp) -> list[Observation]:
-    items = [i for i in items if _is_general_availability(i)]
+    items = _newest_meters([i for i in items if _is_general_availability(i)])
     on_demand = {
         (i["armSkuName"], i["armRegionName"]): float(i["retailPrice"])
         for i in items

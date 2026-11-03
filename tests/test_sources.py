@@ -50,6 +50,32 @@ def test_azure_excludes_windows_low_priority_sovereign_and_undiscounted_spot() -
     assert find(rows, sku="Standard_ND96isr_H100_v5", region="westus3", pricing="on_demand")
 
 
+def test_azure_keeps_newest_meter_when_a_price_rollover_lists_both() -> None:
+    # On the 1st of the month Azure briefly serves the outgoing and incoming meter
+    # for the same SKU/region; the stale one is listed last here on purpose.
+    def meter(name: str, price: float, start: str) -> dict[str, object]:
+        return {
+            "armSkuName": "Standard_ND96isr_H100_v5",
+            "armRegionName": "eastus",
+            "retailPrice": price,
+            "unitOfMeasure": "1 Hour",
+            "meterName": name,
+            "productName": "Virtual Machines NDsrH100v5 Series",
+            "type": "Consumption",
+            "effectiveStartDate": start,
+        }
+
+    items = [
+        meter("ND96isr H100 v5", 98.32, "2026-11-01T00:00:00Z"),
+        meter("ND96isr H100 v5", 90.00, "2026-01-01T00:00:00Z"),
+        meter("ND96isr H100 v5 Spot", 30.00, "2026-11-01T00:00:00Z"),
+        meter("ND96isr H100 v5 Spot", 95.00, "2026-10-01T00:00:00Z"),
+    ]
+    rows = ADAPTERS["azure"].parse(items, STAMP)
+    assert find(rows, pricing="on_demand").usd_per_hour == 98.32
+    assert find(rows, pricing="spot").usd_per_hour == 30.00
+
+
 def test_aws_maps_instance_types() -> None:
     o = find(parse("aws"), sku="p5.48xlarge", region="us-east-1")
     assert (o.gpu_model, o.gpu_count) == ("H100", 8)

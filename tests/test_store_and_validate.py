@@ -47,6 +47,18 @@ def test_screen_source_drops_bad_rows_and_rejects_thin_sources() -> None:
     assert any("keeping previous data" in e for e in thin.errors)
 
 
+def test_screen_source_collapses_duplicate_keys_and_warns_on_conflicts() -> None:
+    report = Report()
+    first, second = make_obs(usd_per_gpu_hour=2.0), make_obs(usd_per_gpu_hour=2.5)
+    assert screen_source("test", [first, second], min_rows=1, report=report) == [second]
+    assert report.ok
+    assert any("2 rows for test/h100x1/global" in w for w in report.warnings)
+
+    same = Report()
+    assert screen_source("test", [first, first], min_rows=1, report=same) == [first]
+    assert not same.warnings  # exact repeats are harmless
+
+
 def test_check_drift_warns_on_big_moves_and_missing_providers() -> None:
     previous = [make_obs(usd_per_gpu_hour=2.0), make_obs(provider="Gone", usd_per_gpu_hour=3.0)]
     report = Report()

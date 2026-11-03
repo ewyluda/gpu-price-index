@@ -50,6 +50,62 @@ def test_azure_excludes_windows_low_priority_sovereign_and_undiscounted_spot() -
     assert find(rows, sku="Standard_ND96isr_H100_v5", region="westus3", pricing="on_demand")
 
 
+def _meter(price: float, start: str | None, spot: bool = False) -> dict[str, object]:
+    """One ND96isr H100 v5 / eastus meter; STAMP is 2026-09-28."""
+    return {
+        "armSkuName": "Standard_ND96isr_H100_v5",
+        "armRegionName": "eastus",
+        "retailPrice": price,
+        "unitOfMeasure": "1 Hour",
+        "meterName": "ND96isr H100 v5 Spot" if spot else "ND96isr H100 v5",
+        "productName": "Virtual Machines NDsrH100v5 Series",
+        "type": "Consumption",
+        "effectiveStartDate": start,
+    }
+
+
+def test_azure_keeps_newest_meter_when_a_price_rollover_lists_both() -> None:
+    # On the 1st of the month Azure briefly serves the outgoing and incoming meter
+    # for the same SKU/region; the stale one is listed last here on purpose.
+    items = [
+        _meter(98.32, "2026-09-01T00:00:00Z"),
+        _meter(90.00, "2026-01-01T00:00:00Z"),
+        _meter(30.00, "2026-09-01T00:00:00Z", spot=True),
+        _meter(95.00, "2026-08-01T00:00:00Z", spot=True),
+    ]
+    rows = ADAPTERS["azure"].parse(items, STAMP)
+    assert find(rows, pricing="on_demand").usd_per_hour == 98.32
+    assert find(rows, pricing="spot").usd_per_hour == 30.00
+
+
+def test_azure_ignores_meters_not_yet_in_effect() -> None:
+    items = [_meter(98.32, "2026-09-01T00:00:00Z"), _meter(80.00, "2026-10-01T00:00:00Z")]
+    assert find(ADAPTERS["azure"].parse(items, STAMP), pricing="on_demand").usd_per_hour == 98.32
+
+
+def test_azure_breaks_same_date_ties_independent_of_api_order() -> None:
+    a, b = _meter(98.32, "2026-09-01T00:00:00Z"), _meter(97.00, "2026-09-01T00:00:00Z")
+    picks = {find(ADAPTERS["azure"].parse(items, STAMP)).usd_per_hour for items in ([a, b], [b, a])}
+    assert picks == {97.00}
+
+
+def test_azure_treats_missing_or_null_effective_date_as_oldest() -> None:
+    undated = {k: v for k, v in _meter(90.00, None).items() if k != "effectiveStartDate"}
+    items = [_meter(98.32, "2026-09-01T00:00:00Z"), _meter(91.00, None), undated]
+    assert find(ADAPTERS["azure"].parse(items, STAMP), pricing="on_demand").usd_per_hour == 98.32
+
+
+def test_azure_screens_spot_against_the_current_on_demand_rate() -> None:
+    # Spot at $95 is a real discount on today's $98.32, but not on the stale $90
+    # meter; it must survive however the two on-demand meters are ordered.
+    items = [
+        _meter(98.32, "2026-09-01T00:00:00Z"),
+        _meter(90.00, "2026-08-01T00:00:00Z"),
+        _meter(95.00, "2026-09-01T00:00:00Z", spot=True),
+    ]
+    assert find(ADAPTERS["azure"].parse(items, STAMP), pricing="spot").usd_per_hour == 95.00
+
+
 def test_aws_maps_instance_types() -> None:
     o = find(parse("aws"), sku="p5.48xlarge", region="us-east-1")
     assert (o.gpu_model, o.gpu_count) == ("H100", 8)

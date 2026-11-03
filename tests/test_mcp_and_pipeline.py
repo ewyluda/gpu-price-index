@@ -92,6 +92,21 @@ def test_one_failing_source_does_not_block_the_others(
     assert (tmp_path / "2026" / "2026-09-28.csv").exists()
 
 
+def test_run_record_counts_rows_after_duplicate_keys_collapse(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("GPU_INDEX_DATA_DIR", str(tmp_path))
+
+    def doubled(_p: Any, s: Stamp) -> list[Observation]:
+        row = make_obs(date=s.date, source="dup", usd_per_gpu_hour=2.0)
+        return [row, row, make_obs(date=s.date, source="dup", sku="other")]
+
+    monkeypatch.setattr(pipeline, "ADAPTERS", {"dup": _adapter("dup", doubled)})
+    run = pipeline.collect(stamp=Stamp("2026-09-28", "2026-09-28T06:17:00+00:00"))
+    stored = store.read_day("2026-09-28")
+    assert run.sources[0].rows == run.to_dict()["observations"] == len(stored) == 2
+
+
 def test_invalid_rows_never_reach_the_store(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

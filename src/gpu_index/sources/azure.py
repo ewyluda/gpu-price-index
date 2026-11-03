@@ -5,6 +5,7 @@ https://learn.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
 from typing import Any
 
 import httpx
@@ -64,8 +65,29 @@ def _is_general_availability(item: dict[str, Any]) -> bool:
     )
 
 
+def _effective_from(item: dict[str, Any]) -> datetime:
+    raw = item.get("effectiveStartDate")
+    return datetime.fromisoformat(raw) if raw else datetime.min.replace(tzinfo=UTC)
+
+
+def _current_meters(items: list[dict[str, Any]], stamp: Stamp) -> list[dict[str, Any]]:
+    """One meter per SKU/region/pricing type: the latest one already in effect.
+
+    During a price rollover (spot prices on the 1st of the month) the API briefly
+    lists the outgoing and incoming meter side by side, in no guaranteed order.
+    Same-date ties go to the lower price, so the pick never depends on that order.
+    """
+    now = datetime.fromisoformat(stamp.collected_at)
+    ranked = sorted(
+        (i for i in items if _effective_from(i) <= now),
+        key=lambda i: (_effective_from(i), -float(i["retailPrice"])),
+    )
+    newest = {(i["armSkuName"], i["armRegionName"], "Spot" in i["meterName"]): i for i in ranked}
+    return list(newest.values())
+
+
 def parse(items: list[dict[str, Any]], stamp: Stamp) -> list[Observation]:
-    items = [i for i in items if _is_general_availability(i)]
+    items = _current_meters([i for i in items if _is_general_availability(i)], stamp)
     on_demand = {
         (i["armSkuName"], i["armRegionName"]): float(i["retailPrice"])
         for i in items

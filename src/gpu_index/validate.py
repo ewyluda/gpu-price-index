@@ -56,14 +56,26 @@ def row_problem(o: Observation) -> str | None:
 def screen_source(
     source: str, rows: list[Observation], min_rows: int, report: Report
 ) -> list[Observation] | None:
-    """Drop invalid rows; return the valid rows, or None if too few remain to trust."""
-    valid = []
+    """Drop invalid rows; return the valid rows, or None if too few remain to trust.
+
+    Rows sharing a natural key collapse to the last one, as the store would; a
+    conflicting price among them is warned about rather than kept silently.
+    """
+    by_key: dict[tuple[str, ...], list[Observation]] = defaultdict(list)
     for o in rows:
         problem = row_problem(o)
         if problem:
             report.errors.append(problem)
         else:
-            valid.append(o)
+            by_key[o.key].append(o)
+    for group in by_key.values():
+        if len({o.usd_per_hour for o in group}) > 1:
+            o = group[-1]
+            report.warnings.append(
+                f"{len(group)} rows for {o.source}/{o.sku}/{o.region} {o.pricing} "
+                f"with different prices; kept ${o.usd_per_hour}"
+            )
+    valid = [group[-1] for group in by_key.values()]
     if len(valid) < min_rows:
         report.errors.append(
             f"{source}: {len(valid)} valid rows, expected at least {min_rows} "

@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-02",
+ "as_of": "2026-11-03",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1779,
-  "output_tokens": 402,
-  "usd": 0.0152,
+  "input_tokens": 1777,
+  "output_tokens": 416,
+  "usd": 0.0154,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.0295
+  "month_to_date_usd": 0.0449
  },
- "headline": "GPU rental prices held flat across all six tracked GPUs over the past 7 days; MI300X leads price-performance.",
+ "headline": "H200 index jumps +17% to $6.31 over 7 days while B200 eases -6% to $7.99.",
  "bullets": [
-  "Every tracked GPU posted a +0% 7-day change in its market index, including B200 at $8.25, H200 at $5.40 and H100 SXM at $4.32.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, just ahead of B200 at $3.67, while A100 80GB SXM is the costliest at $8.65.",
-  "H100 SXM carries the steepest hyperscaler premium at +162%, with a hyperscaler median of $10.68 against a neocloud median of $4.07.",
-  "Marketplaces remain the cheapest segment: Vast.ai lists H100 SXM at $2.40 and A100 80GB SXM at $1.12, and RunPod Community Cloud lists B200 at $5.98.",
-  "B200 has the narrowest hyperscaler premium at +77%, with a hyperscaler median of $14.12 against a neocloud median of $7.99."
+  "H200 market index rose +17% to $6.31 over the 7-day window, with RunPod Community Cloud cheapest at $3.59 versus a hyperscaler median of $10.30.",
+  "B200 fell -6% to a $7.99 index and remains the best price-performance GPU at $3.55 per PFLOP-hour, with RunPod Community Cloud lowest at $5.98.",
+  "H100 SXM, MI300X, A100 80GB SXM and L40S were flat at +0%, with indexes of $4.32, $4.73, $2.70 and $1.50 respectively.",
+  "H100 SXM carries the widest hyperscaler premium at +162% ($10.68 hyperscaler vs $4.07 neocloud), while B200 has the narrowest at +77%.",
+  "A100 80GB SXM is the least efficient at $8.65 per PFLOP-hour despite a Vast.ai floor of $1.09."
  ],
- "watch": "Watch whether MI300X, quoted by only 4 providers, keeps its price-performance lead over B200 as more providers list it.",
+ "watch": "Whether the H200 run-up continues, narrowing its gap to the B200 index of $7.99 and further undercutting H200 value at $6.38 per PFLOP-hour.",
  "fact_checked": true
 }

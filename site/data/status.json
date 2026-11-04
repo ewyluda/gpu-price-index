@@ -1,7 +1,7 @@
 {
  "latest": {
-  "collected_at": "2026-11-03T14:17:07+00:00",
-  "date": "2026-11-03",
+  "collected_at": "2026-11-04T14:34:11+00:00",
+  "date": "2026-11-04",
   "observations": 602,
   "ok": true,
   "sources": [
@@ -18,8 +18,8 @@
     "id": "aws",
     "name": "AWS",
     "ok": true,
-    "rows": 53,
-    "seconds": 1.08
+    "rows": 54,
+    "seconds": 1.36
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.09
+    "seconds": 1.13
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.5
+    "seconds": 0.45
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.46
+    "seconds": 0.58
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 1.23
+    "seconds": 1.28
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 7,
-    "seconds": 0.55
+    "seconds": 0.39
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.14
+    "seconds": 0.15
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.56
+    "seconds": 0.64
    },
    {
     "error": null,
@@ -83,30 +83,25 @@
     "name": "RunPod",
     "ok": true,
     "rows": 20,
-    "seconds": 0.2
+    "seconds": 0.23
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 8,
-    "seconds": 1.17
+    "rows": 7,
+    "seconds": 1.23
    }
   ],
   "validation": {
    "errors": [],
    "warnings": [
-    "Vast.ai H200 on_demand: median moved +41% ($4.49 -> $6.31/GPU-hr)"
+    "Vast.ai H200 on_demand: median moved -54% ($6.31 -> $2.90/GPU-hr)"
    ]
   }
  },
  "recent": [
-  {
-   "date": "2026-10-05",
-   "ok": true,
-   "observations": 601
-  },
   {
    "date": "2026-10-06",
    "ok": true,
@@ -249,6 +244,11 @@
   },
   {
    "date": "2026-11-03",
+   "ok": true,
+   "observations": 602
+  },
+  {
+   "date": "2026-11-04",
    "ok": true,
    "observations": 602
   }

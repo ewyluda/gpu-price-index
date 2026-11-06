@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-05",
+ "as_of": "2026-11-06",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
-  "requests": 1,
-  "input_tokens": 1775,
-  "output_tokens": 513,
-  "usd": 0.0174,
+  "requests": 2,
+  "input_tokens": 3586,
+  "output_tokens": 836,
+  "usd": 0.0311,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.0774
+  "month_to_date_usd": 0.1085
  },
- "headline": "GPU rental prices held flat week over week, with every tracked GPU at +0% over 7 days.",
+ "headline": "H100 SXM index rises +7% over 7 days to $4.62 while other GPUs hold flat.",
  "bullets": [
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, just ahead of B200 at $3.78, though MI300X is listed by only 4 providers.",
-  "H100 SXM carries the widest hyperscaler premium at +162%, with a hyperscaler median of $10.68 against a neocloud median of $4.07.",
-  "B200 has a market index of $8.50, and RunPod Community Cloud offers the lowest median at $5.98, below the hyperscaler median of $14.12.",
-  "A100 80GB SXM is the costliest per unit of compute at $8.65 per PFLOP-hour, even though Vast.ai lists it at $1.12.",
-  "Marketplace pricing undercuts neoclouds across the board, with H200 at $4.08 on marketplaces versus $5.29 at neoclouds."
+  "H100 SXM was the only GPU to move this week, up +7% to a $4.62 index across 12 providers, with hyperscalers at $10.68 versus $4.25 at neoclouds.",
+  "H100 SXM carries the widest hyperscaler premium at +151%, and RunPod Community Cloud lists it at $2.69.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, ahead of B200 at $3.78, though only 4 providers offer MI300X.",
+  "B200 indexes at $8.50 with a +77% hyperscaler premium, the narrowest of any GPU, and RunPod Community Cloud is cheapest at $5.98.",
+  "A100 80GB SXM is the weakest value at $8.65 per PFLOP-hour despite a $2.70 index, with Vast.ai offering it at $1.10."
  ],
- "watch": "Watch whether MI300X gains providers beyond its current 4, which would test whether its $3.62 per PFLOP-hour lead holds as supply broadens.",
+ "watch": "Whether the H100 SXM increase holds or spreads to H200, currently indexed at $5.40 with a +95% hyperscaler premium.",
  "fact_checked": true
 }

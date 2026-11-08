@@ -255,3 +255,29 @@ def test_gcp_reads_columns_by_header_and_normalizes_machine_types() -> None:
     # A4 (B200) on-demand is "N/A" on the page: spot only.
     assert [o.pricing for o in rows if o.gpu_model == "B200"] == ["spot"]
     assert {o.region for o in rows} == {"us-central1"}
+
+
+def test_runcrate_maps_only_unambiguous_gpu_types() -> None:
+    rows = parse("runcrate")
+    assert {o.gpu_model: o.usd_per_gpu_hour for o in rows} == {
+        "B300": 15.47,
+        "B200": 7.93,
+        "H200": 5.13,
+        "A100-40GB": 1.99,
+        "L40S": 0.55,
+    }
+    # H100 and A100 80GB are sold on SXM and PCIe machines, so neither is filed under an SXM key.
+    assert not any(o.sku in {"H100", "A100_80G", "H200_nvl"} for o in rows)
+    assert all(o.segment == "neocloud" and o.pricing == "on_demand" for o in rows)
+    assert all(o.provider == "Runcrate" and o.region == "global" for o in rows)
+
+
+def test_runcrate_skips_gpu_types_with_no_live_offers() -> None:
+    # MI350X in the fixture is priced but has no live offers; B200 here is out of stock too.
+    payload = {
+        "gpus": [
+            {"gpu_type": "B200", "min_price_hr": 7.93, "available_options": 0},
+            {"gpu_type": "H200", "min_price_hr": 5.13, "available_options": 16},
+        ]
+    }
+    assert [o.gpu_model for o in ADAPTERS["runcrate"].parse(payload, STAMP)] == ["H200"]

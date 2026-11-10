@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-09",
+ "as_of": "2026-11-10",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
-  "requests": 2,
-  "input_tokens": 3578,
-  "output_tokens": 1272,
-  "usd": 0.0398,
+  "requests": 1,
+  "input_tokens": 1779,
+  "output_tokens": 367,
+  "usd": 0.0145,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.179
+  "month_to_date_usd": 0.1935
  },
- "headline": "H100 SXM index rises +7% to $4.62 over 7 days while other tracked GPUs hold flat.",
+ "headline": "H200 falls -14% over 7 days while B200 and H100 SXM climb; MI300X leads price-performance.",
  "bullets": [
-  "H100 SXM was the only GPU whose index moved this week, reaching $4.62, with a hyperscaler median of $10.68 against a neocloud median of $4.25, a +151% premium.",
-  "MI300X leads on price-performance at $3.62 per PFLOP-hour, with a neocloud median of $2.92 versus a hyperscaler median of $6.75 (+131%), though only 4 providers list it.",
-  "B200 holds at a $8.50 index and carries the smallest hyperscaler premium among the tracked GPUs at +77%, with RunPod Community Cloud cheapest at $5.98.",
-  "A100 80GB SXM has a low $2.70 index but the worst compute value at $8.65 per PFLOP-hour, and Vast.ai lists it as low as $1.07.",
-  "Marketplace pricing undercuts neoclouds across the board, with H200 at $4.10 versus $5.29 and L40S at $0.66 versus $1.50."
+  "H200's market index sits at $5.40 after a -14% weekly move, with RunPod Community Cloud cheapest at $3.59.",
+  "B200 rose +6% to a $8.50 index, and its hyperscaler median of $14.12 compares with $7.99 at neoclouds, a +77% premium.",
+  "H100 SXM gained +7% to $4.62 and carries the widest hyperscaler premium at +151%, with Vast.ai cheapest at $2.33.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, though only 4 providers list it, at a $4.73 index.",
+  "A100 80GB SXM, L40S, and MI300X were flat at +0%, with A100 marketplace pricing at $1.24 versus $4.53 at hyperscalers."
  ],
- "watch": "Whether the H100 SXM increase spreads to H200, whose index sits at $5.40 with a +95% hyperscaler premium.",
+ "watch": "Whether H200's -14% slide continues, which would narrow its gap with H100 SXM's $4.62 index as that GPU moves +7%.",
  "fact_checked": true
 }

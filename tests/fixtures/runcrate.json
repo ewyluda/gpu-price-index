@@ -1,0 +1,15 @@
+{
+  "gpus": [
+    {"gpu_type": "B300", "name": "B300", "vram": "288GB", "min_price_hr": 15.47, "min_price_per_minute": false, "max_price_hr": 16.47, "available_options": 5},
+    {"gpu_type": "B200", "name": "B200", "vram": "180GB", "min_price_hr": 7.93, "min_price_per_minute": false, "max_price_hr": 7.93, "available_options": 1},
+    {"gpu_type": "MI350X", "name": "MI350X", "vram": "288GB", "min_price_hr": 5.72, "min_price_per_minute": false, "max_price_hr": 5.72, "available_options": 0},
+    {"gpu_type": "H200", "name": "H200", "vram": "141GB", "min_price_hr": 5.13, "min_price_per_minute": false, "max_price_hr": 8.51, "available_options": 16},
+    {"gpu_type": "H200_nvl", "name": "H200 NVL", "vram": "141GB", "min_price_hr": 4.67, "min_price_per_minute": true, "max_price_hr": 4.67, "available_options": 4},
+    {"gpu_type": "H100", "name": "H100", "vram": "80GB", "min_price_hr": 3.58, "min_price_per_minute": false, "max_price_hr": 7.79, "available_options": 18},
+    {"gpu_type": "A100_80G", "name": "A100 80GB", "vram": "80GB", "min_price_hr": 1.73, "min_price_per_minute": false, "max_price_hr": 4.26, "available_options": 15},
+    {"gpu_type": "A100", "name": "A100 40GB", "vram": "40GB", "min_price_hr": 1.99, "min_price_per_minute": false, "max_price_hr": 4.15, "available_options": 8},
+    {"gpu_type": "L40S", "name": "L40S", "vram": "48GB", "min_price_hr": 0.55, "min_price_per_minute": false, "max_price_hr": 1.53, "available_options": 8},
+    {"gpu_type": "RTX4090", "name": "RTX 4090", "vram": "24GB", "min_price_hr": 0.58, "min_price_per_minute": false, "max_price_hr": 0.93, "available_options": 9}
+  ],
+  "fetched_at": "2026-11-08T04:37:59.257Z"
+}

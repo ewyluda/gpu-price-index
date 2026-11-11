@@ -6,7 +6,7 @@ flowchart LR
         AZ[Azure Retail Prices API]
         AWS[AWS pricing documents]
         HYP["Google Cloud pricing page<br/>Oracle price-list API"]
-        NEO["Neocloud pricing pages<br/>CoreWeave · Nebius · Crusoe<br/>Lambda · Hyperstack"]
+        NEO["Neocloud pricing pages<br/>CoreWeave · Nebius · Crusoe<br/>Lambda · Hyperstack · Runcrate"]
         RP[RunPod GraphQL]
         VA[Vast.ai offer search]
     end
@@ -57,7 +57,7 @@ traceable to its publisher.
 
 **Plain HTTP, no browser.** The prototype drove headless Chrome for ~100 s per run, with
 anti-bot-detection code, and still stored no rates. Every current source is a JSON API or a
-server-rendered table. The full eleven-source collection takes about 14 seconds, runs on a stock
+server-rendered table. The full twelve-source collection takes about 14 seconds, runs on a stock
 GitHub runner, and identifies itself with an honest User-Agent.
 
 **`fetch` / `parse` split, fixture-tested.** Parsers are pure functions tested against

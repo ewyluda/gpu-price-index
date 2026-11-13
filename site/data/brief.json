@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-12",
+ "as_of": "2026-11-13",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1779,
-  "output_tokens": 400,
-  "usd": 0.0151,
+  "output_tokens": 732,
+  "usd": 0.0218,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.2236
+  "month_to_date_usd": 0.2454
  },
- "headline": "H100 SXM index rises +7% over 7 days to $4.62 while other GPUs hold flat.",
+ "headline": "GPU rental prices held flat this week, with every tracked GPU at +0% over 7 days.",
  "bullets": [
-  "H100 SXM was the only mover at +7% over 7 days, with a $4.62 market index across 12 providers and Vast.ai cheapest at $2.20.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, though only 4 providers list it and its neocloud median is $2.92 versus $6.75 at hyperscalers.",
-  "Hyperscaler premiums are widest on H100 SXM at +151% ($10.68 vs $4.25 neocloud) and narrowest on B200 at +77% ($14.12 vs $7.99).",
-  "B200 holds at an $8.50 index with +0% change, while RunPod Community Cloud is cheapest at $5.98 and costs $3.78 per PFLOP-hour.",
-  "A100 80GB SXM is the costliest per unit of compute at $8.65 per PFLOP-hour despite a $2.70 index, with marketplace pricing at $1.36."
+  "All six tracked GPUs, from B200 at a $8.50 market index to L40S at $1.50, show +0% change over the 7-day window.",
+  "MI300X leads on price-performance at $3.62 per PFLOP-hour, narrowly ahead of B200 at $3.78, while A100 80GB SXM is the costliest at $8.65.",
+  "H100 SXM carries the widest hyperscaler premium at +140%, with a $10.68 hyperscaler median against $4.45 at neoclouds; MI300X follows at +131%.",
+  "B200 has the narrowest hyperscaler premium at +77%, with neocloud and marketplace medians both at $7.99 versus $14.12 at hyperscalers.",
+  "Marketplaces remain the low-cost entry point: Vast.ai lists H100 SXM at a $2.24 median and A100 80GB SXM at $1.26."
  ],
- "watch": "Whether H100 SXM's +7% move holds or spreads to H200, which is flat at a $5.40 index.",
+ "watch": "Watch MI300X pricing: it offers the best price-performance at $3.62 per PFLOP-hour, but only 4 providers list it, so availability may limit buyers.",
  "fact_checked": true
 }

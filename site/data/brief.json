@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-14",
+ "as_of": "2026-11-15",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1779,
-  "output_tokens": 1046,
-  "usd": 0.028,
+  "input_tokens": 1783,
+  "output_tokens": 956,
+  "usd": 0.0263,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.2734
+  "month_to_date_usd": 0.2997
  },
- "headline": "GPU rental prices held flat over the past 7 days across all tracked GPUs, with hyperscaler premiums still wide.",
+ "headline": "GPU rental prices held flat across all six tracked GPUs this week; MI300X leads on price-performance.",
  "bullets": [
-  "Every GPU posted a +0% 7-day change, leaving market indexes at $8.50 for B200, $5.40 for H200, $4.62 for H100 SXM, $2.70 for A100 80GB SXM and $1.50 for L40S.",
-  "H100 SXM carries the widest hyperscaler premium at +140% ($10.68 hyperscaler vs $4.45 neocloud), while B200 has the narrowest at +77% ($14.12 vs $7.99).",
-  "MI300X leads price-performance at $3.62 per PFLOP-hour, ahead of B200 at $3.78, though only 4 providers list it and its $4.73 index sits above H100 SXM's $4.62.",
-  "Marketplaces offer the cheapest capacity: Vast.ai lists H100 SXM at $2.67 and A100 80GB SXM at $1.15, while RunPod Community Cloud lists H200 at $3.59 and L40S at $0.79.",
-  "A100 80GB SXM is the weakest value per unit of compute at $8.65 per PFLOP-hour despite its low $2.70 index."
+  "Every tracked GPU posted a +0% change over the 7-day window, with market indexes of $8.50 for B200, $5.40 for H200, $4.62 for H100 SXM and $2.70 for A100 80GB SXM.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, just ahead of B200 at $3.78, while A100 80GB SXM is the costliest per unit of compute at $8.65.",
+  "Hyperscaler premiums are widest on H100 SXM at +140% ($10.68 vs $4.45 neocloud) and MI300X at +131%, and narrowest on B200 at +77%.",
+  "RunPod Community Cloud is the cheapest provider for B200 ($5.98), H200 ($3.59), H100 SXM ($2.69) and L40S ($0.79), while Vast.ai leads A100 80GB SXM at $1.14.",
+  "MI300X supply is thin, with only 4 providers listing it compared with 12 for H100 SXM."
  ],
- "watch": "Whether MI300X provider coverage grows beyond 4 and narrows its +131% hyperscaler premium, given it already offers the best price-performance.",
+ "watch": "Whether the flat +0% readings break, especially on B200, where the $14.12 hyperscaler median sits far above the $7.99 neocloud and marketplace medians.",
  "fact_checked": true
 }

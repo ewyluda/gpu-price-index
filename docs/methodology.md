@@ -55,6 +55,7 @@ price more than any other factor.
 | Neocloud | **Crusoe** | GPU instances, on-demand | Public pricing page |
 | Neocloud | **Lambda** | On-demand instances, 1×/2×/4×/8× shapes | Public pricing page (Lambda's terms allow rate-limited crawling) |
 | Neocloud | **Hyperstack** | GPU VMs, on-demand and spot | Public pricing page |
+| Neocloud | **Runcrate** | Lowest live on-demand per-GPU price for B300, B200, H200, A100 40GB and L40S (H100 and A100 80GB are skipped: sold on both SXM and PCIe machines, form factor not in the feed) | Public JSON price feed, no key |
 | Neocloud | **RunPod Secure Cloud** | Per-GPU secure-cloud price | Public GraphQL API, no key |
 | Marketplace | **RunPod Community Cloud** | Per-GPU community price | Same API |
 | Marketplace | **Vast.ai** | Every rentable on-demand offer for each tracked GPU | Public offer-search API |
@@ -199,7 +200,7 @@ real prices do sometimes move sharply.
 - **List prices aren't transaction prices.** Large buyers rarely pay on-demand list. The index
   measures the published price surface, which is the anchor for those negotiations, not the
   discount off it.
-- **Coverage is deliberately limited to clean sources.** Eleven sources and twelve
+- **Coverage is deliberately limited to clean sources.** Twelve sources and thirteen
   providers, each publishing prices publicly with terms that allow automated reads. Google
   Cloud is collected for one region (us-central1); its all-region Cloud Billing Catalog
   API needs an API key.
@@ -225,3 +226,4 @@ that alter published values bump the version and are listed here.
 | 1.3 | 2026-10-05 | Added Google Cloud and Oracle Cloud (hyperscaler segment from 2 to 4 providers) |
 | 1.4 | 2026-10-23 | MIG-slice listings are skipped. RunPod listed a B300 MIG 1g slice at $0.50 on 12 days between 2026-09-30 and 2026-10-20, counted as a whole B300; those historical rows are unchanged |
 | 1.5 | 2026-10-25 | RunPod offerings flagged unavailable are skipped. RunPod Community Cloud MI300X (a $0.50 placeholder, not offered) was counted on every day from 2026-09-29; it and the 1.4 MIG rows were removed from history and the series restated. MI300X index on 2026-10-25: $3.45 → $4.73 |
+| 1.6 | 2026-11-08 | Added Runcrate (neocloud segment from 6 to 7 providers) |

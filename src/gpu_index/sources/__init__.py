@@ -10,6 +10,7 @@ from gpu_index.sources import (
     lambda_cloud,
     nebius,
     oracle,
+    runcrate,
     runpod,
     vast,
 )
@@ -29,6 +30,7 @@ ADAPTERS: dict[str, SourceAdapter] = {
         crusoe.ADAPTER,
         lambda_cloud.ADAPTER,
         hyperstack.ADAPTER,
+        runcrate.ADAPTER,
         # neocloud + marketplace
         runpod.ADAPTER,
         # marketplace

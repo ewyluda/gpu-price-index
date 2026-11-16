@@ -47,6 +47,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B300,index,8.99
 2026-11-14,B300,index,8.99
 2026-11-15,B300,index,8.99
+2026-11-16,B300,index,8.99
 2026-09-29,B300,hyperscaler,17.8
 2026-09-30,B300,hyperscaler,17.8
 2026-10-01,B300,hyperscaler,17.8
@@ -95,6 +96,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B300,hyperscaler,16.4
 2026-11-14,B300,hyperscaler,16.4
 2026-11-15,B300,hyperscaler,16.4
+2026-11-16,B300,hyperscaler,16.4
 2026-09-29,B300,neocloud,7.89
 2026-09-30,B300,neocloud,7.89
 2026-10-01,B300,neocloud,7.89
@@ -143,6 +145,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B300,neocloud,8.98
 2026-11-14,B300,neocloud,8.98
 2026-11-15,B300,neocloud,8.98
+2026-11-16,B300,neocloud,8.98
 2026-09-29,B300,marketplace,6.94
 2026-09-30,B300,marketplace,6.94
 2026-10-01,B300,marketplace,6.94
@@ -191,6 +194,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B300,marketplace,6.94
 2026-11-14,B300,marketplace,6.94
 2026-11-15,B300,marketplace,6.94
+2026-11-16,B300,marketplace,6.94
 2026-10-04,B300,spot,4.48
 2026-10-05,B300,spot,4.48
 2026-10-06,B300,spot,4.48
@@ -234,6 +238,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B300,spot,4.48
 2026-11-14,B300,spot,4.48
 2026-11-15,B300,spot,4.48
+2026-11-16,B300,spot,4.48
 2026-09-29,B200,index,6.84
 2026-09-30,B200,index,6.84
 2026-10-01,B200,index,6.84
@@ -282,6 +287,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B200,index,8.5
 2026-11-14,B200,index,8.5
 2026-11-15,B200,index,8.5
+2026-11-16,B200,index,8.5
 2026-09-29,B200,hyperscaler,14.24
 2026-09-30,B200,hyperscaler,14.24
 2026-10-01,B200,hyperscaler,14.24
@@ -330,6 +336,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B200,hyperscaler,14.12
 2026-11-14,B200,hyperscaler,14.12
 2026-11-15,B200,hyperscaler,14.12
+2026-11-16,B200,hyperscaler,14.12
 2026-09-29,B200,neocloud,6.81
 2026-09-30,B200,neocloud,6.81
 2026-10-01,B200,neocloud,6.81
@@ -378,6 +385,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B200,neocloud,7.99
 2026-11-14,B200,neocloud,7.99
 2026-11-15,B200,neocloud,7.99
+2026-11-16,B200,neocloud,7.99
 2026-09-29,B200,marketplace,7.68
 2026-09-30,B200,marketplace,6.9
 2026-10-01,B200,marketplace,6.9
@@ -426,6 +434,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B200,marketplace,7.99
 2026-11-14,B200,marketplace,7.99
 2026-11-15,B200,marketplace,7.99
+2026-11-16,B200,marketplace,7.99
 2026-10-04,B200,spot,4.26
 2026-10-05,B200,spot,4.61
 2026-10-06,B200,spot,4.61
@@ -469,6 +478,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,B200,spot,4.86
 2026-11-14,B200,spot,4.86
 2026-11-15,B200,spot,4.86
+2026-11-16,B200,spot,4.86
 2026-09-29,H200,index,4.63
 2026-09-30,H200,index,5.12
 2026-10-01,H200,index,5.0
@@ -517,6 +527,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H200,index,5.4
 2026-11-14,H200,index,5.4
 2026-11-15,H200,index,5.4
+2026-11-16,H200,index,5.4
 2026-09-29,H200,hyperscaler,10.85
 2026-09-30,H200,hyperscaler,10.85
 2026-10-01,H200,hyperscaler,10.85
@@ -565,6 +576,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H200,hyperscaler,10.3
 2026-11-14,H200,hyperscaler,10.3
 2026-11-15,H200,hyperscaler,10.3
+2026-11-16,H200,hyperscaler,10.3
 2026-09-29,H200,neocloud,4.59
 2026-09-30,H200,neocloud,4.59
 2026-10-01,H200,neocloud,4.59
@@ -613,6 +625,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H200,neocloud,5.29
 2026-11-14,H200,neocloud,5.29
 2026-11-15,H200,neocloud,5.29
+2026-11-16,H200,neocloud,5.29
 2026-09-29,H200,marketplace,4.11
 2026-09-30,H200,marketplace,4.35
 2026-10-01,H200,marketplace,4.3
@@ -661,6 +674,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H200,marketplace,4.1
 2026-11-14,H200,marketplace,4.1
 2026-11-15,H200,marketplace,4.36
+2026-11-16,H200,marketplace,4.1
 2026-10-04,H200,spot,2.62
 2026-10-05,H200,spot,4.49
 2026-10-06,H200,spot,4.49
@@ -704,6 +718,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H200,spot,4.49
 2026-11-14,H200,spot,4.49
 2026-11-15,H200,spot,4.49
+2026-11-16,H200,spot,4.49
 2026-09-29,H100,index,3.82
 2026-09-30,H100,index,3.82
 2026-10-01,H100,index,3.82
@@ -752,6 +767,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100,index,4.62
 2026-11-14,H100,index,4.62
 2026-11-15,H100,index,4.62
+2026-11-16,H100,index,4.62
 2026-09-29,H100,hyperscaler,12.12
 2026-09-30,H100,hyperscaler,12.12
 2026-10-01,H100,hyperscaler,12.12
@@ -800,6 +816,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100,hyperscaler,10.68
 2026-11-14,H100,hyperscaler,10.68
 2026-11-15,H100,hyperscaler,10.68
+2026-11-16,H100,hyperscaler,10.68
 2026-09-29,H100,neocloud,3.82
 2026-09-30,H100,neocloud,3.82
 2026-10-01,H100,neocloud,3.82
@@ -848,6 +865,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100,neocloud,4.45
 2026-11-14,H100,neocloud,4.45
 2026-11-15,H100,neocloud,4.45
+2026-11-16,H100,neocloud,4.45
 2026-09-29,H100,marketplace,2.61
 2026-09-30,H100,marketplace,2.51
 2026-10-01,H100,marketplace,2.55
@@ -896,6 +914,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100,marketplace,2.46
 2026-11-14,H100,marketplace,2.68
 2026-11-15,H100,marketplace,3.01
+2026-11-16,H100,marketplace,2.25
 2026-09-29,H100,spot,2.95
 2026-09-30,H100,spot,2.95
 2026-10-01,H100,spot,2.95
@@ -944,6 +963,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100,spot,2.95
 2026-11-14,H100,spot,2.95
 2026-11-15,H100,spot,2.95
+2026-11-16,H100,spot,2.95
 2026-09-29,H100-NVL,index,3.08
 2026-09-30,H100-NVL,index,3.12
 2026-10-01,H100-NVL,index,3.11
@@ -992,6 +1012,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-NVL,index,3.0
 2026-11-14,H100-NVL,index,3.0
 2026-11-15,H100-NVL,index,3.06
+2026-11-16,H100-NVL,index,3.19
 2026-09-29,H100-NVL,hyperscaler,9.07
 2026-09-30,H100-NVL,hyperscaler,9.07
 2026-10-01,H100-NVL,hyperscaler,9.07
@@ -1040,6 +1061,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-NVL,hyperscaler,9.07
 2026-11-14,H100-NVL,hyperscaler,9.07
 2026-11-15,H100-NVL,hyperscaler,9.07
+2026-11-16,H100-NVL,hyperscaler,9.07
 2026-09-29,H100-NVL,neocloud,3.19
 2026-09-30,H100-NVL,neocloud,3.19
 2026-10-01,H100-NVL,neocloud,3.19
@@ -1088,6 +1110,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-NVL,neocloud,3.19
 2026-11-14,H100-NVL,neocloud,3.19
 2026-11-15,H100-NVL,neocloud,3.19
+2026-11-16,H100-NVL,neocloud,3.19
 2026-09-29,H100-NVL,marketplace,2.78
 2026-09-30,H100-NVL,marketplace,2.82
 2026-10-01,H100-NVL,marketplace,2.81
@@ -1136,6 +1159,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-NVL,marketplace,2.7
 2026-11-14,H100-NVL,marketplace,2.7
 2026-11-15,H100-NVL,marketplace,2.76
+2026-11-16,H100-NVL,marketplace,2.59
 2026-09-29,H100-NVL,spot,1.84
 2026-09-30,H100-NVL,spot,1.84
 2026-10-01,H100-NVL,spot,1.82
@@ -1184,6 +1208,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-NVL,spot,1.86
 2026-11-14,H100-NVL,spot,1.86
 2026-11-15,H100-NVL,spot,1.86
+2026-11-16,H100-NVL,spot,1.86
 2026-09-29,H100-PCIe,index,2.73
 2026-09-30,H100-PCIe,index,2.72
 2026-10-01,H100-PCIe,index,2.67
@@ -1232,6 +1257,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-PCIe,index,2.72
 2026-11-14,H100-PCIe,index,2.72
 2026-11-15,H100-PCIe,index,2.78
+2026-11-16,H100-PCIe,index,2.72
 2026-09-29,H100-PCIe,neocloud,3.09
 2026-09-30,H100-PCIe,neocloud,3.09
 2026-10-01,H100-PCIe,neocloud,3.09
@@ -1280,6 +1306,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-PCIe,neocloud,2.89
 2026-11-14,H100-PCIe,neocloud,2.89
 2026-11-15,H100-PCIe,neocloud,2.89
+2026-11-16,H100-PCIe,neocloud,2.89
 2026-09-29,H100-PCIe,marketplace,2.28
 2026-09-30,H100-PCIe,marketplace,2.27
 2026-10-01,H100-PCIe,marketplace,2.22
@@ -1328,6 +1355,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-PCIe,marketplace,1.99
 2026-11-14,H100-PCIe,marketplace,1.99
 2026-11-15,H100-PCIe,marketplace,2.38
+2026-11-16,H100-PCIe,marketplace,1.99
 2026-10-04,H100-PCIe,spot,2.0
 2026-10-05,H100-PCIe,spot,2.0
 2026-10-06,H100-PCIe,spot,2.0
@@ -1371,6 +1399,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,H100-PCIe,spot,2.0
 2026-11-14,H100-PCIe,spot,2.0
 2026-11-15,H100-PCIe,spot,2.0
+2026-11-16,H100-PCIe,spot,2.0
 2026-09-29,MI300X,index,4.95
 2026-09-30,MI300X,index,4.95
 2026-10-01,MI300X,index,4.95
@@ -1419,6 +1448,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,MI300X,index,4.73
 2026-11-14,MI300X,index,4.73
 2026-11-15,MI300X,index,4.73
+2026-11-16,MI300X,index,4.73
 2026-09-29,MI300X,hyperscaler,7.5
 2026-09-30,MI300X,hyperscaler,7.5
 2026-10-01,MI300X,hyperscaler,7.5
@@ -1467,6 +1497,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,MI300X,hyperscaler,6.75
 2026-11-14,MI300X,hyperscaler,6.75
 2026-11-15,MI300X,hyperscaler,6.75
+2026-11-16,MI300X,hyperscaler,6.75
 2026-09-29,MI300X,neocloud,2.39
 2026-09-30,MI300X,neocloud,2.39
 2026-10-01,MI300X,neocloud,2.39
@@ -1515,6 +1546,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,MI300X,neocloud,2.92
 2026-11-14,MI300X,neocloud,2.92
 2026-11-15,MI300X,neocloud,2.92
+2026-11-16,MI300X,neocloud,2.92
 2026-09-29,MI300X,spot,1.39
 2026-09-30,MI300X,spot,1.39
 2026-10-01,MI300X,spot,1.39
@@ -1563,6 +1595,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,MI300X,spot,1.39
 2026-11-14,MI300X,spot,1.39
 2026-11-15,MI300X,spot,1.39
+2026-11-16,MI300X,spot,1.39
 2026-09-29,A100-80GB,index,2.19
 2026-09-30,A100-80GB,index,2.19
 2026-10-01,A100-80GB,index,2.19
@@ -1611,6 +1644,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB,index,2.7
 2026-11-14,A100-80GB,index,2.7
 2026-11-15,A100-80GB,index,2.7
+2026-11-16,A100-80GB,index,2.7
 2026-09-29,A100-80GB,hyperscaler,4.38
 2026-09-30,A100-80GB,hyperscaler,4.38
 2026-10-01,A100-80GB,hyperscaler,4.38
@@ -1659,6 +1693,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB,hyperscaler,4.53
 2026-11-14,A100-80GB,hyperscaler,4.53
 2026-11-15,A100-80GB,hyperscaler,4.53
+2026-11-16,A100-80GB,hyperscaler,4.53
 2026-09-29,A100-80GB,neocloud,2.19
 2026-09-30,A100-80GB,neocloud,2.19
 2026-10-01,A100-80GB,neocloud,2.19
@@ -1707,6 +1742,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB,neocloud,2.3
 2026-11-14,A100-80GB,neocloud,2.3
 2026-11-15,A100-80GB,neocloud,2.3
+2026-11-16,A100-80GB,neocloud,2.3
 2026-09-29,A100-80GB,marketplace,1.29
 2026-09-30,A100-80GB,marketplace,1.43
 2026-10-01,A100-80GB,marketplace,1.23
@@ -1755,6 +1791,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB,marketplace,1.32
 2026-11-14,A100-80GB,marketplace,1.27
 2026-11-15,A100-80GB,marketplace,1.27
+2026-11-16,A100-80GB,marketplace,1.27
 2026-09-29,A100-80GB,spot,1.46
 2026-09-30,A100-80GB,spot,1.46
 2026-10-01,A100-80GB,spot,1.51
@@ -1803,6 +1840,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB,spot,1.45
 2026-11-14,A100-80GB,spot,1.45
 2026-11-15,A100-80GB,spot,1.45
+2026-11-16,A100-80GB,spot,1.45
 2026-09-29,A100-80GB-PCIe,index,1.39
 2026-09-30,A100-80GB-PCIe,index,1.39
 2026-10-01,A100-80GB-PCIe,index,1.39
@@ -1851,6 +1889,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB-PCIe,index,1.69
 2026-11-14,A100-80GB-PCIe,index,1.69
 2026-11-15,A100-80GB-PCIe,index,1.69
+2026-11-16,A100-80GB-PCIe,index,1.69
 2026-09-29,A100-80GB-PCIe,hyperscaler,4.78
 2026-09-30,A100-80GB-PCIe,hyperscaler,4.78
 2026-10-01,A100-80GB-PCIe,hyperscaler,4.78
@@ -1899,6 +1938,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB-PCIe,hyperscaler,4.78
 2026-11-14,A100-80GB-PCIe,hyperscaler,4.78
 2026-11-15,A100-80GB-PCIe,hyperscaler,4.78
+2026-11-16,A100-80GB-PCIe,hyperscaler,4.78
 2026-09-29,A100-80GB-PCIe,neocloud,1.59
 2026-09-30,A100-80GB-PCIe,neocloud,1.59
 2026-10-01,A100-80GB-PCIe,neocloud,1.59
@@ -1947,6 +1987,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB-PCIe,neocloud,2.0
 2026-11-14,A100-80GB-PCIe,neocloud,2.0
 2026-11-15,A100-80GB-PCIe,neocloud,2.0
+2026-11-16,A100-80GB-PCIe,neocloud,2.0
 2026-09-29,A100-80GB-PCIe,marketplace,1.06
 2026-09-30,A100-80GB-PCIe,marketplace,1.06
 2026-10-01,A100-80GB-PCIe,marketplace,1.06
@@ -1995,6 +2036,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB-PCIe,marketplace,1.03
 2026-11-14,A100-80GB-PCIe,marketplace,1.03
 2026-11-15,A100-80GB-PCIe,marketplace,1.03
+2026-11-16,A100-80GB-PCIe,marketplace,1.03
 2026-09-29,A100-80GB-PCIe,spot,0.88
 2026-09-30,A100-80GB-PCIe,spot,0.88
 2026-10-01,A100-80GB-PCIe,spot,0.88
@@ -2043,6 +2085,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-80GB-PCIe,spot,1.01
 2026-11-14,A100-80GB-PCIe,spot,1.01
 2026-11-15,A100-80GB-PCIe,spot,1.01
+2026-11-16,A100-80GB-PCIe,spot,1.01
 2026-09-29,A100-40GB,index,1.99
 2026-09-30,A100-40GB,index,1.99
 2026-10-01,A100-40GB,index,1.99
@@ -2091,6 +2134,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-40GB,index,2.64
 2026-11-14,A100-40GB,index,2.64
 2026-11-15,A100-40GB,index,2.64
+2026-11-16,A100-40GB,index,2.64
 2026-09-29,A100-40GB,hyperscaler,3.69
 2026-09-30,A100-40GB,hyperscaler,3.69
 2026-10-01,A100-40GB,hyperscaler,3.69
@@ -2139,6 +2183,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-40GB,hyperscaler,3.67
 2026-11-14,A100-40GB,hyperscaler,3.67
 2026-11-15,A100-40GB,hyperscaler,3.67
+2026-11-16,A100-40GB,hyperscaler,3.67
 2026-09-29,A100-40GB,neocloud,1.99
 2026-09-30,A100-40GB,neocloud,1.99
 2026-10-01,A100-40GB,neocloud,1.99
@@ -2187,6 +2232,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-40GB,neocloud,1.99
 2026-11-14,A100-40GB,neocloud,1.99
 2026-11-15,A100-40GB,neocloud,1.99
+2026-11-16,A100-40GB,neocloud,1.99
 2026-09-29,A100-40GB,marketplace,0.81
 2026-09-30,A100-40GB,marketplace,0.81
 2026-10-01,A100-40GB,marketplace,0.83
@@ -2235,6 +2281,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-40GB,marketplace,0.8
 2026-11-14,A100-40GB,marketplace,0.81
 2026-11-15,A100-40GB,marketplace,0.78
+2026-11-16,A100-40GB,marketplace,0.77
 2026-09-29,A100-40GB,spot,0.89
 2026-09-30,A100-40GB,spot,0.89
 2026-10-01,A100-40GB,spot,0.89
@@ -2283,6 +2330,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,A100-40GB,spot,1.54
 2026-11-14,A100-40GB,spot,1.54
 2026-11-15,A100-40GB,spot,1.54
+2026-11-16,A100-40GB,spot,1.48
 2026-09-29,L40S,index,0.95
 2026-09-30,L40S,index,0.95
 2026-10-01,L40S,index,0.95
@@ -2331,6 +2379,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,L40S,index,1.5
 2026-11-14,L40S,index,1.5
 2026-11-15,L40S,index,1.5
+2026-11-16,L40S,index,1.5
 2026-09-29,L40S,hyperscaler,2.7
 2026-09-30,L40S,hyperscaler,2.7
 2026-10-01,L40S,hyperscaler,2.7
@@ -2379,6 +2428,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,L40S,hyperscaler,3.1
 2026-11-14,L40S,hyperscaler,3.1
 2026-11-15,L40S,hyperscaler,3.1
+2026-11-16,L40S,hyperscaler,3.1
 2026-09-29,L40S,neocloud,1.09
 2026-09-30,L40S,neocloud,1.09
 2026-10-01,L40S,neocloud,1.09
@@ -2427,6 +2477,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,L40S,neocloud,1.5
 2026-11-14,L40S,neocloud,1.5
 2026-11-15,L40S,neocloud,1.5
+2026-11-16,L40S,neocloud,1.5
 2026-09-29,L40S,marketplace,0.8
 2026-09-30,L40S,marketplace,0.8
 2026-10-01,L40S,marketplace,0.8
@@ -2475,6 +2526,7 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,L40S,marketplace,0.79
 2026-11-14,L40S,marketplace,0.8
 2026-11-15,L40S,marketplace,0.8
+2026-11-16,L40S,marketplace,0.8
 2026-10-04,L40S,spot,0.99
 2026-10-05,L40S,spot,0.99
 2026-10-06,L40S,spot,0.99
@@ -2518,3 +2570,4 @@ date,gpu_model,series,usd_per_gpu_hour
 2026-11-13,L40S,spot,0.99
 2026-11-14,L40S,spot,0.99
 2026-11-15,L40S,spot,0.99
+2026-11-16,L40S,spot,0.99

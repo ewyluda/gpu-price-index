@@ -1,7 +1,7 @@
 {
- "as_of": "2026-11-16",
+ "as_of": "2026-11-17",
  "first_date": "2026-09-29",
- "days_of_history": 49,
+ "days_of_history": 50,
  "methodology_version": "1.5",
  "observations": 602,
  "providers": [
@@ -240,10 +240,10 @@
      "change_30d": 0.0
     },
     "marketplace": {
-     "value": 7.99,
+     "value": 7.36,
      "n_providers": 2,
-     "change_7d": 0.08,
-     "change_30d": 0.07
+     "change_7d": -0.0,
+     "change_30d": -0.02
     },
     "spot": {
      "value": 4.86,
@@ -338,14 +338,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 10.0,
-     "min": 10.0,
-     "max": 10.0,
+     "median": 8.75,
+     "min": 8.75,
+     "max": 8.75,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 18
+     "sample_size": 20
     },
     {
      "provider": "Oracle Cloud",
@@ -408,7 +408,7 @@
      "value": 5.4,
      "n_providers": 11,
      "change_7d": 0.0,
-     "change_30d": -0.14
+     "change_30d": -0.18
     },
     "hyperscaler": {
      "value": 10.3,
@@ -425,8 +425,8 @@
     "marketplace": {
      "value": 4.1,
      "n_providers": 2,
-     "change_7d": 0.0,
-     "change_30d": 0.09
+     "change_7d": 0.03,
+     "change_30d": -0.19
     },
     "spot": {
      "value": 4.49,
@@ -489,7 +489,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 17
+     "sample_size": 13
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -644,10 +644,10 @@
      "change_30d": 0.03
     },
     "marketplace": {
-     "value": 2.25,
+     "value": 2.51,
      "n_providers": 2,
-     "change_7d": -0.11,
-     "change_30d": -0.12
+     "change_7d": 0.0,
+     "change_30d": -0.01
     },
     "spot": {
      "value": 2.95,
@@ -664,14 +664,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.8,
-     "min": 1.8,
-     "max": 1.8,
+     "median": 2.34,
+     "min": 2.34,
+     "max": 2.34,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 17
+     "sample_size": 13
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1193,10 +1193,10 @@
      "change_30d": 0.0
     },
     "marketplace": {
-     "value": 1.27,
+     "value": 1.28,
      "n_providers": 2,
      "change_7d": 0.03,
-     "change_30d": -0.1
+     "change_30d": 0.03
     },
     "spot": {
      "value": 1.45,
@@ -1213,14 +1213,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 1.15,
-     "min": 1.15,
-     "max": 1.15,
+     "median": 1.17,
+     "min": 1.17,
+     "max": 1.17,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 13
+     "sample_size": 38
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1416,7 +1416,7 @@
     "marketplace": {
      "value": 1.03,
      "n_providers": 2,
-     "change_7d": -0.1,
+     "change_7d": 0.0,
      "change_30d": -0.03
     },
     "spot": {
@@ -1441,7 +1441,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 12
+     "sample_size": 16
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1553,10 +1553,10 @@
      "change_30d": 0.0
     },
     "marketplace": {
-     "value": 0.77,
+     "value": 0.83,
      "n_providers": 2,
-     "change_7d": 0.0,
-     "change_30d": -0.06
+     "change_7d": 0.09,
+     "change_30d": 0.05
     },
     "spot": {
      "value": 1.48,
@@ -1573,14 +1573,14 @@
      "provider": "Vast.ai",
      "source": "vast",
      "segment": "marketplace",
-     "median": 0.54,
-     "min": 0.54,
-     "max": 0.54,
+     "median": 0.67,
+     "min": 0.67,
+     "max": 0.67,
      "best_sku": "median-offer",
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 40
+     "sample_size": 49
     },
     {
      "provider": "RunPod Community Cloud",
@@ -1694,8 +1694,8 @@
     "marketplace": {
      "value": 0.8,
      "n_providers": 2,
-     "change_7d": 0.2,
-     "change_30d": 0.08
+     "change_7d": -0.0,
+     "change_30d": 0.11
     },
     "spot": {
      "value": 0.99,
@@ -1732,7 +1732,7 @@
      "best_region": "global",
      "n_skus": 1,
      "n_regions": 1,
-     "sample_size": 23
+     "sample_size": 31
     },
     {
      "provider": "RunPod Secure Cloud",
@@ -1821,7 +1821,7 @@
    }
   }
  ],
- "generated_at": "2026-11-16T15:48:58+00:00",
+ "generated_at": "2026-11-17T16:01:37+00:00",
  "sources": [
   {
    "id": "azure",

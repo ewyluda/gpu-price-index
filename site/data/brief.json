@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-17",
+ "as_of": "2026-11-18",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 1779,
-  "output_tokens": 399,
-  "usd": 0.0151,
+  "output_tokens": 361,
+  "usd": 0.0143,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.3296
+  "month_to_date_usd": 0.3439
  },
- "headline": "GPU rental prices flat across all six tracked GPUs; MI300X leads on price-performance at $3.62 per PFLOP-hour.",
+ "headline": "GPU rental prices held flat across all six GPUs over 7 days; MI300X leads price-performance.",
  "bullets": [
-  "Every tracked GPU shows a 7-day change of +0%, with market indexes holding at $8.50 for B200, $5.40 for H200, and $4.62 for H100 SXM.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, just ahead of B200 at $3.78, but only 4 providers list it.",
-  "Hyperscaler premiums remain wide, peaking at +140% for H100 SXM ($10.68 hyperscaler vs $4.45 neocloud) and +131% for MI300X.",
-  "Marketplaces undercut other segments: Vast.ai lists H100 SXM at $2.34 and A100 80GB SXM at $1.17, while RunPod Community Cloud lists B200 at $5.98.",
+  "Every tracked GPU posted a +0% 7-day change, with B200 indexed at $8.50, H200 at $5.40, and H100 SXM at $4.62.",
+  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, edging B200 at $3.78, though only 4 providers list MI300X.",
+  "H100 SXM carries the widest hyperscaler premium at +140%, with a hyperscaler median of $10.68 versus a neocloud median of $4.45.",
+  "Marketplaces remain the cheapest segment, with Vast.ai offering H100 SXM at $1.74 and A100 80GB SXM at $1.16.",
   "A100 80GB SXM is the weakest value at $8.65 per PFLOP-hour despite a low $2.70 market index."
  ],
- "watch": "Watch whether more providers add MI300X, which currently has only 4 providers and a +131% hyperscaler premium.",
+ "watch": "Watch whether the flat +0% run breaks first in B200, where the hyperscaler median of $14.12 sits well above the $8.50 index.",
  "fact_checked": true
 }

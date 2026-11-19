@@ -2,7 +2,7 @@
  "as_of": "2026-11-18",
  "first_date": "2026-09-29",
  "days_of_history": 51,
- "methodology_version": "1.5",
+ "methodology_version": "1.6",
  "observations": 602,
  "providers": [
   "AWS",
@@ -408,7 +408,7 @@
      "value": 5.4,
      "n_providers": 11,
      "change_7d": 0.0,
-     "change_30d": -0.14
+     "change_30d": 0.0
     },
     "hyperscaler": {
      "value": 10.3,
@@ -420,7 +420,7 @@
      "value": 5.29,
      "n_providers": 5,
      "change_7d": 0.0,
-     "change_30d": -0.02
+     "change_30d": 0.0
     },
     "marketplace": {
      "value": 4.1,
@@ -629,7 +629,7 @@
      "value": 4.62,
      "n_providers": 12,
      "change_7d": 0.0,
-     "change_30d": -0.13
+     "change_30d": 0.05
     },
     "hyperscaler": {
      "value": 10.68,
@@ -641,7 +641,7 @@
      "value": 4.45,
      "n_providers": 6,
      "change_7d": 0.05,
-     "change_30d": 0.03
+     "change_30d": 0.09
     },
     "marketplace": {
      "value": 2.21,
@@ -1821,7 +1821,7 @@
    }
   }
  ],
- "generated_at": "2026-11-18T15:40:57+00:00",
+ "generated_at": "2026-11-19T03:44:33+00:00",
  "sources": [
   {
    "id": "azure",

@@ -56,7 +56,8 @@ flowchart LR
     V -- "failure" --> G["GitHub issue"]
 ```
 
-Every morning at 06:17 UTC, a GitHub Actions job does the following:
+Once a day, a GitHub Actions job does the following. It's scheduled for 06:17 UTC, but
+GitHub often starts scheduled jobs hours late, so most runs land between 10:00 and 16:00 UTC.
 
 1. Pulls ~600 prices from eleven sources (twelve providers) in about 14 seconds, over plain HTTP.
 2. Normalizes each price to USD per GPU-hour.
@@ -84,10 +85,10 @@ python3 -m http.server 8765 --directory site   # dashboard at http://localhost:8
 
 ```text
 GPU                Index   Hyper     Neo  Market  Premium  $/PF-hr
-B200                6.84   14.24    6.81    7.05    +109%     3.04
-H200                4.80   10.85    4.59    4.20    +136%     4.85
-H100 SXM            3.82   12.12    3.82    2.95    +217%     3.86
-MI300X              2.39    7.50    2.39    0.50    +214%     1.83
+B200                8.50   14.12    7.99    7.37     +77%     3.78
+H200                5.40   10.30    5.29    4.10     +95%     5.46
+H100 SXM            4.62   10.68    4.45    2.21    +140%     4.67
+MI300X              4.73    6.75    2.92       -    +131%     3.62
 ...
 ```
 

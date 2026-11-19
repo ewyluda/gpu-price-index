@@ -152,7 +152,7 @@ function renderTiles() {
       <div class="range" title="Provider medians from ${usd(lo)} to ${usd(hi)}">
         ${g.providers.map((p) => `<i style="left:${pos(p.median)}%;background:${segColor(p.segment)}"></i>`).join("")}
       </div>
-      <div class="tile-meta num">${usd(lo)} – ${usd(hi)}</div>`;
+      <div class="tile-meta num">Provider medians ${usd(lo)} – ${usd(hi)}</div>`;
     btn.addEventListener("click", () => { selectGpu(g.key); $("#explore").scrollIntoView(); });
     tiles.appendChild(btn);
   }

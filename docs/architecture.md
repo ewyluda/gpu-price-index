@@ -11,7 +11,7 @@ flowchart LR
         VA[Vast.ai offer search]
     end
 
-    subgraph Pipeline["gpu-index run (GitHub Actions, daily 06:17 UTC)"]
+    subgraph Pipeline["gpu-index run (GitHub Actions, daily, scheduled 06:17 UTC)"]
         AD["Adapters<br/>fetch → parse"]
         VAL["Validation gates"]
         ST[("data/observations/<br/>YYYY/YYYY-MM-DD.csv")]
@@ -111,7 +111,7 @@ answer them from live data with the same cost logic as the dashboard.
 | Workflow | Trigger | Does |
 |---|---|---|
 | `ci.yml` | push to main, PRs | ruff, ruff format, mypy (strict), pytest on Python 3.11 and 3.13, JS/JSON sanity |
-| `collect.yml` | daily 06:17 UTC, manual | collect → validate → build → brief → commit → deploy. Opens/closes the `pipeline-failure` issue |
+| `collect.yml` | daily (scheduled 06:17 UTC, often starts hours late), manual | collect → validate → build → brief → commit → deploy. Opens/closes the `pipeline-failure` issue |
 | `pages.yml` | pushes touching `site/`, called by `collect.yml` | deploy `site/` to GitHub Pages |
 
 Secrets: `ANTHROPIC_API_KEY` (optional; without it the brief uses the template).

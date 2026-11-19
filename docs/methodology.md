@@ -1,6 +1,6 @@
 # Methodology
 
-*Methodology version 1.5 · history begins 2026-09-29*
+*Methodology version 1.6 · history begins 2026-09-29*
 
 The GPU Price Index answers one question: **what does an hour of a given GPU cost to rent
 today, and how does that depend on where you rent it?** This document describes what's
@@ -13,8 +13,9 @@ tell you.
   listed at $98.32/hr is recorded as $98.32 instance-hours *and* $12.29 per GPU-hour.
 - **Pricing types:** `on_demand` (the index) and `spot` (a separate series, from Azure,
   Google Cloud, CoreWeave and Hyperstack). Reserved and committed-use prices aren't published and aren't included.
-- **Frequency:** one collection per day at 06:17 UTC. The collection date (UTC) is the
-  observation date.
+- **Frequency:** one collection per day, scheduled for 06:17 UTC. GitHub Actions often
+  starts scheduled jobs hours late, so most runs land between 10:00 and 16:00 UTC. The
+  collection date (UTC) is the observation date.
 
 ### GPUs tracked
 
@@ -223,5 +224,6 @@ that alter published values bump the version and are listed here.
 | 1.1 | 2026-10-04 | Added CoreWeave, Nebius, Crusoe and Hyperstack (neocloud segment from 2 to 6 providers); changes now matched-provider; coverage changes published; spot series includes neocloud spot |
 | 1.2 | 2026-10-04 | Marketplace models need at least 5 rentable offers to be included |
 | 1.3 | 2026-10-05 | Added Google Cloud and Oracle Cloud (hyperscaler segment from 2 to 4 providers) |
-| 1.4 | 2026-10-23 | MIG-slice listings are skipped. RunPod listed a B300 MIG 1g slice at $0.50 on 12 days between 2026-09-30 and 2026-10-20, counted as a whole B300; those historical rows are unchanged |
+| 1.4 | 2026-10-23 | MIG-slice listings are skipped. RunPod listed a B300 MIG 1g slice at $0.50 on 12 days between 2026-09-30 and 2026-10-20, counted as a whole B300; those historical rows were left in place until 1.5 removed them |
 | 1.5 | 2026-10-25 | RunPod offerings flagged unavailable are skipped. RunPod Community Cloud MI300X (a $0.50 placeholder, not offered) was counted on every day from 2026-09-29; it and the 1.4 MIG rows were removed from history and the series restated. MI300X index on 2026-10-25: $3.45 → $4.73 |
+| 1.6 | 2026-11-18 | Crusoe's H100, H200 and B200 rows on 2026-10-16 to 10-22, and its $13.80 B300 row, were inference-endpoint prices that had overwritten the instance prices listed under the same name. The instance prices weren't captured, so those rows were removed (not back-filled) and the series restated: H100 30-day change on 2026-11-18, −13% → +5%; H200, −14% → 0%. AWS's three European regions (eu-central-1, eu-north-1, eu-west-2) are now collected; their pricing documents are named "EU (...)", and the old "Europe (...)" names had silently returned nothing since 2026-09-29. Crusoe's announced prices apply from their start date |

@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-18",
+ "as_of": "2026-11-19",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 1779,
-  "output_tokens": 361,
-  "usd": 0.0143,
+  "input_tokens": 2316,
+  "output_tokens": 438,
+  "usd": 0.018,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.3439
+  "month_to_date_usd": 0.3619
  },
- "headline": "GPU rental prices held flat across all six GPUs over 7 days; MI300X leads price-performance.",
+ "headline": "Market indexes held at +0% over 7 days, but H100 SXM segments diverged beneath the flat headline.",
  "bullets": [
-  "Every tracked GPU posted a +0% 7-day change, with B200 indexed at $8.50, H200 at $5.40, and H100 SXM at $4.62.",
-  "MI300X offers the best price-performance at $3.62 per PFLOP-hour, edging B200 at $3.78, though only 4 providers list MI300X.",
-  "H100 SXM carries the widest hyperscaler premium at +140%, with a hyperscaler median of $10.68 versus a neocloud median of $4.45.",
-  "Marketplaces remain the cheapest segment, with Vast.ai offering H100 SXM at $1.74 and A100 80GB SXM at $1.16.",
-  "A100 80GB SXM is the weakest value at $8.65 per PFLOP-hour despite a low $2.70 market index."
+  "H100 SXM's index was +0% at $4.62, masking a +5% neocloud rise to $4.45 and a -10% marketplace drop to $2.21, where Vast.ai is cheapest at $1.73.",
+  "H200 marketplace prices rose +4% to $4.10 while its $5.40 index stayed +0%, and A100 80GB SXM marketplace prices fell -7% to $1.26.",
+  "Across all 11 tracked GPUs, H100 PCIe offers the best price-performance at $3.60 per PFLOP-hour, with MI300X close at $3.62 and B200 at $3.78.",
+  "H100 NVL carries the widest hyperscaler premium of all tracked GPUs at +184%; among headline GPUs, H100 SXM leads at +140% ($10.68 hyperscaler vs $4.45 neocloud).",
+  "B200 indexes at $8.50 with a +77% hyperscaler premium ($14.12 vs $7.99), and RunPod Community Cloud lists it lowest at $5.98."
  ],
- "watch": "Watch whether the flat +0% run breaks first in B200, where the hyperscaler median of $14.12 sits well above the $8.50 index.",
+ "watch": "Whether the H100 SXM split widens, with neocloud prices rising +5% while the marketplace fell -10%.",
  "fact_checked": true
 }

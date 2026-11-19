@@ -27,9 +27,9 @@ LOCATIONS: dict[str, str] = {
     "US East (N. Virginia)": "us-east-1",
     "US East (Ohio)": "us-east-2",
     "US West (Oregon)": "us-west-2",
-    "Europe (Frankfurt)": "eu-central-1",
-    "Europe (Stockholm)": "eu-north-1",
-    "Europe (London)": "eu-west-2",
+    "EU (Frankfurt)": "eu-central-1",
+    "EU (Stockholm)": "eu-north-1",
+    "EU (London)": "eu-west-2",
     "Asia Pacific (Tokyo)": "ap-northeast-1",
     "Asia Pacific (Mumbai)": "ap-south-1",
     "Asia Pacific (Sydney)": "ap-southeast-2",
@@ -52,15 +52,11 @@ INSTANCES: dict[str, tuple[str, int]] = {
 
 
 def fetch(client: httpx.Client) -> dict[str, Any]:
-    documents: dict[str, Any] = {}
-    for location in LOCATIONS:
-        url = URL.format(location=quote(location))
-        try:
-            documents[location] = get(client, url).json()
-        except httpx.HTTPStatusError as exc:
-            if exc.response.status_code != 404:  # region without GPU capacity listed
-                raise
-    return documents
+    # Every location has a document (it lists all EC2 types), so a 404 means a wrong
+    # location name and must fail the source rather than silently drop the region.
+    return {
+        location: get(client, URL.format(location=quote(location))).json() for location in LOCATIONS
+    }
 
 
 def parse(documents: dict[str, Any], stamp: Stamp) -> list[Observation]:

@@ -29,7 +29,11 @@ You are given FACTS as JSON. Every number you write must appear in FACTS for the
 you attribute it to, written exactly as shown there: dollar amounts with "$", and \
 percentages with their explicit + or - sign (e.g. "+217%"). Write numbers as digits. \
 Do not compute new figures, do not estimate, and do not mention anything FACTS does \
-not support. When history \
+not support. FACTS.gpus lists only the headline GPUs, not all tracked_gpus: never \
+describe them as "every" or "all" GPUs, and take any best, cheapest or widest claim \
+from best_price_performance and widest_hyperscaler_premium, which rank every tracked \
+GPU. A flat market index can hide segment moves; check the segment changes before \
+calling a GPU flat. When history \
 is short (days_of_history below 7), describe the cross-section between segments and \
 providers rather than trends.
 
@@ -85,18 +89,39 @@ def facts(snap: dict[str, Any]) -> dict[str, Any]:
                 "change_7d": (
                     _pct(s["index"]["change_7d"]) if s["index"]["change_7d"] is not None else None
                 ),
+                **{
+                    f"{seg}_change_7d": _pct(s[seg]["change_7d"])
+                    for seg in ("hyperscaler", "neocloud", "marketplace")
+                    if seg in s and s[seg]["change_7d"] is not None
+                },
                 "cheapest_provider": cheapest["provider"] if cheapest else None,
                 "cheapest_provider_median": _money(cheapest["median"]) if cheapest else None,
                 "usd_per_pflop_hour": _money(g["usd_per_pflop_hour"]),
             }
         )
-    best_value = min(gpus, key=lambda g: float(g["usd_per_pflop_hour"].strip("$")), default=None)
+    # Rankings span every tracked GPU, not just the headline ones listed in "gpus".
+    best = min(snap["gpus"], key=lambda g: g["usd_per_pflop_hour"], default=None)
+    widest = max(
+        (g for g in snap["gpus"] if g["hyperscaler_premium"] is not None),
+        key=lambda g: g["hyperscaler_premium"],
+        default=None,
+    )
     return {
         "as_of": snap["as_of"],
         "days_of_history": snap["days_of_history"],
         "trend_window_days": 7,
         "provider_count": len(snap["providers"]),
-        "best_price_performance": best_value["gpu"] if best_value else None,
+        "tracked_gpus": len(snap["gpus"]),
+        "best_price_performance": (
+            {"gpu": best["name"], "usd_per_pflop_hour": _money(best["usd_per_pflop_hour"])}
+            if best
+            else None
+        ),
+        "widest_hyperscaler_premium": (
+            {"gpu": widest["name"], "hyperscaler_premium": _pct(widest["hyperscaler_premium"])}
+            if widest
+            else None
+        ),
         "gpus": gpus,
     }
 
@@ -115,8 +140,8 @@ def template_brief(f: dict[str, Any]) -> dict[str, Any]:
     best = f["best_price_performance"]
     if best:
         bullets.append(
-            f"Best price-performance: {best} at "
-            f"{by_name[best]['usd_per_pflop_hour']} per dense BF16 PFLOP-hour."
+            f"Best price-performance: {best['gpu']} at "
+            f"{best['usd_per_pflop_hour']} per dense BF16 PFLOP-hour."
         )
     headline = (
         f"H100 rents for {h100['market_index']}/GPU-hr at the market median"

@@ -6,7 +6,8 @@ import pytest
 
 from gpu_index.catalog import GPUS
 from gpu_index.models import Observation
-from gpu_index.sources import ADAPTERS
+from gpu_index.sources import ADAPTERS, aws
+from gpu_index.sources.base import Stamp
 from tests.conftest import STAMP, load_fixture
 
 
@@ -110,6 +111,15 @@ def test_aws_maps_instance_types() -> None:
     o = find(parse("aws"), sku="p5.48xlarge", region="us-east-1")
     assert (o.gpu_model, o.gpu_count) == ("H100", 8)
     assert o.usd_per_gpu_hour == pytest.approx(55.04 / 8, abs=1e-3)
+
+
+def test_aws_location_names_match_pricing_documents() -> None:
+    # AWS names its European documents "EU (...)"; a "Europe (...)" key 404'd and
+    # dropped every EU region from 2026-09-29 to 2026-11-18.
+    rows = parse("aws")
+    assert {o.region for o in rows} == set(aws.LOCATIONS.values())
+    o = find(rows, sku="p5.48xlarge", region="eu-central-1")
+    assert (o.geo, o.usd_per_gpu_hour) == ("EU", pytest.approx(68.80 / 8, abs=1e-3))
 
 
 def test_lambda_reads_every_instance_tab() -> None:
@@ -226,6 +236,23 @@ def test_crusoe_reads_plain_on_demand_header() -> None:
         + "</div>"
     )
     assert [(o.gpu_model, o.usd_per_gpu_hour) for o in parse_crusoe(html, STAMP)] == [("H100", 4.5)]
+
+
+def test_crusoe_switches_to_announced_prices_on_their_start_date() -> None:
+    from gpu_index.sources.crusoe import parse as parse_crusoe
+
+    html = load_fixture("crusoe")
+    before = {o.gpu_model: o.usd_per_gpu_hour for o in parse_crusoe(html, STAMP)}
+    dec1 = Stamp(date="2026-12-01", collected_at="2026-12-01T06:17:00+00:00")
+    after = {o.gpu_model: o.usd_per_gpu_hour for o in parse_crusoe(html, dec1)}
+    assert (before["H100"], after["H100"]) == (3.90, 4.50)
+    assert (before["H200"], after["H200"]) == (4.29, 5.40)
+    assert (before["B300"], after["B300"]) == (8.96, 9.90)
+    assert after["A100-80GB"] == before["A100-80GB"] == 2.30  # "No change" keeps current
+    assert "B200" not in after  # "Contact sales", then "No change"
+    assert set(after) == set(before)
+    nov30 = Stamp(date="2026-11-30", collected_at="2026-11-30T06:17:00+00:00")
+    assert find(parse_crusoe(html, nov30), gpu_model="H100").usd_per_gpu_hour == 3.90
 
 
 def test_hyperstack_maps_pcie_cards_explicitly_and_ignores_reservations() -> None:

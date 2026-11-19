@@ -66,6 +66,22 @@ def test_fact_check_catches_evasions(snap: dict[str, Any], template: str) -> Non
     assert brief.unsupported_claims(text, f), text
 
 
+def test_rankings_span_every_tracked_gpu_not_just_headline_ones(snap: dict[str, Any]) -> None:
+    # The 2026-11-18 brief called MI300X the best value and H100 SXM the widest premium
+    # because only headline GPUs were ranked; H100 PCIe and H100 NVL beat both.
+    others = [g for g in snap["gpus"] if g["key"] not in brief.HEADLINE_GPUS]
+    leader = {**others[0], "usd_per_pflop_hour": 0.01, "hyperscaler_premium": 9.99}
+    f = brief.facts({**snap, "gpus": [*snap["gpus"], leader]})
+    assert f["tracked_gpus"] == len(snap["gpus"]) + 1
+    assert f["best_price_performance"] == {"gpu": leader["name"], "usd_per_pflop_hour": "$0.01"}
+    assert f["widest_hyperscaler_premium"] == {
+        "gpu": leader["name"],
+        "hyperscaler_premium": "+999%",
+    }
+    text = f"{leader['name']} is the best value at $0.01 per PFLOP-hour and widest at +999%."
+    assert brief.unsupported_claims(text, f) == []
+
+
 def test_facts_survive_a_snapshot_without_headline_gpus(snap: dict[str, Any]) -> None:
     f = brief.facts({**snap, "gpus": []})
     assert f["best_price_performance"] is None

@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-20",
+ "as_of": "2026-11-21",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 2316,
-  "output_tokens": 528,
-  "usd": 0.0198,
+  "output_tokens": 887,
+  "usd": 0.027,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.3817
+  "month_to_date_usd": 0.4087
  },
- "headline": "Marketplace moves drive the week: H200 index up +12% while B200 slips -5% over 7 days.",
+ "headline": "Headline GPU indexes held flat week-on-week, but marketplace prices fell for H100 SXM, B200 and L40S.",
  "bullets": [
-  "H200's market index rose +12% to $6.02, driven by a +17% marketplace jump while hyperscaler and neocloud medians held at +0%.",
-  "B200's index fell -5% to $8.10 as its marketplace median dropped -12% to $7.04, with hyperscaler and neocloud segments unchanged.",
-  "H100 SXM's index is flat at +0% ($4.62), but this hides a -10% marketplace decline to $2.21, where Vast.ai is cheapest at $1.73.",
-  "H100 PCIe offers the best price-performance among tracked GPUs at $3.54 per PFLOP-hour, just ahead of B200 at $3.60 and MI300X at $3.62.",
-  "H100 NVL carries the widest hyperscaler premium at +184%, while H100 SXM's hyperscaler median of $10.68 sits +140% above its neocloud median of $4.45."
+  "H100 SXM's market index held at $4.62 (+0%) while its marketplace median dropped -17% to $2.21, with Vast.ai cheapest at $1.73.",
+  "B200's index stayed at $8.50 (+0%) as its marketplace median slipped -8% to $7.36, while the hyperscaler median of $14.12 sits +77% above the neocloud median of $7.99.",
+  "L40S marketplace pricing fell -7% to $0.74 even as its hyperscaler median edged +1% to $3.14, while A100 80GB SXM marketplace pricing rose +3% to $1.31.",
+  "H100 PCIe offers the best price-performance of all 11 tracked GPUs at $3.60 per PFLOP-hour, with MI300X close behind at $3.62 among the headline GPUs.",
+  "H100 NVL carries the widest hyperscaler premium across tracked GPUs at +184%, ahead of H100 SXM at +140% among the headline GPUs."
  ],
- "watch": "Whether H200's +17% marketplace rise spreads to neocloud pricing, which has held at +0% over the past 7 days.",
+ "watch": "Whether the -17% H100 SXM marketplace drop starts pulling down its $4.45 neocloud median, which was unchanged at +0% this week.",
  "fact_checked": true
 }

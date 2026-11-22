@@ -48,3 +48,4 @@
 {"date": "2026-11-19", "generator": "claude", "input_tokens": 2316, "models": ["claude-opus-5-5"], "output_tokens": 438, "requests": 1, "usd": 0.018}
 {"date": "2026-11-20", "generator": "claude", "input_tokens": 2316, "models": ["claude-opus-5-5"], "output_tokens": 528, "requests": 1, "usd": 0.0198}
 {"date": "2026-11-21", "generator": "claude", "input_tokens": 2316, "models": ["claude-opus-5-5"], "output_tokens": 887, "requests": 1, "usd": 0.027}
+{"date": "2026-11-22", "generator": "claude", "input_tokens": 2316, "models": ["claude-opus-5-5"], "output_tokens": 405, "requests": 1, "usd": 0.0174}

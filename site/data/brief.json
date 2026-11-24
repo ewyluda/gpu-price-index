@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-23",
+ "as_of": "2026-11-24",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 2316,
-  "output_tokens": 1088,
-  "usd": 0.031,
+  "input_tokens": 2319,
+  "output_tokens": 484,
+  "usd": 0.019,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.4571
+  "month_to_date_usd": 0.4761
  },
- "headline": "B200 marketplace rates drop -10% in a week while headline GPU indexes hold mostly flat.",
+ "headline": "Marketplace H100 SXM and H200 prices jump while hyperscaler and neocloud rates hold steady.",
  "bullets": [
-  "B200's market index slipped -1% to $8.41, driven by the marketplace median falling -10% to $7.20, while hyperscaler ($14.12) and neocloud ($7.99) held at +0%.",
-  "A100 80GB SXM's index was unchanged at $2.70 (+0%), but its marketplace median rose +7% to $1.36, with Vast.ai cheapest at $1.33.",
-  "H100 PCIe offers the best price-performance of the 11 tracked GPUs at $3.60 per PFLOP-hour; among headline GPUs, MI300X ($3.62) and B200 ($3.74) are closest.",
-  "H100 NVL carries the widest hyperscaler premium at +184%; among headline GPUs, H100 SXM leads at +140% ($10.68 hyperscaler vs $4.45 neocloud).",
-  "H200 held at $5.40 (+0%) with hyperscaler and neocloud segments unchanged at +0%, and RunPod Community Cloud was the cheapest provider at $3.59."
+  "H200's market index rose +6% to $5.72 over 7 days, driven by a +14% marketplace move while hyperscaler and neocloud segments were +0%.",
+  "H100 SXM's index reads +0% at $4.62, but that hides a +17% jump in its marketplace segment to $2.94.",
+  "B200 held at an $8.50 index with no segment moves, and RunPod Community Cloud remains its cheapest provider at $5.98.",
+  "Across all 11 tracked GPUs, H100 NVL offers the best price-performance at $3.59 per PFLOP-hour and the widest hyperscaler premium at +184%.",
+  "Among headline GPUs, H100 SXM carries the steepest hyperscaler premium at +140%, with a $10.68 hyperscaler median versus $4.45 at neoclouds."
  ],
- "watch": "Whether the -10% drop in the B200 marketplace median spreads to the neocloud segment, currently $7.99.",
+ "watch": "Whether the marketplace gains in H100 SXM (+17%) and H200 (+14%) spread to neocloud pricing, which has stayed +0% for both.",
  "fact_checked": true
 }

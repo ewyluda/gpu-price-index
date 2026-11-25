@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-24",
+ "as_of": "2026-11-25",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 2319,
-  "output_tokens": 484,
-  "usd": 0.019,
+  "input_tokens": 2320,
+  "output_tokens": 426,
+  "usd": 0.0178,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.4761
+  "month_to_date_usd": 0.4939
  },
- "headline": "Marketplace H100 SXM and H200 prices jump while hyperscaler and neocloud rates hold steady.",
+ "headline": "B200 index rises +4% on neocloud pricing while H200's flat index hides a +8% marketplace jump.",
  "bullets": [
-  "H200's market index rose +6% to $5.72 over 7 days, driven by a +14% marketplace move while hyperscaler and neocloud segments were +0%.",
-  "H100 SXM's index reads +0% at $4.62, but that hides a +17% jump in its marketplace segment to $2.94.",
-  "B200 held at an $8.50 index with no segment moves, and RunPod Community Cloud remains its cheapest provider at $5.98.",
-  "Across all 11 tracked GPUs, H100 NVL offers the best price-performance at $3.59 per PFLOP-hour and the widest hyperscaler premium at +184%.",
-  "Among headline GPUs, H100 SXM carries the steepest hyperscaler premium at +140%, with a $10.68 hyperscaler median versus $4.45 at neoclouds."
+  "B200's market index rose +4% to $8.55 over 7 days, driven by a +6% neocloud move to $8.50, while hyperscaler ($14.12) and marketplace ($5.98) medians held at +0%.",
+  "H200's index was +0% at $5.40, but its marketplace median climbed +8% to $4.41, with RunPod Community Cloud cheapest at $3.59.",
+  "H100 PCIe offers the best price-performance of the 11 tracked GPUs at $3.60 per PFLOP-hour, just ahead of MI300X at $3.62 and B200 at $3.80.",
+  "H100 NVL carries the widest hyperscaler premium among tracked GPUs at +184%, versus +140% for H100 SXM and +66% for B200.",
+  "Lower-end marketplace pricing softened slightly, with A100 80GB SXM at -1% ($1.27) and L40S at -2% ($0.78)."
  ],
- "watch": "Whether the marketplace gains in H100 SXM (+17%) and H200 (+14%) spread to neocloud pricing, which has stayed +0% for both.",
+ "watch": "Whether B200's +6% neocloud increase keeps going and narrows its +66% hyperscaler premium, or whether the H200 marketplace rise of +8% spreads to the neocloud segment.",
  "fact_checked": true
 }

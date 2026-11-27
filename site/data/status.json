@@ -1,8 +1,8 @@
 {
  "latest": {
-  "collected_at": "2026-11-26T16:55:23+00:00",
-  "date": "2026-11-26",
-  "observations": 622,
+  "collected_at": "2026-11-27T16:41:24+00:00",
+  "date": "2026-11-27",
+  "observations": 624,
   "ok": true,
   "sources": [
    {
@@ -11,7 +11,7 @@
     "name": "Microsoft Azure",
     "ok": true,
     "rows": 441,
-    "seconds": 7.6
+    "seconds": 1.08
    },
    {
     "error": null,
@@ -19,7 +19,7 @@
     "name": "AWS",
     "ok": true,
     "rows": 75,
-    "seconds": 0.63
+    "seconds": 0.25
    },
    {
     "error": null,
@@ -27,7 +27,7 @@
     "name": "Google Cloud",
     "ok": true,
     "rows": 25,
-    "seconds": 1.23
+    "seconds": 0.78
    },
    {
     "error": null,
@@ -35,7 +35,7 @@
     "name": "Oracle Cloud",
     "ok": true,
     "rows": 7,
-    "seconds": 0.52
+    "seconds": 0.47
    },
    {
     "error": null,
@@ -43,7 +43,7 @@
     "name": "CoreWeave",
     "ok": true,
     "rows": 11,
-    "seconds": 0.28
+    "seconds": 0.27
    },
    {
     "error": null,
@@ -51,7 +51,7 @@
     "name": "Nebius",
     "ok": true,
     "rows": 4,
-    "seconds": 0.71
+    "seconds": 0.68
    },
    {
     "error": null,
@@ -59,7 +59,7 @@
     "name": "Crusoe",
     "ok": true,
     "rows": 7,
-    "seconds": 0.36
+    "seconds": 0.23
    },
    {
     "error": null,
@@ -67,7 +67,7 @@
     "name": "Lambda",
     "ok": true,
     "rows": 15,
-    "seconds": 0.17
+    "seconds": 0.21
    },
    {
     "error": null,
@@ -75,7 +75,7 @@
     "name": "Hyperstack",
     "ok": true,
     "rows": 11,
-    "seconds": 0.44
+    "seconds": 0.43
    },
    {
     "error": null,
@@ -83,28 +83,25 @@
     "name": "RunPod",
     "ok": true,
     "rows": 20,
-    "seconds": 0.14
+    "seconds": 0.16
    },
    {
     "error": null,
     "id": "vast",
     "name": "Vast.ai",
     "ok": true,
-    "rows": 6,
-    "seconds": 0.62
+    "rows": 8,
+    "seconds": 0.9
    }
   ],
   "validation": {
    "errors": [],
-   "warnings": []
+   "warnings": [
+    "Vast.ai A100-80GB-PCIe on_demand: median moved +85% ($0.87 -> $1.60/GPU-hr)"
+   ]
   }
  },
  "recent": [
-  {
-   "date": "2026-10-28",
-   "ok": true,
-   "observations": 600
-  },
   {
    "date": "2026-10-29",
    "ok": true,
@@ -249,6 +246,11 @@
    "date": "2026-11-26",
    "ok": true,
    "observations": 622
+  },
+  {
+   "date": "2026-11-27",
+   "ok": true,
+   "observations": 624
   }
  ]
 }

@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-26",
+ "as_of": "2026-11-27",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
-  "input_tokens": 2320,
-  "output_tokens": 430,
-  "usd": 0.0179,
+  "input_tokens": 2316,
+  "output_tokens": 435,
+  "usd": 0.018,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5118
+  "month_to_date_usd": 0.5298
  },
- "headline": "B200 index edges up +1% as neocloud and marketplace segments climb; H200 marketplace rises despite flat index.",
+ "headline": "B200 rises +6% on the week while H200 falls -10%, both driven by marketplace moves.",
  "bullets": [
-  "B200's market index rose +1% to $8.60 over 7 days, driven by marketplace (+8%) and neocloud (+6%) segments while the hyperscaler median held at $14.12 (+0%).",
-  "H200's index was flat at $5.40, but its marketplace median rose +6% to $4.33; A100 80GB SXM likewise showed a flat $2.70 index with marketplace up +6% to $1.32.",
-  "L40S marketplace prices slipped -3% to $0.76, with Vast.ai cheapest at $0.73, while its $1.50 index was unchanged.",
-  "H100 PCIe offers the best price-performance of the 11 tracked GPUs at $3.60 per PFLOP-hour, narrowly ahead of MI300X at $3.62.",
-  "H100 NVL carries the widest hyperscaler premium at +184%, versus +140% for H100 SXM, whose hyperscaler median of $10.68 compares with a $4.45 neocloud median."
+  "B200's market index reached $8.60, up +6% over 7 days, with marketplace up +13% and neocloud up +6% while hyperscaler held at +0%.",
+  "H200's market index fell -10% to $5.40, driven entirely by the marketplace segment (-10%), while hyperscaler and neocloud were unchanged at +0%.",
+  "H100 SXM held at $4.62 with every segment at +0%, yet its hyperscaler median of $10.68 still runs +140% above the neocloud median of $4.45.",
+  "Across all 11 tracked GPUs, H100 PCIe offers the best price-performance at $3.60 per PFLOP-hour, and H100 NVL carries the widest hyperscaler premium at +184%.",
+  "Among the headline GPUs, Vast.ai is the cheapest provider for H100 SXM at $1.74 and for A100 80GB SXM at $1.17, and RunPod Community Cloud is cheapest for B200 at $5.98."
  ],
- "watch": "Whether B200 neocloud (+6%) and marketplace (+8%) gains spread to the hyperscaler segment, which held at +0% this week.",
+ "watch": "Watch whether B200 marketplace strength (+13%) spreads to the hyperscaler segment, and whether the H200 marketplace decline (-10%) reaches the neocloud segment.",
  "fact_checked": true
 }

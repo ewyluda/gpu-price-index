@@ -1,25 +1,25 @@
 {
- "as_of": "2026-11-27",
+ "as_of": "2026-11-28",
  "generator": "claude",
  "model": "claude-opus-5-5",
  "usage": {
   "requests": 1,
   "input_tokens": 2316,
-  "output_tokens": 435,
-  "usd": 0.018,
+  "output_tokens": 839,
+  "usd": 0.026,
   "models": [
    "claude-opus-5-5"
   ],
-  "month_to_date_usd": 0.5298
+  "month_to_date_usd": 0.5558
  },
- "headline": "B200 rises +6% on the week while H200 falls -10%, both driven by marketplace moves.",
+ "headline": "B200 edges up +1% on neocloud strength while H200 and L40S indexes hold flat over seven days.",
  "bullets": [
-  "B200's market index reached $8.60, up +6% over 7 days, with marketplace up +13% and neocloud up +6% while hyperscaler held at +0%.",
-  "H200's market index fell -10% to $5.40, driven entirely by the marketplace segment (-10%), while hyperscaler and neocloud were unchanged at +0%.",
-  "H100 SXM held at $4.62 with every segment at +0%, yet its hyperscaler median of $10.68 still runs +140% above the neocloud median of $4.45.",
-  "Across all 11 tracked GPUs, H100 PCIe offers the best price-performance at $3.60 per PFLOP-hour, and H100 NVL carries the widest hyperscaler premium at +184%.",
-  "Among the headline GPUs, Vast.ai is the cheapest provider for H100 SXM at $1.74 and for A100 80GB SXM at $1.17, and RunPod Community Cloud is cheapest for B200 at $5.98."
+  "B200's market index rose +1% to $8.60 over 7 days, led by neocloud +6% and marketplace +3% while hyperscaler pricing held at +0%.",
+  "H200's index was unchanged at $5.40 (+0%), but its marketplace median climbed +6% to $4.33, with RunPod Community Cloud cheapest at $3.59.",
+  "L40S's index was +0% at $1.50 despite a +5% marketplace move to $0.77, while the A100 80GB SXM marketplace median slipped -2% to $1.28.",
+  "Across all 11 tracked GPUs, H100 PCIe offers the best price-performance at $3.60 per PFLOP-hour, with MI300X close behind at $3.62.",
+  "H100 NVL carries the widest hyperscaler premium at +184%; among headline GPUs, H100 SXM stands at +140%, with a hyperscaler median of $10.68 versus a neocloud median of $4.45."
  ],
- "watch": "Watch whether B200 marketplace strength (+13%) spreads to the hyperscaler segment, and whether the H200 marketplace decline (-10%) reaches the neocloud segment.",
+ "watch": "Watch whether B200's +6% neocloud move spreads into hyperscaler pricing, which held at +0% this week.",
  "fact_checked": true
 }
